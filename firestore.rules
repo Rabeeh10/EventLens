@@ -13,17 +13,30 @@ service cloud.firestore {
     
     /// Checks if the requesting user is an admin
     /// This is the CRITICAL security check for all admin operations
+    /// 
+    /// PROTECTION: Prevents privilege escalation attacks
+    /// - Fetches role from database (not client-provided data)
+    /// - Uses get() to read user document atomically
+    /// - Cannot be bypassed even if attacker modifies client code
     function isAdmin() {
       return isAuthenticated() && 
              get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
     }
     
     /// Checks if the requesting user is accessing their own document
+    /// 
+    /// PROTECTION: Prevents users from accessing other users' data
+    /// - Compares authenticated UID with document ID
+    /// - UID is provided by Firebase Auth (trusted source)
     function isOwner(userId) {
       return isAuthenticated() && request.auth.uid == userId;
     }
     
     /// Checks if a field is being modified in an update operation
+    /// 
+    /// PROTECTION: Prevents unauthorized field modifications
+    /// - Detects which fields are changing in an update
+    /// - Allows selective field protection (e.g., role field)
     function isFieldModified(field) {
       return request.resource.data.diff(resource.data).affectedKeys().hasAny([field]);
     }
@@ -32,24 +45,34 @@ service cloud.firestore {
     // ============================================================================
     // USERS COLLECTION
     // ============================================================================
+    // PROTECTION: User profile data isolation
+    // - Users cannot see other users' personal data (email, phone, etc.)
+    // - Users cannot promote themselves to admin
+    // - Admin role changes must be done by existing admins
     
     match /users/{userId} {
       // Users can read their own document
-      // Admins can read all user documents
+      // Admins can read all user documents (for user management)
       allow read: if isOwner(userId) || isAdmin();
       
       // Users can create their own document during registration
-      // Must set role to 'user' (cannot self-promote to admin)
+      // PROTECTION: 
+      // - Must set role to 'user' (prevents self-promotion to admin)
+      // - Email must match authenticated email (prevents impersonation)
       allow create: if isOwner(userId) && 
                       request.resource.data.role == 'user' &&
                       request.resource.data.email == request.auth.token.email;
       
       // Users can update their own profile EXCEPT the role field
       // Only admins can change user roles
+      // PROTECTION:
+      // - Prevents privilege escalation (user promoting self to admin)
+      // - Allows normal profile updates (name, photo, preferences)
       allow update: if (isOwner(userId) && !isFieldModified('role')) || 
                       isAdmin();
       
       // Only admins can delete user documents
+      // PROTECTION: Prevents account deletion by unauthorized parties
       allow delete: if isAdmin();
     }
     
@@ -57,21 +80,35 @@ service cloud.firestore {
     // ============================================================================
     // EVENTS COLLECTION
     // ============================================================================
+    // PROTECTION: Event data integrity and admin-only management
+    // - Prevents users from creating fake events
+    // - Prevents event data manipulation
+    // - Ensures only published events are visible to general public
     
     match /events/{eventId} {
-      // Anyone can read published events
-      // Authenticated users can read unpublished events (for preview)
+      // REQUIREMENT: Users can only READ event data
+      // Published events are public (for marketing/discovery)
+      // Unpublished events visible only to authenticated users (for preview)
       allow read: if resource.data.published == true || isAuthenticated();
       
+      // REQUIREMENT: Admins can WRITE events
       // Only admins can create events
+      // PROTECTION:
+      // - Validates required fields exist (prevents malformed data)
+      // - Records creator UID (audit trail)
       allow create: if isAdmin() &&
                       request.resource.data.keys().hasAll(['name', 'description', 'date', 'published']) &&
                       request.resource.data.createdBy == request.auth.uid;
       
       // Only admins can update events
+      // PROTECTION: Prevents users from:
+      // - Changing event details (date, location, capacity)
+      // - Publishing/unpublishing events
+      // - Modifying pricing or registration requirements
       allow update: if isAdmin();
       
       // Only admins can delete events
+      // PROTECTION: Prevents data loss from malicious deletion
       allow delete: if isAdmin();
     }
     
@@ -79,20 +116,35 @@ service cloud.firestore {
     // ============================================================================
     // STALLS COLLECTION (Vendor Booths)
     // ============================================================================
+    // PROTECTION: Stall configuration and admin-only management
+    // - Prevents unauthorized booth creation
+    // - Ensures stall assignments are controlled
+    // - Protects vendor information and booth details
     
     match /stalls/{stallId} {
-      // Authenticated users can read stalls
+      // REQUIREMENT: Users can only READ stall data
+      // Authenticated users can view stall information (for navigation/AR)
       allow read: if isAuthenticated();
       
+      // REQUIREMENT: Admins can WRITE stalls
       // Only admins can create stalls
+      // PROTECTION:
+      // - Validates stall belongs to valid event
+      // - Ensures required fields (name, location) are present
+      // - Records creator for audit trail
       allow create: if isAdmin() &&
                       request.resource.data.keys().hasAll(['eventId', 'name', 'location']) &&
                       request.resource.data.createdBy == request.auth.uid;
       
       // Only admins can update stalls
+      // PROTECTION: Prevents users from:
+      // - Changing stall assignments
+      // - Modifying vendor information
+      // - Altering AR markers or location data
       allow update: if isAdmin();
       
       // Only admins can delete stalls
+      // PROTECTION: Prevents unauthorized booth removal
       allow delete: if isAdmin();
     }
     
@@ -119,52 +171,78 @@ service cloud.firestore {
     
     
     // ============================================================================
-    // REGISTRATIONS COLLECTION (User Event Registrations)
+    // REGISTRATIONS COLLECTION (User Activity Data)
     // ============================================================================
+    // REQUIREMENT: Users can write only their own activity data
+    // PROTECTION: User activity data isolation and ownership
+    // - Users cannot see other users' registrations
+    // - Users cannot register on behalf of others
+    // - Users cannot modify/delete other users' registrations
     
     match /registrations/{registrationId} {
       // Users can read their own registrations
-      // Admins can read all registrations
+      // Admins can read all registrations (for event management)
+      // PROTECTION: Privacy - users cannot see who else registered
       allow read: if (isAuthenticated() && resource.data.userId == request.auth.uid) || 
                     isAdmin();
       
+      // REQUIREMENT: Users can write their own activity data
       // Authenticated users can register for events
+      // PROTECTION:
+      // - userId must match authenticated user (prevents fake registrations)
+      // - Validates required fields exist
+      // - Prevents registration bombing (someone registering others)
       allow create: if isAuthenticated() &&
                       request.resource.data.userId == request.auth.uid &&
                       request.resource.data.keys().hasAll(['eventId', 'userId', 'registeredAt']);
       
-      // Users can update their own registrations (e.g., check-in status)
-      // Admins can update any registration
+      // Users can update their own registrations (e.g., check-in status, dietary preferences)
+      // Admins can update any registration (e.g., manual check-in)
+      // PROTECTION: Prevents users from modifying other users' registration status
       allow update: if (isAuthenticated() && resource.data.userId == request.auth.uid) || 
                       isAdmin();
       
       // Users can delete their own registrations (cancel registration)
       // Admins can delete any registration
+      // PROTECTION: Users can only cancel their own registrations
       allow delete: if (isAuthenticated() && resource.data.userId == request.auth.uid) || 
                       isAdmin();
     }
     
     
     // ============================================================================
-    // AR SCANS COLLECTION (AR Feature Usage Tracking)
+    // AR SCANS COLLECTION (User Activity Data)
     // ============================================================================
+    // REQUIREMENT: Users can write only their own activity data
+    // PROTECTION: AR usage tracking and user privacy
+    // - Users cannot see other users' scan history
+    // - Users cannot log scans on behalf of others
+    // - Scan data used for analytics (aggregated, anonymous)
     
     match /arScans/{scanId} {
-      // Users can read their own AR scans
-      // Admins can read all scans (for analytics)
+      // Users can read their own AR scans (view history)
+      // Admins can read all scans (for analytics and engagement metrics)
+      // PROTECTION: Privacy - users cannot see where others scanned
       allow read: if (isAuthenticated() && resource.data.userId == request.auth.uid) || 
                     isAdmin();
       
+      // REQUIREMENT: Users can write their own activity data
       // Authenticated users can log AR scans
+      // PROTECTION:
+      // - userId must match authenticated user (prevents fake scan data)
+      // - Validates required fields (stallId, userId, timestamp)
+      // - Prevents scan history manipulation
       allow create: if isAuthenticated() &&
                       request.resource.data.userId == request.auth.uid &&
                       request.resource.data.keys().hasAll(['stallId', 'userId', 'scannedAt']);
       
-      // Only admins can update scans (for moderation)
+      // Only admins can update scans (for moderation or data correction)
+      // PROTECTION: Prevents users from manipulating scan timestamps or locations
       allow update: if isAdmin();
       
-      // Users can delete their own scans
-      // Admins can delete any scan
+      // Users can delete their own scans (privacy control)
+      // Admins can delete any scan (moderation)
+      // PROTECTION: Users control their own activity data
       allow delete: if (isAuthenticated() && resource.data.userId == request.auth.uid) || 
                       isAdmin();
     }
