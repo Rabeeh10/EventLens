@@ -1,6 +1,6 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
+import '../services/auth_service.dart';
 import 'register_screen.dart';
 
 /// User login screen with email and password authentication.
@@ -18,6 +18,7 @@ class _LoginScreenState extends State<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
+  final _authService = AuthService();
   
   bool _isLoading = false;
   bool _obscurePassword = true;
@@ -64,62 +65,26 @@ class _LoginScreenState extends State<LoginScreen> {
     }
 
     setState(() => _isLoading = true);
+// Use auth service instead of direct Firebase calls
+    final result = await _authService.login(
+      email: _emailController.text.trim(),
+      password: _passwordController.text,
+    );
 
-    try {
-      // Attempt Firebase authentication
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: _emailController.text.trim(),
-        password: _passwordController.text,
-      );
-      
-      // Success: Firebase auth state listener will handle navigation
-      if (mounted) {
-        Navigator.of(context).pop(); // Return to previous screen
-      }
-    } on FirebaseAuthException catch (e) {
-      // Handle specific Firebase auth errors
-      String errorMessage;
-      
-      switch (e.code) {
-        case 'user-not-found':
-          errorMessage = 'No account found with this email';
-          break;
-        case 'wrong-password':
-          errorMessage = 'Incorrect password';
-          break;
-        case 'invalid-email':
-          errorMessage = 'Invalid email address';
-          break;
-        case 'user-disabled':
-          errorMessage = 'This account has been disabled';
-          break;
-        case 'too-many-requests':
-          errorMessage = 'Too many attempts. Please try again later';
-          break;
-        default:
-          errorMessage = 'Login failed: ${e.message}';
-      }
-      
-      if (mounted) {
+    if (mounted) {
+      setState(() => _isLoading = false);
+
+      if (result.success) {
+        // Success: Navigate back to previous screen
+        Navigator.of(context).pop();
+      } else {
+        // Show error message from service
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text(errorMessage),
+            content: Text(result.error ?? 'Login failed'),
             backgroundColor: Theme.of(context).colorScheme.error,
           ),
-        );
-      }
-    } catch (e) {
-      // Handle unexpected errors
-      if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text('An unexpected error occurred: $e'),
-            backgroundColor: Theme.of(context).colorScheme.error,
-          ),
-        );
-      }
-    } finally {
-      if (mounted) {
+        
         setState(() => _isLoading = false);
       }
     }

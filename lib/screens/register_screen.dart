@@ -1,5 +1,6 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+
+import '../services/auth_service.dart';
 
 /// User registration screen for creating new accounts.
 /// 
@@ -17,6 +18,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _confirmPasswordController = TextEditingController();
+  final _authService = AuthService();
   
   bool _isLoading = false;
   bool _obscurePassword = true;
@@ -83,18 +85,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
     }
 
     setState(() => _isLoading = true);
+// Use auth service instead of direct Firebase calls
+    final result = await _authService.register(
+      email: _emailController.text.trim(),
+      password: _passwordController.text,
+    );
 
-    try {
-      // Create Firebase user account
-      final userCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
-        email: _emailController.text.trim(),
-        password: _passwordController.text,
-      );
-      
-      // Optional: Send email verification
-      await userCredential.user?.sendEmailVerification();
-      
-      if (mounted) {
+    if (mounted) {
+      setState(() => _isLoading = false);
+
+      if (result.success) {
         // Show success message
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
@@ -103,50 +103,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
           ),
         );
         
-        // Navigate back to login or home screen
+        // Navigate back to login
         Navigator.of(context).pop();
-      }
-    } on FirebaseAuthException catch (e) {
-      // Handle specific Firebase auth errors
-      String errorMessage;
-      
-      switch (e.code) {
-        case 'email-already-in-use':
-          errorMessage = 'An account already exists with this email';
-          break;
-        case 'invalid-email':
-          errorMessage = 'Invalid email address';
-          break;
-        case 'operation-not-allowed':
-          errorMessage = 'Email/password accounts are not enabled';
-          break;
-        case 'weak-password':
-          errorMessage = 'Password is too weak. Use at least 6 characters';
-          break;
-        default:
-          errorMessage = 'Registration failed: ${e.message}';
-      }
-      
-      if (mounted) {
+      } else {
+        // Show error message from service
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text(errorMessage),
+            content: Text(result.error ?? 'Registration failed'),
             backgroundColor: Theme.of(context).colorScheme.error,
           ),
-        );
-      }
-    } catch (e) {
-      // Handle unexpected errors
-      if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text('An unexpected error occurred: $e'),
-            backgroundColor: Theme.of(context).colorScheme.error,
-          ),
-        );
-      }
-    } finally {
-      if (mounted) {
+        
         setState(() => _isLoading = false);
       }
     }
