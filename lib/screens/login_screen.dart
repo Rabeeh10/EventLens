@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../services/auth_service.dart';
+import 'admin_dashboard.dart';
+import 'home_screen.dart';
 import 'register_screen.dart';
 
 /// User login screen with email and password authentication.
@@ -58,6 +60,7 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   /// Attempts to sign in user with Firebase Authentication
+  /// and navigates based on user role.
   Future<void> _handleLogin() async {
     // Validate form inputs
     if (!_formKey.currentState!.validate()) {
@@ -65,7 +68,8 @@ class _LoginScreenState extends State<LoginScreen> {
     }
 
     setState(() => _isLoading = true);
-// Use auth service instead of direct Firebase calls
+
+    // Authenticate user
     final result = await _authService.login(
       email: _emailController.text.trim(),
       password: _passwordController.text,
@@ -74,9 +78,28 @@ class _LoginScreenState extends State<LoginScreen> {
     if (mounted) {
       setState(() => _isLoading = false);
 
-      if (result.success) {
-        // Success: Navigate back to previous screen
-        Navigator.of(context).pop();
+      if (result.success && result.user != null) {
+        // Fetch user role from Firestore
+        final role = await _authService.getUserRole(result.user!.uid);
+        
+        if (mounted) {
+          // Navigate based on role
+          if (role == 'admin') {
+            // Admin users go to admin dashboard
+            Navigator.of(context).pushReplacement(
+              MaterialPageRoute(
+                builder: (context) => const AdminDashboard(),
+              ),
+            );
+          } else {
+            // Regular users go to home screen
+            Navigator.of(context).pushReplacement(
+              MaterialPageRoute(
+                builder: (context) => const HomeScreen(),
+              ),
+            );
+          }
+        }
       } else {
         // Show error message from service
         ScaffoldMessenger.of(context).showSnackBar(
@@ -84,8 +107,10 @@ class _LoginScreenState extends State<LoginScreen> {
             content: Text(result.error ?? 'Login failed'),
             backgroundColor: Theme.of(context).colorScheme.error,
           ),
-        
-        setState(() => _isLoading = false);
+        );
+      }
+    }
+  }
       }
     }
   }
