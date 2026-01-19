@@ -1,0 +1,197 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // ============================================================================
+    // HELPER FUNCTIONS
+    // ============================================================================
+    
+    /// Checks if the requesting user is authenticated
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    /// Checks if the requesting user is an admin
+    /// This is the CRITICAL security check for all admin operations
+    function isAdmin() {
+      return isAuthenticated() && 
+             get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
+    }
+    
+    /// Checks if the requesting user is accessing their own document
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+    
+    /// Checks if a field is being modified in an update operation
+    function isFieldModified(field) {
+      return request.resource.data.diff(resource.data).affectedKeys().hasAny([field]);
+    }
+    
+    
+    // ============================================================================
+    // USERS COLLECTION
+    // ============================================================================
+    
+    match /users/{userId} {
+      // Users can read their own document
+      // Admins can read all user documents
+      allow read: if isOwner(userId) || isAdmin();
+      
+      // Users can create their own document during registration
+      // Must set role to 'user' (cannot self-promote to admin)
+      allow create: if isOwner(userId) && 
+                      request.resource.data.role == 'user' &&
+                      request.resource.data.email == request.auth.token.email;
+      
+      // Users can update their own profile EXCEPT the role field
+      // Only admins can change user roles
+      allow update: if (isOwner(userId) && !isFieldModified('role')) || 
+                      isAdmin();
+      
+      // Only admins can delete user documents
+      allow delete: if isAdmin();
+    }
+    
+    
+    // ============================================================================
+    // EVENTS COLLECTION
+    // ============================================================================
+    
+    match /events/{eventId} {
+      // Anyone can read published events
+      // Authenticated users can read unpublished events (for preview)
+      allow read: if resource.data.published == true || isAuthenticated();
+      
+      // Only admins can create events
+      allow create: if isAdmin() &&
+                      request.resource.data.keys().hasAll(['name', 'description', 'date', 'published']) &&
+                      request.resource.data.createdBy == request.auth.uid;
+      
+      // Only admins can update events
+      allow update: if isAdmin();
+      
+      // Only admins can delete events
+      allow delete: if isAdmin();
+    }
+    
+    
+    // ============================================================================
+    // STALLS COLLECTION (Vendor Booths)
+    // ============================================================================
+    
+    match /stalls/{stallId} {
+      // Authenticated users can read stalls
+      allow read: if isAuthenticated();
+      
+      // Only admins can create stalls
+      allow create: if isAdmin() &&
+                      request.resource.data.keys().hasAll(['eventId', 'name', 'location']) &&
+                      request.resource.data.createdBy == request.auth.uid;
+      
+      // Only admins can update stalls
+      allow update: if isAdmin();
+      
+      // Only admins can delete stalls
+      allow delete: if isAdmin();
+    }
+    
+    
+    // ============================================================================
+    // MEDIA COLLECTION (Event Images, Banners)
+    // ============================================================================
+    
+    match /media/{mediaId} {
+      // Authenticated users can read media
+      allow read: if isAuthenticated();
+      
+      // Only admins can upload media
+      allow create: if isAdmin() &&
+                      request.resource.data.keys().hasAll(['url', 'type', 'eventId']) &&
+                      request.resource.data.uploadedBy == request.auth.uid;
+      
+      // Only admins can update media metadata
+      allow update: if isAdmin();
+      
+      // Only admins can delete media
+      allow delete: if isAdmin();
+    }
+    
+    
+    // ============================================================================
+    // REGISTRATIONS COLLECTION (User Event Registrations)
+    // ============================================================================
+    
+    match /registrations/{registrationId} {
+      // Users can read their own registrations
+      // Admins can read all registrations
+      allow read: if (isAuthenticated() && resource.data.userId == request.auth.uid) || 
+                    isAdmin();
+      
+      // Authenticated users can register for events
+      allow create: if isAuthenticated() &&
+                      request.resource.data.userId == request.auth.uid &&
+                      request.resource.data.keys().hasAll(['eventId', 'userId', 'registeredAt']);
+      
+      // Users can update their own registrations (e.g., check-in status)
+      // Admins can update any registration
+      allow update: if (isAuthenticated() && resource.data.userId == request.auth.uid) || 
+                      isAdmin();
+      
+      // Users can delete their own registrations (cancel registration)
+      // Admins can delete any registration
+      allow delete: if (isAuthenticated() && resource.data.userId == request.auth.uid) || 
+                      isAdmin();
+    }
+    
+    
+    // ============================================================================
+    // AR SCANS COLLECTION (AR Feature Usage Tracking)
+    // ============================================================================
+    
+    match /arScans/{scanId} {
+      // Users can read their own AR scans
+      // Admins can read all scans (for analytics)
+      allow read: if (isAuthenticated() && resource.data.userId == request.auth.uid) || 
+                    isAdmin();
+      
+      // Authenticated users can log AR scans
+      allow create: if isAuthenticated() &&
+                      request.resource.data.userId == request.auth.uid &&
+                      request.resource.data.keys().hasAll(['stallId', 'userId', 'scannedAt']);
+      
+      // Only admins can update scans (for moderation)
+      allow update: if isAdmin();
+      
+      // Users can delete their own scans
+      // Admins can delete any scan
+      allow delete: if (isAuthenticated() && resource.data.userId == request.auth.uid) || 
+                      isAdmin();
+    }
+    
+    
+    // ============================================================================
+    // ANALYTICS COLLECTION (Aggregated Statistics)
+    // ============================================================================
+    
+    match /analytics/{analyticsId} {
+      // Only admins can read analytics
+      allow read: if isAdmin();
+      
+      // Only admins can write analytics
+      // (Should typically be written by Cloud Functions, not clients)
+      allow create, update, delete: if isAdmin();
+    }
+    
+    
+    // ============================================================================
+    // DEFAULT DENY
+    // ============================================================================
+    
+    // Deny all other access by default
+    // This ensures new collections are secure by default
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

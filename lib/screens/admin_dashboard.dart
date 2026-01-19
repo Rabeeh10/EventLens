@@ -12,11 +12,110 @@ import 'home_screen.dart';
 /// 
 /// Access restricted to users with role: 'admin'
 /// Isolated from regular user flow for security and UX optimization.
-class AdminDashboard extends StatelessWidget {
+/// 
+/// **Security Implementation:**
+/// - Route-level authorization check on widget initialization
+/// - Verifies current user has 'admin' role in Firestore
+/// - Redirects unauthorized users with error message
+/// 
+/// **Defense in Depth:**
+/// This UI-level check is ONE layer of security. Complete protection requires:
+/// 1. UI Route Guards (implemented here) - prevents accidental access
+/// 2. Backend API Validation - validates admin role before any operation
+/// 3. Firestore Security Rules - ultimate enforcement at database level
+/// 
+/// **Why UI Checks Are Insufficient:**
+/// - Client-side code can be bypassed/modified by determined attackers
+/// - Users can directly call Firebase APIs from browser console
+/// - Mobile apps can be decompiled and reverse-engineered
+/// - UI checks provide UX convenience, NOT security
+/// 
+/// **Required Firestore Rules Example:**
+/// ```
+/// match /events/{eventId} {
+///   allow write: if request.auth != null && 
+///                get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
+/// }
+/// ```
+class AdminDashboard extends StatefulWidget {
   const AdminDashboard({super.key});
 
   @override
+  State<AdminDashboard> createState() => _AdminDashboardState();
+}
+
+class _AdminDashboardState extends State<AdminDashboard> {
+  final AuthService _authService = AuthService();
+  bool _isCheckingAuth = true;
+  bool _isAuthorized = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _verifyAdminAccess();
+  }
+
+  /// Verifies the current user has admin role.
+  /// 
+  /// This is a route guard that checks authorization before rendering
+  /// admin content. Unauthorized users are redirected to HomeScreen.
+  Future<void> _verifyAdminAccess() async {
+    final isAdmin = await _authService.isAdmin();
+    
+    if (!mounted) return;
+    
+    if (!isAdmin) {
+      // User is not an admin - show error and redirect
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: const Text(
+            '⚠️ Unauthorized Access: Admin privileges required',
+          ),
+          backgroundColor: Theme.of(context).colorScheme.error,
+          duration: const Duration(seconds: 4),
+        ),
+      );
+      
+      // Redirect to home screen
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(
+          builder: (context) => const HomeScreen(),
+        ),
+      );
+      return;
+    }
+    
+    // User is authorized
+    setState(() {
+      _isAuthorized = true;
+      _isCheckingAuth = false;
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
+    // Show loading while verifying authorization
+    if (_isCheckingAuth) {
+      return Scaffold(
+        appBar: AppBar(
+          title: const Text('Admin Dashboard'),
+        ),
+        body: const Center(
+          child: CircularProgressIndicator(),
+        ),
+      );
+    }
+    
+    // This should never render for unauthorized users due to redirect,
+    // but we add a defensive check anyway
+    if (!_isAuthorized) {
+      return const Scaffold(
+        body: Center(
+          child: Text('Unauthorized'),
+        ),
+      );
+    }
+    
     return Scaffold(
       appBar: AppBar(
         title: const Text('Admin Dashboard'),
