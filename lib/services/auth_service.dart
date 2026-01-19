@@ -94,9 +94,7 @@ class AuthService {
       'email': email,
       'role': 'user', // Default role for new users
       'createdAt': FieldValue.serverTimestamp(),
-    });   error: 'An unexpected error occurred: $e',
-      );
-    }
+    });
   }
 
   /// Authenticates user with email and password.

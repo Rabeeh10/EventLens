@@ -112,6 +112,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             content: Text(result.error ?? 'Registration failed'),
             backgroundColor: Theme.of(context).colorScheme.error,
           ),
+        );
         
         setState(() => _isLoading = false);
       }
