@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 /// Authentication service layer for EventLens.
@@ -7,6 +8,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 /// with consistent error handling and return types.
 class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
   /// Returns the currently authenticated user, if any.
   User? get currentUser => _auth.currentUser;
@@ -17,7 +19,8 @@ class AuthService {
   /// UI can listen to this stream for reactive authentication state.
   Stream<User?> get authStateChanges => _auth.authStateChanges();
 
-  /// Registers a new user with email and password.
+  /// Creates Firebase Authentication account and Firestore user document.
+  /// User document includes email and default role ('user').
   /// 
   /// Returns AuthResult with success status and optional error message.
   /// 
@@ -35,10 +38,19 @@ class AuthService {
     required String password,
   }) async {
     try {
+      // Create Firebase Authentication account
       final userCredential = await _auth.createUserWithEmailAndPassword(
         email: email.trim(),
         password: password,
       );
+
+      // Create user document in Firestore
+      if (userCredential.user != null) {
+        await _createUserDocument(
+          uid: userCredential.user!.uid,
+          email: email.trim(),
+        );
+      }
 
       // Optional: Send email verification
       await userCredential.user?.sendEmailVerification();
@@ -56,6 +68,33 @@ class AuthService {
       return AuthResult(
         success: false,
         error: 'An unexpected error occurred: $e',
+      );
+    }
+  }
+
+  /// Creates user document in Firestore with default role.
+  /// 
+  /// Document structure:
+  /// ```
+  /// users/{uid}
+  ///   - email: String
+  ///   - role: String (default: 'user')
+  ///   - createdAt: Timestamp
+  /// ```
+  /// 
+  /// Role determines user permissions:
+  /// - 'user': Regular app user (can view events, create bookmarks)
+  /// - 'admin': Administrator (can create/edit/delete events)
+  /// - 'organizer': Event organizer (can create/manage own events)
+  Future<void> _createUserDocument({
+    required String uid,
+    required String email,
+  }) async {
+    await _firestore.collection('users').doc(uid).set({
+      'email': email,
+      'role': 'user', // Default role for new users
+      'createdAt': FieldValue.serverTimestamp(),
+    });   error: 'An unexpected error occurred: $e',
       );
     }
   }
@@ -136,6 +175,38 @@ class AuthService {
         error: 'Failed to send reset email: $e',
       );
     }
+  }
+
+  /// Retrieves user role from Firestore.
+  /// 
+  /// Returns role string ('user', 'admin', 'organizer') or null if not found.
+  /// Used for role-based access control throughout the app.
+  /// 
+  /// Example:
+  /// ```dart
+  /// final role = await authService.getUserRole(uid);
+  /// if (role == 'admin') {
+  ///   // Show admin dashboard
+  /// }
+  /// ```
+  Future<String?> getUserRole(String uid) async {
+    try {
+      final doc = await _firestore.collection('users').doc(uid).get();
+      return doc.data()?['role'] as String?;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  /// Checks if current user has admin privileges.
+  /// 
+  /// Convenience method for admin access control.
+  Future<bool> isAdmin() async {
+    final user = currentUser;
+    if (user == null) return false;
+    
+    final role = await getUserRole(user.uid);
+    return role == 'admin';
   }
 
   /// Maps Firebase error codes to user-friendly error messages.
