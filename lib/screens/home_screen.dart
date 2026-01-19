@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'ar_scan_screen.dart';
+import 'event_list_screen.dart';
+
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
@@ -64,7 +67,12 @@ class HomeScreen extends StatelessWidget {
                 height: 56,
                 child: ElevatedButton.icon(
                   onPressed: () {
-                    // TODO: Navigate to events list screen
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const EventListScreen(),
+                      ),
+                    );
                   },
                   icon: const Icon(Icons.explore),
                   label: const Text(
@@ -89,7 +97,12 @@ class HomeScreen extends StatelessWidget {
                 height: 56,
                 child: ElevatedButton.icon(
                   onPressed: () {
-                    // TODO: Launch AR scanning feature
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const ArScanScreen(),
+                      ),
+                    );
                   },
                   icon: const Icon(Icons.camera_alt_outlined),
                   label: const Text(
@@ -115,3 +128,4 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
+
