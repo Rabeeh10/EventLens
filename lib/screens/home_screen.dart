@@ -3,6 +3,12 @@ import 'package:flutter/material.dart';
 import 'ar_scan_screen.dart';
 import 'event_list_screen.dart';
 
+/// Main landing screen for EventLens.
+/// 
+/// Displays the app branding, value proposition, and primary
+/// navigation actions to explore events or launch AR scanning.
+/// 
+/// Responsive layout adapts to mobile, tablet, and desktop screens.
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
@@ -15,7 +21,7 @@ class HomeScreen extends StatelessWidget {
       body: SafeArea(
         child: LayoutBuilder(
           builder: (context, constraints) {
-            // Constrain max width for tablets/desktop
+            // Responsive breakpoint: constrain width on tablets/desktop for readability
             final maxWidth = constraints.maxWidth > 600 ? 600.0 : constraints.maxWidth;
             final horizontalPadding = constraints.maxWidth > 600 ? 48.0 : 24.0;
             
@@ -76,7 +82,7 @@ class HomeScreen extends StatelessWidget {
                         ),
                         const SizedBox(height: 48),
                         
-                        // Primary action button
+                        // Primary CTA: Navigate to event discovery
                         SizedBox(
                           width: double.infinity,
                           height: 56,
@@ -106,7 +112,7 @@ class HomeScreen extends StatelessWidget {
                         ),
                         const SizedBox(height: 16),
                         
-                        // Secondary action button
+                        // Secondary CTA: Launch AR experience
                         SizedBox(
                           width: double.infinity,
                           height: 56,

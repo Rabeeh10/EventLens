@@ -1,5 +1,13 @@
 import 'package:flutter/material.dart';
 
+/// Event discovery and browsing screen (placeholder).
+/// 
+/// Will display a list of events based on user location and preferences,
+/// with AI-powered recommendations and filtering capabilities.
+/// 
+/// TODO: Implement event data models and API integration
+/// TODO: Add filters (category, date, distance)
+/// TODO: Implement infinite scroll pagination
 class EventListScreen extends StatelessWidget {
   const EventListScreen({super.key});
 

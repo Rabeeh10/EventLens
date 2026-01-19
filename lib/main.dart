@@ -2,10 +2,17 @@ import 'package:flutter/material.dart';
 
 import 'screens/home_screen.dart';
 
+/// Entry point for the EventLens application.
+/// 
+/// Initializes the Flutter app and runs the root widget.
 void main() {
   runApp(const EventLensApp());
 }
 
+/// Root application widget for EventLens.
+/// 
+/// Configures the MaterialApp with global theme settings,
+/// navigation, and the initial home screen.
 class EventLensApp extends StatelessWidget {
   const EventLensApp({super.key});
 
@@ -19,9 +26,11 @@ class EventLensApp extends StatelessWidget {
     );
   }
 
+  /// Builds the application-wide theme configuration.
+  /// 
+  /// TODO: Extract to lib/core/theme/app_theme.dart for better organization
   ThemeData _buildTheme() {
-    // TODO: Extract to dedicated theme configuration file
-    const primaryColor = Color(0xFF1565C0); // Professional blue for events
+    const primaryColor = Color(0xFF1565C0);
     
     return ThemeData(
       useMaterial3: true,

@@ -1,5 +1,14 @@
 import 'package:flutter/material.dart';
 
+/// Augmented reality event scanning screen (placeholder).
+/// 
+/// Will enable users to discover events through AR camera view
+/// with immersive navigation and real-time event overlays.
+/// 
+/// TODO: Integrate AR foundation package (ar_flutter_plugin or arcore_flutter_plugin)
+/// TODO: Implement camera permission handling
+/// TODO: Add AR event marker rendering
+/// TODO: Implement location-based event detection
 class ArScanScreen extends StatelessWidget {
   const ArScanScreen({super.key});
 
