@@ -1,11 +1,20 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 import 'screens/home_screen.dart';
 
 /// Entry point for the EventLens application.
 /// 
-/// Initializes the Flutter app and runs the root widget.
-void main() {
+/// Initializes Firebase services before running the Flutter app.
+/// This async initialization ensures backend services are ready
+/// before any Firebase-dependent features are accessed.
+void main() async {
+  // Ensures Flutter binding is initialized before async operations
+  WidgetsFlutterBinding.ensureInitialized();
+  
+  // Initialize Firebase SDK with platform-specific configuration
+  await Firebase.initializeApp();
+  
   runApp(const EventLensApp());
 }
 
