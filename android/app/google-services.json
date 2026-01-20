@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "221892336129",
+    "project_id": "eventlens-b3e72",
+    "storage_bucket": "eventlens-b3e72.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:221892336129:android:6e4245868f20e9202f7e00",
+        "android_client_info": {
+          "package_name": "com.example.eventlens"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCxXE1c1xrxk_iRHyjtmmuTENi-0YweMAk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

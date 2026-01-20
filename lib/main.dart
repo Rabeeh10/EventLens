@@ -1,7 +1,10 @@
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'screens/home_screen.dart';
+import 'screens/login_screen.dart';
+import 'services/auth_service.dart';
 
 /// Entry point for the EventLens application.
 /// 
@@ -13,7 +16,22 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   
   // Initialize Firebase SDK with platform-specific configuration
-  await Firebase.initializeApp();
+  try {
+    await Firebase.initializeApp(
+      options: defaultTargetPlatform == TargetPlatform.android
+          ? const FirebaseOptions(
+              apiKey: 'AIzaSyCxXE1c1xrxk_iRHyjtmmuTENi-0YweMAk',
+              appId: '1:221892336129:android:6e4245868f20e9202f7e00',
+              messagingSenderId: '221892336129',
+              projectId: 'eventlens-b3e72',
+              storageBucket: 'eventlens-b3e72.firebasestorage.app',
+            )
+          : null,
+    );
+    debugPrint('Firebase initialized successfully');
+  } catch (e) {
+    debugPrint('Firebase initialization error: $e');
+  }
   
   runApp(const EventLensApp());
 }
@@ -21,7 +39,7 @@ void main() async {
 /// Root application widget for EventLens.
 /// 
 /// Configures the MaterialApp with global theme settings,
-/// navigation, and the initial home screen.
+/// navigation, and authentication-based routing.
 class EventLensApp extends StatelessWidget {
   const EventLensApp({super.key});
 
@@ -31,7 +49,7 @@ class EventLensApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'EventLens',
       theme: _buildTheme(),
-      home: const HomeScreen(),
+      home: const AuthStateHandler(),
     );
   }
 
@@ -67,6 +85,43 @@ class EventLensApp extends StatelessWidget {
           vertical: 12,
         ),
       ),
+    );
+  }
+}
+
+/// Authentication state handler widget.
+/// 
+/// Listens to Firebase authentication state and routes users accordingly:
+/// - Not authenticated -> LoginScreen
+/// - Authenticated -> HomeScreen
+class AuthStateHandler extends StatelessWidget {
+  const AuthStateHandler({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final authService = AuthService();
+    
+    return StreamBuilder(
+      stream: authService.authStateChanges,
+      builder: (context, snapshot) {
+        // Show loading indicator while checking auth state
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Scaffold(
+            body: Center(
+              child: CircularProgressIndicator(),
+            ),
+          );
+        }
+        
+        // Route based on authentication state
+        if (snapshot.hasData && snapshot.data != null) {
+          // User is authenticated -> show HomeScreen
+          return const HomeScreen();
+        } else {
+          // User is not authenticated -> show LoginScreen
+          return const LoginScreen();
+        }
+      },
     );
   }
 }
