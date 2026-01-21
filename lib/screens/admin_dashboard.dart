@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../services/auth_service.dart';
+import 'admin_add_event_screen.dart';
 import 'home_screen.dart';
 
 /// Admin dashboard screen for EventLens administrators.
@@ -180,8 +181,12 @@ class _AdminDashboardState extends State<AdminDashboard> {
                           subtitle: 'Create, edit, and delete events across the platform',
                           color: Colors.blue,
                           onTap: () {
-                            // TODO: Navigate to event management screen
-                            _showComingSoon(context, 'Event Management');
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const AdminAddEventScreen(),
+                              ),
+                            );
                           },
                         ),
                         const SizedBox(height: 16),
