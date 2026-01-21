@@ -3,6 +3,16 @@
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES"/> <!-- Android 13+ -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="32"/> <!-- Android 12 and below -->
     
+    <!-- AR Camera permission - required for marker scanning -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    
+    <!-- ARCore features -->
+    <!-- "required=false" allows app to install on non-ARCore devices, but AR features disabled -->
+    <!-- Change to "required=true" if AR is mandatory for your app -->
+    <uses-feature android:name="android.hardware.camera.ar" android:required="false" />
+    <uses-feature android:name="android.hardware.camera" android:required="true" />
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
+    
     <application
         android:label="eventlense"
         android:name="${applicationName}"
@@ -34,6 +44,13 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+        
+        <!-- ARCore metadata -->
+        <!-- "optional" allows app to run on non-ARCore devices (AR features hidden) -->
+        <!-- Change to "required" if AR is mandatory for your app -->
+        <meta-data
+            android:name="com.google.ar.core"
+            android:value="optional" />
     </application>
     <!-- Required to query activities that can process text, see:
          https://developer.android.com/training/package-visibility and

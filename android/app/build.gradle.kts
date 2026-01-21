@@ -24,7 +24,11 @@ android {
         applicationId = "com.example.eventlens"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
-        minSdk = flutter.minSdkVersion
+        
+        // ARCore requires minimum Android 7.0 (API 24)
+        // flutter.minSdkVersion defaults to 21, must override for ARCore
+        minSdk = 24
+        
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
