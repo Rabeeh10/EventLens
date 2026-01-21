@@ -630,7 +630,7 @@ class FirestoreService {
         print('📥 Activity will sync when online');
       }
       return null;
-    } on SocketException catch (e) {
+    } on SocketException {
       // Offline - activity will be queued
       print('📥 Activity queued for offline sync: $activityType');
       return null;

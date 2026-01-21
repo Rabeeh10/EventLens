@@ -13,6 +13,11 @@ class AuthService {
   /// Returns the currently authenticated user, if any.
   User? get currentUser => _auth.currentUser;
 
+  /// Returns the currently authenticated user's ID, if any.
+  String? getCurrentUserId() {
+    return _auth.currentUser?.uid;
+  }
+
   /// Stream of authentication state changes.
   /// 
   /// Emits null when user logs out, User object when logged in.

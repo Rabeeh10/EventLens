@@ -242,7 +242,10 @@ class HomeScreen extends StatelessWidget {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => const ArScanScreen(),
+                                    builder: (context) => const ARScanScreen(
+                                      eventId: 'demo_event',
+                                      eventName: 'Demo Event',
+                                    ),
                                   ),
                                 );
                               },

@@ -498,7 +498,6 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
   Widget _buildStallCard(Map<String, dynamic> stall) {
     final name = stall['name'] ?? 'Unnamed Stall';
     final category = stall['category'] ?? 'General';
-    final description = stall['description'] ?? '';
     final markerId = stall['marker_id'] as String?;
     final location = stall['location'] as Map<String, dynamic>?;
     final zone = location?['zone'] as String?;
