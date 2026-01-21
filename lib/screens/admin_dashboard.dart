@@ -197,8 +197,20 @@ class _AdminDashboardState extends State<AdminDashboard> {
                           subtitle: 'Configure vendor booths and exhibitor spaces',
                           color: Colors.orange,
                           onTap: () {
-                            // TODO: Navigate to stall management screen
-                            _showComingSoon(context, 'Stall Management');
+                            // Navigate to events screen where stalls can be managed per event
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const AdminManageEventsScreen(),
+                              ),
+                            );
+                            // Show hint to select event first
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                content: Text('Select an event, then click "Stalls" to manage its vendor booths'),
+                                duration: Duration(seconds: 3),
+                              ),
+                            );
                           },
                         ),
                         const SizedBox(height: 16),
@@ -209,8 +221,25 @@ class _AdminDashboardState extends State<AdminDashboard> {
                           subtitle: 'Upload event images, banners, and promotional content',
                           color: Colors.green,
                           onTap: () {
-                            // TODO: Navigate to media upload screen
-                            _showComingSoon(context, 'Media Upload');
+                            // Media upload is integrated into event/stall forms
+                            showDialog(
+                              context: context,
+                              builder: (context) => AlertDialog(
+                                title: const Text('Media Upload'),
+                                content: const Text(
+                                  'Image upload is integrated into the event and stall creation/edit screens.\n\n'
+                                  '• Add Event → Upload Event Image\n'
+                                  '• Add Stall → Upload Stall Image & AR Marker\n\n'
+                                  'Navigate to "Manage Events" or "Manage Stalls" to upload media.',
+                                ),
+                                actions: [
+                                  TextButton(
+                                    onPressed: () => Navigator.of(context).pop(),
+                                    child: const Text('OK'),
+                                  ),
+                                ],
+                              ),
+                            );
                           },
                         ),
                         const SizedBox(height: 32),
@@ -265,23 +294,6 @@ class _AdminDashboardState extends State<AdminDashboard> {
         );
       }
     }
-  }
-
-  /// Shows coming soon dialog for unimplemented features
-  void _showComingSoon(BuildContext context, String feature) {
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: Text(feature),
-        content: Text('$feature feature is under development.'),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(),
-            child: const Text('OK'),
-          ),
-        ],
-      ),
-    );
   }
 }
 

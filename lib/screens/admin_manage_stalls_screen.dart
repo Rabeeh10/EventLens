@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '../services/firestore_service.dart';
 import 'admin_add_stall_screen.dart';
 import 'admin_edit_stall_screen.dart';
-import 'admin_edit_stall_screen.dart';
 
 /// Admin screen for managing stalls within an event.
 /// 

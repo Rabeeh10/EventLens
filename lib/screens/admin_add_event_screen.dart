@@ -1,40 +1,44 @@
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 import '../services/firestore_service.dart';
+import '../services/storage_service.dart';
 
 /// Admin screen for adding new events to EventLens.
-/// 
+///
 /// Collects event details with comprehensive validation before
 /// saving to Firestore. Includes input sanitization and error handling.
-/// 
+///
 /// **Why Admin-Level Validation Is Critical:**
-/// 
+///
 /// 1. **Data Integrity**: Invalid admin data cascades to all users
 ///    - Bad event dates break sorting and filtering
 ///    - Missing required fields cause app crashes
 ///    - Duplicate marker_ids create AR scanning conflicts
-/// 
+///
 /// 2. **User Experience Impact**: Admin mistakes affect thousands
 ///    - Users see broken events in their feed
 ///    - AR scanning fails with invalid marker references
 ///    - Search and recommendations become unreliable
-/// 
+///
 /// 3. **Database Consistency**: Prevent orphaned/corrupted data
 ///    - Events without proper categories can't be filtered
 ///    - Invalid timestamps break queries with orderBy()
 ///    - Missing location data breaks location-based features
-/// 
+///
 /// 4. **Security & Abuse Prevention**: Even admins need guardrails
 ///    - Prevents accidental deletion via empty inputs
 ///    - Stops malicious injection attacks (XSS, SQL-like)
 ///    - Limits field lengths to prevent DoS via large documents
-/// 
+///
 /// 5. **Cost Management**: Invalid data wastes resources
 ///    - Failed queries consume Firestore reads
 ///    - Large invalid documents increase storage costs
 ///    - Network bandwidth wasted on unusable data
-/// 
+///
 /// **Defense in Depth:**
 /// - Client-side validation (this screen) - immediate feedback
 /// - Firestore Security Rules - ultimate enforcement
@@ -49,7 +53,11 @@ class AdminAddEventScreen extends StatefulWidget {
 class _AdminAddEventScreenState extends State<AdminAddEventScreen> {
   final _formKey = GlobalKey<FormState>();
   final _firestoreService = FirestoreService();
-  
+  final _storageService = StorageService();
+  final _imagePicker = ImagePicker();
+
+  File? _selectedImage;
+
   // Form controllers
   final _nameController = TextEditingController();
   final _categoryController = TextEditingController();
@@ -59,7 +67,7 @@ class _AdminAddEventScreenState extends State<AdminAddEventScreen> {
   final _latitudeController = TextEditingController();
   final _longitudeController = TextEditingController();
   final _imageUrlController = TextEditingController();
-  
+
   DateTime? _startDate;
   DateTime? _endDate;
   String _selectedStatus = 'upcoming';
@@ -103,15 +111,15 @@ class _AdminAddEventScreenState extends State<AdminAddEventScreen> {
     if (value == null || value.trim().isEmpty) {
       return 'Event name is required';
     }
-    
+
     if (value.trim().length < 3) {
       return 'Event name must be at least 3 characters';
     }
-    
+
     if (value.length > 100) {
       return 'Event name must not exceed 100 characters';
     }
-    
+
     return null;
   }
 
@@ -120,15 +128,15 @@ class _AdminAddEventScreenState extends State<AdminAddEventScreen> {
     if (value == null || value.trim().isEmpty) {
       return 'Description is required';
     }
-    
+
     if (value.trim().length < 10) {
       return 'Description must be at least 10 characters';
     }
-    
+
     if (value.length > 1000) {
       return 'Description must not exceed 1000 characters';
     }
-    
+
     return null;
   }
 
@@ -137,7 +145,7 @@ class _AdminAddEventScreenState extends State<AdminAddEventScreen> {
     if (value == null || value.trim().isEmpty) {
       return 'Category is required';
     }
-    
+
     return null;
   }
 
@@ -146,16 +154,16 @@ class _AdminAddEventScreenState extends State<AdminAddEventScreen> {
     if (value == null || value.trim().isEmpty) {
       return 'Latitude is required';
     }
-    
+
     final latitude = double.tryParse(value);
     if (latitude == null) {
       return 'Invalid latitude format';
     }
-    
+
     if (latitude < -90 || latitude > 90) {
       return 'Latitude must be between -90 and 90';
     }
-    
+
     return null;
   }
 
@@ -164,16 +172,16 @@ class _AdminAddEventScreenState extends State<AdminAddEventScreen> {
     if (value == null || value.trim().isEmpty) {
       return 'Longitude is required';
     }
-    
+
     final longitude = double.tryParse(value);
     if (longitude == null) {
       return 'Invalid longitude format';
     }
-    
+
     if (longitude < -180 || longitude > 180) {
       return 'Longitude must be between -180 and 180';
     }
-    
+
     return null;
   }
 
@@ -182,16 +190,13 @@ class _AdminAddEventScreenState extends State<AdminAddEventScreen> {
     if (value == null || value.trim().isEmpty) {
       return null; // Optional field
     }
-    
-    final urlPattern = RegExp(
-      r'^https?:\/\/.+\..+',
-      caseSensitive: false,
-    );
-    
+
+    final urlPattern = RegExp(r'^https?:\/\/.+\..+', caseSensitive: false);
+
     if (!urlPattern.hasMatch(value)) {
       return 'Invalid URL format (must start with http:// or https://)';
     }
-    
+
     return null;
   }
 
@@ -200,15 +205,15 @@ class _AdminAddEventScreenState extends State<AdminAddEventScreen> {
     if (_startDate == null) {
       return 'Start date is required';
     }
-    
+
     if (_endDate == null) {
       return 'End date is required';
     }
-    
+
     if (_endDate!.isBefore(_startDate!)) {
       return 'End date must be after start date';
     }
-    
+
     return null;
   }
 
@@ -220,7 +225,7 @@ class _AdminAddEventScreenState extends State<AdminAddEventScreen> {
       firstDate: DateTime.now().subtract(const Duration(days: 365)),
       lastDate: DateTime.now().add(const Duration(days: 730)),
     );
-    
+
     if (picked != null) {
       final time = await _selectTime();
       if (time != null) {
@@ -245,7 +250,7 @@ class _AdminAddEventScreenState extends State<AdminAddEventScreen> {
       firstDate: _startDate ?? DateTime.now(),
       lastDate: DateTime.now().add(const Duration(days: 730)),
     );
-    
+
     if (picked != null) {
       final time = await _selectTime();
       if (time != null) {
@@ -264,10 +269,34 @@ class _AdminAddEventScreenState extends State<AdminAddEventScreen> {
 
   /// Time picker helper
   Future<TimeOfDay?> _selectTime() async {
-    return showTimePicker(
-      context: context,
-      initialTime: TimeOfDay.now(),
-    );
+    return showTimePicker(context: context, initialTime: TimeOfDay.now());
+  }
+
+  /// Pick image from gallery
+  Future<void> _pickImage() async {
+    try {
+      final XFile? image = await _imagePicker.pickImage(
+        source: ImageSource.gallery,
+        maxWidth: 1920,
+        maxHeight: 1080,
+        imageQuality: 85,
+      );
+
+      if (image != null) {
+        setState(() {
+          _selectedImage = File(image.path);
+        });
+      }
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Error picking image: $e'),
+            backgroundColor: Colors.red,
+          ),
+        );
+      }
+    }
   }
 
   /// Handles form submission and saves event to Firestore
@@ -287,10 +316,7 @@ class _AdminAddEventScreenState extends State<AdminAddEventScreen> {
     final dateError = _validateDates();
     if (dateError != null) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(dateError),
-          backgroundColor: Colors.red,
-        ),
+        SnackBar(content: Text(dateError), backgroundColor: Colors.red),
       );
       return;
     }
@@ -298,6 +324,28 @@ class _AdminAddEventScreenState extends State<AdminAddEventScreen> {
     setState(() => _isLoading = true);
 
     try {
+      String? imageUrl;
+
+      // Upload image if selected
+      if (_selectedImage != null) {
+        // Generate temporary event ID for storage path
+        final tempEventId = FirebaseFirestore.instance
+            .collection('events')
+            .doc()
+            .id;
+        imageUrl = await _storageService.uploadEventImage(
+          eventId: tempEventId,
+          imageFile: _selectedImage!,
+        );
+
+        if (imageUrl == null) {
+          throw Exception('Failed to upload image');
+        }
+      } else if (_imageUrlController.text.trim().isNotEmpty) {
+        // Use manual URL if provided
+        imageUrl = _imageUrlController.text.trim();
+      }
+
       // Prepare location data
       final location = {
         'latitude': double.parse(_latitudeController.text.trim()),
@@ -313,7 +361,7 @@ class _AdminAddEventScreenState extends State<AdminAddEventScreen> {
         startDate: Timestamp.fromDate(_startDate!),
         endDate: Timestamp.fromDate(_endDate!),
         category: _categoryController.text.trim(),
-        imageUrl: _imageUrlController.text.trim(),
+        imageUrl: imageUrl ?? '',
         organizer: _organizerController.text.trim(),
         status: _selectedStatus,
       );
@@ -330,7 +378,7 @@ class _AdminAddEventScreenState extends State<AdminAddEventScreen> {
               behavior: SnackBarBehavior.floating,
             ),
           );
-          
+
           // Return true to indicate success
           Navigator.of(context).pop(true);
         } else {
@@ -346,7 +394,7 @@ class _AdminAddEventScreenState extends State<AdminAddEventScreen> {
     } catch (e) {
       if (mounted) {
         setState(() => _isLoading = false);
-        
+
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text('Error: ${e.toString()}'),
@@ -391,25 +439,25 @@ class _AdminAddEventScreenState extends State<AdminAddEventScreen> {
                   color: Theme.of(context).colorScheme.primary,
                 ),
                 const SizedBox(height: 16),
-                
+
                 Text(
                   'Create New Event',
                   style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                        fontWeight: FontWeight.bold,
-                      ),
+                    fontWeight: FontWeight.bold,
+                  ),
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 8),
-                
+
                 Text(
                   'Fill in event details to add to the platform',
                   style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                        color: Theme.of(context).colorScheme.onSurfaceVariant,
-                      ),
+                    color: Theme.of(context).colorScheme.onSurfaceVariant,
+                  ),
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 32),
-                
+
                 // Event Name
                 TextFormField(
                   controller: _nameController,
@@ -422,10 +470,12 @@ class _AdminAddEventScreenState extends State<AdminAddEventScreen> {
                   ),
                 ),
                 const SizedBox(height: 20),
-                
+
                 // Category Dropdown
                 DropdownButtonFormField<String>(
-                  value: _categoryController.text.isEmpty ? null : _categoryController.text,
+                  value: _categoryController.text.isEmpty
+                      ? null
+                      : _categoryController.text,
                   validator: _validateCategory,
                   decoration: const InputDecoration(
                     labelText: 'Category *',
@@ -444,7 +494,7 @@ class _AdminAddEventScreenState extends State<AdminAddEventScreen> {
                   },
                 ),
                 const SizedBox(height: 20),
-                
+
                 // Description
                 TextFormField(
                   controller: _descriptionController,
@@ -459,7 +509,7 @@ class _AdminAddEventScreenState extends State<AdminAddEventScreen> {
                   ),
                 ),
                 const SizedBox(height: 20),
-                
+
                 // Organizer
                 TextFormField(
                   controller: _organizerController,
@@ -471,7 +521,7 @@ class _AdminAddEventScreenState extends State<AdminAddEventScreen> {
                   ),
                 ),
                 const SizedBox(height: 20),
-                
+
                 // Start Date
                 InkWell(
                   onTap: _selectStartDate,
@@ -482,7 +532,8 @@ class _AdminAddEventScreenState extends State<AdminAddEventScreen> {
                       suffixIcon: _startDate != null
                           ? IconButton(
                               icon: const Icon(Icons.clear),
-                              onPressed: () => setState(() => _startDate = null),
+                              onPressed: () =>
+                                  setState(() => _startDate = null),
                             )
                           : null,
                     ),
@@ -499,7 +550,7 @@ class _AdminAddEventScreenState extends State<AdminAddEventScreen> {
                   ),
                 ),
                 const SizedBox(height: 20),
-                
+
                 // End Date
                 InkWell(
                   onTap: _selectEndDate,
@@ -527,7 +578,7 @@ class _AdminAddEventScreenState extends State<AdminAddEventScreen> {
                   ),
                 ),
                 const SizedBox(height: 20),
-                
+
                 // Status
                 DropdownButtonFormField<String>(
                   value: _selectedStatus,
@@ -548,16 +599,16 @@ class _AdminAddEventScreenState extends State<AdminAddEventScreen> {
                   },
                 ),
                 const SizedBox(height: 32),
-                
+
                 // Location Section Header
                 Text(
                   'Location Details',
                   style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                        fontWeight: FontWeight.bold,
-                      ),
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
                 const SizedBox(height: 16),
-                
+
                 // Address
                 TextFormField(
                   controller: _addressController,
@@ -569,12 +620,15 @@ class _AdminAddEventScreenState extends State<AdminAddEventScreen> {
                   ),
                 ),
                 const SizedBox(height: 20),
-                
+
                 // Latitude
                 TextFormField(
                   controller: _latitudeController,
                   validator: _validateLatitude,
-                  keyboardType: const TextInputType.numberWithOptions(decimal: true, signed: true),
+                  keyboardType: const TextInputType.numberWithOptions(
+                    decimal: true,
+                    signed: true,
+                  ),
                   decoration: const InputDecoration(
                     labelText: 'Latitude *',
                     hintText: 'e.g., 37.7749',
@@ -582,12 +636,15 @@ class _AdminAddEventScreenState extends State<AdminAddEventScreen> {
                   ),
                 ),
                 const SizedBox(height: 20),
-                
+
                 // Longitude
                 TextFormField(
                   controller: _longitudeController,
                   validator: _validateLongitude,
-                  keyboardType: const TextInputType.numberWithOptions(decimal: true, signed: true),
+                  keyboardType: const TextInputType.numberWithOptions(
+                    decimal: true,
+                    signed: true,
+                  ),
                   decoration: const InputDecoration(
                     labelText: 'Longitude *',
                     hintText: 'e.g., -122.4194',
@@ -595,29 +652,112 @@ class _AdminAddEventScreenState extends State<AdminAddEventScreen> {
                   ),
                 ),
                 const SizedBox(height: 32),
-                
-                // Optional Section Header
+
+                // Media Section Header
                 Text(
-                  'Optional Details',
+                  'Event Image',
                   style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                        fontWeight: FontWeight.bold,
-                      ),
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
                 const SizedBox(height: 16),
-                
-                // Image URL
+
+                // Image Upload Section
+                Container(
+                  padding: const EdgeInsets.all(16),
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Theme.of(
+                        context,
+                      ).colorScheme.outline.withOpacity(0.5),
+                    ),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: Column(
+                    children: [
+                      if (_selectedImage != null)
+                        Column(
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(8),
+                              child: Image.file(
+                                _selectedImage!,
+                                height: 200,
+                                width: double.infinity,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            const SizedBox(height: 12),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                OutlinedButton.icon(
+                                  onPressed: _pickImage,
+                                  icon: const Icon(Icons.refresh, size: 18),
+                                  label: const Text('Change Image'),
+                                ),
+                                const SizedBox(width: 8),
+                                OutlinedButton.icon(
+                                  onPressed: () {
+                                    setState(() => _selectedImage = null);
+                                  },
+                                  icon: const Icon(Icons.delete, size: 18),
+                                  label: const Text('Remove'),
+                                  style: OutlinedButton.styleFrom(
+                                    foregroundColor: Colors.red,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        )
+                      else
+                        Column(
+                          children: [
+                            Icon(
+                              Icons.add_photo_alternate,
+                              size: 64,
+                              color: Theme.of(
+                                context,
+                              ).colorScheme.primary.withOpacity(0.5),
+                            ),
+                            const SizedBox(height: 12),
+                            ElevatedButton.icon(
+                              onPressed: _pickImage,
+                              icon: const Icon(Icons.upload),
+                              label: const Text('Upload Event Image'),
+                            ),
+                            const SizedBox(height: 8),
+                            Text(
+                              'Or enter image URL manually below',
+                              style: Theme.of(context).textTheme.bodySmall
+                                  ?.copyWith(
+                                    color: Theme.of(
+                                      context,
+                                    ).colorScheme.onSurfaceVariant,
+                                  ),
+                            ),
+                          ],
+                        ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 16),
+
+                // Image URL (fallback)
                 TextFormField(
                   controller: _imageUrlController,
                   validator: _validateUrl,
                   keyboardType: TextInputType.url,
                   decoration: const InputDecoration(
-                    labelText: 'Image URL',
+                    labelText: 'Or Image URL',
                     hintText: 'https://example.com/image.jpg',
-                    prefixIcon: Icon(Icons.image),
+                    prefixIcon: Icon(Icons.link),
+                    helperText: 'Optional: Provide URL if not uploading',
                   ),
                 ),
                 const SizedBox(height: 32),
-                
+
                 // Submit Button
                 SizedBox(
                   height: 56,
@@ -643,14 +783,14 @@ class _AdminAddEventScreenState extends State<AdminAddEventScreen> {
                   ),
                 ),
                 const SizedBox(height: 16),
-                
+
                 // Required fields note
                 Text(
                   '* Required fields',
                   style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                        color: Theme.of(context).colorScheme.onSurfaceVariant,
-                        fontStyle: FontStyle.italic,
-                      ),
+                    color: Theme.of(context).colorScheme.onSurfaceVariant,
+                    fontStyle: FontStyle.italic,
+                  ),
                   textAlign: TextAlign.center,
                 ),
               ],

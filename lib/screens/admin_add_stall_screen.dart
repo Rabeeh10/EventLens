@@ -1,6 +1,10 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 import '../services/firestore_service.dart';
+import '../services/storage_service.dart';
 
 /// Admin screen for adding new stalls to an event.
 ///
@@ -22,6 +26,11 @@ class AdminAddStallScreen extends StatefulWidget {
 class _AdminAddStallScreenState extends State<AdminAddStallScreen> {
   final _formKey = GlobalKey<FormState>();
   final _firestoreService = FirestoreService();
+  final _storageService = StorageService();
+  final _imagePicker = ImagePicker();
+
+  File? _selectedStallImage;
+  File? _selectedMarkerImage;
 
   // Form controllers
   final _nameController = TextEditingController();
@@ -132,6 +141,60 @@ class _AdminAddStallScreenState extends State<AdminAddStallScreen> {
     }
   }
 
+  /// Pick stall image from gallery
+  Future<void> _pickStallImage() async {
+    try {
+      final XFile? image = await _imagePicker.pickImage(
+        source: ImageSource.gallery,
+        maxWidth: 1920,
+        maxHeight: 1080,
+        imageQuality: 85,
+      );
+
+      if (image != null) {
+        setState(() {
+          _selectedStallImage = File(image.path);
+        });
+      }
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Error picking image: $e'),
+            backgroundColor: Colors.red,
+          ),
+        );
+      }
+    }
+  }
+
+  /// Pick AR marker reference image from gallery
+  Future<void> _pickMarkerImage() async {
+    try {
+      final XFile? image = await _imagePicker.pickImage(
+        source: ImageSource.gallery,
+        maxWidth: 1920,
+        maxHeight: 1080,
+        imageQuality: 90, // Higher quality for AR recognition
+      );
+
+      if (image != null) {
+        setState(() {
+          _selectedMarkerImage = File(image.path);
+        });
+      }
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Error picking marker image: $e'),
+            backgroundColor: Colors.red,
+          ),
+        );
+      }
+    }
+  }
+
   Future<void> _handleSubmit() async {
     if (!_formKey.currentState!.validate()) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -183,6 +246,27 @@ class _AdminAddStallScreenState extends State<AdminAddStallScreen> {
         return;
       }
 
+      // Generate stall ID for image upload paths
+      final tempStallId = 'stall_${DateTime.now().millisecondsSinceEpoch}';
+
+      // Upload stall image if selected
+      String? stallImageUrl;
+      if (_selectedStallImage != null) {
+        stallImageUrl = await _storageService.uploadStallImage(
+          stallId: tempStallId,
+          imageFile: _selectedStallImage!,
+        );
+      }
+
+      // Upload marker reference image if selected
+      String? markerImageUrl;
+      if (_selectedMarkerImage != null) {
+        markerImageUrl = await _storageService.uploadMarkerImage(
+          markerId: markerId,
+          imageFile: _selectedMarkerImage!,
+        );
+      }
+
       final location = {
         'latitude': double.parse(_latitudeController.text.trim()),
         'longitude': double.parse(_longitudeController.text.trim()),
@@ -196,6 +280,8 @@ class _AdminAddStallScreenState extends State<AdminAddStallScreen> {
         category: _categoryController.text.trim(),
         markerId: markerId,
         location: location,
+        images: stallImageUrl != null ? [stallImageUrl] : [],
+        arModelUrl: markerImageUrl,
       );
 
       if (mounted) {
@@ -410,6 +496,177 @@ class _AdminAddStallScreenState extends State<AdminAddStallScreen> {
                     labelText: 'Longitude *',
                     hintText: 'e.g., -122.4194',
                     prefixIcon: Icon(Icons.gps_not_fixed),
+                  ),
+                ),
+                const SizedBox(height: 32),
+
+                // Image Upload Section
+                Text(
+                  'Stall Media',
+                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(height: 16),
+
+                // Stall Image
+                Container(
+                  padding: const EdgeInsets.all(12),
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Theme.of(
+                        context,
+                      ).colorScheme.outline.withOpacity(0.5),
+                    ),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Stall Image (Optional)',
+                        style: Theme.of(context).textTheme.titleSmall,
+                      ),
+                      const SizedBox(height: 8),
+                      if (_selectedStallImage != null)
+                        Column(
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(8),
+                              child: Image.file(
+                                _selectedStallImage!,
+                                height: 150,
+                                width: double.infinity,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            const SizedBox(height: 8),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                OutlinedButton.icon(
+                                  onPressed: _pickStallImage,
+                                  icon: const Icon(Icons.refresh, size: 16),
+                                  label: const Text('Change'),
+                                  style: OutlinedButton.styleFrom(
+                                    visualDensity: VisualDensity.compact,
+                                  ),
+                                ),
+                                const SizedBox(width: 8),
+                                OutlinedButton.icon(
+                                  onPressed: () {
+                                    setState(() => _selectedStallImage = null);
+                                  },
+                                  icon: const Icon(Icons.delete, size: 16),
+                                  label: const Text('Remove'),
+                                  style: OutlinedButton.styleFrom(
+                                    foregroundColor: Colors.red,
+                                    visualDensity: VisualDensity.compact,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        )
+                      else
+                        ElevatedButton.icon(
+                          onPressed: _pickStallImage,
+                          icon: const Icon(Icons.add_photo_alternate, size: 20),
+                          label: const Text('Upload Stall Image'),
+                        ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 16),
+
+                // AR Marker Reference Image
+                Container(
+                  padding: const EdgeInsets.all(12),
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Theme.of(
+                        context,
+                      ).colorScheme.primary.withOpacity(0.5),
+                    ),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: [
+                          Icon(
+                            Icons.qr_code_scanner,
+                            color: Theme.of(context).colorScheme.primary,
+                            size: 20,
+                          ),
+                          const SizedBox(width: 8),
+                          Text(
+                            'AR Marker Reference (Optional)',
+                            style: Theme.of(context).textTheme.titleSmall
+                                ?.copyWith(
+                                  color: Theme.of(context).colorScheme.primary,
+                                ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 4),
+                      Text(
+                        'Upload the physical marker image for AR recognition',
+                        style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                          color: Theme.of(context).colorScheme.onSurfaceVariant,
+                        ),
+                      ),
+                      const SizedBox(height: 12),
+                      if (_selectedMarkerImage != null)
+                        Column(
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(8),
+                              child: Image.file(
+                                _selectedMarkerImage!,
+                                height: 150,
+                                width: double.infinity,
+                                fit: BoxFit.contain,
+                                color: Colors.black.withOpacity(0.1),
+                                colorBlendMode: BlendMode.darken,
+                              ),
+                            ),
+                            const SizedBox(height: 8),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                OutlinedButton.icon(
+                                  onPressed: _pickMarkerImage,
+                                  icon: const Icon(Icons.refresh, size: 16),
+                                  label: const Text('Change'),
+                                  style: OutlinedButton.styleFrom(
+                                    visualDensity: VisualDensity.compact,
+                                  ),
+                                ),
+                                const SizedBox(width: 8),
+                                OutlinedButton.icon(
+                                  onPressed: () {
+                                    setState(() => _selectedMarkerImage = null);
+                                  },
+                                  icon: const Icon(Icons.delete, size: 16),
+                                  label: const Text('Remove'),
+                                  style: OutlinedButton.styleFrom(
+                                    foregroundColor: Colors.red,
+                                    visualDensity: VisualDensity.compact,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        )
+                      else
+                        ElevatedButton.icon(
+                          onPressed: _pickMarkerImage,
+                          icon: const Icon(Icons.camera_alt, size: 20),
+                          label: const Text('Upload Marker Image'),
+                        ),
+                    ],
                   ),
                 ),
                 const SizedBox(height: 32),
