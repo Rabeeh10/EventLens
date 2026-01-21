@@ -45,6 +45,12 @@ dependencies:
   
   # Date and time formatting
   intl: ^0.19.0                   # Internationalization and date formatting
+  
+  # AR (Augmented Reality) dependencies
+  arcore_flutter_plugin: ^0.1.0   # ARCore support for Android marker-based AR
+  camera: ^0.11.0+2               # Camera access for AR scanning
+  permission_handler: ^11.3.1     # Runtime permissions for camera and storage
+  vector_math: ^2.1.4             # 3D math for AR transformations and pose estimation
 
 dev_dependencies:
   flutter_test:
