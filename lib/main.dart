@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+import 'screens/admin_dashboard.dart';
 import 'screens/home_screen.dart';
 import 'screens/login_screen.dart';
 import 'services/auth_service.dart';
@@ -153,7 +154,8 @@ class EventLensApp extends StatelessWidget {
 /// 
 /// Listens to Firebase authentication state and routes users accordingly:
 /// - Not authenticated -> LoginScreen
-/// - Authenticated -> HomeScreen
+/// - Authenticated + Admin role -> AdminDashboard
+/// - Authenticated + User role -> HomeScreen
 class AuthStateHandler extends StatelessWidget {
   const AuthStateHandler({super.key});
 
@@ -175,8 +177,28 @@ class AuthStateHandler extends StatelessWidget {
         
         // Route based on authentication state
         if (snapshot.hasData && snapshot.data != null) {
-          // User is authenticated -> show HomeScreen
-          return const HomeScreen();
+          // User is authenticated - check role
+          return FutureBuilder<String?>(
+            future: authService.getUserRole(snapshot.data!.uid),
+            builder: (context, roleSnapshot) {
+              // Show loading while fetching role
+              if (roleSnapshot.connectionState == ConnectionState.waiting) {
+                return const Scaffold(
+                  body: Center(
+                    child: CircularProgressIndicator(),
+                  ),
+                );
+              }
+              
+              // Route based on role
+              final role = roleSnapshot.data;
+              if (role == 'admin') {
+                return const AdminDashboard();
+              } else {
+                return const HomeScreen();
+              }
+            },
+          );
         } else {
           // User is not authenticated -> show LoginScreen
           return const LoginScreen();

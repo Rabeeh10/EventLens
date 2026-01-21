@@ -53,6 +53,7 @@ service cloud.firestore {
     match /users/{userId} {
       // Users can read their own document
       // Admins can read all user documents (for user management)
+      // CRITICAL: Allow users to read own document without admin check to prevent circular dependency
       allow read: if isOwner(userId) || isAdmin();
       
       // Users can create their own document during registration

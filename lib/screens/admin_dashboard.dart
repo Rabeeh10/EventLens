@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../services/auth_service.dart';
-import 'admin_add_event_screen.dart';
+import 'admin_manage_events_screen.dart';
 import 'home_screen.dart';
 
 /// Admin dashboard screen for EventLens administrators.
@@ -184,7 +184,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const AdminAddEventScreen(),
+                                builder: (context) => const AdminManageEventsScreen(),
                               ),
                             );
                           },

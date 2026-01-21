@@ -3,69 +3,41 @@ import 'package:flutter/material.dart';
 
 import '../services/firestore_service.dart';
 
-/// Admin screen for adding new events to EventLens.
+/// Admin screen for editing existing events.
 /// 
-/// Collects event details with comprehensive validation before
-/// saving to Firestore. Includes input sanitization and error handling.
-/// 
-/// **Why Admin-Level Validation Is Critical:**
-/// 
-/// 1. **Data Integrity**: Invalid admin data cascades to all users
-///    - Bad event dates break sorting and filtering
-///    - Missing required fields cause app crashes
-///    - Duplicate marker_ids create AR scanning conflicts
-/// 
-/// 2. **User Experience Impact**: Admin mistakes affect thousands
-///    - Users see broken events in their feed
-///    - AR scanning fails with invalid marker references
-///    - Search and recommendations become unreliable
-/// 
-/// 3. **Database Consistency**: Prevent orphaned/corrupted data
-///    - Events without proper categories can't be filtered
-///    - Invalid timestamps break queries with orderBy()
-///    - Missing location data breaks location-based features
-/// 
-/// 4. **Security & Abuse Prevention**: Even admins need guardrails
-///    - Prevents accidental deletion via empty inputs
-///    - Stops malicious injection attacks (XSS, SQL-like)
-///    - Limits field lengths to prevent DoS via large documents
-/// 
-/// 5. **Cost Management**: Invalid data wastes resources
-///    - Failed queries consume Firestore reads
-///    - Large invalid documents increase storage costs
-///    - Network bandwidth wasted on unusable data
-/// 
-/// **Defense in Depth:**
-/// - Client-side validation (this screen) - immediate feedback
-/// - Firestore Security Rules - ultimate enforcement
-/// - Backend validation (Cloud Functions) - business logic layer
-class AdminAddEventScreen extends StatefulWidget {
-  const AdminAddEventScreen({super.key});
+/// Pre-fills form with existing event data and allows updates.
+/// Validates all changes before saving to Firestore.
+class AdminEditEventScreen extends StatefulWidget {
+  final Map<String, dynamic> event;
+
+  const AdminEditEventScreen({
+    super.key,
+    required this.event,
+  });
 
   @override
-  State<AdminAddEventScreen> createState() => _AdminAddEventScreenState();
+  State<AdminEditEventScreen> createState() => _AdminEditEventScreenState();
 }
 
-class _AdminAddEventScreenState extends State<AdminAddEventScreen> {
+class _AdminEditEventScreenState extends State<AdminEditEventScreen> {
   final _formKey = GlobalKey<FormState>();
   final _firestoreService = FirestoreService();
   
   // Form controllers
-  final _nameController = TextEditingController();
-  final _categoryController = TextEditingController();
-  final _descriptionController = TextEditingController();
-  final _organizerController = TextEditingController();
-  final _addressController = TextEditingController();
-  final _latitudeController = TextEditingController();
-  final _longitudeController = TextEditingController();
-  final _imageUrlController = TextEditingController();
+  late final TextEditingController _nameController;
+  late final TextEditingController _categoryController;
+  late final TextEditingController _descriptionController;
+  late final TextEditingController _organizerController;
+  late final TextEditingController _addressController;
+  late final TextEditingController _latitudeController;
+  late final TextEditingController _longitudeController;
+  late final TextEditingController _imageUrlController;
   
   DateTime? _startDate;
   DateTime? _endDate;
   String _selectedStatus = 'upcoming';
   bool _isLoading = false;
 
-  // Predefined categories for dropdown
   final List<String> _categories = [
     'Technology',
     'Music',
@@ -86,6 +58,42 @@ class _AdminAddEventScreenState extends State<AdminAddEventScreen> {
   ];
 
   @override
+  void initState() {
+    super.initState();
+    _initializeControllers();
+  }
+
+  /// Initializes controllers with existing event data
+  void _initializeControllers() {
+    _nameController = TextEditingController(text: widget.event['name'] ?? '');
+    _categoryController = TextEditingController(text: widget.event['category'] ?? '');
+    _descriptionController = TextEditingController(text: widget.event['description'] ?? '');
+    _organizerController = TextEditingController(text: widget.event['organizer'] ?? '');
+    _imageUrlController = TextEditingController(text: widget.event['image_url'] ?? '');
+
+    // Initialize location data
+    final location = widget.event['location'] as Map<String, dynamic>?;
+    _addressController = TextEditingController(
+      text: location?['address']?.toString() ?? '',
+    );
+    _latitudeController = TextEditingController(
+      text: location?['latitude']?.toString() ?? '',
+    );
+    _longitudeController = TextEditingController(
+      text: location?['longitude']?.toString() ?? '',
+    );
+
+    // Initialize dates
+    final startTimestamp = widget.event['start_date'] as Timestamp?;
+    final endTimestamp = widget.event['end_date'] as Timestamp?;
+    _startDate = startTimestamp?.toDate();
+    _endDate = endTimestamp?.toDate();
+
+    // Initialize status
+    _selectedStatus = widget.event['status'] ?? 'upcoming';
+  }
+
+  @override
   void dispose() {
     _nameController.dispose();
     _categoryController.dispose();
@@ -98,121 +106,92 @@ class _AdminAddEventScreenState extends State<AdminAddEventScreen> {
     super.dispose();
   }
 
-  /// Validates event name - required, 3-100 characters
+  /// Validation methods (same as add screen)
   String? _validateName(String? value) {
     if (value == null || value.trim().isEmpty) {
       return 'Event name is required';
     }
-    
     if (value.trim().length < 3) {
       return 'Event name must be at least 3 characters';
     }
-    
     if (value.length > 100) {
       return 'Event name must not exceed 100 characters';
     }
-    
     return null;
   }
 
-  /// Validates description - required, 10-1000 characters
   String? _validateDescription(String? value) {
     if (value == null || value.trim().isEmpty) {
       return 'Description is required';
     }
-    
     if (value.trim().length < 10) {
       return 'Description must be at least 10 characters';
     }
-    
     if (value.length > 1000) {
       return 'Description must not exceed 1000 characters';
     }
-    
     return null;
   }
 
-  /// Validates category - must be selected
   String? _validateCategory(String? value) {
     if (value == null || value.trim().isEmpty) {
       return 'Category is required';
     }
-    
     return null;
   }
 
-  /// Validates latitude - must be valid number between -90 and 90
   String? _validateLatitude(String? value) {
     if (value == null || value.trim().isEmpty) {
       return 'Latitude is required';
     }
-    
     final latitude = double.tryParse(value);
     if (latitude == null) {
       return 'Invalid latitude format';
     }
-    
     if (latitude < -90 || latitude > 90) {
       return 'Latitude must be between -90 and 90';
     }
-    
     return null;
   }
 
-  /// Validates longitude - must be valid number between -180 and 180
   String? _validateLongitude(String? value) {
     if (value == null || value.trim().isEmpty) {
       return 'Longitude is required';
     }
-    
     final longitude = double.tryParse(value);
     if (longitude == null) {
       return 'Invalid longitude format';
     }
-    
     if (longitude < -180 || longitude > 180) {
       return 'Longitude must be between -180 and 180';
     }
-    
     return null;
   }
 
-  /// Validates URL format (optional field)
   String? _validateUrl(String? value) {
     if (value == null || value.trim().isEmpty) {
       return null; // Optional field
     }
-    
-    final urlPattern = RegExp(
-      r'^https?:\/\/.+\..+',
-      caseSensitive: false,
-    );
-    
+    final urlPattern = RegExp(r'^https?:\/\/.+\..+', caseSensitive: false);
     if (!urlPattern.hasMatch(value)) {
       return 'Invalid URL format (must start with http:// or https://)';
     }
-    
     return null;
   }
 
-  /// Validates date selection
   String? _validateDates() {
     if (_startDate == null) {
       return 'Start date is required';
     }
-    
     if (_endDate == null) {
       return 'End date is required';
     }
-    
     if (_endDate!.isBefore(_startDate!)) {
       return 'End date must be after start date';
     }
-    
     return null;
   }
 
-  /// Handles date picker for start date
   Future<void> _selectStartDate() async {
     final picked = await showDatePicker(
       context: context,
@@ -237,7 +216,6 @@ class _AdminAddEventScreenState extends State<AdminAddEventScreen> {
     }
   }
 
-  /// Handles date picker for end date
   Future<void> _selectEndDate() async {
     final picked = await showDatePicker(
       context: context,
@@ -262,7 +240,6 @@ class _AdminAddEventScreenState extends State<AdminAddEventScreen> {
     }
   }
 
-  /// Time picker helper
   Future<TimeOfDay?> _selectTime() async {
     return showTimePicker(
       context: context,
@@ -270,9 +247,8 @@ class _AdminAddEventScreenState extends State<AdminAddEventScreen> {
     );
   }
 
-  /// Handles form submission and saves event to Firestore
+  /// Handles form submission and updates event in Firestore
   Future<void> _handleSubmit() async {
-    // Validate all fields
     if (!_formKey.currentState!.validate()) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
@@ -283,7 +259,6 @@ class _AdminAddEventScreenState extends State<AdminAddEventScreen> {
       return;
     }
 
-    // Validate dates separately
     final dateError = _validateDates();
     if (dateError != null) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -298,46 +273,45 @@ class _AdminAddEventScreenState extends State<AdminAddEventScreen> {
     setState(() => _isLoading = true);
 
     try {
-      // Prepare location data
-      final location = {
-        'latitude': double.parse(_latitudeController.text.trim()),
-        'longitude': double.parse(_longitudeController.text.trim()),
-        'address': _addressController.text.trim(),
+      // Prepare update data
+      final updates = {
+        'name': _nameController.text.trim(),
+        'description': _descriptionController.text.trim(),
+        'category': _categoryController.text.trim(),
+        'organizer': _organizerController.text.trim(),
+        'image_url': _imageUrlController.text.trim(),
+        'status': _selectedStatus,
+        'location': {
+          'latitude': double.parse(_latitudeController.text.trim()),
+          'longitude': double.parse(_longitudeController.text.trim()),
+          'address': _addressController.text.trim(),
+        },
+        'start_date': Timestamp.fromDate(_startDate!),
+        'end_date': Timestamp.fromDate(_endDate!),
       };
 
-      // Save event to Firestore
-      final eventId = await _firestoreService.addEvent(
-        name: _nameController.text.trim(),
-        description: _descriptionController.text.trim(),
-        location: location,
-        startDate: Timestamp.fromDate(_startDate!),
-        endDate: Timestamp.fromDate(_endDate!),
-        category: _categoryController.text.trim(),
-        imageUrl: _imageUrlController.text.trim(),
-        organizer: _organizerController.text.trim(),
-        status: _selectedStatus,
-      );
+      // Update event in Firestore
+      final eventId = widget.event['event_id'] as String;
+      final success = await _firestoreService.updateEvent(eventId, updates);
 
       if (mounted) {
         setState(() => _isLoading = false);
 
-        if (eventId != null) {
-          // Success - show message and go back
+        if (success) {
           ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: const Text('✓ Event created successfully!'),
+            const SnackBar(
+              content: Text('✓ Event updated successfully!'),
               backgroundColor: Colors.green,
               behavior: SnackBarBehavior.floating,
             ),
           );
           
-          // Return true to indicate success
+          // Return true to indicate successful update
           Navigator.of(context).pop(true);
         } else {
-          // Failed to save
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(
-              content: Text('Failed to create event. Please try again.'),
+              content: Text('Failed to update event. Please try again.'),
               backgroundColor: Colors.red,
             ),
           );
@@ -361,7 +335,7 @@ class _AdminAddEventScreenState extends State<AdminAddEventScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Add New Event'),
+        title: const Text('Edit Event'),
         actions: [
           if (_isLoading)
             const Center(
@@ -386,14 +360,14 @@ class _AdminAddEventScreenState extends State<AdminAddEventScreen> {
               children: [
                 // Header
                 Icon(
-                  Icons.event_note_rounded,
+                  Icons.edit_note_rounded,
                   size: 64,
                   color: Theme.of(context).colorScheme.primary,
                 ),
                 const SizedBox(height: 16),
                 
                 Text(
-                  'Create New Event',
+                  'Edit Event Details',
                   style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                         fontWeight: FontWeight.bold,
                       ),
@@ -402,7 +376,7 @@ class _AdminAddEventScreenState extends State<AdminAddEventScreen> {
                 const SizedBox(height: 8),
                 
                 Text(
-                  'Fill in event details to add to the platform',
+                  'Update event information below',
                   style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                         color: Theme.of(context).colorScheme.onSurfaceVariant,
                       ),
@@ -425,7 +399,9 @@ class _AdminAddEventScreenState extends State<AdminAddEventScreen> {
                 
                 // Category Dropdown
                 DropdownButtonFormField<String>(
-                  value: _categoryController.text.isEmpty ? null : _categoryController.text,
+                  value: _categories.contains(_categoryController.text) 
+                      ? _categoryController.text 
+                      : null,
                   validator: _validateCategory,
                   decoration: const InputDecoration(
                     labelText: 'Category *',
@@ -549,7 +525,7 @@ class _AdminAddEventScreenState extends State<AdminAddEventScreen> {
                 ),
                 const SizedBox(height: 32),
                 
-                // Location Section Header
+                // Location Section
                 Text(
                   'Location Details',
                   style: Theme.of(context).textTheme.titleMedium?.copyWith(
@@ -558,7 +534,6 @@ class _AdminAddEventScreenState extends State<AdminAddEventScreen> {
                 ),
                 const SizedBox(height: 16),
                 
-                // Address
                 TextFormField(
                   controller: _addressController,
                   textCapitalization: TextCapitalization.words,
@@ -570,7 +545,6 @@ class _AdminAddEventScreenState extends State<AdminAddEventScreen> {
                 ),
                 const SizedBox(height: 20),
                 
-                // Latitude
                 TextFormField(
                   controller: _latitudeController,
                   validator: _validateLatitude,
@@ -583,7 +557,6 @@ class _AdminAddEventScreenState extends State<AdminAddEventScreen> {
                 ),
                 const SizedBox(height: 20),
                 
-                // Longitude
                 TextFormField(
                   controller: _longitudeController,
                   validator: _validateLongitude,
@@ -596,7 +569,7 @@ class _AdminAddEventScreenState extends State<AdminAddEventScreen> {
                 ),
                 const SizedBox(height: 32),
                 
-                // Optional Section Header
+                // Optional Section
                 Text(
                   'Optional Details',
                   style: Theme.of(context).textTheme.titleMedium?.copyWith(
@@ -605,7 +578,6 @@ class _AdminAddEventScreenState extends State<AdminAddEventScreen> {
                 ),
                 const SizedBox(height: 16),
                 
-                // Image URL
                 TextFormField(
                   controller: _imageUrlController,
                   validator: _validateUrl,
@@ -618,7 +590,7 @@ class _AdminAddEventScreenState extends State<AdminAddEventScreen> {
                 ),
                 const SizedBox(height: 32),
                 
-                // Submit Button
+                // Update Button
                 SizedBox(
                   height: 56,
                   child: ElevatedButton(
@@ -633,7 +605,7 @@ class _AdminAddEventScreenState extends State<AdminAddEventScreen> {
                             ),
                           )
                         : const Text(
-                            'Create Event',
+                            'Update Event',
                             style: TextStyle(
                               fontSize: 17,
                               fontWeight: FontWeight.bold,
@@ -644,7 +616,6 @@ class _AdminAddEventScreenState extends State<AdminAddEventScreen> {
                 ),
                 const SizedBox(height: 16),
                 
-                // Required fields note
                 Text(
                   '* Required fields',
                   style: Theme.of(context).textTheme.bodySmall?.copyWith(
