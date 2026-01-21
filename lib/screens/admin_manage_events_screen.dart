@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../services/firestore_service.dart';
 import 'admin_add_event_screen.dart';
 import 'admin_edit_event_screen.dart';
+import 'admin_manage_stalls_screen.dart';
 
 /// Admin screen for managing all events.
 /// 
@@ -150,6 +151,25 @@ class _AdminManageEventsScreenState extends State<AdminManageEventsScreen> {
     if (result == true) {
       _loadEvents();
     }
+  }
+
+  /// Navigates to manage stalls screen for the selected event
+  Future<void> _navigateToManageStalls(Map<String, dynamic> event) async {
+    final eventId = event['event_id'] as String;
+    final eventName = event['name'] as String;
+
+    await Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => AdminManageStallsScreen(
+          eventId: eventId,
+          eventName: eventName,
+        ),
+      ),
+    );
+
+    // Reload events (in case stall counts changed)
+    _loadEvents();
   }
 
   @override
@@ -373,29 +393,43 @@ class _AdminManageEventsScreenState extends State<AdminManageEventsScreen> {
 
                 // Action buttons
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    // Edit button
-                    OutlinedButton.icon(
-                      onPressed: () => _navigateToEdit(event),
-                      icon: const Icon(Icons.edit, size: 18),
-                      label: const Text('Edit'),
-                      style: OutlinedButton.styleFrom(
+                    // Manage Stalls button
+                    TextButton.icon(
+                      onPressed: () => _navigateToManageStalls(event),
+                      icon: const Icon(Icons.store, size: 18),
+                      label: const Text('Stalls'),
+                      style: TextButton.styleFrom(
                         visualDensity: VisualDensity.compact,
                       ),
                     ),
-                    const SizedBox(width: 8),
+                    
+                    Row(
+                      children: [
+                        // Edit button
+                        OutlinedButton.icon(
+                          onPressed: () => _navigateToEdit(event),
+                          icon: const Icon(Icons.edit, size: 18),
+                          label: const Text('Edit'),
+                          style: OutlinedButton.styleFrom(
+                            visualDensity: VisualDensity.compact,
+                          ),
+                        ),
+                        const SizedBox(width: 8),
 
-                    // Delete button
-                    ElevatedButton.icon(
-                      onPressed: () => _handleDelete(eventId, name),
-                      icon: const Icon(Icons.delete, size: 18),
-                      label: const Text('Delete'),
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.red,
-                        foregroundColor: Colors.white,
-                        visualDensity: VisualDensity.compact,
-                      ),
+                        // Delete button
+                        ElevatedButton.icon(
+                          onPressed: () => _handleDelete(eventId, name),
+                          icon: const Icon(Icons.delete, size: 18),
+                          label: const Text('Delete'),
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.red,
+                            foregroundColor: Colors.white,
+                            visualDensity: VisualDensity.compact,
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
