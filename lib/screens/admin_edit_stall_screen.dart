@@ -3,15 +3,12 @@ import 'package:flutter/material.dart';
 import '../services/firestore_service.dart';
 
 /// Admin screen for editing existing stalls.
-/// 
+///
 /// Pre-fills form with existing stall data and allows updates.
 class AdminEditStallScreen extends StatefulWidget {
   final Map<String, dynamic> stall;
 
-  const AdminEditStallScreen({
-    super.key,
-    required this.stall,
-  });
+  const AdminEditStallScreen({super.key, required this.stall});
 
   @override
   State<AdminEditStallScreen> createState() => _AdminEditStallScreenState();
@@ -20,7 +17,7 @@ class AdminEditStallScreen extends StatefulWidget {
 class _AdminEditStallScreenState extends State<AdminEditStallScreen> {
   final _formKey = GlobalKey<FormState>();
   final _firestoreService = FirestoreService();
-  
+
   late final TextEditingController _nameController;
   late final TextEditingController _categoryController;
   late final TextEditingController _descriptionController;
@@ -28,7 +25,7 @@ class _AdminEditStallScreenState extends State<AdminEditStallScreen> {
   late final TextEditingController _latitudeController;
   late final TextEditingController _longitudeController;
   late final TextEditingController _zoneController;
-  
+
   bool _isLoading = false;
 
   final List<String> _categories = [
@@ -50,9 +47,15 @@ class _AdminEditStallScreenState extends State<AdminEditStallScreen> {
 
   void _initializeControllers() {
     _nameController = TextEditingController(text: widget.stall['name'] ?? '');
-    _categoryController = TextEditingController(text: widget.stall['category'] ?? '');
-    _descriptionController = TextEditingController(text: widget.stall['description'] ?? '');
-    _markerIdController = TextEditingController(text: widget.stall['marker_id'] ?? '');
+    _categoryController = TextEditingController(
+      text: widget.stall['category'] ?? '',
+    );
+    _descriptionController = TextEditingController(
+      text: widget.stall['description'] ?? '',
+    );
+    _markerIdController = TextEditingController(
+      text: widget.stall['marker_id'] ?? '',
+    );
 
     final location = widget.stall['location'] as Map<String, dynamic>?;
     _latitudeController = TextEditingController(
@@ -139,6 +142,23 @@ class _AdminEditStallScreenState extends State<AdminEditStallScreen> {
     return null;
   }
 
+  /// Check if marker_id already exists in Firestore (excluding current stall)
+  Future<bool> _isMarkerIdUnique(String markerId, String currentStallId) async {
+    try {
+      final existingStall = await _firestoreService.fetchStallByMarkerId(
+        markerId,
+      );
+      if (existingStall == null) {
+        return true; // No stall with this marker_id exists
+      }
+      // If exists, check if it's the current stall being edited
+      return existingStall['stall_id'] == currentStallId;
+    } catch (e) {
+      // If error occurs during check, assume not unique to be safe
+      return false;
+    }
+  }
+
   Future<void> _handleSubmit() async {
     if (!_formKey.currentState!.validate()) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -153,11 +173,32 @@ class _AdminEditStallScreenState extends State<AdminEditStallScreen> {
     setState(() => _isLoading = true);
 
     try {
+      // Validate marker_id is globally unique (excluding current stall)
+      final markerId = _markerIdController.text.trim();
+      final stallId = widget.stall['stall_id'] as String;
+      final isUnique = await _isMarkerIdUnique(markerId, stallId);
+
+      if (!isUnique) {
+        if (mounted) {
+          setState(() => _isLoading = false);
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(
+                'Marker ID "$markerId" is already used by another stall. Please use a unique ID.',
+              ),
+              backgroundColor: Colors.red,
+              duration: const Duration(seconds: 4),
+            ),
+          );
+        }
+        return;
+      }
+
       final updates = {
         'name': _nameController.text.trim(),
         'description': _descriptionController.text.trim(),
         'category': _categoryController.text.trim(),
-        'marker_id': _markerIdController.text.trim(),
+        'marker_id': markerId,
         'location': {
           'latitude': double.parse(_latitudeController.text.trim()),
           'longitude': double.parse(_longitudeController.text.trim()),
@@ -165,7 +206,6 @@ class _AdminEditStallScreenState extends State<AdminEditStallScreen> {
         },
       };
 
-      final stallId = widget.stall['stall_id'] as String;
       final success = await _firestoreService.updateStall(stallId, updates);
 
       if (mounted) {
@@ -204,9 +244,7 @@ class _AdminEditStallScreenState extends State<AdminEditStallScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Edit Stall'),
-      ),
+      appBar: AppBar(title: const Text('Edit Stall')),
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(24.0),
@@ -221,16 +259,16 @@ class _AdminEditStallScreenState extends State<AdminEditStallScreen> {
                   color: Theme.of(context).colorScheme.primary,
                 ),
                 const SizedBox(height: 16),
-                
+
                 Text(
                   'Edit Stall Details',
                   style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                        fontWeight: FontWeight.bold,
-                      ),
+                    fontWeight: FontWeight.bold,
+                  ),
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 32),
-                
+
                 TextFormField(
                   controller: _nameController,
                   validator: _validateName,
@@ -241,10 +279,10 @@ class _AdminEditStallScreenState extends State<AdminEditStallScreen> {
                   ),
                 ),
                 const SizedBox(height: 20),
-                
+
                 DropdownButtonFormField<String>(
-                  value: _categories.contains(_categoryController.text) 
-                      ? _categoryController.text 
+                  value: _categories.contains(_categoryController.text)
+                      ? _categoryController.text
                       : null,
                   decoration: const InputDecoration(
                     labelText: 'Category *',
@@ -261,7 +299,7 @@ class _AdminEditStallScreenState extends State<AdminEditStallScreen> {
                   },
                 ),
                 const SizedBox(height: 20),
-                
+
                 TextFormField(
                   controller: _descriptionController,
                   validator: _validateDescription,
@@ -274,15 +312,15 @@ class _AdminEditStallScreenState extends State<AdminEditStallScreen> {
                   ),
                 ),
                 const SizedBox(height: 32),
-                
+
                 Text(
                   'AR Marker Configuration',
                   style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                        fontWeight: FontWeight.bold,
-                      ),
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
                 const SizedBox(height: 16),
-                
+
                 TextFormField(
                   controller: _markerIdController,
                   validator: _validateMarkerId,
@@ -293,15 +331,15 @@ class _AdminEditStallScreenState extends State<AdminEditStallScreen> {
                   ),
                 ),
                 const SizedBox(height: 32),
-                
+
                 Text(
                   'Location Details',
                   style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                        fontWeight: FontWeight.bold,
-                      ),
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
                 const SizedBox(height: 16),
-                
+
                 TextFormField(
                   controller: _zoneController,
                   textCapitalization: TextCapitalization.words,
@@ -311,29 +349,35 @@ class _AdminEditStallScreenState extends State<AdminEditStallScreen> {
                   ),
                 ),
                 const SizedBox(height: 20),
-                
+
                 TextFormField(
                   controller: _latitudeController,
                   validator: _validateLatitude,
-                  keyboardType: const TextInputType.numberWithOptions(decimal: true, signed: true),
+                  keyboardType: const TextInputType.numberWithOptions(
+                    decimal: true,
+                    signed: true,
+                  ),
                   decoration: const InputDecoration(
                     labelText: 'Latitude *',
                     prefixIcon: Icon(Icons.gps_fixed),
                   ),
                 ),
                 const SizedBox(height: 20),
-                
+
                 TextFormField(
                   controller: _longitudeController,
                   validator: _validateLongitude,
-                  keyboardType: const TextInputType.numberWithOptions(decimal: true, signed: true),
+                  keyboardType: const TextInputType.numberWithOptions(
+                    decimal: true,
+                    signed: true,
+                  ),
                   decoration: const InputDecoration(
                     labelText: 'Longitude *',
                     prefixIcon: Icon(Icons.gps_not_fixed),
                   ),
                 ),
                 const SizedBox(height: 32),
-                
+
                 SizedBox(
                   height: 56,
                   child: ElevatedButton(
@@ -358,13 +402,13 @@ class _AdminEditStallScreenState extends State<AdminEditStallScreen> {
                   ),
                 ),
                 const SizedBox(height: 16),
-                
+
                 Text(
                   '* Required fields',
                   style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                        color: Theme.of(context).colorScheme.onSurfaceVariant,
-                        fontStyle: FontStyle.italic,
-                      ),
+                    color: Theme.of(context).colorScheme.onSurfaceVariant,
+                    fontStyle: FontStyle.italic,
+                  ),
                   textAlign: TextAlign.center,
                 ),
               ],

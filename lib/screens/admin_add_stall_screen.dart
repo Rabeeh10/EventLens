@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../services/firestore_service.dart';
 
 /// Admin screen for adding new stalls to an event.
-/// 
+///
 /// Collects stall details including AR marker ID for scanning.
 class AdminAddStallScreen extends StatefulWidget {
   final String eventId;
@@ -22,7 +22,7 @@ class AdminAddStallScreen extends StatefulWidget {
 class _AdminAddStallScreenState extends State<AdminAddStallScreen> {
   final _formKey = GlobalKey<FormState>();
   final _firestoreService = FirestoreService();
-  
+
   // Form controllers
   final _nameController = TextEditingController();
   final _categoryController = TextEditingController();
@@ -31,7 +31,7 @@ class _AdminAddStallScreenState extends State<AdminAddStallScreen> {
   final _latitudeController = TextEditingController();
   final _longitudeController = TextEditingController();
   final _zoneController = TextEditingController();
-  
+
   bool _isLoading = false;
 
   final List<String> _categories = [
@@ -119,6 +119,19 @@ class _AdminAddStallScreenState extends State<AdminAddStallScreen> {
     return null;
   }
 
+  /// Check if marker_id already exists in Firestore (globally unique)
+  Future<bool> _isMarkerIdUnique(String markerId) async {
+    try {
+      final existingStall = await _firestoreService.fetchStallByMarkerId(
+        markerId,
+      );
+      return existingStall == null; // Unique if no existing stall found
+    } catch (e) {
+      // If error occurs during check, assume not unique to be safe
+      return false;
+    }
+  }
+
   Future<void> _handleSubmit() async {
     if (!_formKey.currentState!.validate()) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -133,6 +146,43 @@ class _AdminAddStallScreenState extends State<AdminAddStallScreen> {
     setState(() => _isLoading = true);
 
     try {
+      // Validate marker_id is globally unique
+      final markerId = _markerIdController.text.trim();
+      final isUnique = await _isMarkerIdUnique(markerId);
+      if (!isUnique) {
+        if (mounted) {
+          setState(() => _isLoading = false);
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(
+                'Marker ID "$markerId" already exists. Please use a unique ID.',
+              ),
+              backgroundColor: Colors.red,
+              duration: const Duration(seconds: 4),
+            ),
+          );
+        }
+        return;
+      }
+
+      // Validate event exists (defensive check)
+      final events = await _firestoreService.fetchEvents();
+      final eventExists = events.any((e) => e['event_id'] == widget.eventId);
+      if (!eventExists) {
+        if (mounted) {
+          setState(() => _isLoading = false);
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text(
+                'Error: Parent event no longer exists. Please refresh.',
+              ),
+              backgroundColor: Colors.red,
+            ),
+          );
+        }
+        return;
+      }
+
       final location = {
         'latitude': double.parse(_latitudeController.text.trim()),
         'longitude': double.parse(_longitudeController.text.trim()),
@@ -144,7 +194,7 @@ class _AdminAddStallScreenState extends State<AdminAddStallScreen> {
         name: _nameController.text.trim(),
         description: _descriptionController.text.trim(),
         category: _categoryController.text.trim(),
-        markerId: _markerIdController.text.trim(),
+        markerId: markerId,
         location: location,
       );
 
@@ -192,8 +242,8 @@ class _AdminAddStallScreenState extends State<AdminAddStallScreen> {
             Text(
               widget.eventName,
               style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                    color: Theme.of(context).colorScheme.onPrimary.withOpacity(0.8),
-                  ),
+                color: Theme.of(context).colorScheme.onPrimary.withOpacity(0.8),
+              ),
             ),
           ],
         ),
@@ -213,25 +263,25 @@ class _AdminAddStallScreenState extends State<AdminAddStallScreen> {
                   color: Theme.of(context).colorScheme.primary,
                 ),
                 const SizedBox(height: 16),
-                
+
                 Text(
                   'Create New Stall',
                   style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                        fontWeight: FontWeight.bold,
-                      ),
+                    fontWeight: FontWeight.bold,
+                  ),
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 8),
-                
+
                 Text(
                   'Add a vendor booth or exhibitor space',
                   style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                        color: Theme.of(context).colorScheme.onSurfaceVariant,
-                      ),
+                    color: Theme.of(context).colorScheme.onSurfaceVariant,
+                  ),
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 32),
-                
+
                 // Stall Name
                 TextFormField(
                   controller: _nameController,
@@ -244,10 +294,12 @@ class _AdminAddStallScreenState extends State<AdminAddStallScreen> {
                   ),
                 ),
                 const SizedBox(height: 20),
-                
+
                 // Category
                 DropdownButtonFormField<String>(
-                  value: _categoryController.text.isEmpty ? null : _categoryController.text,
+                  value: _categoryController.text.isEmpty
+                      ? null
+                      : _categoryController.text,
                   decoration: const InputDecoration(
                     labelText: 'Category *',
                     prefixIcon: Icon(Icons.category),
@@ -263,7 +315,7 @@ class _AdminAddStallScreenState extends State<AdminAddStallScreen> {
                   },
                 ),
                 const SizedBox(height: 20),
-                
+
                 // Description
                 TextFormField(
                   controller: _descriptionController,
@@ -272,29 +324,30 @@ class _AdminAddStallScreenState extends State<AdminAddStallScreen> {
                   textCapitalization: TextCapitalization.sentences,
                   decoration: const InputDecoration(
                     labelText: 'Description *',
-                    hintText: 'What products or services does this stall offer?',
+                    hintText:
+                        'What products or services does this stall offer?',
                     prefixIcon: Icon(Icons.description),
                     alignLabelWithHint: true,
                   ),
                 ),
                 const SizedBox(height: 32),
-                
+
                 // AR Marker Section
                 Text(
                   'AR Marker Configuration',
                   style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                        fontWeight: FontWeight.bold,
-                      ),
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
                 const SizedBox(height: 8),
                 Text(
                   'This ID links physical AR markers to digital stall info',
                   style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                        color: Theme.of(context).colorScheme.onSurfaceVariant,
-                      ),
+                    color: Theme.of(context).colorScheme.onSurfaceVariant,
+                  ),
                 ),
                 const SizedBox(height: 16),
-                
+
                 // Marker ID
                 TextFormField(
                   controller: _markerIdController,
@@ -307,16 +360,16 @@ class _AdminAddStallScreenState extends State<AdminAddStallScreen> {
                   ),
                 ),
                 const SizedBox(height: 32),
-                
+
                 // Location Section
                 Text(
                   'Location Details',
                   style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                        fontWeight: FontWeight.bold,
-                      ),
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
                 const SizedBox(height: 16),
-                
+
                 // Zone
                 TextFormField(
                   controller: _zoneController,
@@ -328,12 +381,15 @@ class _AdminAddStallScreenState extends State<AdminAddStallScreen> {
                   ),
                 ),
                 const SizedBox(height: 20),
-                
+
                 // Latitude
                 TextFormField(
                   controller: _latitudeController,
                   validator: _validateLatitude,
-                  keyboardType: const TextInputType.numberWithOptions(decimal: true, signed: true),
+                  keyboardType: const TextInputType.numberWithOptions(
+                    decimal: true,
+                    signed: true,
+                  ),
                   decoration: const InputDecoration(
                     labelText: 'Latitude *',
                     hintText: 'e.g., 37.7749',
@@ -341,12 +397,15 @@ class _AdminAddStallScreenState extends State<AdminAddStallScreen> {
                   ),
                 ),
                 const SizedBox(height: 20),
-                
+
                 // Longitude
                 TextFormField(
                   controller: _longitudeController,
                   validator: _validateLongitude,
-                  keyboardType: const TextInputType.numberWithOptions(decimal: true, signed: true),
+                  keyboardType: const TextInputType.numberWithOptions(
+                    decimal: true,
+                    signed: true,
+                  ),
                   decoration: const InputDecoration(
                     labelText: 'Longitude *',
                     hintText: 'e.g., -122.4194',
@@ -354,7 +413,7 @@ class _AdminAddStallScreenState extends State<AdminAddStallScreen> {
                   ),
                 ),
                 const SizedBox(height: 32),
-                
+
                 // Submit Button
                 SizedBox(
                   height: 56,
@@ -380,13 +439,13 @@ class _AdminAddStallScreenState extends State<AdminAddStallScreen> {
                   ),
                 ),
                 const SizedBox(height: 16),
-                
+
                 Text(
                   '* Required fields',
                   style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                        color: Theme.of(context).colorScheme.onSurfaceVariant,
-                        fontStyle: FontStyle.italic,
-                      ),
+                    color: Theme.of(context).colorScheme.onSurfaceVariant,
+                    fontStyle: FontStyle.italic,
+                  ),
                   textAlign: TextAlign.center,
                 ),
               ],
