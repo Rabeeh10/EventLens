@@ -88,23 +88,20 @@ service cloud.firestore {
     
     match /events/{eventId} {
       // REQUIREMENT: Users can only READ event data
-      // Published events are public (for marketing/discovery)
-      // Unpublished events visible only to authenticated users (for preview)
-      allow read: if resource.data.published == true || isAuthenticated();
+      // All authenticated users can view events
+      allow read: if isAuthenticated();
       
       // REQUIREMENT: Admins can WRITE events
       // Only admins can create events
       // PROTECTION:
       // - Validates required fields exist (prevents malformed data)
-      // - Records creator UID (audit trail)
+      // - Ensures dates are present for scheduling
       allow create: if isAdmin() &&
-                      request.resource.data.keys().hasAll(['name', 'description', 'date', 'published']) &&
-                      request.resource.data.createdBy == request.auth.uid;
+                      request.resource.data.keys().hasAll(['name', 'description', 'start_date', 'end_date']);
       
       // Only admins can update events
       // PROTECTION: Prevents users from:
       // - Changing event details (date, location, capacity)
-      // - Publishing/unpublishing events
       // - Modifying pricing or registration requirements
       allow update: if isAdmin();
       
@@ -131,11 +128,9 @@ service cloud.firestore {
       // Only admins can create stalls
       // PROTECTION:
       // - Validates stall belongs to valid event
-      // - Ensures required fields (name, location) are present
-      // - Records creator for audit trail
+      // - Ensures required fields (name, location, marker_id) are present
       allow create: if isAdmin() &&
-                      request.resource.data.keys().hasAll(['eventId', 'name', 'location']) &&
-                      request.resource.data.createdBy == request.auth.uid;
+                      request.resource.data.keys().hasAll(['event_id', 'name', 'location', 'marker_id']);
       
       // Only admins can update stalls
       // PROTECTION: Prevents users from:

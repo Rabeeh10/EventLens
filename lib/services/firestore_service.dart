@@ -33,23 +33,30 @@ class FirestoreService {
     int limit = 50,
   }) async {
     try {
-      Query query = _eventsCollection.orderBy('start_date', descending: true);
+      Query query = _eventsCollection;
 
-      // Filter by status if provided
+      // Filter by status if provided (simple equality doesn't need index)
       if (status != null) {
         query = query.where('status', isEqualTo: status);
-      } else {
-        // Default: exclude cancelled events
-        query = query.where('status', isNotEqualTo: 'cancelled');
       }
+      
+      // Order by start_date
+      query = query.orderBy('start_date', descending: true);
 
       final snapshot = await query.limit(limit).get();
 
-      return snapshot.docs.map((doc) {
+      final events = snapshot.docs.map((doc) {
         final data = doc.data() as Map<String, dynamic>;
         data['event_id'] = doc.id;
         return data;
       }).toList();
+      
+      // Filter out cancelled events client-side if no specific status requested
+      if (status == null) {
+        return events.where((event) => event['status'] != 'cancelled').toList();
+      }
+      
+      return events;
     } catch (e) {
       print('Error fetching events: $e');
       return [];
