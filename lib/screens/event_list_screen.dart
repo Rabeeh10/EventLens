@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 import '../services/firestore_service.dart';
+import 'event_detail_screen.dart';
 
 /// Event discovery and browsing screen with real-time updates.
 ///
@@ -354,10 +355,10 @@ class _EventListScreenState extends State<EventListScreen> {
                   width: double.infinity,
                   child: OutlinedButton.icon(
                     onPressed: () {
-                      // TODO: Navigate to event details screen
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(
-                          content: Text('Event details coming soon'),
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => EventDetailScreen(event: event),
                         ),
                       );
                     },
