@@ -467,6 +467,79 @@ class FirestoreService {
     }
   }
 
+  /// Stream stall data by marker_id for real-time AR overlay updates.
+  ///
+  /// **Real-Time Benefits:**
+  /// - Crowd level changes propagate to AR overlay immediately
+  /// - Stall status changes (open/closed) update live
+  /// - Special offers appear in real-time
+  /// - No need to rescan marker to see updates
+  Stream<Map<String, dynamic>?> streamStallByMarkerId(String markerId) {
+    return _firestore
+        .collection('stalls')
+        .where('marker_id', isEqualTo: markerId)
+        .limit(1)
+        .snapshots()
+        .map((snapshot) {
+          if (snapshot.docs.isEmpty) {
+            print('📭 No stall found for marker: $markerId');
+            return null;
+          }
+
+          final data = snapshot.docs.first.data();
+          data['stall_id'] = snapshot.docs.first.id;
+          data['is_cached'] = snapshot.metadata.isFromCache;
+          data['last_updated'] = DateTime.now().toIso8601String();
+
+          // Log if data came from cache or server
+          final source = snapshot.metadata.isFromCache
+              ? '💾 cache'
+              : '☁️ server';
+          print('📡 Stall stream update ($source): ${data['name']}');
+
+          return data;
+        })
+        .handleError((error) {
+          print('⚠️ Stream error for marker $markerId: $error');
+          return null;
+        });
+  }
+
+  /// Stream event data by ID for real-time updates.
+  ///
+  /// **Use Cases:**
+  /// - Event schedule changes propagate to all viewers
+  /// - Cancellation announcements appear immediately
+  /// - Status updates (ongoing, ended) reflected in real-time
+  Stream<Map<String, dynamic>?> streamEventById(String eventId) {
+    return _firestore
+        .collection('events')
+        .doc(eventId)
+        .snapshots()
+        .map((snapshot) {
+          if (!snapshot.exists) {
+            print('📭 Event not found: $eventId');
+            return null;
+          }
+
+          final data = snapshot.data() as Map<String, dynamic>;
+          data['event_id'] = snapshot.id;
+          data['is_cached'] = snapshot.metadata.isFromCache;
+          data['last_updated'] = DateTime.now().toIso8601String();
+
+          final source = snapshot.metadata.isFromCache
+              ? '💾 cache'
+              : '☁️ server';
+          print('📡 Event stream update ($source): ${data['name']}');
+
+          return data;
+        })
+        .handleError((error) {
+          print('⚠️ Stream error for event $eventId: $error');
+          return null;
+        });
+  }
+
   /// Searches stalls within an event by name or category.
   Future<List<Map<String, dynamic>>> searchStalls(
     String eventId,

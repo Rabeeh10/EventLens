@@ -92,6 +92,10 @@ class _ARScanScreenState extends State<ARScanScreen>
   // Performance optimization: Cache event data to avoid repeated lookups
   Map<String, dynamic>? _cachedEventData;
 
+  // Real-time update subscriptions
+  StreamSubscription<Map<String, dynamic>?>? _stallStreamSubscription;
+  StreamSubscription<Map<String, dynamic>?>? _eventStreamSubscription;
+
   @override
   void initState() {
     super.initState();
@@ -104,6 +108,10 @@ class _ARScanScreenState extends State<ARScanScreen>
   void dispose() {
     // CRITICAL: Remove lifecycle observer before disposing
     WidgetsBinding.instance.removeObserver(this);
+
+    // CRITICAL: Cancel real-time subscriptions to prevent memory leaks
+    _stallStreamSubscription?.cancel();
+    _eventStreamSubscription?.cancel();
 
     // CRITICAL: Dispose AR resources
     _disposeARResources();
@@ -550,7 +558,12 @@ class _ARScanScreenState extends State<ARScanScreen>
       setState(() {
         _currentStall = stall;
         _currentEvent = event;
-        _isLoadingStall = false;
+        // Start real-time listeners for live updates
+      });
+      _startRealtimeListeners(markerId, widget.eventId);
+
+      setState(() {
+        // isLoadingStall = false;
         _errorMessage = null;
       });
 
@@ -825,9 +838,13 @@ class _ARScanScreenState extends State<ARScanScreen>
   void _onMarkerLost(String markerId) {
     // Clear overlay when marker no longer visible
     if (_detectedMarkerId == markerId) {
+      // Cancel real-time subscriptions (save battery & network)
+      _stopRealtimeListeners();
+
       setState(() {
         _detectedMarkerId = null;
         _currentStall = null;
+        _currentEvent = null;
         _isLoadingStall = false;
       });
 
@@ -835,6 +852,173 @@ class _ARScanScreenState extends State<ARScanScreen>
       Future.delayed(const Duration(seconds: 2), () {
         _processedMarkers.remove(markerId);
       });
+    }
+  }
+
+  /// Start real-time Firestore listeners for live data updates.
+  ///
+  /// **Why Real-Time Updates Matter:**
+  /// - User sees crowd level change from 🟢 → 🟡 → 🔴 while looking at marker
+  /// - Stall closes mid-event → overlay updates to "Closed" immediately
+  /// - Event schedule changes → users see updated times without rescanning
+  /// - Special offers added → appear in overlay instantly
+  ///
+  /// **Situational Awareness:**
+  /// Live data transforms AR from "snapshot" to "living view" of event.
+  void _startRealtimeListeners(String markerId, String eventId) {
+    // Cancel any existing listeners first
+    _stopRealtimeListeners();
+
+    print('📡 Starting real-time listeners for marker: $markerId');
+
+    // Listen to stall data changes (especially crowd status)
+    _stallStreamSubscription = _firestoreService
+        .streamStallByMarkerId(markerId)
+        .listen(
+          (stallData) {
+            if (stallData != null && mounted) {
+              // Update overlay in real-time
+              setState(() {
+                _currentStall = stallData;
+              });
+
+              // Notify user of significant changes
+              _handleStallDataUpdate(stallData);
+            }
+          },
+          onError: (error) {
+            print('⚠️ Stall stream error: $error');
+          },
+        );
+
+    // Listen to event data changes (schedule, status)
+    _eventStreamSubscription = _firestoreService
+        .streamEventById(eventId)
+        .listen(
+          (eventData) {
+            if (eventData != null && mounted) {
+              setState(() {
+                _currentEvent = eventData;
+                _cachedEventData = eventData; // Update cache
+              });
+
+              // Notify user of event updates
+              _handleEventDataUpdate(eventData);
+            }
+          },
+          onError: (error) {
+            print('⚠️ Event stream error: $error');
+          },
+        );
+  }
+
+  /// Stop real-time listeners to save resources.
+  void _stopRealtimeListeners() {
+    _stallStreamSubscription?.cancel();
+    _stallStreamSubscription = null;
+
+    _eventStreamSubscription?.cancel();
+    _eventStreamSubscription = null;
+
+    print('🔇 Stopped real-time listeners');
+  }
+
+  /// Handle stall data updates (notify user of significant changes).
+  void _handleStallDataUpdate(Map<String, dynamic> newStallData) {
+    // Check for crowd level changes
+    final oldCrowdLevel = _currentStall?['crowd_level'];
+    final newCrowdLevel = newStallData['crowd_level'];
+
+    if (oldCrowdLevel != newCrowdLevel && newCrowdLevel != null) {
+      final crowdData = _parseCrowdLevel(newCrowdLevel);
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Row(
+              children: [
+                Icon(Icons.people, color: crowdData['color']),
+                const SizedBox(width: 8),
+                Text('Crowd update: ${crowdData['label']}'),
+              ],
+            ),
+            backgroundColor: Colors.black87,
+            duration: const Duration(seconds: 2),
+          ),
+        );
+      }
+      print('👥 Crowd level changed: $oldCrowdLevel → $newCrowdLevel');
+    }
+
+    // Check for status changes (open/closed)
+    final oldStatus = _currentStall?['status'];
+    final newStatus = newStallData['status'];
+
+    if (oldStatus != newStatus && newStatus == 'closed') {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Row(
+              children: [
+                Icon(Icons.lock, color: Colors.orange),
+                SizedBox(width: 8),
+                Text('This stall just closed'),
+              ],
+            ),
+            backgroundColor: Colors.orange,
+            duration: Duration(seconds: 3),
+          ),
+        );
+      }
+      print('🔒 Stall status changed: $oldStatus → $newStatus');
+    }
+  }
+
+  /// Handle event data updates (notify user of schedule changes).
+  void _handleEventDataUpdate(Map<String, dynamic> newEventData) {
+    // Check for schedule changes
+    final oldSchedule = _currentEvent?['schedule'];
+    final newSchedule = newEventData['schedule'];
+
+    if (oldSchedule != newSchedule && newSchedule != null) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Row(
+              children: [
+                Icon(Icons.update, color: Colors.blue),
+                SizedBox(width: 8),
+                Text('Event schedule updated'),
+              ],
+            ),
+            backgroundColor: Colors.blue,
+            duration: Duration(seconds: 2),
+          ),
+        );
+      }
+      print('⏰ Event schedule changed');
+    }
+
+    // Check for event status changes
+    final oldStatus = _currentEvent?['status'];
+    final newStatus = newEventData['status'];
+
+    if (oldStatus != newStatus && newStatus == 'cancelled') {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Row(
+              children: [
+                Icon(Icons.cancel, color: Colors.red),
+                SizedBox(width: 8),
+                Text('⚠️ Event has been cancelled'),
+              ],
+            ),
+            backgroundColor: Colors.red,
+            duration: Duration(seconds: 5),
+          ),
+        );
+      }
+      print('❌ Event status changed: $oldStatus → $newStatus');
     }
   }
 
