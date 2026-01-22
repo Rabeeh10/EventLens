@@ -85,8 +85,13 @@ class _ARScanScreenState extends State<ARScanScreen>
   String? _detectedMarkerId;
   // ignore: unused_field
   Map<String, dynamic>? _currentStall;
+  // ignore: unused_field
+  Map<String, dynamic>? _currentEvent;
   bool _isLoadingStall = false;
   Set<String> _processedMarkers = {}; // Prevent duplicate processing
+
+  // Performance optimization: Cache event data to avoid repeated lookups
+  Map<String, dynamic>? _cachedEventData;
 
   @override
   void initState() {
@@ -462,6 +467,18 @@ class _ARScanScreenState extends State<ARScanScreen>
   /// Handle marker detection event.
   ///
   /// Called by ARCore when marker pattern recognized in camera frame.
+  ///
+  /// **AR Performance Requirements:**
+  /// - Total latency budget: 500ms (user perception threshold)
+  /// - Firestore query: 150-200ms (with indexing)
+  /// - UI update: 16ms (60fps target)
+  /// - Remaining: 284ms for processing
+  ///
+  /// **Why Speed Matters in AR:**
+  /// - >500ms delay = user perceives lag, breaks immersion
+  /// - User holds phone steady waiting = arm fatigue
+  /// - Slow response = user rescans marker = duplicate queries
+  ///
   /// TODO: Will be called by ARCore controller (currently placeholder)
   // ignore: unused_element
   Future<void> _onMarkerDetected(String markerId) async {
@@ -476,48 +493,88 @@ class _ARScanScreenState extends State<ARScanScreen>
       _detectedMarkerId = markerId;
       _isLoadingStall = true;
       _currentStall = null;
+      _currentEvent = null;
     });
 
-    try {
-      // MARKER_ID AS BRIDGE:
-      // Physical marker (QR/image) -> marker_id string -> Firestore query
-      // This is the PRIMARY KEY linking physical world to digital data
-      final stall = await _firestoreService.fetchStallByMarkerId(markerId);
+    final startTime = DateTime.now(); // Performance monitoring
 
+    try {
+      // OPTIMIZATION 1: Parallel Firestore queries (2x faster than sequential)
+      // Instead of: stall (200ms) then event (200ms) = 400ms total
+      // Parallel: max(200ms, 200ms) = 200ms total
+      final results = await Future.wait([
+        _firestoreService.fetchStallByMarkerId(markerId),
+        _fetchOrUseCachedEvent(widget.eventId),
+      ]);
+
+      final stall = results[0] as Map<String, dynamic>?;
+      final event = results[1] as Map<String, dynamic>?;
+
+      // VALIDATION 1: Marker not found in database
       if (stall == null) {
         _handleMarkerNotFound(markerId);
+        _logPerformance('marker_not_found', startTime);
         return;
       }
 
-      // Verify stall belongs to current event
+      // VALIDATION 2: Event not found (critical error)
+      if (event == null) {
+        _handleEventNotFound(markerId);
+        _logPerformance('event_not_found', startTime);
+        return;
+      }
+
+      // VALIDATION 3: Stall belongs to different event
       if (stall['event_id'] != widget.eventId) {
-        _handleWrongEvent(markerId);
+        _handleWrongEvent(markerId, stall['event_id'] ?? 'unknown');
+        _logPerformance('wrong_event', startTime);
         return;
       }
 
+      // VALIDATION 4: Stall is inactive/deleted
+      if (stall['status'] == 'inactive' || stall['deleted'] == true) {
+        _handleInactiveStall(markerId, stall['name'] ?? 'Unknown');
+        _logPerformance('inactive_stall', startTime);
+        return;
+      }
+
+      // VALIDATION 5: Event has ended
+      if (event['status'] == 'ended' || event['deleted'] == true) {
+        _handleEventEnded(markerId);
+        _logPerformance('event_ended', startTime);
+        return;
+      }
+
+      // SUCCESS: All validations passed
       setState(() {
         _currentStall = stall;
+        _currentEvent = event;
         _isLoadingStall = false;
         _errorMessage = null;
       });
 
-      // Log successful scan for analytics
+      // Log successful scan for analytics (non-blocking)
       final userId = _authService.getCurrentUserId();
       if (userId != null) {
-        await _firestoreService.logUserActivity(
-          userId: userId,
-          activityType: 'scan',
-          eventId: widget.eventId,
-          stallId: stall['stall_id'],
-          markerId: markerId,
-        );
+        // Fire-and-forget to avoid blocking UI
+        _firestoreService
+            .logUserActivity(
+              userId: userId,
+              activityType: 'scan',
+              eventId: widget.eventId,
+              stallId: stall['stall_id'],
+              markerId: markerId,
+            )
+            .catchError((e) {
+              print('⚠️ Failed to log activity: $e');
+            });
       }
 
       // Show success feedback
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('✓ Found: ${stall['name']}'),
+            content: Text('✓ ${stall['name']} - ${event['name']}'),
             backgroundColor: Colors.green,
             duration: const Duration(seconds: 2),
           ),
@@ -526,9 +583,51 @@ class _ARScanScreenState extends State<ARScanScreen>
 
       // Display AR overlay with stall data
       _showStallOverlay(stall);
+
+      _logPerformance('success', startTime);
     } catch (e) {
       _handleFetchError(markerId, e);
+      _logPerformance('error', startTime);
     }
+  }
+
+  /// Fetch event data with caching to avoid repeated Firestore calls.
+  ///
+  /// **OPTIMIZATION 2: In-memory caching**
+  /// - Event data rarely changes during AR session
+  /// - Cache eliminates 200ms query per marker scan
+  /// - 10 stalls scanned = 2000ms saved
+  Future<Map<String, dynamic>?> _fetchOrUseCachedEvent(String eventId) async {
+    if (_cachedEventData != null) {
+      print('📦 Using cached event data (0ms)');
+      return _cachedEventData;
+    }
+
+    final event = await _firestoreService.fetchEventById(eventId);
+    if (event != null) {
+      _cachedEventData = event;
+      print('🔽 Fetched and cached event data');
+    }
+    return event;
+  }
+
+  /// Log query performance for monitoring.
+  ///
+  /// **Target Metrics:**
+  /// - <200ms: Excellent (imperceptible)
+  /// - 200-500ms: Good (acceptable for AR)
+  /// - 500-1000ms: Poor (noticeable lag)
+  /// - >1000ms: Critical (unusable)
+  void _logPerformance(String outcome, DateTime startTime) {
+    final duration = DateTime.now().difference(startTime).inMilliseconds;
+    final emoji = duration < 200
+        ? '⚡'
+        : duration < 500
+        ? '✅'
+        : duration < 1000
+        ? '⚠️'
+        : '🔴';
+    print('$emoji AR marker lookup: ${duration}ms ($outcome)');
   }
 
   /// Handle case where marker_id exists but no Firestore document found
@@ -562,9 +661,53 @@ class _ARScanScreenState extends State<ARScanScreen>
   }
 
   /// Handle case where marker belongs to different event
-  void _handleWrongEvent(String markerId) {
+  void _handleWrongEvent(String markerId, String actualEventId) {
     setState(() {
-      _errorMessage = 'This stall is from a different event';
+      _errorMessage = 'Marker from event: $actualEventId';
+      _isLoadingStall = false;
+      _currentStall = null;
+    });
+
+    _processedMarkers.remove(markerId);
+
+    if (mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: const Text('⚠️ This marker is from another event'),
+          backgroundColor: Colors.orange,
+          action: SnackBarAction(
+            label: 'Details',
+            textColor: Colors.white,
+            onPressed: () {
+              // Show which event it belongs to
+              showDialog(
+                context: context,
+                builder: (context) => AlertDialog(
+                  title: const Text('Wrong Event'),
+                  content: Text(
+                    'This marker belongs to event: $actualEventId\n\n'
+                    'Current event: ${widget.eventId}\n\n'
+                    'Please scan markers at this event only.',
+                  ),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(context),
+                      child: const Text('OK'),
+                    ),
+                  ],
+                ),
+              );
+            },
+          ),
+        ),
+      );
+    }
+  }
+
+  /// Handle case where event data not found (critical error)
+  void _handleEventNotFound(String markerId) {
+    setState(() {
+      _errorMessage = 'Event data not found';
       _isLoadingStall = false;
       _currentStall = null;
     });
@@ -574,8 +717,61 @@ class _ARScanScreenState extends State<ARScanScreen>
     if (mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
-          content: Text('⚠️ This marker is from another event'),
+          content: Text('🔴 Event data missing. Contact organizer.'),
+          backgroundColor: Colors.red,
+          duration: Duration(seconds: 4),
+        ),
+      );
+    }
+  }
+
+  /// Handle case where stall is inactive or deleted
+  void _handleInactiveStall(String markerId, String stallName) {
+    setState(() {
+      _errorMessage = 'Stall "$stallName" is no longer active';
+      _isLoadingStall = false;
+      _currentStall = null;
+    });
+
+    // Allow re-scan after delay
+    Future.delayed(const Duration(seconds: 3), () {
+      _processedMarkers.remove(markerId);
+    });
+
+    if (mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('⚠️ "$stallName" is inactive'),
           backgroundColor: Colors.orange,
+          duration: const Duration(seconds: 3),
+        ),
+      );
+    }
+  }
+
+  /// Handle case where event has ended
+  void _handleEventEnded(String markerId) {
+    setState(() {
+      _errorMessage = 'This event has ended';
+      _isLoadingStall = false;
+      _currentStall = null;
+    });
+
+    _processedMarkers.remove(markerId);
+
+    if (mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: const Text('⚠️ This event has ended'),
+          backgroundColor: Colors.orange,
+          action: SnackBarAction(
+            label: 'Browse Events',
+            textColor: Colors.white,
+            onPressed: () {
+              // Navigate back to event list
+              Navigator.pop(context);
+            },
+          ),
         ),
       );
     }
