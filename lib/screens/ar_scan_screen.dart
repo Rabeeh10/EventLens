@@ -86,6 +86,7 @@ class _ARScanScreenState extends State<ARScanScreen>
   // ignore: unused_field
   Map<String, dynamic>? _currentStall;
   bool _isLoadingStall = false;
+  Set<String> _processedMarkers = {}; // Prevent duplicate processing
 
   @override
   void initState() {
@@ -353,8 +354,19 @@ class _ARScanScreenState extends State<ARScanScreen>
     _arCoreController = controller;
     print('✅ ARCore view created - camera feed active');
 
-    // Configure AR session
+    // Configure AR session and enable node tap detection
     _configureARSession();
+
+    // Listen for node (marker) tap events
+    // In arcore_flutter_plugin, nodes represent detected augmented images/markers
+    controller.onNodeTap = (name) {
+      // Extract marker_id from node name
+      // Format expected: "marker_STALLID123" or "qr_STALLID123"
+      if (name.startsWith('marker_') || name.startsWith('qr_')) {
+        final markerId = name.split('_').last;
+        _onMarkerDetected(markerId);
+      }
+    };
   }
 
   /// Configure AR session settings.
@@ -453,10 +465,12 @@ class _ARScanScreenState extends State<ARScanScreen>
   /// TODO: Will be called by ARCore controller (currently placeholder)
   // ignore: unused_element
   Future<void> _onMarkerDetected(String markerId) async {
-    if (_detectedMarkerId == markerId) {
-      // Already processing this marker
+    // Prevent duplicate processing of the same marker
+    if (_processedMarkers.contains(markerId)) {
       return;
     }
+
+    _processedMarkers.add(markerId);
 
     setState(() {
       _detectedMarkerId = markerId;
@@ -465,23 +479,19 @@ class _ARScanScreenState extends State<ARScanScreen>
     });
 
     try {
-      // Fetch stall data from Firestore
+      // MARKER_ID AS BRIDGE:
+      // Physical marker (QR/image) -> marker_id string -> Firestore query
+      // This is the PRIMARY KEY linking physical world to digital data
       final stall = await _firestoreService.fetchStallByMarkerId(markerId);
 
       if (stall == null) {
-        setState(() {
-          _errorMessage = 'Marker not recognized. Please try another stall.';
-          _isLoadingStall = false;
-        });
+        _handleMarkerNotFound(markerId);
         return;
       }
 
       // Verify stall belongs to current event
       if (stall['event_id'] != widget.eventId) {
-        setState(() {
-          _errorMessage = 'This stall belongs to a different event.';
-          _isLoadingStall = false;
-        });
+        _handleWrongEvent(markerId);
         return;
       }
 
@@ -491,7 +501,7 @@ class _ARScanScreenState extends State<ARScanScreen>
         _errorMessage = null;
       });
 
-      // Log user activity
+      // Log successful scan for analytics
       final userId = _authService.getCurrentUserId();
       if (userId != null) {
         await _firestoreService.logUserActivity(
@@ -503,13 +513,111 @@ class _ARScanScreenState extends State<ARScanScreen>
         );
       }
 
-      // Show stall info overlay
+      // Show success feedback
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('✓ Found: ${stall['name']}'),
+            backgroundColor: Colors.green,
+            duration: const Duration(seconds: 2),
+          ),
+        );
+      }
+
+      // Display AR overlay with stall data
       _showStallOverlay(stall);
     } catch (e) {
-      setState(() {
-        _errorMessage = 'Failed to load stall information: $e';
-        _isLoadingStall = false;
-      });
+      _handleFetchError(markerId, e);
+    }
+  }
+
+  /// Handle case where marker_id exists but no Firestore document found
+  void _handleMarkerNotFound(String markerId) {
+    setState(() {
+      _errorMessage = 'Marker $markerId not registered in system';
+      _isLoadingStall = false;
+      _currentStall = null;
+    });
+
+    // Allow retry after delay
+    Future.delayed(const Duration(seconds: 3), () {
+      _processedMarkers.remove(markerId);
+    });
+
+    if (mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Marker $markerId not found. Try another stall.'),
+          backgroundColor: Colors.orange,
+          action: SnackBarAction(
+            label: 'Report Issue',
+            textColor: Colors.white,
+            onPressed: () {
+              // TODO: Navigate to issue report screen
+            },
+          ),
+        ),
+      );
+    }
+  }
+
+  /// Handle case where marker belongs to different event
+  void _handleWrongEvent(String markerId) {
+    setState(() {
+      _errorMessage = 'This stall is from a different event';
+      _isLoadingStall = false;
+      _currentStall = null;
+    });
+
+    _processedMarkers.remove(markerId);
+
+    if (mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('⚠️ This marker is from another event'),
+          backgroundColor: Colors.orange,
+        ),
+      );
+    }
+  }
+
+  /// Handle network or Firestore errors during marker lookup
+  void _handleFetchError(String markerId, dynamic error) {
+    setState(() {
+      _isLoadingStall = false;
+    });
+
+    String errorMessage = 'Failed to load stall data';
+    if (error.toString().contains('network')) {
+      errorMessage = 'No internet. Check offline cache.';
+    } else if (error.toString().contains('permission')) {
+      errorMessage = 'Access denied. Please log in again.';
+    }
+
+    setState(() {
+      _errorMessage = errorMessage;
+    });
+
+    // Allow retry
+    Future.delayed(const Duration(seconds: 3), () {
+      _processedMarkers.remove(markerId);
+    });
+
+    if (mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(errorMessage),
+          backgroundColor: Colors.red,
+          action: SnackBarAction(
+            label: 'Retry',
+            textColor: Colors.white,
+            onPressed: () {
+              _processedMarkers.remove(markerId);
+              _onMarkerDetected(markerId);
+            },
+          ),
+        ),
+      );
     }
   }
 
@@ -517,20 +625,144 @@ class _ARScanScreenState extends State<ARScanScreen>
   /// TODO: Will be called by ARCore controller (currently placeholder)
   // ignore: unused_element
   void _onMarkerLost(String markerId) {
+    // Clear overlay when marker no longer visible
     if (_detectedMarkerId == markerId) {
       setState(() {
         _detectedMarkerId = null;
         _currentStall = null;
+        _isLoadingStall = false;
+      });
+
+      // Allow re-detection after cooldown (prevents flicker)
+      Future.delayed(const Duration(seconds: 2), () {
+        _processedMarkers.remove(markerId);
       });
     }
   }
 
   /// Display stall information overlay on AR view.
   void _showStallOverlay(Map<String, dynamic> stall) {
-    // TODO: Render AR overlay with stall info
-    // This will be 3D content anchored to marker position
-
+    // Overlay is built in _buildStallOverlay() widget
+    // This method exists for future 3D AR content rendering
     print('🏪 Showing stall: ${stall['name']}');
+  }
+
+  /// Build the stall information overlay widget
+  Widget _buildStallOverlay() {
+    if (_currentStall == null) return const SizedBox.shrink();
+
+    return Container(
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: [
+            const Color(0xFF6366F1).withOpacity(0.95),
+            const Color(0xFF8B5CF6).withOpacity(0.95),
+          ],
+        ),
+        borderRadius: BorderRadius.circular(16),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.3),
+            blurRadius: 10,
+            offset: const Offset(0, 4),
+          ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          // Stall name with location icon
+          Row(
+            children: [
+              const Icon(Icons.store, color: Colors.white, size: 24),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Text(
+                  _currentStall!['name'] ?? 'Unknown Stall',
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 8),
+
+          // Category
+          if (_currentStall!['category'] != null)
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+              decoration: BoxDecoration(
+                color: Colors.white.withOpacity(0.2),
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Text(
+                _currentStall!['category'],
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            ),
+          const SizedBox(height: 12),
+
+          // Description
+          if (_currentStall!['description'] != null)
+            Text(
+              _currentStall!['description'],
+              style: TextStyle(
+                color: Colors.white.withOpacity(0.9),
+                fontSize: 14,
+              ),
+              maxLines: 3,
+              overflow: TextOverflow.ellipsis,
+            ),
+          const SizedBox(height: 16),
+
+          // Action buttons
+          Row(
+            children: [
+              Expanded(
+                child: ElevatedButton.icon(
+                  onPressed: () {
+                    // TODO: Navigate to full stall detail screen
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text('Stall details coming soon!'),
+                      ),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.white,
+                    foregroundColor: const Color(0xFF6366F1),
+                    padding: const EdgeInsets.symmetric(vertical: 12),
+                  ),
+                  icon: const Icon(Icons.info_outline),
+                  label: const Text('View Details'),
+                ),
+              ),
+              const SizedBox(width: 12),
+              IconButton(
+                onPressed: () {
+                  // Close overlay
+                  setState(() {
+                    _detectedMarkerId = null;
+                    _currentStall = null;
+                  });
+                },
+                icon: const Icon(Icons.close, color: Colors.white),
+                tooltip: 'Close',
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
   }
 
   @override
@@ -771,6 +1003,10 @@ class _ARScanScreenState extends State<ARScanScreen>
               ),
             ),
           ),
+
+        // Stall data overlay (when marker detected and data loaded)
+        if (_currentStall != null && !_isLoadingStall)
+          Positioned(top: 80, left: 16, right: 16, child: _buildStallOverlay()),
 
         // Detection indicator
         if (_detectedMarkerId != null)
