@@ -88,6 +88,8 @@ class _ARScanScreenState extends State<ARScanScreen>
   Map<String, dynamic>? _currentEvent;
   bool _isLoadingStall = false;
   Set<String> _processedMarkers = {}; // Prevent duplicate processing
+  Set<String> _currentlyDetectedMarkers = {}; // Track concurrent detections
+  Timer? _markerDetectionTimeout; // Clear stale detections
 
   // Performance optimization: Cache event data to avoid repeated lookups
   Map<String, dynamic>? _cachedEventData;
@@ -378,7 +380,23 @@ class _ARScanScreenState extends State<ARScanScreen>
       // Format expected: "marker_STALLID123" or "qr_STALLID123"
       if (name.startsWith('marker_') || name.startsWith('qr_')) {
         final markerId = name.split('_').last;
+
+        // Track concurrent detections
+        _currentlyDetectedMarkers.add(markerId);
+
+        // Warn if multiple markers visible simultaneously
+        if (_currentlyDetectedMarkers.length > 1) {
+          _handleMultipleMarkersDetected(_currentlyDetectedMarkers.toList());
+          return; // Don't process until user focuses on one marker
+        }
+
         _onMarkerDetected(markerId);
+
+        // Clear detection after timeout (marker likely out of view)
+        _markerDetectionTimeout?.cancel();
+        _markerDetectionTimeout = Timer(const Duration(seconds: 3), () {
+          _currentlyDetectedMarkers.clear();
+        });
       }
     };
   }
@@ -645,6 +663,40 @@ class _ARScanScreenState extends State<ARScanScreen>
     print('$emoji AR marker lookup: ${duration}ms ($outcome)');
   }
 
+  /// Handle multiple markers visible simultaneously
+  void _handleMultipleMarkersDetected(List<String> markerIds) {
+    if (!mounted) return;
+
+    print('⚠️ Multiple markers detected: ${markerIds.join(", ")}');
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text(
+              '⚠️ Multiple Markers Detected',
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 4),
+            const Text(
+              'Please focus on ONE marker at a time',
+              style: TextStyle(fontSize: 13),
+            ),
+            Text(
+              'Detected: ${markerIds.join(", ")}',
+              style: const TextStyle(fontSize: 11, color: Colors.white70),
+            ),
+          ],
+        ),
+        backgroundColor: Colors.orange,
+        duration: const Duration(seconds: 3),
+        behavior: SnackBarBehavior.floating,
+      ),
+    );
+  }
+
   /// Handle case where marker_id exists but no Firestore document found
   void _handleMarkerNotFound(String markerId) {
     setState(() {
@@ -653,21 +705,55 @@ class _ARScanScreenState extends State<ARScanScreen>
       _currentStall = null;
     });
 
+    print('❌ Marker not found in database: $markerId');
+
     // Allow retry after delay
-    Future.delayed(const Duration(seconds: 3), () {
+    Future.delayed(const Duration(seconds: 5), () {
+      if (mounted) {
+        setState(() {
+          _errorMessage = null; // Clear error to allow scanning again
+        });
+      }
       _processedMarkers.remove(markerId);
     });
 
     if (mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('Marker $markerId not found. Try another stall.'),
-          backgroundColor: Colors.orange,
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('❌ Marker "$markerId" Not Recognized'),
+              const SizedBox(height: 4),
+              const Text(
+                'This marker is not registered. Possible reasons:',
+                style: TextStyle(fontSize: 12),
+              ),
+              const SizedBox(height: 2),
+              const Text(
+                '• Marker is damaged or faded',
+                style: TextStyle(fontSize: 11, color: Colors.white70),
+              ),
+              const Text(
+                '• Stall has been removed',
+                style: TextStyle(fontSize: 11, color: Colors.white70),
+              ),
+              const Text(
+                '• You\'re at the wrong event',
+                style: TextStyle(fontSize: 11, color: Colors.white70),
+              ),
+            ],
+          ),
+          backgroundColor: Colors.deepOrange,
+          duration: const Duration(seconds: 5),
+          behavior: SnackBarBehavior.floating,
           action: SnackBarAction(
             label: 'Report Issue',
             textColor: Colors.white,
             onPressed: () {
-              // TODO: Navigate to issue report screen
+              // TODO: Navigate to issue report screen with marker ID
+              print('Report issue for marker: $markerId');
             },
           ),
         ),
@@ -1525,11 +1611,7 @@ class _ARScanScreenState extends State<ARScanScreen>
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Icon(
-              Icons.camera_alt_outlined,
-              color: Colors.orange,
-              size: 64,
-            ),
+            const Icon(Icons.videocam_off, color: Colors.red, size: 64),
             const SizedBox(height: 16),
             Text(
               'Camera Permission Required',
@@ -1539,7 +1621,8 @@ class _ARScanScreenState extends State<ARScanScreen>
             ),
             const SizedBox(height: 8),
             const Text(
-              'EventLens needs camera access to scan AR markers at vendor stalls.',
+              'EventLens needs camera access to scan AR markers.\n'
+              'AR scanning provides instant stall information.',
               style: TextStyle(color: Colors.white70),
               textAlign: TextAlign.center,
             ),
@@ -1554,7 +1637,24 @@ class _ARScanScreenState extends State<ARScanScreen>
                 }
               },
               icon: const Icon(Icons.camera_alt),
-              label: const Text('Grant Permission'),
+              label: const Text('Grant Camera Access'),
+              style: ElevatedButton.styleFrom(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 24,
+                  vertical: 12,
+                ),
+              ),
+            ),
+            const SizedBox(height: 12),
+            TextButton.icon(
+              onPressed: () {
+                openAppSettings();
+              },
+              icon: const Icon(Icons.settings, color: Colors.white70),
+              label: const Text(
+                'Open Settings',
+                style: TextStyle(color: Colors.white70),
+              ),
             ),
             const SizedBox(height: 12),
             OutlinedButton(
@@ -1579,16 +1679,47 @@ class _ARScanScreenState extends State<ARScanScreen>
             const Icon(Icons.phonelink_off, color: Colors.orange, size: 64),
             const SizedBox(height: 16),
             Text(
-              'AR Not Supported',
+              'AR Not Available',
               style: Theme.of(
                 context,
               ).textTheme.headlineSmall?.copyWith(color: Colors.white),
             ),
             const SizedBox(height: 8),
             const Text(
-              'Your device does not support ARCore. You can still browse events and use QR codes.',
+              'Your device does not support ARCore. No worries!\n'
+              'You can still explore stalls using QR codes.',
               style: TextStyle(color: Colors.white70),
               textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 16),
+            Container(
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: Colors.blue.withOpacity(0.2),
+                borderRadius: BorderRadius.circular(12),
+                border: Border.all(color: Colors.blue.withOpacity(0.5)),
+              ),
+              child: const Column(
+                children: [
+                  Icon(Icons.qr_code_2, color: Colors.blue, size: 48),
+                  SizedBox(height: 12),
+                  Text(
+                    'QR Code Fallback Available',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                    ),
+                  ),
+                  SizedBox(height: 8),
+                  Text(
+                    'Scan stall markers with your camera\'s QR scanner. '
+                    'Same information, no AR needed!',
+                    style: TextStyle(color: Colors.white70, fontSize: 13),
+                    textAlign: TextAlign.center,
+                  ),
+                ],
+              ),
             ),
             const SizedBox(height: 24),
             ElevatedButton.icon(
@@ -1597,7 +1728,13 @@ class _ARScanScreenState extends State<ARScanScreen>
                 Navigator.pop(context);
               },
               icon: const Icon(Icons.qr_code_scanner),
-              label: const Text('Use QR Code Instead'),
+              label: const Text('Use QR Code Scanner'),
+              style: ElevatedButton.styleFrom(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 24,
+                  vertical: 12,
+                ),
+              ),
             ),
             const SizedBox(height: 12),
             OutlinedButton(
