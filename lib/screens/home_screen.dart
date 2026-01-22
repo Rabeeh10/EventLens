@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../services/auth_service.dart';
 import 'event_list_screen.dart';
 import 'login_screen.dart';
+// import 'ar_scan_screen.dart';  // AR temporarily disabled - plugin incompatible with Flutter 3.35+
 
 /// Main landing screen for EventLens.
 ///
@@ -262,29 +263,19 @@ class HomeScreen extends StatelessWidget {
 
                           // Secondary CTA: Launch AR experience
                           SizedBox(
-                            width: double.infinity,
+            width: double.infinity,
                             height: 64,
                             child: OutlinedButton(
                               onPressed: () {
-                                // TODO: Navigate to AR scan screen with proper parameters
+                                // AR feature temporarily unavailable - ar_flutter_plugin incompatible with Flutter 3.35+
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   const SnackBar(
                                     content: Text(
-                                      'AR scanning requires event selection. Go to Events tab first.',
+                                      'AR feature coming soon! Current AR plugins are incompatible with Flutter 3.35+',
                                     ),
                                     duration: Duration(seconds: 3),
                                   ),
                                 );
-                                // Example navigation (requires eventId and eventName):
-                                // Navigator.push(
-                                //   context,
-                                //   MaterialPageRoute(
-                                //     builder: (context) => ARScanScreen(
-                                //       eventId: 'selected_event_id',
-                                //       eventName: 'Event Name',
-                                //     ),
-                                //   ),
-                                // );
                               },
                               style: OutlinedButton.styleFrom(
                                 side: BorderSide(
