@@ -98,11 +98,24 @@ class _ARScanScreenState extends State<ARScanScreen>
   StreamSubscription<Map<String, dynamic>?>? _stallStreamSubscription;
   StreamSubscription<Map<String, dynamic>?>? _eventStreamSubscription;
 
+  // AR session tracking for ML data collection
+  DateTime? _arSessionStartTime;
+  int _markersScannedCount = 0;
+  int _overlayViewsCount = 0;
+  final List<String> _scannedMarkerIds = [];
+  // ignore: unused_field
+  DateTime? _currentOverlayStartTime; // For future dwell time tracking
+
   @override
   void initState() {
     super.initState();
     // Register lifecycle observer to handle pause/resume
     WidgetsBinding.instance.addObserver(this);
+
+    // Track AR session start for ML data
+    _arSessionStartTime = DateTime.now();
+    _logARSessionStart();
+
     _initializeAR();
   }
 
@@ -114,6 +127,9 @@ class _ARScanScreenState extends State<ARScanScreen>
     // CRITICAL: Cancel real-time subscriptions to prevent memory leaks
     _stallStreamSubscription?.cancel();
     _eventStreamSubscription?.cancel();
+
+    // Log AR session end with metrics before cleanup
+    _logARSessionEnd();
 
     // CRITICAL: Dispose AR resources
     _disposeARResources();
@@ -580,22 +596,47 @@ class _ARScanScreenState extends State<ARScanScreen>
       });
       _startRealtimeListeners(markerId, widget.eventId);
 
+      // Track overlay view for ML data
+      _overlayViewsCount++;
+      _currentOverlayStartTime = DateTime.now();
+      _logOverlayView(stall, event);
+
       setState(() {
         // isLoadingStall = false;
         _errorMessage = null;
       });
 
-      // Log successful scan for analytics (non-blocking)
+      // Track marker scan for ML data
+      _markersScannedCount++;
+      if (!_scannedMarkerIds.contains(markerId)) {
+        _scannedMarkerIds.add(markerId);
+      }
+
+      // Log successful scan for analytics & ML training (non-blocking)
       final userId = _authService.getCurrentUserId();
       if (userId != null) {
+        final scanDuration = DateTime.now().difference(
+          _arSessionStartTime ?? DateTime.now(),
+        );
         // Fire-and-forget to avoid blocking UI
         _firestoreService
             .logUserActivity(
               userId: userId,
-              activityType: 'scan',
+              activityType: 'ar_marker_scan',
               eventId: widget.eventId,
               stallId: stall['stall_id'],
               markerId: markerId,
+              metadata: {
+                'scan_sequence': _markersScannedCount,
+                'is_repeat_scan':
+                    _scannedMarkerIds.where((id) => id == markerId).length > 1,
+                'session_duration_seconds': scanDuration.inSeconds,
+                'total_markers_scanned': _markersScannedCount,
+                'unique_markers_scanned': _scannedMarkerIds.length,
+                'stall_name': stall['name'],
+                'stall_category': stall['category'],
+                'crowd_level': stall['crowd_level'],
+              },
             )
             .catchError((e) {
               print('⚠️ Failed to log activity: $e');
@@ -661,6 +702,97 @@ class _ARScanScreenState extends State<ARScanScreen>
         ? '⚠️'
         : '🔴';
     print('$emoji AR marker lookup: ${duration}ms ($outcome)');
+  }
+
+  /// Log AR session start for ML training data
+  void _logARSessionStart() {
+    final userId = _authService.getCurrentUserId();
+    if (userId == null) return;
+
+    _firestoreService
+        .logUserActivity(
+          userId: userId,
+          activityType: 'ar_session_start',
+          eventId: widget.eventId,
+          metadata: {
+            'event_name': widget.eventName,
+            'device_ar_supported': _isARSupported,
+            'session_start_time': _arSessionStartTime?.toIso8601String(),
+          },
+        )
+        .catchError((e) {
+          print('⚠️ Failed to log AR session start: $e');
+          return null;
+        });
+  }
+
+  /// Log AR session end with comprehensive metrics for ML analysis
+  void _logARSessionEnd() {
+    if (_arSessionStartTime == null) return;
+
+    final userId = _authService.getCurrentUserId();
+    if (userId == null) return;
+
+    final sessionDuration = DateTime.now().difference(_arSessionStartTime!);
+    final avgTimePerMarker = _markersScannedCount > 0
+        ? sessionDuration.inSeconds / _markersScannedCount
+        : 0.0;
+
+    _firestoreService
+        .logUserActivity(
+          userId: userId,
+          activityType: 'ar_session_end',
+          eventId: widget.eventId,
+          metadata: {
+            'session_duration_seconds': sessionDuration.inSeconds,
+            'session_duration_minutes': (sessionDuration.inSeconds / 60)
+                .toStringAsFixed(2),
+            'total_markers_scanned': _markersScannedCount,
+            'unique_markers_scanned': _scannedMarkerIds.length,
+            'overlay_views': _overlayViewsCount,
+            'avg_time_per_marker_seconds': avgTimePerMarker.toStringAsFixed(1),
+            'scan_efficiency': _markersScannedCount > 0
+                ? (_scannedMarkerIds.length / _markersScannedCount * 100)
+                      .toStringAsFixed(1)
+                : '0',
+            'session_end_time': DateTime.now().toIso8601String(),
+          },
+        )
+        .catchError((e) {
+          print('⚠️ Failed to log AR session end: $e');
+          return null;
+        });
+  }
+
+  /// Log when user views AR overlay for a stall
+  void _logOverlayView(Map<String, dynamic> stall, Map<String, dynamic> event) {
+    final userId = _authService.getCurrentUserId();
+    if (userId == null) return;
+
+    final sessionDuration = _arSessionStartTime != null
+        ? DateTime.now().difference(_arSessionStartTime!)
+        : Duration.zero;
+
+    _firestoreService
+        .logUserActivity(
+          userId: userId,
+          activityType: 'ar_overlay_view',
+          eventId: widget.eventId,
+          stallId: stall['stall_id'],
+          metadata: {
+            'stall_name': stall['name'],
+            'stall_category': stall['category'],
+            'event_name': event['name'],
+            'crowd_level': stall['crowd_level'],
+            'overlay_sequence': _overlayViewsCount,
+            'time_in_session_seconds': sessionDuration.inSeconds,
+            'view_start_time': DateTime.now().toIso8601String(),
+          },
+        )
+        .catchError((e) {
+          print('⚠️ Failed to log overlay view: $e');
+          return null;
+        });
   }
 
   /// Handle multiple markers visible simultaneously
