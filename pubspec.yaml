@@ -46,13 +46,14 @@ dependencies:
   # Date and time formatting
   intl: ^0.19.0                   # Internationalization and date formatting
   
-  # AR (Augmented Reality) dependencies - TEMPORARILY DISABLED
-  # The ar_flutter_plugin requires outdated dependencies incompatible with Flutter 3.35+
-  # Recommend migrating to a newer AR solution like flutter_unity_widget or custom ARCore implementation
-  # ar_flutter_plugin: ^0.7.3       # ARCore support for Android & ARKit for iOS
-  camera: ^0.11.0+2               # Camera access for future AR scanning
-  # permission_handler: ^10.4.5     # Old version required by ar_flutter_plugin (incompatible with Flutter 3.35+)
+  # AR (Augmented Reality) dependencies
+  camera: ^0.11.0+2               # Camera access for QR scanning
+  mobile_scanner: ^7.1.4          # Modern QR code scanner (better maintained)
+  permission_handler: ^11.3.1     # Camera permissions (v2 embedding compatible)
   vector_math: ^2.1.4             # 3D math for AR transformations and pose estimation
+  
+  # Unity AR Integration - ARCore via Unity AR Foundation
+  flutter_unity_widget: ^2022.2.1 # Unity AR Foundation integration
 
 dev_dependencies:
   flutter_test:

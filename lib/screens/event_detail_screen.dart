@@ -67,7 +67,14 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
 
     try {
       final eventId = widget.event['event_id'] as String;
+      print('🔍 DEBUG: Loading stalls for event ID: $eventId');
+      
       final stalls = await _firestoreService.fetchStallsByEvent(eventId);
+      
+      print('🎯 DEBUG: Found ${stalls.length} stalls');
+      if (stalls.isNotEmpty) {
+        print('🏪 DEBUG: First stall: ${stalls.first['name']}');
+      }
 
       if (mounted) {
         setState(() {
@@ -76,6 +83,7 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
         });
       }
     } catch (e) {
+      print('❌ DEBUG: Error loading stalls: $e');
       if (mounted) {
         setState(() => _isLoadingStalls = false);
         ScaffoldMessenger.of(context).showSnackBar(

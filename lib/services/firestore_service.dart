@@ -370,21 +370,34 @@ class FirestoreService {
   /// Throws exception on errors.
   Future<List<Map<String, dynamic>>> fetchStallsByEvent(String eventId) async {
     try {
+      print('🔎 DEBUG: Querying stalls with event_id = $eventId');
+      
       final snapshot = await _stallsCollection
           .where('event_id', isEqualTo: eventId)
-          .orderBy('name')
           .get();
 
+      print('📊 DEBUG: Query returned ${snapshot.docs.length} documents');
+      
       if (snapshot.metadata.isFromCache) {
         print('📦 Stalls for $eventId loaded from cache');
       }
 
-      return snapshot.docs.map((doc) {
+      final stallsList = snapshot.docs.map((doc) {
         final data = doc.data() as Map<String, dynamic>;
+        print('📄 DEBUG: Stall doc ID: ${doc.id}, name: ${data['name']}');
         data['stall_id'] = doc.id;
         data['is_cached'] = snapshot.metadata.isFromCache;
         return data;
       }).toList();
+      
+      // Sort by name client-side to avoid needing a composite index
+      stallsList.sort((a, b) {
+        final nameA = (a['name'] ?? '').toString().toLowerCase();
+        final nameB = (b['name'] ?? '').toString().toLowerCase();
+        return nameA.compareTo(nameB);
+      });
+      
+      return stallsList;
     } on FirebaseException catch (e) {
       final errorMsg = _handleFirestoreError(e);
       print('🚨 FirebaseException in fetchStallsByEvent: $errorMsg');

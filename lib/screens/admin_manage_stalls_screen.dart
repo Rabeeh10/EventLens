@@ -41,13 +41,29 @@ class _AdminManageStallsScreenState extends State<AdminManageStallsScreen> {
   Future<void> _loadStalls() async {
     setState(() => _isLoading = true);
     
-    final stalls = await _firestoreService.fetchStallsByEvent(widget.eventId);
-    
-    if (mounted) {
-      setState(() {
-        _stalls = stalls;
-        _isLoading = false;
-      });
+    try {
+      print('🔍 ADMIN: Loading stalls for event: ${widget.eventId}');
+      final stalls = await _firestoreService.fetchStallsByEvent(widget.eventId);
+      print('✅ ADMIN: Found ${stalls.length} stalls');
+      
+      if (mounted) {
+        setState(() {
+          _stalls = stalls;
+          _isLoading = false;
+        });
+      }
+    } catch (e) {
+      print('❌ ADMIN: Error loading stalls: $e');
+      if (mounted) {
+        setState(() => _isLoading = false);
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Error loading stalls: $e'),
+            backgroundColor: Colors.red,
+            duration: const Duration(seconds: 5),
+          ),
+        );
+      }
     }
   }
 

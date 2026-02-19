@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../services/auth_service.dart';
 import 'event_list_screen.dart';
 import 'login_screen.dart';
-// import 'ar_scan_screen.dart';  // AR temporarily disabled - plugin incompatible with Flutter 3.35+
+import 'unity_ar_screen.dart';  // Unity AR Foundation integration
 
 /// Main landing screen for EventLens.
 ///
@@ -267,13 +267,10 @@ class HomeScreen extends StatelessWidget {
                             height: 64,
                             child: OutlinedButton(
                               onPressed: () {
-                                // AR feature temporarily unavailable - ar_flutter_plugin incompatible with Flutter 3.35+
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(
-                                    content: Text(
-                                      'AR feature coming soon! Current AR plugins are incompatible with Flutter 3.35+',
-                                    ),
-                                    duration: Duration(seconds: 3),
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const UnityARScreen(),
                                   ),
                                 );
                               },
