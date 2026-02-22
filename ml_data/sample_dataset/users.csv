@@ -1,0 +1,13 @@
+user_id,email,display_name,role,created_at,ar_sessions_count,events_registered,avg_session_duration
+u001,john.smith@email.com,John Smith,user,2026-01-15T10:30:00Z,12,3,245.5
+u002,sarah.jones@email.com,Sarah Jones,user,2026-01-18T14:20:00Z,8,2,180.3
+u003,mike.wilson@email.com,Mike Wilson,admin,2026-01-10T09:00:00Z,25,5,320.7
+u004,emma.brown@email.com,Emma Brown,user,2026-01-20T16:45:00Z,5,1,150.2
+u005,alex.davis@email.com,Alex Davis,user,2026-01-22T11:30:00Z,15,4,290.4
+u006,lisa.miller@email.com,Lisa Miller,user,2026-01-25T13:15:00Z,6,1,165.8
+u007,david.garcia@email.com,David Garcia,user,2026-01-28T10:00:00Z,10,2,210.6
+u008,sophia.martinez@email.com,Sophia Martinez,user,2026-02-01T15:30:00Z,18,3,275.9
+u009,james.lee@email.com,James Lee,user,2026-02-03T12:00:00Z,7,2,195.1
+u010,olivia.taylor@email.com,Olivia Taylor,user,2026-02-05T14:45:00Z,9,2,220.3
+u011,william.anderson@email.com,William Anderson,user,2026-02-08T11:20:00Z,4,1,140.5
+u012,ava.thomas@email.com,Ava Thomas,user,2026-02-10T16:00:00Z,11,3,255.7

@@ -1,0 +1,92 @@
+stall_id,event_id,name,category,description,location,contact,marker_id,qr_code
+s001,e001,Microsoft Azure Booth,Technology,Latest Azure cloud solutions and AI services,Hall A - Zone 1,azure@microsoft.com,marker_001,QR_MS_001
+s002,e001,Google Cloud Platform,Technology,Google Cloud and Kubernetes demos,Hall A - Zone 2,cloud@google.com,marker_002,QR_GG_001
+s003,e001,AWS Solutions Center,Technology,Amazon Web Services and serverless architectures,Hall A - Zone 3,aws@amazon.com,marker_003,QR_AW_001
+s004,e001,Startup Alley,Technology,25 emerging tech startups showcase,Hall A - Zone 4,info@startups.com,marker_004,QR_SA_001
+s005,e001,Coffee Corner Premium,Food & Beverage,Espresso bar and gourmet snacks,Hall A - Entrance,coffee@premium.com,marker_005,QR_CC_001
+s006,e001,Event Merchandise Store,Merchandise,Official Tech Summit swag and materials,Hall A - Exit,shop@techsummit.com,marker_006,QR_MR_001
+s007,e002,Main Stage Arena,Performance,Headline performances and concerts,Center Stage,stage@musicfest.com,marker_007,QR_ST_001
+s008,e002,Food Truck Plaza,Food & Beverage,10+ gourmet food trucks,North Lawn,food@musicfest.com,marker_008,QR_FT_001
+s009,e002,Festival Merchandise,Merchandise,Artist merchandise and festival gear,South Entrance,merch@musicfest.com,marker_009,QR_FM_001
+s010,e002,Craft Beer Garden,Food & Beverage,Local craft beers and ciders,West Plaza,beer@musicfest.com,marker_010,QR_BG_001
+s011,e002,VIP Lounge Access,Hospitality,Exclusive VIP area with premium amenities,East Wing,vip@musicfest.com,marker_011,QR_VIP_001
+s012,e003,Artisan Bakery Stand,Food & Beverage,Fresh baked breads and pastries,Booth 12,info@artisanbakery.com,marker_012,QR_AB_001
+s013,e003,Local Cheese Corner,Food & Beverage,Regional cheese varieties and samples,Booth 15,cheese@local.com,marker_013,QR_LC_001
+s014,e003,Organic Produce Market,Food & Beverage,Farm-fresh organic vegetables and fruits,Booth 8,farm@organics.com,marker_014,QR_OP_001
+s015,e003,BBQ & Grill Station,Food & Beverage,Smoked meats and BBQ specialties,Booth 22,bbq@grillstation.com,marker_015,QR_BBQ_001
+s016,e003,Dessert Paradise,Food & Beverage,"Cakes, cookies, and sweet treats",Booth 18,sweets@dessertparadise.com,marker_016,QR_DS_001
+s017,e004,Amazon Recruiting Hub,Career,Software engineering and cloud opportunities,Booth A1,recruit@amazon.com,marker_017,QR_AM_001
+s018,e004,Goldman Sachs Careers,Career,Finance technology and analyst positions,Booth A5,careers@gs.com,marker_018,QR_GS_001
+s019,e004,Meta (Facebook) Booth,Career,Product management and engineering roles,Booth A8,recruiters@meta.com,marker_019,QR_FB_001
+s020,e004,Tesla Recruiting,Career,Automotive engineering and AI positions,Booth A12,jobs@tesla.com,marker_020,QR_TS_001
+s021,e004,Resume Review Station,Information,Free professional resume critiques,Hall Center,help@careerservices.edu,marker_021,QR_RS_001
+s022,e004,Interview Prep Workshop,Information,Mock interviews and coaching,Hall East,prep@careerservices.edu,marker_022,QR_IP_001
+s023,e005,Modern Art Gallery Wing,Exhibition,Contemporary sculpture and paintings,Gallery West,art@moderngallery.com,marker_023,QR_MA_001
+s024,e005,Digital Art Installation,Exhibition,Interactive digital art experiences,Gallery Center,digital@artshow.com,marker_024,QR_DA_001
+s025,e005,Photography Corner,Exhibition,Black and white photography collection,Gallery East,photos@artshow.com,marker_025,QR_PC_001
+s026,e005,Art Supplies Shop,Merchandise,Professional art materials for sale,Gallery Shop,shop@artsupplies.com,marker_026,QR_AS_001
+s027,e007,Esports Tournament Arena,Performance,Live League of Legends tournaments,Gaming Floor 1,esports@gamecon.com,marker_027,QR_ES_001
+s028,e007,Virtual Reality Zone,Technology,VR gaming experiences and demos,Gaming Floor 2,vr@gamecon.com,marker_028,QR_VR_001
+s029,e007,Indie Game Showcase,Technology,Independent game developer booths,Gaming Floor 3,indie@gamecon.com,marker_029,QR_IG_001
+s030,e007,Gaming Gear Store,Merchandise,PC components and gaming peripherals,Vendor Area,store@gaminggear.com,marker_030,QR_GG_002
+s031,e007,Energy Drinks Lounge,Food & Beverage,Free energy drinks and snacks for gamers,Lounge Area,drinks@gamecon.com,marker_031,QR_ED_001
+s032,e009,Solar Solutions Demo,Technology,Residential solar panel systems,Zone A,solar@greenenergy.com,marker_032,QR_SL_001
+s033,e009,Wind Power Exhibit,Technology,Wind turbine technology and innovations,Zone B,wind@greenenergy.com,marker_033,QR_WP_001
+s034,e009,Electric Vehicle Charging,Technology,EV charging infrastructure solutions,Zone C,ev@greenenergy.com,marker_034,QR_EV_001
+s035,e009,Green Building Materials,Technology,Sustainable construction materials,Zone D,materials@greenbuilding.com,marker_035,QR_GB_001
+s036,e010,Jazz Main Stage,Performance,Live jazz performances,Stage 1,jazz@festival.com,marker_036,QR_JZ_001
+s037,e010,Blues Pavilion,Performance,Blues music performances,Stage 2,blues@festival.com,marker_037,QR_BL_001
+s038,e010,Waterfront Food Court,Food & Beverage,International cuisine options,Food Plaza,food@festival.com,marker_038,QR_FC_001
+s039,e010,Festival Merchandise,Merchandise,Jazz festival t-shirts and memorabilia,Merch Tent,merch@festival.com,marker_039,QR_JM_001
+s040,e011,Napa Valley Wines,Food & Beverage,Premium California wines,Tent 5,napa@wines.com,marker_040,QR_NP_001
+s041,e011,Sonoma Vineyards,Food & Beverage,Organic wine selection,Tent 8,sonoma@wines.com,marker_041,QR_SN_001
+s042,e011,Local Brewery Corner,Food & Beverage,Craft beers from local breweries,Tent 12,beer@localbrewery.com,marker_042,QR_LB_001
+s043,e011,Cheese Pairing Station,Food & Beverage,Wine and cheese pairing experiences,Tent 3,cheese@pairing.com,marker_043,QR_CP_001
+s044,e013,Portrait Photography,Exhibition,Professional portrait collection,Gallery A,portraits@photoex.com,marker_044,QR_PP_001
+s045,e013,Landscape Photography,Exhibition,Nature and landscape photography,Gallery B,landscape@photoex.com,marker_045,QR_LP_001
+s046,e013,Wildlife Photography,Exhibition,Award-winning wildlife photography,Gallery C,wildlife@photoex.com,marker_046,QR_WP_002
+s047,e013,Fashion Photography,Exhibition,Fashion and editorial photography,Gallery D,fashion@photoex.com,marker_047,QR_FP_001
+s048,e015,Bitcoin & Crypto Trading,Technology,Cryptocurrency trading platforms,Hall A1,crypto@blockchain.com,marker_048,QR_BTC_001
+s049,e015,NFT Marketplace Demo,Technology,NFT creation and marketplace,Hall A2,nft@blockchain.com,marker_049,QR_NFT_001
+s050,e015,DeFi Solutions,Technology,Decentralized finance applications,Hall A3,defi@blockchain.com,marker_050,QR_DFI_001
+s051,e015,Web3 Development,Technology,Web3 tools and frameworks,Hall A4,web3@blockchain.com,marker_051,QR_W3_001
+s052,e016,Rose Garden Display,Exhibition,500+ rose varieties showcase,Garden Section A,roses@flowershow.com,marker_052,QR_RG_001
+s053,e016,Orchid Collection,Exhibition,Rare orchid species exhibition,Garden Section B,orchids@flowershow.com,marker_053,QR_OR_001
+s054,e016,Gardening Workshop Area,Information,DIY gardening workshops,Workshop Tent,workshops@flowershow.com,marker_054,QR_GW_001
+s055,e016,Garden Supplies Shop,Merchandise,"Seeds, tools, and gardening supplies",Shop Area,shop@gardensupplies.com,marker_055,QR_GS_002
+s056,e017,RPG Game Demos,Technology,Role-playing game demonstrations,Booth 1,rpg@indiegames.com,marker_056,QR_RPG_001
+s057,e017,Puzzle Game Zone,Technology,Indie puzzle games playable area,Booth 5,puzzle@indiegames.com,marker_057,QR_PG_001
+s058,e017,Adventure Games,Technology,Story-driven adventure games,Booth 8,adventure@indiegames.com,marker_058,QR_AG_001
+s059,e017,Game Developer Talks,Information,Developer presentations and Q&A,Theater Area,talks@indiegames.com,marker_059,QR_GT_001
+s060,e018,Apple Recruiting,Career,iOS and Mac development positions,Booth B3,jobs@apple.com,marker_060,QR_AP_001
+s061,e018,Microsoft Careers,Career,Azure and Office365 engineering roles,Booth B7,careers@microsoft.com,marker_061,QR_MC_001
+s062,e018,Intel Corporation,Career,Hardware engineering opportunities,Booth B11,recruit@intel.com,marker_062,QR_INT_001
+s063,e018,Startup Job Board,Information,100+ startup hiring opportunities,Job Board Area,startups@jobfair.com,marker_063,QR_SJ_001
+s064,e020,Micro Brewery Tastings,Food & Beverage,10 local microbreweries,Section 1,micro@craftbeer.com,marker_064,QR_MB_001
+s065,e020,IPA Showcase,Food & Beverage,20+ IPA varieties,Section 2,ipa@craftbeer.com,marker_065,QR_IPA_001
+s066,e020,Stout & Porter Station,Food & Beverage,Dark beer selections,Section 3,stout@craftbeer.com,marker_066,QR_SP_001
+s067,e020,Beer Brewing Workshop,Information,Learn homebrewing techniques,Workshop Area,workshop@craftbeer.com,marker_067,QR_BW_001
+s068,e021,TensorFlow Workshop,Technology,Hands-on TensorFlow training,Lab 1,tensorflow@aiworkshop.com,marker_068,QR_TF_001
+s069,e021,PyTorch Training,Technology,Deep learning with PyTorch,Lab 2,pytorch@aiworkshop.com,marker_069,QR_PT_001
+s070,e021,Computer Vision Lab,Technology,Image recognition projects,Lab 3,vision@aiworkshop.com,marker_070,QR_CV_001
+s071,e021,NLP Workshop,Technology,Natural language processing,Lab 4,nlp@aiworkshop.com,marker_071,QR_NLP_001
+s072,e023,Spring Collection Runway,Exhibition,Latest spring fashion designs,Runway 1,spring@fashionweek.com,marker_072,QR_SC_001
+s073,e023,Summer Collection Runway,Exhibition,Summer fashion premiere,Runway 2,summer@fashionweek.com,marker_073,QR_SU_001
+s074,e023,Designer Boutique,Merchandise,Purchase runway pieces,Boutique Area,shop@fashionweek.com,marker_074,QR_DB_001
+s075,e023,Fashion Accessories,Merchandise,"Handbags, jewelry, and accessories",Accessory Corner,accessories@fashionweek.com,marker_075,QR_FA_001
+s076,e025,PlayStation VR Zone,Technology,PS VR2 gaming experiences,Zone 1,psvr@vrgaming.com,marker_076,QR_PSVR_001
+s077,e025,Meta Quest Demos,Technology,Quest 3 game demonstrations,Zone 2,quest@vrgaming.com,marker_077,QR_MQ_001
+s078,e025,VR Esports Arena,Performance,Competitive VR gaming tournaments,Arena Floor,esports@vrgaming.com,marker_078,QR_VE_001
+s079,e025,VR Content Creation,Technology,Create your own VR experiences,Creation Lab,create@vrgaming.com,marker_079,QR_VC_001
+s080,e026,Asian Cuisine Pavilion,Food & Beverage,"Chinese, Japanese, Korean, Thai food",Section A,asian@foodfest.com,marker_080,QR_AC_001
+s081,e026,European Food Court,Food & Beverage,"Italian, French, Spanish, German cuisine",Section B,european@foodfest.com,marker_081,QR_EC_001
+s082,e026,Latin American Corner,Food & Beverage,"Mexican, Brazilian, Argentinian food",Section C,latin@foodfest.com,marker_082,QR_LA_001
+s083,e026,Middle Eastern Market,Food & Beverage,"Lebanese, Turkish, Persian cuisine",Section D,mideast@foodfest.com,marker_083,QR_ME_001
+s084,e027,Penetration Testing Demo,Technology,Live hacking demonstrations,Lab A,pentest@cybersec.com,marker_084,QR_PEN_001
+s085,e027,Network Security Workshop,Technology,Firewall and IDS configurations,Lab B,network@cybersec.com,marker_085,QR_NS_001
+s086,e027,Incident Response Center,Technology,Security incident handling,Lab C,incident@cybersec.com,marker_086,QR_IR_001
+s087,e027,Zero Trust Architecture,Technology,Modern security frameworks,Lab D,zerotrust@cybersec.com,marker_087,QR_ZT_001
+s088,e029,NFT Digital Gallery,Exhibition,Digital art NFT collection,Virtual Gallery,nft@digitalart.com,marker_088,QR_NFT_002
+s089,e029,Interactive Art Zone,Exhibition,Touch-responsive digital installations,Interactive Floor,interactive@digitalart.com,marker_089,QR_IA_001
+s090,e029,Projection Mapping Show,Exhibition,3D projection mapping displays,Projection Room,projection@digitalart.com,marker_090,QR_PM_001
+s091,e029,Digital Art Marketplace,Merchandise,Purchase digital art pieces,Marketplace,shop@digitalart.com,marker_091,QR_DAM_001

@@ -1,0 +1,16 @@
+stall_id,event_id,name,category,description,location,contact,marker_id,qr_code
+s001,e001,Microsoft Booth,Technology,Latest Azure and AI solutions,Hall A - Zone 1,tech@microsoft.com,marker_001,QR_MS_001
+s002,e001,Google Developer Zone,Technology,Android and Cloud Platform demos,Hall A - Zone 2,dev@google.com,marker_002,QR_GG_001
+s003,e001,Startup Alley,Technology,Emerging tech startups showcase,Hall A - Zone 3,info@startups.com,marker_003,QR_SA_001
+s004,e001,Coffee Corner,Food & Beverage,Premium coffee and snacks,Hall A - Entrance,orders@coffeeco.com,marker_004,QR_CC_001
+s005,e001,Event Merchandise,Merchandise,Official conference swag and materials,Hall A - Exit,shop@techsummit.com,marker_005,QR_MR_001
+s006,e002,Main Stage,Performance,Headline performances and concerts,Center Stage,stage@musicfest.com,marker_006,QR_ST_001
+s007,e002,Food Truck Plaza,Food & Beverage,Gourmet food trucks and beverages,North Lawn,food@musicfest.com,marker_007,QR_FT_001
+s008,e002,Festival Merch,Merchandise,Artist merchandise and festival gear,South Entrance,merch@musicfest.com,marker_008,QR_FM_001
+s009,e003,Artisan Bakery,Food & Beverage,Fresh baked goods and pastries,Booth 12,info@artisanbakery.com,marker_009,QR_AB_001
+s010,e003,Local Cheese Stand,Food & Beverage,Regional cheese varieties,Booth 15,cheese@local.com,marker_010,QR_LC_001
+s011,e003,Organic Produce,Food & Beverage,Farm-fresh organic vegetables,Booth 8,farm@organics.com,marker_011,QR_OP_001
+s012,e004,Amazon Recruiting,Career,Software engineering opportunities,Booth A1,recruit@amazon.com,marker_012,QR_AM_001
+s013,e004,Goldman Sachs,Career,Finance and tech positions,Booth A5,careers@gs.com,marker_013,QR_GS_001
+s014,e004,Resume Review Station,Information,Free professional resume reviews,Hall Center,help@careerservices.edu,marker_014,QR_RS_001
+s015,e005,Modern Art Exhibit,Exhibition,Contemporary sculpture showcase,Gallery West Wing,info@artgallery.com,marker_015,QR_MA_001

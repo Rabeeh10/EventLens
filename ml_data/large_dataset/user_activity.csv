@@ -1,0 +1,2077 @@
+﻿activity_id,user_id,event_id,stall_id,activity_type,timestamp,duration_seconds,metadata
+a0001,u147,e002,,ar_session_start,2026-06-20T17:42:29Z,0,{}
+a0002,u147,e002,s011,marker_scanned,2026-06-20T17:46:29Z,0,{"marker_id":"marker_011"}
+a0003,u147,e002,s011,overlay_view,2026-06-20T17:46:34Z,123,{"stall_name":"Stall s011"}
+a0004,u147,e002,s010,marker_scanned,2026-06-20T17:50:29Z,0,{"marker_id":"marker_010"}
+a0005,u147,e002,s010,overlay_view,2026-06-20T17:50:34Z,126,{"stall_name":"Stall s010"}
+a0006,u147,e002,,ar_session_end,2026-06-20T17:49:29Z,420,"{""markers_scanned"":2,""overlays_viewed"":2}"
+a0007,u007,e009,,event_registered,2026-03-13T18:00:00Z,0,{}
+a0008,u007,e009,,ar_session_start,2026-03-18T10:25:43Z,0,{}
+a0009,u007,e009,s035,marker_scanned,2026-03-18T10:31:43Z,0,{"marker_id":"marker_035"}
+a0010,u007,e009,s035,overlay_view,2026-03-18T10:31:48Z,161,{"stall_name":"Stall s035"}
+a0011,u007,e009,s032,marker_scanned,2026-03-18T10:37:43Z,0,{"marker_id":"marker_032"}
+a0012,u007,e009,s032,overlay_view,2026-03-18T10:37:48Z,150,{"stall_name":"Stall s032"}
+a0013,u007,e009,s034,marker_scanned,2026-03-18T10:42:43Z,0,{"marker_id":"marker_034"}
+a0014,u007,e009,s034,overlay_view,2026-03-18T10:42:48Z,120,{"stall_name":"Stall s034"}
+a0015,u007,e009,,ar_session_end,2026-03-18T10:45:13Z,1302,"{""markers_scanned"":3,""overlays_viewed"":3}"
+a0016,u010,e004,,event_viewed,2026-03-11T04:00:00Z,0,{}
+a0017,u063,e027,,ar_session_start,2026-07-20T14:12:18Z,0,{}
+a0018,u063,e027,s086,marker_scanned,2026-07-20T14:14:18Z,0,{"marker_id":"marker_086"}
+a0019,u063,e027,s086,overlay_view,2026-07-20T14:14:23Z,93,{"stall_name":"Stall s086"}
+a0020,u063,e027,s084,marker_scanned,2026-07-20T14:21:18Z,0,{"marker_id":"marker_084"}
+a0021,u063,e027,s084,overlay_view,2026-07-20T14:21:23Z,135,{"stall_name":"Stall s084"}
+a0022,u063,e027,,ar_session_end,2026-07-20T14:19:18Z,420,"{""markers_scanned"":2,""overlays_viewed"":2}"
+a0023,u200,e007,,event_registered,2026-08-10T19:00:00Z,0,{}
+a0024,u200,e007,,ar_session_start,2026-08-15T14:46:06Z,0,{}
+a0025,u200,e007,s030,marker_scanned,2026-08-15T14:49:06Z,0,{"marker_id":"marker_030"}
+a0026,u200,e007,s030,overlay_view,2026-08-15T14:49:11Z,275,{"stall_name":"Stall s030"}
+a0027,u200,e007,s031,marker_scanned,2026-08-15T14:56:06Z,0,{"marker_id":"marker_031"}
+a0028,u200,e007,s031,overlay_view,2026-08-15T14:56:11Z,124,{"stall_name":"Stall s031"}
+a0029,u200,e007,s027,marker_scanned,2026-08-15T15:03:06Z,0,{"marker_id":"marker_027"}
+a0030,u200,e007,s027,overlay_view,2026-08-15T15:03:11Z,219,{"stall_name":"Stall s027"}
+a0031,u200,e007,s028,marker_scanned,2026-08-15T15:09:06Z,0,{"marker_id":"marker_028"}
+a0032,u200,e007,s028,overlay_view,2026-08-15T15:09:11Z,214,{"stall_name":"Stall s028"}
+a0033,u200,e007,,ar_session_end,2026-08-15T15:09:36Z,1559,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a0034,u169,e010,,event_registered,2026-07-12T06:00:00Z,0,{}
+a0035,u071,e023,,event_registered,2026-04-01T07:00:00Z,0,{}
+a0036,u071,e023,,ar_session_start,2026-04-08T19:03:02Z,0,{}
+a0037,u071,e023,s072,marker_scanned,2026-04-08T19:06:02Z,0,{"marker_id":"marker_072"}
+a0038,u071,e023,s072,overlay_view,2026-04-08T19:06:07Z,90,{"stall_name":"Stall s072"}
+a0039,u071,e023,s075,marker_scanned,2026-04-08T19:07:02Z,0,{"marker_id":"marker_075"}
+a0040,u071,e023,s075,overlay_view,2026-04-08T19:07:07Z,112,{"stall_name":"Stall s075"}
+a0041,u071,e023,,ar_session_end,2026-04-08T19:07:02Z,240,"{""markers_scanned"":2,""overlays_viewed"":2}"
+a0042,u011,e016,,event_viewed,2026-03-06T07:00:00Z,0,{}
+a0043,u190,e023,,event_registered,2026-04-08T10:00:00Z,0,{}
+a0044,u190,e023,,ar_session_start,2026-04-08T22:59:14Z,0,{}
+a0045,u190,e023,s072,marker_scanned,2026-04-08T23:05:14Z,0,{"marker_id":"marker_072"}
+a0046,u190,e023,s072,overlay_view,2026-04-08T23:05:19Z,244,{"stall_name":"Stall s072"}
+a0047,u190,e023,s074,marker_scanned,2026-04-08T23:09:14Z,0,{"marker_id":"marker_074"}
+a0048,u190,e023,s074,overlay_view,2026-04-08T23:09:19Z,124,{"stall_name":"Stall s074"}
+a0049,u190,e023,s075,marker_scanned,2026-04-08T23:18:14Z,0,{"marker_id":"marker_075"}
+a0050,u190,e023,s075,overlay_view,2026-04-08T23:18:19Z,223,{"stall_name":"Stall s075"}
+a0051,u190,e023,s073,marker_scanned,2026-04-08T23:22:14Z,0,{"marker_id":"marker_073"}
+a0052,u190,e023,s073,overlay_view,2026-04-08T23:22:19Z,257,{"stall_name":"Stall s073"}
+a0053,u190,e023,,ar_session_end,2026-04-08T23:24:44Z,1656,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a0054,u198,e003,,event_registered,2026-03-02T03:00:00Z,0,{}
+a0055,u198,e003,,ar_session_start,2026-03-10T12:37:44Z,0,{}
+a0056,u198,e003,s014,marker_scanned,2026-03-10T12:39:44Z,0,{"marker_id":"marker_014"}
+a0057,u198,e003,s014,overlay_view,2026-03-10T12:39:49Z,108,{"stall_name":"Stall s014"}
+a0058,u198,e003,s016,marker_scanned,2026-03-10T12:44:44Z,0,{"marker_id":"marker_016"}
+a0059,u198,e003,s016,overlay_view,2026-03-10T12:44:49Z,55,{"stall_name":"Stall s016"}
+a0060,u198,e003,,ar_session_end,2026-03-10T12:46:44Z,540,"{""markers_scanned"":2,""overlays_viewed"":2}"
+a0061,u200,e020,,event_registered,2026-05-27T01:00:00Z,0,{}
+a0062,u200,e020,,ar_session_start,2026-05-30T19:44:33Z,0,{}
+a0063,u200,e020,s066,marker_scanned,2026-05-30T19:48:33Z,0,{"marker_id":"marker_066"}
+a0064,u200,e020,s066,overlay_view,2026-05-30T19:48:38Z,120,{"stall_name":"Stall s066"}
+a0065,u200,e020,,ar_session_end,2026-05-30T19:48:33Z,240,"{""markers_scanned"":1,""overlays_viewed"":1}"
+a0066,u100,e003,,ar_session_start,2026-03-10T12:31:34Z,0,{}
+a0067,u100,e003,s012,marker_scanned,2026-03-10T12:33:34Z,0,{"marker_id":"marker_012"}
+a0068,u100,e003,s012,overlay_view,2026-03-10T12:33:39Z,114,{"stall_name":"Stall s012"}
+a0069,u100,e003,,ar_session_end,2026-03-10T12:36:34Z,300,"{""markers_scanned"":1,""overlays_viewed"":1}"
+a0070,u162,e004,,event_viewed,2026-03-18T01:00:00Z,0,{}
+a0071,u027,e029,,event_viewed,2026-06-30T01:00:00Z,0,{}
+a0072,u050,e002,,event_registered,2026-06-18T08:00:00Z,0,{}
+a0073,u050,e002,,ar_session_start,2026-06-20T17:56:08Z,0,{}
+a0074,u050,e002,s009,marker_scanned,2026-06-20T18:00:08Z,0,{"marker_id":"marker_009"}
+a0075,u050,e002,s009,overlay_view,2026-06-20T18:00:13Z,248,{"stall_name":"Stall s009"}
+a0076,u050,e002,s011,marker_scanned,2026-06-20T18:07:08Z,0,{"marker_id":"marker_011"}
+a0077,u050,e002,s011,overlay_view,2026-06-20T18:07:13Z,251,{"stall_name":"Stall s011"}
+a0078,u050,e002,s008,marker_scanned,2026-06-20T18:15:08Z,0,{"marker_id":"marker_008"}
+a0079,u050,e002,s008,overlay_view,2026-06-20T18:15:13Z,235,{"stall_name":"Stall s008"}
+a0080,u050,e002,s007,marker_scanned,2026-06-20T18:19:08Z,0,{"marker_id":"marker_007"}
+a0081,u050,e002,s007,overlay_view,2026-06-20T18:19:13Z,144,{"stall_name":"Stall s007"}
+a0082,u050,e002,,ar_session_end,2026-06-20T18:20:38Z,1554,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a0083,u131,e004,,event_registered,2026-04-05T02:00:00Z,0,{}
+a0084,u131,e004,,ar_session_start,2026-04-05T14:02:22Z,0,{}
+a0085,u131,e004,s018,marker_scanned,2026-04-05T14:08:22Z,0,{"marker_id":"marker_018"}
+a0086,u131,e004,s018,overlay_view,2026-04-05T14:08:27Z,217,{"stall_name":"Stall s018"}
+a0087,u131,e004,s022,marker_scanned,2026-04-05T14:11:22Z,0,{"marker_id":"marker_022"}
+a0088,u131,e004,s022,overlay_view,2026-04-05T14:11:27Z,258,{"stall_name":"Stall s022"}
+a0089,u131,e004,s017,marker_scanned,2026-04-05T14:15:22Z,0,{"marker_id":"marker_017"}
+a0090,u131,e004,s017,overlay_view,2026-04-05T14:15:27Z,227,{"stall_name":"Stall s017"}
+a0091,u131,e004,,ar_session_end,2026-04-05T14:19:52Z,1163,"{""markers_scanned"":3,""overlays_viewed"":3}"
+a0092,u101,e025,,event_registered,2026-06-22T23:00:00Z,0,{}
+a0093,u101,e025,,ar_session_start,2026-07-05T16:46:23Z,0,{}
+a0094,u101,e025,s077,marker_scanned,2026-07-05T16:50:23Z,0,{"marker_id":"marker_077"}
+a0095,u101,e025,s077,overlay_view,2026-07-05T16:50:28Z,54,{"stall_name":"Stall s077"}
+a0096,u101,e025,s078,marker_scanned,2026-07-05T16:52:23Z,0,{"marker_id":"marker_078"}
+a0097,u101,e025,s078,overlay_view,2026-07-05T16:52:28Z,108,{"stall_name":"Stall s078"}
+a0098,u101,e025,,ar_session_end,2026-07-05T16:55:23Z,540,"{""markers_scanned"":2,""overlays_viewed"":2}"
+a0099,u103,e010,,event_registered,2026-07-20T04:00:00Z,0,{}
+a0100,u103,e010,,ar_session_start,2026-07-25T16:55:23Z,0,{}
+a0101,u103,e010,s036,marker_scanned,2026-07-25T17:01:23Z,0,{"marker_id":"marker_036"}
+a0102,u103,e010,s036,overlay_view,2026-07-25T17:01:28Z,233,{"stall_name":"Stall s036"}
+a0103,u103,e010,s039,marker_scanned,2026-07-25T17:02:23Z,0,{"marker_id":"marker_039"}
+a0104,u103,e010,s039,overlay_view,2026-07-25T17:02:28Z,129,{"stall_name":"Stall s039"}
+a0105,u103,e010,s037,marker_scanned,2026-07-25T17:08:23Z,0,{"marker_id":"marker_037"}
+a0106,u103,e010,s037,overlay_view,2026-07-25T17:08:28Z,177,{"stall_name":"Stall s037"}
+a0107,u103,e010,,ar_session_end,2026-07-25T17:09:53Z,1018,"{""markers_scanned"":3,""overlays_viewed"":3}"
+a0108,u038,e001,,event_registered,2026-02-08T03:00:00Z,0,{}
+a0109,u038,e001,,ar_session_start,2026-02-15T13:53:42Z,0,{}
+a0110,u038,e001,s002,marker_scanned,2026-02-15T13:56:42Z,0,{"marker_id":"marker_002"}
+a0111,u038,e001,s002,overlay_view,2026-02-15T13:56:47Z,65,{"stall_name":"Stall s002"}
+a0112,u038,e001,,ar_session_end,2026-02-15T13:57:42Z,240,"{""markers_scanned"":1,""overlays_viewed"":1}"
+a0113,u090,e025,,event_registered,2026-06-26T02:00:00Z,0,{}
+a0114,u090,e025,,ar_session_start,2026-07-05T15:33:38Z,0,{}
+a0115,u090,e025,s078,marker_scanned,2026-07-05T15:37:38Z,0,{"marker_id":"marker_078"}
+a0116,u090,e025,s078,overlay_view,2026-07-05T15:37:43Z,117,{"stall_name":"Stall s078"}
+a0117,u090,e025,s077,marker_scanned,2026-07-05T15:38:38Z,0,{"marker_id":"marker_077"}
+a0118,u090,e025,s077,overlay_view,2026-07-05T15:38:43Z,105,{"stall_name":"Stall s077"}
+a0119,u090,e025,,ar_session_end,2026-07-05T15:37:38Z,240,"{""markers_scanned"":2,""overlays_viewed"":2}"
+a0120,u124,e021,,event_viewed,2026-05-14T05:00:00Z,0,{}
+a0121,u103,e009,,event_registered,2026-03-11T20:00:00Z,0,{}
+a0122,u103,e009,,ar_session_start,2026-03-18T11:02:14Z,0,{}
+a0123,u103,e009,s034,marker_scanned,2026-03-18T11:05:14Z,0,{"marker_id":"marker_034"}
+a0124,u103,e009,s034,overlay_view,2026-03-18T11:05:19Z,284,{"stall_name":"Stall s034"}
+a0125,u103,e009,s032,marker_scanned,2026-03-18T11:13:14Z,0,{"marker_id":"marker_032"}
+a0126,u103,e009,s032,overlay_view,2026-03-18T11:13:19Z,182,{"stall_name":"Stall s032"}
+a0127,u103,e009,s033,marker_scanned,2026-03-18T11:19:14Z,0,{"marker_id":"marker_033"}
+a0128,u103,e009,s033,overlay_view,2026-03-18T11:19:19Z,179,{"stall_name":"Stall s033"}
+a0129,u103,e009,s035,marker_scanned,2026-03-18T11:29:14Z,0,{"marker_id":"marker_035"}
+a0130,u103,e009,s035,overlay_view,2026-03-18T11:29:19Z,267,{"stall_name":"Stall s035"}
+a0131,u103,e009,,ar_session_end,2026-03-18T11:29:44Z,1689,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a0132,u174,e026,,event_viewed,2026-06-07T08:00:00Z,0,{}
+a0133,u052,e016,,event_registered,2026-03-26T04:00:00Z,0,{}
+a0134,u052,e016,,ar_session_start,2026-03-28T12:46:56Z,0,{}
+a0135,u052,e016,s054,marker_scanned,2026-03-28T12:52:56Z,0,{"marker_id":"marker_054"}
+a0136,u052,e016,s054,overlay_view,2026-03-28T12:53:01Z,223,{"stall_name":"Stall s054"}
+a0137,u052,e016,s055,marker_scanned,2026-03-28T13:00:56Z,0,{"marker_id":"marker_055"}
+a0138,u052,e016,s055,overlay_view,2026-03-28T13:01:01Z,183,{"stall_name":"Stall s055"}
+a0139,u052,e016,s053,marker_scanned,2026-03-28T13:03:56Z,0,{"marker_id":"marker_053"}
+a0140,u052,e016,s053,overlay_view,2026-03-28T13:04:01Z,246,{"stall_name":"Stall s053"}
+a0141,u052,e016,s052,marker_scanned,2026-03-28T13:09:56Z,0,{"marker_id":"marker_052"}
+a0142,u052,e016,s052,overlay_view,2026-03-28T13:10:01Z,147,{"stall_name":"Stall s052"}
+a0143,u052,e016,,ar_session_end,2026-03-28T13:13:26Z,1638,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a0144,u005,e020,,ar_session_start,2026-05-30T19:09:18Z,0,{}
+a0145,u005,e020,s066,marker_scanned,2026-05-30T19:11:18Z,0,{"marker_id":"marker_066"}
+a0146,u005,e020,s066,overlay_view,2026-05-30T19:11:23Z,139,{"stall_name":"Stall s066"}
+a0147,u005,e020,s064,marker_scanned,2026-05-30T19:15:18Z,0,{"marker_id":"marker_064"}
+a0148,u005,e020,s064,overlay_view,2026-05-30T19:15:23Z,129,{"stall_name":"Stall s064"}
+a0149,u005,e020,,ar_session_end,2026-05-30T19:18:18Z,540,"{""markers_scanned"":2,""overlays_viewed"":2}"
+a0150,u149,e011,,event_registered,2026-04-06T04:00:00Z,0,{}
+a0151,u017,e020,,ar_session_start,2026-05-30T20:10:45Z,0,{}
+a0152,u017,e020,s066,marker_scanned,2026-05-30T20:12:45Z,0,{"marker_id":"marker_066"}
+a0153,u017,e020,s066,overlay_view,2026-05-30T20:12:50Z,65,{"stall_name":"Stall s066"}
+a0154,u017,e020,s067,marker_scanned,2026-05-30T20:16:45Z,0,{"marker_id":"marker_067"}
+a0155,u017,e020,s067,overlay_view,2026-05-30T20:16:50Z,143,{"stall_name":"Stall s067"}
+a0156,u017,e020,,ar_session_end,2026-05-30T20:18:45Z,480,"{""markers_scanned"":2,""overlays_viewed"":2}"
+a0157,u187,e018,,event_registered,2026-03-08T02:00:00Z,0,{}
+a0158,u177,e015,,event_registered,2026-05-04T02:00:00Z,0,{}
+a0159,u177,e015,,ar_session_start,2026-05-05T14:16:54Z,0,{}
+a0160,u177,e015,s049,marker_scanned,2026-05-05T14:19:54Z,0,{"marker_id":"marker_049"}
+a0161,u177,e015,s049,overlay_view,2026-05-05T14:19:59Z,83,{"stall_name":"Stall s049"}
+a0162,u177,e015,,ar_session_end,2026-05-05T14:21:54Z,300,"{""markers_scanned"":1,""overlays_viewed"":1}"
+a0163,u029,e010,,event_registered,2026-07-24T07:00:00Z,0,{}
+a0164,u029,e010,,ar_session_start,2026-07-25T21:54:19Z,0,{}
+a0165,u029,e010,s036,marker_scanned,2026-07-25T21:58:19Z,0,{"marker_id":"marker_036"}
+a0166,u029,e010,s036,overlay_view,2026-07-25T21:58:24Z,121,{"stall_name":"Stall s036"}
+a0167,u029,e010,s037,marker_scanned,2026-07-25T22:00:19Z,0,{"marker_id":"marker_037"}
+a0168,u029,e010,s037,overlay_view,2026-07-25T22:00:24Z,133,{"stall_name":"Stall s037"}
+a0169,u029,e010,,ar_session_end,2026-07-25T22:00:19Z,360,"{""markers_scanned"":2,""overlays_viewed"":2}"
+a0170,u068,e013,,event_registered,2026-06-11T02:00:00Z,0,{}
+a0171,u068,e013,,ar_session_start,2026-06-15T14:41:17Z,0,{}
+a0172,u068,e013,s046,marker_scanned,2026-06-15T14:44:17Z,0,{"marker_id":"marker_046"}
+a0173,u068,e013,s046,overlay_view,2026-06-15T14:44:22Z,252,{"stall_name":"Stall s046"}
+a0174,u068,e013,s047,marker_scanned,2026-06-15T14:53:17Z,0,{"marker_id":"marker_047"}
+a0175,u068,e013,s047,overlay_view,2026-06-15T14:53:22Z,147,{"stall_name":"Stall s047"}
+a0176,u068,e013,s045,marker_scanned,2026-06-15T14:58:17Z,0,{"marker_id":"marker_045"}
+a0177,u068,e013,s045,overlay_view,2026-06-15T14:58:22Z,219,{"stall_name":"Stall s045"}
+a0178,u068,e013,,ar_session_end,2026-06-15T14:57:47Z,1130,"{""markers_scanned"":3,""overlays_viewed"":3}"
+a0179,u022,e001,,event_registered,2026-02-07T18:00:00Z,0,{}
+a0180,u022,e001,,ar_session_start,2026-02-15T11:02:18Z,0,{}
+a0181,u022,e001,s003,marker_scanned,2026-02-15T11:05:18Z,0,{"marker_id":"marker_003"}
+a0182,u022,e001,s003,overlay_view,2026-02-15T11:05:23Z,283,{"stall_name":"Stall s003"}
+a0183,u022,e001,s002,marker_scanned,2026-02-15T11:13:18Z,0,{"marker_id":"marker_002"}
+a0184,u022,e001,s002,overlay_view,2026-02-15T11:13:23Z,207,{"stall_name":"Stall s002"}
+a0185,u022,e001,s006,marker_scanned,2026-02-15T11:16:18Z,0,{"marker_id":"marker_006"}
+a0186,u022,e001,s006,overlay_view,2026-02-15T11:16:23Z,292,{"stall_name":"Stall s006"}
+a0187,u022,e001,,ar_session_end,2026-02-15T11:19:48Z,1096,"{""markers_scanned"":3,""overlays_viewed"":3}"
+a0188,u101,e013,,event_viewed,2026-05-26T19:00:00Z,0,{}
+a0189,u088,e013,,ar_session_start,2026-06-15T13:57:44Z,0,{}
+a0190,u088,e013,s044,marker_scanned,2026-06-15T13:59:44Z,0,{"marker_id":"marker_044"}
+a0191,u088,e013,s044,overlay_view,2026-06-15T13:59:49Z,88,{"stall_name":"Stall s044"}
+a0192,u088,e013,,ar_session_end,2026-06-15T14:01:44Z,240,"{""markers_scanned"":1,""overlays_viewed"":1}"
+a0193,u004,e026,,event_registered,2026-06-17T01:00:00Z,0,{}
+a0194,u004,e026,,ar_session_start,2026-06-28T15:01:56Z,0,{}
+a0195,u004,e026,s080,marker_scanned,2026-06-28T15:03:56Z,0,{"marker_id":"marker_080"}
+a0196,u004,e026,s080,overlay_view,2026-06-28T15:04:01Z,83,{"stall_name":"Stall s080"}
+a0197,u004,e026,,ar_session_end,2026-06-28T15:04:56Z,180,"{""markers_scanned"":1,""overlays_viewed"":1}"
+a0198,u085,e027,,event_registered,2026-07-14T22:00:00Z,0,{}
+a0199,u085,e027,,ar_session_start,2026-07-20T10:14:30Z,0,{}
+a0200,u085,e027,s084,marker_scanned,2026-07-20T10:18:30Z,0,{"marker_id":"marker_084"}
+a0201,u085,e027,s084,overlay_view,2026-07-20T10:18:35Z,128,{"stall_name":"Stall s084"}
+a0202,u085,e027,s085,marker_scanned,2026-07-20T10:28:30Z,0,{"marker_id":"marker_085"}
+a0203,u085,e027,s085,overlay_view,2026-07-20T10:28:35Z,126,{"stall_name":"Stall s085"}
+a0204,u085,e027,s086,marker_scanned,2026-07-20T10:32:30Z,0,{"marker_id":"marker_086"}
+a0205,u085,e027,s086,overlay_view,2026-07-20T10:32:35Z,188,{"stall_name":"Stall s086"}
+a0206,u085,e027,s087,marker_scanned,2026-07-20T10:37:30Z,0,{"marker_id":"marker_087"}
+a0207,u085,e027,s087,overlay_view,2026-07-20T10:37:35Z,184,{"stall_name":"Stall s087"}
+a0208,u085,e027,,ar_session_end,2026-07-20T10:40:00Z,1592,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a0209,u107,e020,,event_viewed,2026-05-20T01:00:00Z,0,{}
+a0210,u141,e021,,event_registered,2026-05-27T23:00:00Z,0,{}
+a0211,u141,e021,,ar_session_start,2026-06-03T12:23:41Z,0,{}
+a0212,u141,e021,s069,marker_scanned,2026-06-03T12:26:41Z,0,{"marker_id":"marker_069"}
+a0213,u141,e021,s069,overlay_view,2026-06-03T12:26:46Z,290,{"stall_name":"Stall s069"}
+a0214,u141,e021,s071,marker_scanned,2026-06-03T12:34:41Z,0,{"marker_id":"marker_071"}
+a0215,u141,e021,s071,overlay_view,2026-06-03T12:34:46Z,228,{"stall_name":"Stall s071"}
+a0216,u141,e021,s070,marker_scanned,2026-06-03T12:42:41Z,0,{"marker_id":"marker_070"}
+a0217,u141,e021,s070,overlay_view,2026-06-03T12:42:46Z,145,{"stall_name":"Stall s070"}
+a0218,u141,e021,s068,marker_scanned,2026-06-03T12:49:41Z,0,{"marker_id":"marker_068"}
+a0219,u141,e021,s068,overlay_view,2026-06-03T12:49:46Z,195,{"stall_name":"Stall s068"}
+a0220,u141,e021,,ar_session_end,2026-06-03T12:49:11Z,1570,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a0221,u081,e005,,event_registered,2026-05-09T03:00:00Z,0,{}
+a0222,u081,e005,,ar_session_start,2026-05-12T11:18:05Z,0,{}
+a0223,u081,e005,s024,marker_scanned,2026-05-12T11:22:05Z,0,{"marker_id":"marker_024"}
+a0224,u081,e005,s024,overlay_view,2026-05-12T11:22:10Z,160,{"stall_name":"Stall s024"}
+a0225,u081,e005,s025,marker_scanned,2026-05-12T11:32:05Z,0,{"marker_id":"marker_025"}
+a0226,u081,e005,s025,overlay_view,2026-05-12T11:32:10Z,291,{"stall_name":"Stall s025"}
+a0227,u081,e005,s026,marker_scanned,2026-05-12T11:36:05Z,0,{"marker_id":"marker_026"}
+a0228,u081,e005,s026,overlay_view,2026-05-12T11:36:10Z,251,{"stall_name":"Stall s026"}
+a0229,u081,e005,s023,marker_scanned,2026-05-12T11:42:05Z,0,{"marker_id":"marker_023"}
+a0230,u081,e005,s023,overlay_view,2026-05-12T11:42:10Z,130,{"stall_name":"Stall s023"}
+a0231,u081,e005,,ar_session_end,2026-05-12T11:42:35Z,1514,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a0232,u185,e025,,event_registered,2026-07-02T20:00:00Z,0,{}
+a0233,u185,e025,,ar_session_start,2026-07-05T13:08:42Z,0,{}
+a0234,u185,e025,s079,marker_scanned,2026-07-05T13:13:42Z,0,{"marker_id":"marker_079"}
+a0235,u185,e025,s079,overlay_view,2026-07-05T13:13:47Z,133,{"stall_name":"Stall s079"}
+a0236,u185,e025,s078,marker_scanned,2026-07-05T13:15:42Z,0,{"marker_id":"marker_078"}
+a0237,u185,e025,s078,overlay_view,2026-07-05T13:15:47Z,288,{"stall_name":"Stall s078"}
+a0238,u185,e025,s076,marker_scanned,2026-07-05T13:20:42Z,0,{"marker_id":"marker_076"}
+a0239,u185,e025,s076,overlay_view,2026-07-05T13:20:47Z,191,{"stall_name":"Stall s076"}
+a0240,u185,e025,s077,marker_scanned,2026-07-05T13:27:42Z,0,{"marker_id":"marker_077"}
+a0241,u185,e025,s077,overlay_view,2026-07-05T13:27:47Z,296,{"stall_name":"Stall s077"}
+a0242,u185,e025,,ar_session_end,2026-07-05T13:31:12Z,1404,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a0243,u122,e023,,event_registered,2026-04-04T12:00:00Z,0,{}
+a0244,u122,e023,,ar_session_start,2026-04-08T19:19:18Z,0,{}
+a0245,u122,e023,s072,marker_scanned,2026-04-08T19:23:18Z,0,{"marker_id":"marker_072"}
+a0246,u122,e023,s072,overlay_view,2026-04-08T19:23:23Z,240,{"stall_name":"Stall s072"}
+a0247,u122,e023,s075,marker_scanned,2026-04-08T19:31:18Z,0,{"marker_id":"marker_075"}
+a0248,u122,e023,s075,overlay_view,2026-04-08T19:31:23Z,266,{"stall_name":"Stall s075"}
+a0249,u122,e023,s073,marker_scanned,2026-04-08T19:39:18Z,0,{"marker_id":"marker_073"}
+a0250,u122,e023,s073,overlay_view,2026-04-08T19:39:23Z,125,{"stall_name":"Stall s073"}
+a0251,u122,e023,,ar_session_end,2026-04-08T19:38:48Z,1249,"{""markers_scanned"":3,""overlays_viewed"":3}"
+a0252,u141,e011,,event_registered,2026-04-20T11:00:00Z,0,{}
+a0253,u141,e011,,ar_session_start,2026-04-22T21:59:26Z,0,{}
+a0254,u141,e011,s042,marker_scanned,2026-04-22T22:03:26Z,0,{"marker_id":"marker_042"}
+a0255,u141,e011,s042,overlay_view,2026-04-22T22:03:31Z,261,{"stall_name":"Stall s042"}
+a0256,u141,e011,s040,marker_scanned,2026-04-22T22:08:26Z,0,{"marker_id":"marker_040"}
+a0257,u141,e011,s040,overlay_view,2026-04-22T22:08:31Z,178,{"stall_name":"Stall s040"}
+a0258,u141,e011,s041,marker_scanned,2026-04-22T22:15:26Z,0,{"marker_id":"marker_041"}
+a0259,u141,e011,s041,overlay_view,2026-04-22T22:15:31Z,258,{"stall_name":"Stall s041"}
+a0260,u141,e011,,ar_session_end,2026-04-22T22:17:56Z,1154,"{""markers_scanned"":3,""overlays_viewed"":3}"
+a0261,u139,e025,,event_viewed,2026-06-14T05:00:00Z,0,{}
+a0262,u169,e020,,event_registered,2026-05-30T03:00:00Z,0,{}
+a0263,u169,e020,,ar_session_start,2026-05-30T16:59:44Z,0,{}
+a0264,u169,e020,s064,marker_scanned,2026-05-30T17:05:44Z,0,{"marker_id":"marker_064"}
+a0265,u169,e020,s064,overlay_view,2026-05-30T17:05:49Z,192,{"stall_name":"Stall s064"}
+a0266,u169,e020,s065,marker_scanned,2026-05-30T17:07:44Z,0,{"marker_id":"marker_065"}
+a0267,u169,e020,s065,overlay_view,2026-05-30T17:07:49Z,159,{"stall_name":"Stall s065"}
+a0268,u169,e020,s067,marker_scanned,2026-05-30T17:11:44Z,0,{"marker_id":"marker_067"}
+a0269,u169,e020,s067,overlay_view,2026-05-30T17:11:49Z,201,{"stall_name":"Stall s067"}
+a0270,u169,e020,s066,marker_scanned,2026-05-30T17:18:44Z,0,{"marker_id":"marker_066"}
+a0271,u169,e020,s066,overlay_view,2026-05-30T17:18:49Z,243,{"stall_name":"Stall s066"}
+a0272,u169,e020,,ar_session_end,2026-05-30T17:20:14Z,1378,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a0273,u122,e025,,event_viewed,2026-06-13T01:00:00Z,0,{}
+a0274,u193,e009,,event_registered,2026-03-16T23:00:00Z,0,{}
+a0275,u193,e009,,ar_session_start,2026-03-18T09:30:00Z,0,{}
+a0276,u193,e009,s035,marker_scanned,2026-03-18T09:33:00Z,0,{"marker_id":"marker_035"}
+a0277,u193,e009,s035,overlay_view,2026-03-18T09:33:05Z,289,{"stall_name":"Stall s035"}
+a0278,u193,e009,s034,marker_scanned,2026-03-18T09:42:00Z,0,{"marker_id":"marker_034"}
+a0279,u193,e009,s034,overlay_view,2026-03-18T09:42:05Z,291,{"stall_name":"Stall s034"}
+a0280,u193,e009,s032,marker_scanned,2026-03-18T09:47:00Z,0,{"marker_id":"marker_032"}
+a0281,u193,e009,s032,overlay_view,2026-03-18T09:47:05Z,122,{"stall_name":"Stall s032"}
+a0282,u193,e009,,ar_session_end,2026-03-18T09:50:30Z,1325,"{""markers_scanned"":3,""overlays_viewed"":3}"
+a0283,u104,e004,,event_viewed,2026-03-06T18:00:00Z,0,{}
+a0284,u079,e021,,event_registered,2026-06-02T19:00:00Z,0,{}
+a0285,u079,e021,,ar_session_start,2026-06-03T11:25:54Z,0,{}
+a0286,u079,e021,s070,marker_scanned,2026-06-03T11:29:54Z,0,{"marker_id":"marker_070"}
+a0287,u079,e021,s070,overlay_view,2026-06-03T11:29:59Z,227,{"stall_name":"Stall s070"}
+a0288,u079,e021,s071,marker_scanned,2026-06-03T11:38:54Z,0,{"marker_id":"marker_071"}
+a0289,u079,e021,s071,overlay_view,2026-06-03T11:38:59Z,227,{"stall_name":"Stall s071"}
+a0290,u079,e021,s068,marker_scanned,2026-06-03T11:40:54Z,0,{"marker_id":"marker_068"}
+a0291,u079,e021,s068,overlay_view,2026-06-03T11:40:59Z,298,{"stall_name":"Stall s068"}
+a0292,u079,e021,,ar_session_end,2026-06-03T11:45:24Z,1250,"{""markers_scanned"":3,""overlays_viewed"":3}"
+a0293,u129,e002,,event_viewed,2026-06-01T04:00:00Z,0,{}
+a0294,u115,e010,,event_registered,2026-07-22T06:00:00Z,0,{}
+a0295,u115,e010,,ar_session_start,2026-07-25T19:17:57Z,0,{}
+a0296,u115,e010,s039,marker_scanned,2026-07-25T19:23:57Z,0,{"marker_id":"marker_039"}
+a0297,u115,e010,s039,overlay_view,2026-07-25T19:24:02Z,210,{"stall_name":"Stall s039"}
+a0298,u115,e010,s037,marker_scanned,2026-07-25T19:28:57Z,0,{"marker_id":"marker_037"}
+a0299,u115,e010,s037,overlay_view,2026-07-25T19:29:02Z,126,{"stall_name":"Stall s037"}
+a0300,u115,e010,s036,marker_scanned,2026-07-25T19:35:57Z,0,{"marker_id":"marker_036"}
+a0301,u115,e010,s036,overlay_view,2026-07-25T19:36:02Z,248,{"stall_name":"Stall s036"}
+a0302,u115,e010,s038,marker_scanned,2026-07-25T19:37:57Z,0,{"marker_id":"marker_038"}
+a0303,u115,e010,s038,overlay_view,2026-07-25T19:38:02Z,134,{"stall_name":"Stall s038"}
+a0304,u115,e010,,ar_session_end,2026-07-25T19:38:27Z,1279,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a0305,u025,e020,,event_registered,2026-05-24T02:00:00Z,0,{}
+a0306,u025,e020,,ar_session_start,2026-05-30T19:47:44Z,0,{}
+a0307,u025,e020,s064,marker_scanned,2026-05-30T19:50:44Z,0,{"marker_id":"marker_064"}
+a0308,u025,e020,s064,overlay_view,2026-05-30T19:50:49Z,165,{"stall_name":"Stall s064"}
+a0309,u025,e020,s065,marker_scanned,2026-05-30T20:00:44Z,0,{"marker_id":"marker_065"}
+a0310,u025,e020,s065,overlay_view,2026-05-30T20:00:49Z,278,{"stall_name":"Stall s065"}
+a0311,u025,e020,s066,marker_scanned,2026-05-30T20:04:44Z,0,{"marker_id":"marker_066"}
+a0312,u025,e020,s066,overlay_view,2026-05-30T20:04:49Z,163,{"stall_name":"Stall s066"}
+a0313,u025,e020,s067,marker_scanned,2026-05-30T20:08:44Z,0,{"marker_id":"marker_067"}
+a0314,u025,e020,s067,overlay_view,2026-05-30T20:08:49Z,143,{"stall_name":"Stall s067"}
+a0315,u025,e020,,ar_session_end,2026-05-30T20:12:14Z,1515,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a0316,u012,e011,,event_viewed,2026-04-05T13:00:00Z,0,{}
+a0317,u169,e011,,ar_session_start,2026-04-22T22:17:27Z,0,{}
+a0318,u169,e011,s042,marker_scanned,2026-04-22T22:21:27Z,0,{"marker_id":"marker_042"}
+a0319,u169,e011,s042,overlay_view,2026-04-22T22:21:32Z,109,{"stall_name":"Stall s042"}
+a0320,u169,e011,,ar_session_end,2026-04-22T22:20:27Z,180,"{""markers_scanned"":1,""overlays_viewed"":1}"
+a0321,u104,e002,,event_viewed,2026-06-11T03:00:00Z,0,{}
+a0322,u041,e009,,event_registered,2026-03-11T19:00:00Z,0,{}
+a0323,u041,e009,,ar_session_start,2026-03-18T09:53:29Z,0,{}
+a0324,u041,e009,s034,marker_scanned,2026-03-18T09:58:29Z,0,{"marker_id":"marker_034"}
+a0325,u041,e009,s034,overlay_view,2026-03-18T09:58:34Z,244,{"stall_name":"Stall s034"}
+a0326,u041,e009,s032,marker_scanned,2026-03-18T10:02:29Z,0,{"marker_id":"marker_032"}
+a0327,u041,e009,s032,overlay_view,2026-03-18T10:02:34Z,213,{"stall_name":"Stall s032"}
+a0328,u041,e009,s033,marker_scanned,2026-03-18T10:06:29Z,0,{"marker_id":"marker_033"}
+a0329,u041,e009,s033,overlay_view,2026-03-18T10:06:34Z,276,{"stall_name":"Stall s033"}
+a0330,u041,e009,s035,marker_scanned,2026-03-18T10:14:29Z,0,{"marker_id":"marker_035"}
+a0331,u041,e009,s035,overlay_view,2026-03-18T10:14:34Z,122,{"stall_name":"Stall s035"}
+a0332,u041,e009,,ar_session_end,2026-03-18T10:16:59Z,1535,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a0333,u108,e010,,event_registered,2026-07-19T12:00:00Z,0,{}
+a0334,u001,e020,,event_registered,2026-05-21T10:00:00Z,0,{}
+a0335,u001,e020,,ar_session_start,2026-05-30T17:20:44Z,0,{}
+a0336,u001,e020,s066,marker_scanned,2026-05-30T17:23:44Z,0,{"marker_id":"marker_066"}
+a0337,u001,e020,s066,overlay_view,2026-05-30T17:23:49Z,91,{"stall_name":"Stall s066"}
+a0338,u001,e020,,ar_session_end,2026-05-30T17:22:44Z,120,"{""markers_scanned"":1,""overlays_viewed"":1}"
+a0339,u169,e029,,event_registered,2026-07-04T01:00:00Z,0,{}
+a0340,u169,e029,,ar_session_start,2026-07-12T12:39:39Z,0,{}
+a0341,u169,e029,s090,marker_scanned,2026-07-12T12:41:39Z,0,{"marker_id":"marker_090"}
+a0342,u169,e029,s090,overlay_view,2026-07-12T12:41:44Z,107,{"stall_name":"Stall s090"}
+a0343,u169,e029,,ar_session_end,2026-07-12T12:43:39Z,240,"{""markers_scanned"":1,""overlays_viewed"":1}"
+a0344,u065,e020,,event_viewed,2026-05-18T00:00:00Z,0,{}
+a0345,u128,e020,,ar_session_start,2026-05-30T16:53:48Z,0,{}
+a0346,u128,e020,s066,marker_scanned,2026-05-30T16:56:48Z,0,{"marker_id":"marker_066"}
+a0347,u128,e020,s066,overlay_view,2026-05-30T16:56:53Z,129,{"stall_name":"Stall s066"}
+a0348,u128,e020,,ar_session_end,2026-05-30T16:56:48Z,180,"{""markers_scanned"":1,""overlays_viewed"":1}"
+a0349,u106,e002,,event_viewed,2026-05-19T10:00:00Z,0,{}
+a0350,u009,e029,,event_registered,2026-07-08T00:00:00Z,0,{}
+a0351,u009,e029,,ar_session_start,2026-07-12T15:09:47Z,0,{}
+a0352,u009,e029,s089,marker_scanned,2026-07-12T15:12:47Z,0,{"marker_id":"marker_089"}
+a0353,u009,e029,s089,overlay_view,2026-07-12T15:12:52Z,125,{"stall_name":"Stall s089"}
+a0354,u009,e029,,ar_session_end,2026-07-12T15:12:47Z,180,"{""markers_scanned"":1,""overlays_viewed"":1}"
+a0355,u061,e020,,ar_session_start,2026-05-30T17:49:50Z,0,{}
+a0356,u061,e020,s067,marker_scanned,2026-05-30T17:52:50Z,0,{"marker_id":"marker_067"}
+a0357,u061,e020,s067,overlay_view,2026-05-30T17:52:55Z,94,{"stall_name":"Stall s067"}
+a0358,u061,e020,,ar_session_end,2026-05-30T17:53:50Z,240,"{""markers_scanned"":1,""overlays_viewed"":1}"
+a0359,u101,e007,,event_registered,2026-08-09T19:00:00Z,0,{}
+a0360,u165,e013,,event_registered,2026-06-11T01:00:00Z,0,{}
+a0361,u165,e013,,ar_session_start,2026-06-15T13:09:46Z,0,{}
+a0362,u165,e013,s046,marker_scanned,2026-06-15T13:14:46Z,0,{"marker_id":"marker_046"}
+a0363,u165,e013,s046,overlay_view,2026-06-15T13:14:51Z,150,{"stall_name":"Stall s046"}
+a0364,u165,e013,s045,marker_scanned,2026-06-15T13:20:46Z,0,{"marker_id":"marker_045"}
+a0365,u165,e013,s045,overlay_view,2026-06-15T13:20:51Z,199,{"stall_name":"Stall s045"}
+a0366,u165,e013,s044,marker_scanned,2026-06-15T13:26:46Z,0,{"marker_id":"marker_044"}
+a0367,u165,e013,s044,overlay_view,2026-06-15T13:26:51Z,240,{"stall_name":"Stall s044"}
+a0368,u165,e013,,ar_session_end,2026-06-15T13:30:16Z,1361,"{""markers_scanned"":3,""overlays_viewed"":3}"
+a0369,u096,e005,,event_registered,2026-05-06T01:00:00Z,0,{}
+a0370,u096,e005,,ar_session_start,2026-05-12T11:32:03Z,0,{}
+a0371,u096,e005,s025,marker_scanned,2026-05-12T11:34:03Z,0,{"marker_id":"marker_025"}
+a0372,u096,e005,s025,overlay_view,2026-05-12T11:34:08Z,109,{"stall_name":"Stall s025"}
+a0373,u096,e005,,ar_session_end,2026-05-12T11:37:03Z,300,"{""markers_scanned"":1,""overlays_viewed"":1}"
+a0374,u033,e004,,event_registered,2026-03-28T21:00:00Z,0,{}
+a0375,u033,e004,,ar_session_start,2026-04-05T13:27:34Z,0,{}
+a0376,u033,e004,s019,marker_scanned,2026-04-05T13:32:34Z,0,{"marker_id":"marker_019"}
+a0377,u033,e004,s019,overlay_view,2026-04-05T13:32:39Z,239,{"stall_name":"Stall s019"}
+a0378,u033,e004,s020,marker_scanned,2026-04-05T13:34:34Z,0,{"marker_id":"marker_020"}
+a0379,u033,e004,s020,overlay_view,2026-04-05T13:34:39Z,293,{"stall_name":"Stall s020"}
+a0380,u033,e004,s017,marker_scanned,2026-04-05T13:41:34Z,0,{"marker_id":"marker_017"}
+a0381,u033,e004,s017,overlay_view,2026-04-05T13:41:39Z,134,{"stall_name":"Stall s017"}
+a0382,u033,e004,s022,marker_scanned,2026-04-05T13:44:34Z,0,{"marker_id":"marker_022"}
+a0383,u033,e004,s022,overlay_view,2026-04-05T13:44:39Z,165,{"stall_name":"Stall s022"}
+a0384,u033,e004,,ar_session_end,2026-04-05T13:47:04Z,1318,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a0385,u083,e009,,event_registered,2026-03-10T19:00:00Z,0,{}
+a0386,u083,e009,,ar_session_start,2026-03-18T11:10:38Z,0,{}
+a0387,u083,e009,s035,marker_scanned,2026-03-18T11:16:38Z,0,{"marker_id":"marker_035"}
+a0388,u083,e009,s035,overlay_view,2026-03-18T11:16:43Z,195,{"stall_name":"Stall s035"}
+a0389,u083,e009,s032,marker_scanned,2026-03-18T11:19:38Z,0,{"marker_id":"marker_032"}
+a0390,u083,e009,s032,overlay_view,2026-03-18T11:19:43Z,202,{"stall_name":"Stall s032"}
+a0391,u083,e009,s033,marker_scanned,2026-03-18T11:23:38Z,0,{"marker_id":"marker_033"}
+a0392,u083,e009,s033,overlay_view,2026-03-18T11:23:43Z,212,{"stall_name":"Stall s033"}
+a0393,u083,e009,,ar_session_end,2026-03-18T11:26:08Z,1048,"{""markers_scanned"":3,""overlays_viewed"":3}"
+a0394,u068,e004,,event_viewed,2026-03-27T00:00:00Z,0,{}
+a0395,u106,e029,,event_registered,2026-07-08T01:00:00Z,0,{}
+a0396,u106,e029,,ar_session_start,2026-07-12T13:03:13Z,0,{}
+a0397,u106,e029,s088,marker_scanned,2026-07-12T13:07:13Z,0,{"marker_id":"marker_088"}
+a0398,u106,e029,s088,overlay_view,2026-07-12T13:07:18Z,170,{"stall_name":"Stall s088"}
+a0399,u106,e029,s090,marker_scanned,2026-07-12T13:17:13Z,0,{"marker_id":"marker_090"}
+a0400,u106,e029,s090,overlay_view,2026-07-12T13:17:18Z,260,{"stall_name":"Stall s090"}
+a0401,u106,e029,s089,marker_scanned,2026-07-12T13:20:13Z,0,{"marker_id":"marker_089"}
+a0402,u106,e029,s089,overlay_view,2026-07-12T13:20:18Z,274,{"stall_name":"Stall s089"}
+a0403,u106,e029,s091,marker_scanned,2026-07-12T13:25:13Z,0,{"marker_id":"marker_091"}
+a0404,u106,e029,s091,overlay_view,2026-07-12T13:25:18Z,212,{"stall_name":"Stall s091"}
+a0405,u106,e029,,ar_session_end,2026-07-12T13:27:43Z,1514,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a0406,u125,e027,,ar_session_start,2026-07-20T14:26:50Z,0,{}
+a0407,u125,e027,s087,marker_scanned,2026-07-20T14:28:50Z,0,{"marker_id":"marker_087"}
+a0408,u125,e027,s087,overlay_view,2026-07-20T14:28:55Z,45,{"stall_name":"Stall s087"}
+a0409,u125,e027,s085,marker_scanned,2026-07-20T14:33:50Z,0,{"marker_id":"marker_085"}
+a0410,u125,e027,s085,overlay_view,2026-07-20T14:33:55Z,105,{"stall_name":"Stall s085"}
+a0411,u125,e027,,ar_session_end,2026-07-20T14:32:50Z,360,"{""markers_scanned"":2,""overlays_viewed"":2}"
+a0412,u189,e017,,event_registered,2026-06-06T20:00:00Z,0,{}
+a0413,u189,e017,,ar_session_start,2026-06-10T14:03:46Z,0,{}
+a0414,u189,e017,s057,marker_scanned,2026-06-10T14:07:46Z,0,{"marker_id":"marker_057"}
+a0415,u189,e017,s057,overlay_view,2026-06-10T14:07:51Z,256,{"stall_name":"Stall s057"}
+a0416,u189,e017,s058,marker_scanned,2026-06-10T14:16:46Z,0,{"marker_id":"marker_058"}
+a0417,u189,e017,s058,overlay_view,2026-06-10T14:16:51Z,284,{"stall_name":"Stall s058"}
+a0418,u189,e017,s059,marker_scanned,2026-06-10T14:21:46Z,0,{"marker_id":"marker_059"}
+a0419,u189,e017,s059,overlay_view,2026-06-10T14:21:51Z,221,{"stall_name":"Stall s059"}
+a0420,u189,e017,,ar_session_end,2026-06-10T14:22:16Z,1150,"{""markers_scanned"":3,""overlays_viewed"":3}"
+a0421,u183,e029,,event_registered,2026-07-06T03:00:00Z,0,{}
+a0422,u183,e029,,ar_session_start,2026-07-12T14:46:50Z,0,{}
+a0423,u183,e029,s091,marker_scanned,2026-07-12T14:52:50Z,0,{"marker_id":"marker_091"}
+a0424,u183,e029,s091,overlay_view,2026-07-12T14:52:55Z,255,{"stall_name":"Stall s091"}
+a0425,u183,e029,s090,marker_scanned,2026-07-12T14:54:50Z,0,{"marker_id":"marker_090"}
+a0426,u183,e029,s090,overlay_view,2026-07-12T14:54:55Z,124,{"stall_name":"Stall s090"}
+a0427,u183,e029,s089,marker_scanned,2026-07-12T15:03:50Z,0,{"marker_id":"marker_089"}
+a0428,u183,e029,s089,overlay_view,2026-07-12T15:03:55Z,245,{"stall_name":"Stall s089"}
+a0429,u183,e029,s088,marker_scanned,2026-07-12T15:07:50Z,0,{"marker_id":"marker_088"}
+a0430,u183,e029,s088,overlay_view,2026-07-12T15:07:55Z,140,{"stall_name":"Stall s088"}
+a0431,u183,e029,,ar_session_end,2026-07-12T15:10:20Z,1511,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a0432,u109,e026,,event_registered,2026-06-21T22:00:00Z,0,{}
+a0433,u109,e026,,ar_session_start,2026-06-28T15:45:44Z,0,{}
+a0434,u109,e026,s083,marker_scanned,2026-06-28T15:50:44Z,0,{"marker_id":"marker_083"}
+a0435,u109,e026,s083,overlay_view,2026-06-28T15:50:49Z,171,{"stall_name":"Stall s083"}
+a0436,u109,e026,s082,marker_scanned,2026-06-28T15:56:44Z,0,{"marker_id":"marker_082"}
+a0437,u109,e026,s082,overlay_view,2026-06-28T15:56:49Z,197,{"stall_name":"Stall s082"}
+a0438,u109,e026,s081,marker_scanned,2026-06-28T16:00:44Z,0,{"marker_id":"marker_081"}
+a0439,u109,e026,s081,overlay_view,2026-06-28T16:00:49Z,149,{"stall_name":"Stall s081"}
+a0440,u109,e026,s080,marker_scanned,2026-06-28T16:08:44Z,0,{"marker_id":"marker_080"}
+a0441,u109,e026,s080,overlay_view,2026-06-28T16:08:49Z,166,{"stall_name":"Stall s080"}
+a0442,u109,e026,,ar_session_end,2026-06-28T16:12:14Z,1737,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a0443,u183,e013,,event_viewed,2026-06-10T07:00:00Z,0,{}
+a0444,u066,e013,,event_viewed,2026-05-30T22:00:00Z,0,{}
+a0445,u040,e015,,event_registered,2026-05-02T21:00:00Z,0,{}
+a0446,u040,e015,,ar_session_start,2026-05-05T13:45:30Z,0,{}
+a0447,u040,e015,s048,marker_scanned,2026-05-05T13:48:30Z,0,{"marker_id":"marker_048"}
+a0448,u040,e015,s048,overlay_view,2026-05-05T13:48:35Z,177,{"stall_name":"Stall s048"}
+a0449,u040,e015,s051,marker_scanned,2026-05-05T13:58:30Z,0,{"marker_id":"marker_051"}
+a0450,u040,e015,s051,overlay_view,2026-05-05T13:58:35Z,217,{"stall_name":"Stall s051"}
+a0451,u040,e015,s049,marker_scanned,2026-05-05T14:05:30Z,0,{"marker_id":"marker_049"}
+a0452,u040,e015,s049,overlay_view,2026-05-05T14:05:35Z,187,{"stall_name":"Stall s049"}
+a0453,u040,e015,s050,marker_scanned,2026-05-05T14:08:30Z,0,{"marker_id":"marker_050"}
+a0454,u040,e015,s050,overlay_view,2026-05-05T14:08:35Z,184,{"stall_name":"Stall s050"}
+a0455,u040,e015,,ar_session_end,2026-05-05T14:10:00Z,1524,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a0456,u188,e009,,event_viewed,2026-02-10T04:00:00Z,0,{}
+a0457,u066,e016,,event_registered,2026-03-19T22:00:00Z,0,{}
+a0458,u066,e016,,ar_session_start,2026-03-28T12:37:16Z,0,{}
+a0459,u066,e016,s053,marker_scanned,2026-03-28T12:43:16Z,0,{"marker_id":"marker_053"}
+a0460,u066,e016,s053,overlay_view,2026-03-28T12:43:21Z,224,{"stall_name":"Stall s053"}
+a0461,u066,e016,s052,marker_scanned,2026-03-28T12:48:16Z,0,{"marker_id":"marker_052"}
+a0462,u066,e016,s052,overlay_view,2026-03-28T12:48:21Z,191,{"stall_name":"Stall s052"}
+a0463,u066,e016,s055,marker_scanned,2026-03-28T12:58:16Z,0,{"marker_id":"marker_055"}
+a0464,u066,e016,s055,overlay_view,2026-03-28T12:58:21Z,169,{"stall_name":"Stall s055"}
+a0465,u066,e016,s054,marker_scanned,2026-03-28T13:01:16Z,0,{"marker_id":"marker_054"}
+a0466,u066,e016,s054,overlay_view,2026-03-28T13:01:21Z,139,{"stall_name":"Stall s054"}
+a0467,u066,e016,,ar_session_end,2026-03-28T13:03:46Z,1691,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a0468,u080,e005,,ar_session_start,2026-05-12T12:37:12Z,0,{}
+a0469,u080,e005,s023,marker_scanned,2026-05-12T12:39:12Z,0,{"marker_id":"marker_023"}
+a0470,u080,e005,s023,overlay_view,2026-05-12T12:39:17Z,131,{"stall_name":"Stall s023"}
+a0471,u080,e005,,ar_session_end,2026-05-12T12:39:12Z,120,"{""markers_scanned"":1,""overlays_viewed"":1}"
+a0472,u151,e027,,event_registered,2026-07-19T18:00:00Z,0,{}
+a0473,u151,e027,,ar_session_start,2026-07-20T11:56:05Z,0,{}
+a0474,u151,e027,s085,marker_scanned,2026-07-20T11:59:05Z,0,{"marker_id":"marker_085"}
+a0475,u151,e027,s085,overlay_view,2026-07-20T11:59:10Z,130,{"stall_name":"Stall s085"}
+a0476,u151,e027,s086,marker_scanned,2026-07-20T12:05:05Z,0,{"marker_id":"marker_086"}
+a0477,u151,e027,s086,overlay_view,2026-07-20T12:05:10Z,168,{"stall_name":"Stall s086"}
+a0478,u151,e027,s084,marker_scanned,2026-07-20T12:09:05Z,0,{"marker_id":"marker_084"}
+a0479,u151,e027,s084,overlay_view,2026-07-20T12:09:10Z,151,{"stall_name":"Stall s084"}
+a0480,u151,e027,,ar_session_end,2026-07-20T12:11:35Z,1060,"{""markers_scanned"":3,""overlays_viewed"":3}"
+a0481,u098,e011,,event_viewed,2026-04-04T06:00:00Z,0,{}
+a0482,u040,e004,,event_registered,2026-03-31T20:00:00Z,0,{}
+a0483,u040,e004,,ar_session_start,2026-04-05T13:30:15Z,0,{}
+a0484,u040,e004,s017,marker_scanned,2026-04-05T13:34:15Z,0,{"marker_id":"marker_017"}
+a0485,u040,e004,s017,overlay_view,2026-04-05T13:34:20Z,299,{"stall_name":"Stall s017"}
+a0486,u040,e004,s019,marker_scanned,2026-04-05T13:41:15Z,0,{"marker_id":"marker_019"}
+a0487,u040,e004,s019,overlay_view,2026-04-05T13:41:20Z,229,{"stall_name":"Stall s019"}
+a0488,u040,e004,s022,marker_scanned,2026-04-05T13:46:15Z,0,{"marker_id":"marker_022"}
+a0489,u040,e004,s022,overlay_view,2026-04-05T13:46:20Z,189,{"stall_name":"Stall s022"}
+a0490,u040,e004,,ar_session_end,2026-04-05T13:46:45Z,1092,"{""markers_scanned"":3,""overlays_viewed"":3}"
+a0491,u082,e004,,event_registered,2026-03-28T19:00:00Z,0,{}
+a0492,u082,e004,,ar_session_start,2026-04-05T10:42:38Z,0,{}
+a0493,u082,e004,s021,marker_scanned,2026-04-05T10:46:38Z,0,{"marker_id":"marker_021"}
+a0494,u082,e004,s021,overlay_view,2026-04-05T10:46:43Z,272,{"stall_name":"Stall s021"}
+a0495,u082,e004,s017,marker_scanned,2026-04-05T10:53:38Z,0,{"marker_id":"marker_017"}
+a0496,u082,e004,s017,overlay_view,2026-04-05T10:53:43Z,280,{"stall_name":"Stall s017"}
+a0497,u082,e004,s020,marker_scanned,2026-04-05T10:57:38Z,0,{"marker_id":"marker_020"}
+a0498,u082,e004,s020,overlay_view,2026-04-05T10:57:43Z,194,{"stall_name":"Stall s020"}
+a0499,u082,e004,s022,marker_scanned,2026-04-05T11:01:38Z,0,{"marker_id":"marker_022"}
+a0500,u082,e004,s022,overlay_view,2026-04-05T11:01:43Z,195,{"stall_name":"Stall s022"}
+a0501,u082,e004,,ar_session_end,2026-04-05T11:01:08Z,1193,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a0502,u137,e026,,event_registered,2026-06-27T23:00:00Z,0,{}
+a0503,u137,e026,,ar_session_start,2026-06-28T11:50:31Z,0,{}
+a0504,u137,e026,s081,marker_scanned,2026-06-28T11:54:31Z,0,{"marker_id":"marker_081"}
+a0505,u137,e026,s081,overlay_view,2026-06-28T11:54:36Z,178,{"stall_name":"Stall s081"}
+a0506,u137,e026,s083,marker_scanned,2026-06-28T11:58:31Z,0,{"marker_id":"marker_083"}
+a0507,u137,e026,s083,overlay_view,2026-06-28T11:58:36Z,277,{"stall_name":"Stall s083"}
+a0508,u137,e026,s082,marker_scanned,2026-06-28T12:04:31Z,0,{"marker_id":"marker_082"}
+a0509,u137,e026,s082,overlay_view,2026-06-28T12:04:36Z,226,{"stall_name":"Stall s082"}
+a0510,u137,e026,s080,marker_scanned,2026-06-28T12:10:31Z,0,{"marker_id":"marker_080"}
+a0511,u137,e026,s080,overlay_view,2026-06-28T12:10:36Z,125,{"stall_name":"Stall s080"}
+a0512,u137,e026,,ar_session_end,2026-06-28T12:09:01Z,1223,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a0513,u025,e005,,event_registered,2026-05-07T23:00:00Z,0,{}
+a0514,u025,e005,,ar_session_start,2026-05-12T13:23:46Z,0,{}
+a0515,u025,e005,s025,marker_scanned,2026-05-12T13:28:46Z,0,{"marker_id":"marker_025"}
+a0516,u025,e005,s025,overlay_view,2026-05-12T13:28:51Z,208,{"stall_name":"Stall s025"}
+a0517,u025,e005,s023,marker_scanned,2026-05-12T13:30:46Z,0,{"marker_id":"marker_023"}
+a0518,u025,e005,s023,overlay_view,2026-05-12T13:30:51Z,122,{"stall_name":"Stall s023"}
+a0519,u025,e005,s024,marker_scanned,2026-05-12T13:34:46Z,0,{"marker_id":"marker_024"}
+a0520,u025,e005,s024,overlay_view,2026-05-12T13:34:51Z,284,{"stall_name":"Stall s024"}
+a0521,u025,e005,s026,marker_scanned,2026-05-12T13:42:46Z,0,{"marker_id":"marker_026"}
+a0522,u025,e005,s026,overlay_view,2026-05-12T13:42:51Z,178,{"stall_name":"Stall s026"}
+a0523,u025,e005,,ar_session_end,2026-05-12T13:42:16Z,1158,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a0524,u165,e017,,ar_session_start,2026-06-10T11:09:08Z,0,{}
+a0525,u165,e017,s057,marker_scanned,2026-06-10T11:12:08Z,0,{"marker_id":"marker_057"}
+a0526,u165,e017,s057,overlay_view,2026-06-10T11:12:13Z,141,{"stall_name":"Stall s057"}
+a0527,u165,e017,,ar_session_end,2026-06-10T11:11:08Z,120,"{""markers_scanned"":1,""overlays_viewed"":1}"
+a0528,u074,e021,,event_registered,2026-05-31T21:00:00Z,0,{}
+a0529,u074,e021,,ar_session_start,2026-06-03T14:59:32Z,0,{}
+a0530,u074,e021,s068,marker_scanned,2026-06-03T15:01:32Z,0,{"marker_id":"marker_068"}
+a0531,u074,e021,s068,overlay_view,2026-06-03T15:01:37Z,68,{"stall_name":"Stall s068"}
+a0532,u074,e021,,ar_session_end,2026-06-03T15:01:32Z,120,"{""markers_scanned"":1,""overlays_viewed"":1}"
+a0533,u191,e025,,event_registered,2026-06-27T03:00:00Z,0,{}
+a0534,u191,e025,,ar_session_start,2026-07-05T12:50:41Z,0,{}
+a0535,u191,e025,s079,marker_scanned,2026-07-05T12:55:41Z,0,{"marker_id":"marker_079"}
+a0536,u191,e025,s079,overlay_view,2026-07-05T12:55:46Z,262,{"stall_name":"Stall s079"}
+a0537,u191,e025,s078,marker_scanned,2026-07-05T13:03:41Z,0,{"marker_id":"marker_078"}
+a0538,u191,e025,s078,overlay_view,2026-07-05T13:03:46Z,142,{"stall_name":"Stall s078"}
+a0539,u191,e025,s077,marker_scanned,2026-07-05T13:09:41Z,0,{"marker_id":"marker_077"}
+a0540,u191,e025,s077,overlay_view,2026-07-05T13:09:46Z,156,{"stall_name":"Stall s077"}
+a0541,u191,e025,,ar_session_end,2026-07-05T13:11:11Z,1316,"{""markers_scanned"":3,""overlays_viewed"":3}"
+a0542,u190,e004,,event_registered,2026-03-30T23:00:00Z,0,{}
+a0543,u190,e004,,ar_session_start,2026-04-05T12:23:14Z,0,{}
+a0544,u190,e004,s020,marker_scanned,2026-04-05T12:29:14Z,0,{"marker_id":"marker_020"}
+a0545,u190,e004,s020,overlay_view,2026-04-05T12:29:19Z,143,{"stall_name":"Stall s020"}
+a0546,u190,e004,s019,marker_scanned,2026-04-05T12:32:14Z,0,{"marker_id":"marker_019"}
+a0547,u190,e004,s019,overlay_view,2026-04-05T12:32:19Z,184,{"stall_name":"Stall s019"}
+a0548,u190,e004,s018,marker_scanned,2026-04-05T12:37:14Z,0,{"marker_id":"marker_018"}
+a0549,u190,e004,s018,overlay_view,2026-04-05T12:37:19Z,234,{"stall_name":"Stall s018"}
+a0550,u190,e004,,ar_session_end,2026-04-05T12:37:44Z,992,"{""markers_scanned"":3,""overlays_viewed"":3}"
+a0551,u052,e023,,event_registered,2026-03-31T11:00:00Z,0,{}
+a0552,u052,e023,,ar_session_start,2026-04-08T22:37:26Z,0,{}
+a0553,u052,e023,s072,marker_scanned,2026-04-08T22:40:26Z,0,{"marker_id":"marker_072"}
+a0554,u052,e023,s072,overlay_view,2026-04-08T22:40:31Z,270,{"stall_name":"Stall s072"}
+a0555,u052,e023,s073,marker_scanned,2026-04-08T22:49:26Z,0,{"marker_id":"marker_073"}
+a0556,u052,e023,s073,overlay_view,2026-04-08T22:49:31Z,265,{"stall_name":"Stall s073"}
+a0557,u052,e023,s075,marker_scanned,2026-04-08T22:57:26Z,0,{"marker_id":"marker_075"}
+a0558,u052,e023,s075,overlay_view,2026-04-08T22:57:31Z,210,{"stall_name":"Stall s075"}
+a0559,u052,e023,s074,marker_scanned,2026-04-08T23:04:26Z,0,{"marker_id":"marker_074"}
+a0560,u052,e023,s074,overlay_view,2026-04-08T23:04:31Z,181,{"stall_name":"Stall s074"}
+a0561,u052,e023,,ar_session_end,2026-04-08T23:02:56Z,1590,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a0562,u093,e003,,event_registered,2026-03-09T22:00:00Z,0,{}
+a0563,u093,e003,,ar_session_start,2026-03-10T14:58:08Z,0,{}
+a0564,u093,e003,s014,marker_scanned,2026-03-10T15:03:08Z,0,{"marker_id":"marker_014"}
+a0565,u093,e003,s014,overlay_view,2026-03-10T15:03:13Z,146,{"stall_name":"Stall s014"}
+a0566,u093,e003,s013,marker_scanned,2026-03-10T15:12:08Z,0,{"marker_id":"marker_013"}
+a0567,u093,e003,s013,overlay_view,2026-03-10T15:12:13Z,120,{"stall_name":"Stall s013"}
+a0568,u093,e003,s016,marker_scanned,2026-03-10T15:20:08Z,0,{"marker_id":"marker_016"}
+a0569,u093,e003,s016,overlay_view,2026-03-10T15:20:13Z,245,{"stall_name":"Stall s016"}
+a0570,u093,e003,,ar_session_end,2026-03-10T15:19:38Z,1336,"{""markers_scanned"":3,""overlays_viewed"":3}"
+a0571,u021,e021,,event_registered,2026-05-22T03:00:00Z,0,{}
+a0572,u054,e029,,event_registered,2026-07-02T05:00:00Z,0,{}
+a0573,u054,e029,,ar_session_start,2026-07-12T13:34:22Z,0,{}
+a0574,u054,e029,s090,marker_scanned,2026-07-12T13:38:22Z,0,{"marker_id":"marker_090"}
+a0575,u054,e029,s090,overlay_view,2026-07-12T13:38:27Z,103,{"stall_name":"Stall s090"}
+a0576,u054,e029,s088,marker_scanned,2026-07-12T13:43:22Z,0,{"marker_id":"marker_088"}
+a0577,u054,e029,s088,overlay_view,2026-07-12T13:43:27Z,132,{"stall_name":"Stall s088"}
+a0578,u054,e029,,ar_session_end,2026-07-12T13:43:22Z,540,"{""markers_scanned"":2,""overlays_viewed"":2}"
+a0579,u173,e020,,event_registered,2026-05-24T07:00:00Z,0,{}
+a0580,u173,e020,,ar_session_start,2026-05-30T17:37:28Z,0,{}
+a0581,u173,e020,s067,marker_scanned,2026-05-30T17:42:28Z,0,{"marker_id":"marker_067"}
+a0582,u173,e020,s067,overlay_view,2026-05-30T17:42:33Z,189,{"stall_name":"Stall s067"}
+a0583,u173,e020,s065,marker_scanned,2026-05-30T17:51:28Z,0,{"marker_id":"marker_065"}
+a0584,u173,e020,s065,overlay_view,2026-05-30T17:51:33Z,285,{"stall_name":"Stall s065"}
+a0585,u173,e020,s064,marker_scanned,2026-05-30T17:57:28Z,0,{"marker_id":"marker_064"}
+a0586,u173,e020,s064,overlay_view,2026-05-30T17:57:33Z,176,{"stall_name":"Stall s064"}
+a0587,u173,e020,,ar_session_end,2026-05-30T17:56:58Z,1256,"{""markers_scanned"":3,""overlays_viewed"":3}"
+a0588,u084,e002,,event_registered,2026-06-19T07:00:00Z,0,{}
+a0589,u084,e002,,ar_session_start,2026-06-20T16:30:37Z,0,{}
+a0590,u084,e002,s007,marker_scanned,2026-06-20T16:35:37Z,0,{"marker_id":"marker_007"}
+a0591,u084,e002,s007,overlay_view,2026-06-20T16:35:42Z,255,{"stall_name":"Stall s007"}
+a0592,u084,e002,s010,marker_scanned,2026-06-20T16:44:37Z,0,{"marker_id":"marker_010"}
+a0593,u084,e002,s010,overlay_view,2026-06-20T16:44:42Z,162,{"stall_name":"Stall s010"}
+a0594,u084,e002,s009,marker_scanned,2026-06-20T16:52:37Z,0,{"marker_id":"marker_009"}
+a0595,u084,e002,s009,overlay_view,2026-06-20T16:52:42Z,273,{"stall_name":"Stall s009"}
+a0596,u084,e002,s008,marker_scanned,2026-06-20T16:54:37Z,0,{"marker_id":"marker_008"}
+a0597,u084,e002,s008,overlay_view,2026-06-20T16:54:42Z,143,{"stall_name":"Stall s008"}
+a0598,u084,e002,,ar_session_end,2026-06-20T16:56:07Z,1671,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a0599,u160,e026,,event_viewed,2026-06-13T01:00:00Z,0,{}
+a0600,u178,e010,,event_registered,2026-07-25T08:00:00Z,0,{}
+a0601,u178,e010,,ar_session_start,2026-07-25T17:06:24Z,0,{}
+a0602,u178,e010,s037,marker_scanned,2026-07-25T17:10:24Z,0,{"marker_id":"marker_037"}
+a0603,u178,e010,s037,overlay_view,2026-07-25T17:10:29Z,244,{"stall_name":"Stall s037"}
+a0604,u178,e010,s039,marker_scanned,2026-07-25T17:16:24Z,0,{"marker_id":"marker_039"}
+a0605,u178,e010,s039,overlay_view,2026-07-25T17:16:29Z,148,{"stall_name":"Stall s039"}
+a0606,u178,e010,s036,marker_scanned,2026-07-25T17:20:24Z,0,{"marker_id":"marker_036"}
+a0607,u178,e010,s036,overlay_view,2026-07-25T17:20:29Z,128,{"stall_name":"Stall s036"}
+a0608,u178,e010,,ar_session_end,2026-07-25T17:21:54Z,1056,"{""markers_scanned"":3,""overlays_viewed"":3}"
+a0609,u018,e001,,event_viewed,2026-02-10T18:00:00Z,0,{}
+a0610,u169,e021,,event_registered,2026-05-26T00:00:00Z,0,{}
+a0611,u169,e021,,ar_session_start,2026-06-03T13:39:25Z,0,{}
+a0612,u169,e021,s069,marker_scanned,2026-06-03T13:43:25Z,0,{"marker_id":"marker_069"}
+a0613,u169,e021,s069,overlay_view,2026-06-03T13:43:30Z,48,{"stall_name":"Stall s069"}
+a0614,u169,e021,,ar_session_end,2026-06-03T13:43:25Z,240,"{""markers_scanned"":1,""overlays_viewed"":1}"
+a0615,u091,e013,,event_registered,2026-05-30T18:00:00Z,0,{}
+a0616,u145,e017,,event_registered,2026-06-09T05:00:00Z,0,{}
+a0617,u145,e017,,ar_session_start,2026-06-10T14:00:08Z,0,{}
+a0618,u145,e017,s057,marker_scanned,2026-06-10T14:02:08Z,0,{"marker_id":"marker_057"}
+a0619,u145,e017,s057,overlay_view,2026-06-10T14:02:13Z,53,{"stall_name":"Stall s057"}
+a0620,u145,e017,,ar_session_end,2026-06-10T14:05:08Z,300,"{""markers_scanned"":1,""overlays_viewed"":1}"
+a0621,u055,e003,,event_registered,2026-03-08T01:00:00Z,0,{}
+a0622,u055,e003,,ar_session_start,2026-03-10T12:12:48Z,0,{}
+a0623,u055,e003,s012,marker_scanned,2026-03-10T12:16:48Z,0,{"marker_id":"marker_012"}
+a0624,u055,e003,s012,overlay_view,2026-03-10T12:16:53Z,229,{"stall_name":"Stall s012"}
+a0625,u055,e003,s015,marker_scanned,2026-03-10T12:22:48Z,0,{"marker_id":"marker_015"}
+a0626,u055,e003,s015,overlay_view,2026-03-10T12:22:53Z,278,{"stall_name":"Stall s015"}
+a0627,u055,e003,s016,marker_scanned,2026-03-10T12:27:48Z,0,{"marker_id":"marker_016"}
+a0628,u055,e003,s016,overlay_view,2026-03-10T12:27:53Z,264,{"stall_name":"Stall s016"}
+a0629,u055,e003,s014,marker_scanned,2026-03-10T12:36:48Z,0,{"marker_id":"marker_014"}
+a0630,u055,e003,s014,overlay_view,2026-03-10T12:36:53Z,285,{"stall_name":"Stall s014"}
+a0631,u055,e003,,ar_session_end,2026-03-10T12:37:18Z,1581,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a0632,u193,e001,,event_registered,2026-02-08T03:00:00Z,0,{}
+a0633,u091,e025,,event_viewed,2026-06-18T01:00:00Z,0,{}
+a0634,u128,e007,,event_viewed,2026-08-13T00:00:00Z,0,{}
+a0635,u180,e004,,event_viewed,2026-03-20T18:00:00Z,0,{}
+a0636,u019,e029,,event_viewed,2026-06-04T22:00:00Z,0,{}
+a0637,u028,e020,,event_registered,2026-05-23T00:00:00Z,0,{}
+a0638,u028,e020,,ar_session_start,2026-05-30T18:57:01Z,0,{}
+a0639,u028,e020,s065,marker_scanned,2026-05-30T19:03:01Z,0,{"marker_id":"marker_065"}
+a0640,u028,e020,s065,overlay_view,2026-05-30T19:03:06Z,182,{"stall_name":"Stall s065"}
+a0641,u028,e020,s064,marker_scanned,2026-05-30T19:06:01Z,0,{"marker_id":"marker_064"}
+a0642,u028,e020,s064,overlay_view,2026-05-30T19:06:06Z,224,{"stall_name":"Stall s064"}
+a0643,u028,e020,s066,marker_scanned,2026-05-30T19:13:01Z,0,{"marker_id":"marker_066"}
+a0644,u028,e020,s066,overlay_view,2026-05-30T19:13:06Z,283,{"stall_name":"Stall s066"}
+a0645,u028,e020,,ar_session_end,2026-05-30T19:15:31Z,1234,"{""markers_scanned"":3,""overlays_viewed"":3}"
+a0646,u151,e013,,event_registered,2026-06-11T02:00:00Z,0,{}
+a0647,u151,e013,,ar_session_start,2026-06-15T14:42:50Z,0,{}
+a0648,u151,e013,s045,marker_scanned,2026-06-15T14:45:50Z,0,{"marker_id":"marker_045"}
+a0649,u151,e013,s045,overlay_view,2026-06-15T14:45:55Z,178,{"stall_name":"Stall s045"}
+a0650,u151,e013,s046,marker_scanned,2026-06-15T14:55:50Z,0,{"marker_id":"marker_046"}
+a0651,u151,e013,s046,overlay_view,2026-06-15T14:55:55Z,298,{"stall_name":"Stall s046"}
+a0652,u151,e013,s044,marker_scanned,2026-06-15T15:02:50Z,0,{"marker_id":"marker_044"}
+a0653,u151,e013,s044,overlay_view,2026-06-15T15:02:55Z,120,{"stall_name":"Stall s044"}
+a0654,u151,e013,,ar_session_end,2026-06-15T15:05:20Z,1462,"{""markers_scanned"":3,""overlays_viewed"":3}"
+a0655,u173,e003,,event_viewed,2026-02-17T03:00:00Z,0,{}
+a0656,u090,e013,,event_registered,2026-06-04T01:00:00Z,0,{}
+a0657,u185,e017,,event_registered,2026-06-04T03:00:00Z,0,{}
+a0658,u185,e017,,ar_session_start,2026-06-10T11:59:56Z,0,{}
+a0659,u185,e017,s057,marker_scanned,2026-06-10T12:03:56Z,0,{"marker_id":"marker_057"}
+a0660,u185,e017,s057,overlay_view,2026-06-10T12:04:01Z,232,{"stall_name":"Stall s057"}
+a0661,u185,e017,s059,marker_scanned,2026-06-10T12:09:56Z,0,{"marker_id":"marker_059"}
+a0662,u185,e017,s059,overlay_view,2026-06-10T12:10:01Z,129,{"stall_name":"Stall s059"}
+a0663,u185,e017,s058,marker_scanned,2026-06-10T12:17:56Z,0,{"marker_id":"marker_058"}
+a0664,u185,e017,s058,overlay_view,2026-06-10T12:18:01Z,179,{"stall_name":"Stall s058"}
+a0665,u185,e017,,ar_session_end,2026-06-10T12:19:26Z,1300,"{""markers_scanned"":3,""overlays_viewed"":3}"
+a0666,u159,e002,,event_registered,2026-06-16T00:00:00Z,0,{}
+a0667,u159,e002,,ar_session_start,2026-06-20T16:46:57Z,0,{}
+a0668,u159,e002,s011,marker_scanned,2026-06-20T16:51:57Z,0,{"marker_id":"marker_011"}
+a0669,u159,e002,s011,overlay_view,2026-06-20T16:52:02Z,198,{"stall_name":"Stall s011"}
+a0670,u159,e002,s008,marker_scanned,2026-06-20T16:56:57Z,0,{"marker_id":"marker_008"}
+a0671,u159,e002,s008,overlay_view,2026-06-20T16:57:02Z,185,{"stall_name":"Stall s008"}
+a0672,u159,e002,s010,marker_scanned,2026-06-20T17:02:57Z,0,{"marker_id":"marker_010"}
+a0673,u159,e002,s010,overlay_view,2026-06-20T17:03:02Z,248,{"stall_name":"Stall s010"}
+a0674,u159,e002,s009,marker_scanned,2026-06-20T17:09:57Z,0,{"marker_id":"marker_009"}
+a0675,u159,e002,s009,overlay_view,2026-06-20T17:10:02Z,188,{"stall_name":"Stall s009"}
+a0676,u159,e002,,ar_session_end,2026-06-20T17:12:27Z,1664,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a0677,u030,e026,,event_registered,2026-06-22T05:00:00Z,0,{}
+a0678,u030,e026,,ar_session_start,2026-06-28T14:30:13Z,0,{}
+a0679,u030,e026,s081,marker_scanned,2026-06-28T14:33:13Z,0,{"marker_id":"marker_081"}
+a0680,u030,e026,s081,overlay_view,2026-06-28T14:33:18Z,45,{"stall_name":"Stall s081"}
+a0681,u030,e026,,ar_session_end,2026-06-28T14:35:13Z,300,"{""markers_scanned"":1,""overlays_viewed"":1}"
+a0682,u137,e015,,event_registered,2026-04-30T22:00:00Z,0,{}
+a0683,u137,e015,,ar_session_start,2026-05-05T11:20:17Z,0,{}
+a0684,u137,e015,s050,marker_scanned,2026-05-05T11:22:17Z,0,{"marker_id":"marker_050"}
+a0685,u137,e015,s050,overlay_view,2026-05-05T11:22:22Z,118,{"stall_name":"Stall s050"}
+a0686,u137,e015,,ar_session_end,2026-05-05T11:22:17Z,120,"{""markers_scanned"":1,""overlays_viewed"":1}"
+a0687,u103,e016,,event_registered,2026-03-26T01:00:00Z,0,{}
+a0688,u103,e016,,ar_session_start,2026-03-28T11:53:16Z,0,{}
+a0689,u103,e016,s055,marker_scanned,2026-03-28T11:59:16Z,0,{"marker_id":"marker_055"}
+a0690,u103,e016,s055,overlay_view,2026-03-28T11:59:21Z,260,{"stall_name":"Stall s055"}
+a0691,u103,e016,s052,marker_scanned,2026-03-28T12:01:16Z,0,{"marker_id":"marker_052"}
+a0692,u103,e016,s052,overlay_view,2026-03-28T12:01:21Z,148,{"stall_name":"Stall s052"}
+a0693,u103,e016,s053,marker_scanned,2026-03-28T12:06:16Z,0,{"marker_id":"marker_053"}
+a0694,u103,e016,s053,overlay_view,2026-03-28T12:06:21Z,151,{"stall_name":"Stall s053"}
+a0695,u103,e016,s054,marker_scanned,2026-03-28T12:11:16Z,0,{"marker_id":"marker_054"}
+a0696,u103,e016,s054,overlay_view,2026-03-28T12:11:21Z,299,{"stall_name":"Stall s054"}
+a0697,u103,e016,,ar_session_end,2026-03-28T12:15:46Z,1452,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a0698,u001,e026,,event_registered,2026-06-27T04:00:00Z,0,{}
+a0699,u001,e026,,ar_session_start,2026-06-28T14:09:03Z,0,{}
+a0700,u001,e026,s081,marker_scanned,2026-06-28T14:14:03Z,0,{"marker_id":"marker_081"}
+a0701,u001,e026,s081,overlay_view,2026-06-28T14:14:08Z,245,{"stall_name":"Stall s081"}
+a0702,u001,e026,s080,marker_scanned,2026-06-28T14:23:03Z,0,{"marker_id":"marker_080"}
+a0703,u001,e026,s080,overlay_view,2026-06-28T14:23:08Z,243,{"stall_name":"Stall s080"}
+a0704,u001,e026,s082,marker_scanned,2026-06-28T14:28:03Z,0,{"marker_id":"marker_082"}
+a0705,u001,e026,s082,overlay_view,2026-06-28T14:28:08Z,191,{"stall_name":"Stall s082"}
+a0706,u001,e026,,ar_session_end,2026-06-28T14:32:33Z,1512,"{""markers_scanned"":3,""overlays_viewed"":3}"
+a0707,u045,e026,,event_registered,2026-06-20T05:00:00Z,0,{}
+a0708,u055,e021,,event_registered,2026-05-22T19:00:00Z,0,{}
+a0709,u055,e021,,ar_session_start,2026-06-03T11:19:10Z,0,{}
+a0710,u055,e021,s069,marker_scanned,2026-06-03T11:21:10Z,0,{"marker_id":"marker_069"}
+a0711,u055,e021,s069,overlay_view,2026-06-03T11:21:15Z,127,{"stall_name":"Stall s069"}
+a0712,u055,e021,,ar_session_end,2026-06-03T11:21:10Z,120,"{""markers_scanned"":1,""overlays_viewed"":1}"
+a0713,u077,e010,,event_registered,2026-07-23T07:00:00Z,0,{}
+a0714,u077,e010,,ar_session_start,2026-07-25T18:29:06Z,0,{}
+a0715,u077,e010,s038,marker_scanned,2026-07-25T18:33:06Z,0,{"marker_id":"marker_038"}
+a0716,u077,e010,s038,overlay_view,2026-07-25T18:33:11Z,202,{"stall_name":"Stall s038"}
+a0717,u077,e010,s037,marker_scanned,2026-07-25T18:40:06Z,0,{"marker_id":"marker_037"}
+a0718,u077,e010,s037,overlay_view,2026-07-25T18:40:11Z,145,{"stall_name":"Stall s037"}
+a0719,u077,e010,s036,marker_scanned,2026-07-25T18:45:06Z,0,{"marker_id":"marker_036"}
+a0720,u077,e010,s036,overlay_view,2026-07-25T18:45:11Z,255,{"stall_name":"Stall s036"}
+a0721,u077,e010,s039,marker_scanned,2026-07-25T18:51:06Z,0,{"marker_id":"marker_039"}
+a0722,u077,e010,s039,overlay_view,2026-07-25T18:51:11Z,186,{"stall_name":"Stall s039"}
+a0723,u077,e010,,ar_session_end,2026-07-25T18:49:36Z,1313,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a0724,u129,e003,,event_registered,2026-02-28T03:00:00Z,0,{}
+a0725,u129,e003,,ar_session_start,2026-03-10T12:26:02Z,0,{}
+a0726,u129,e003,s013,marker_scanned,2026-03-10T12:30:02Z,0,{"marker_id":"marker_013"}
+a0727,u129,e003,s013,overlay_view,2026-03-10T12:30:07Z,58,{"stall_name":"Stall s013"}
+a0728,u129,e003,,ar_session_end,2026-03-10T12:31:02Z,300,"{""markers_scanned"":1,""overlays_viewed"":1}"
+a0729,u014,e015,,event_registered,2026-04-26T22:00:00Z,0,{}
+a0730,u014,e015,,ar_session_start,2026-05-05T11:39:15Z,0,{}
+a0731,u014,e015,s050,marker_scanned,2026-05-05T11:42:15Z,0,{"marker_id":"marker_050"}
+a0732,u014,e015,s050,overlay_view,2026-05-05T11:42:20Z,283,{"stall_name":"Stall s050"}
+a0733,u014,e015,s051,marker_scanned,2026-05-05T11:51:15Z,0,{"marker_id":"marker_051"}
+a0734,u014,e015,s051,overlay_view,2026-05-05T11:51:20Z,145,{"stall_name":"Stall s051"}
+a0735,u014,e015,s049,marker_scanned,2026-05-05T11:58:15Z,0,{"marker_id":"marker_049"}
+a0736,u014,e015,s049,overlay_view,2026-05-05T11:58:20Z,198,{"stall_name":"Stall s049"}
+a0737,u014,e015,,ar_session_end,2026-05-05T11:59:45Z,1375,"{""markers_scanned"":3,""overlays_viewed"":3}"
+a0738,u041,e026,,event_registered,2026-06-22T20:00:00Z,0,{}
+a0739,u041,e026,,ar_session_start,2026-06-28T14:31:54Z,0,{}
+a0740,u041,e026,s082,marker_scanned,2026-06-28T14:36:54Z,0,{"marker_id":"marker_082"}
+a0741,u041,e026,s082,overlay_view,2026-06-28T14:36:59Z,207,{"stall_name":"Stall s082"}
+a0742,u041,e026,s080,marker_scanned,2026-06-28T14:42:54Z,0,{"marker_id":"marker_080"}
+a0743,u041,e026,s080,overlay_view,2026-06-28T14:42:59Z,232,{"stall_name":"Stall s080"}
+a0744,u041,e026,s081,marker_scanned,2026-06-28T14:48:54Z,0,{"marker_id":"marker_081"}
+a0745,u041,e026,s081,overlay_view,2026-06-28T14:48:59Z,242,{"stall_name":"Stall s081"}
+a0746,u041,e026,,ar_session_end,2026-06-28T14:51:24Z,1293,"{""markers_scanned"":3,""overlays_viewed"":3}"
+a0747,u018,e007,,event_viewed,2026-08-08T00:00:00Z,0,{}
+a0748,u103,e029,,event_registered,2026-07-05T05:00:00Z,0,{}
+a0749,u103,e029,,ar_session_start,2026-07-12T13:35:54Z,0,{}
+a0750,u103,e029,s090,marker_scanned,2026-07-12T13:38:54Z,0,{"marker_id":"marker_090"}
+a0751,u103,e029,s090,overlay_view,2026-07-12T13:38:59Z,128,{"stall_name":"Stall s090"}
+a0752,u103,e029,,ar_session_end,2026-07-12T13:40:54Z,300,"{""markers_scanned"":1,""overlays_viewed"":1}"
+a0753,u167,e016,,event_viewed,2026-03-12T05:00:00Z,0,{}
+a0754,u007,e002,,ar_session_start,2026-06-20T18:49:13Z,0,{}
+a0755,u007,e002,s008,marker_scanned,2026-06-20T18:53:13Z,0,{"marker_id":"marker_008"}
+a0756,u007,e002,s008,overlay_view,2026-06-20T18:53:18Z,80,{"stall_name":"Stall s008"}
+a0757,u007,e002,s007,marker_scanned,2026-06-20T18:55:13Z,0,{"marker_id":"marker_007"}
+a0758,u007,e002,s007,overlay_view,2026-06-20T18:55:18Z,140,{"stall_name":"Stall s007"}
+a0759,u007,e002,,ar_session_end,2026-06-20T18:55:13Z,360,"{""markers_scanned"":2,""overlays_viewed"":2}"
+a0760,u028,e027,,ar_session_start,2026-07-20T14:17:35Z,0,{}
+a0761,u028,e027,s084,marker_scanned,2026-07-20T14:21:35Z,0,{"marker_id":"marker_084"}
+a0762,u028,e027,s084,overlay_view,2026-07-20T14:21:40Z,124,{"stall_name":"Stall s084"}
+a0763,u028,e027,,ar_session_end,2026-07-20T14:22:35Z,300,"{""markers_scanned"":1,""overlays_viewed"":1}"
+a0764,u113,e011,,event_viewed,2026-03-15T10:00:00Z,0,{}
+a0765,u106,e013,,event_viewed,2026-05-18T07:00:00Z,0,{}
+a0766,u042,e026,,event_registered,2026-06-21T02:00:00Z,0,{}
+a0767,u042,e026,,ar_session_start,2026-06-28T11:40:21Z,0,{}
+a0768,u042,e026,s081,marker_scanned,2026-06-28T11:45:21Z,0,{"marker_id":"marker_081"}
+a0769,u042,e026,s081,overlay_view,2026-06-28T11:45:26Z,241,{"stall_name":"Stall s081"}
+a0770,u042,e026,s083,marker_scanned,2026-06-28T11:47:21Z,0,{"marker_id":"marker_083"}
+a0771,u042,e026,s083,overlay_view,2026-06-28T11:47:26Z,129,{"stall_name":"Stall s083"}
+a0772,u042,e026,s082,marker_scanned,2026-06-28T11:54:21Z,0,{"marker_id":"marker_082"}
+a0773,u042,e026,s082,overlay_view,2026-06-28T11:54:26Z,285,{"stall_name":"Stall s082"}
+a0774,u042,e026,s080,marker_scanned,2026-06-28T11:59:21Z,0,{"marker_id":"marker_080"}
+a0775,u042,e026,s080,overlay_view,2026-06-28T11:59:26Z,227,{"stall_name":"Stall s080"}
+a0776,u042,e026,,ar_session_end,2026-06-28T12:02:51Z,1401,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a0777,u029,e003,,event_registered,2026-02-27T06:00:00Z,0,{}
+a0778,u124,e025,,event_registered,2026-06-27T00:00:00Z,0,{}
+a0779,u124,e025,,ar_session_start,2026-07-05T14:32:32Z,0,{}
+a0780,u124,e025,s077,marker_scanned,2026-07-05T14:36:32Z,0,{"marker_id":"marker_077"}
+a0781,u124,e025,s077,overlay_view,2026-07-05T14:36:37Z,267,{"stall_name":"Stall s077"}
+a0782,u124,e025,s078,marker_scanned,2026-07-05T14:40:32Z,0,{"marker_id":"marker_078"}
+a0783,u124,e025,s078,overlay_view,2026-07-05T14:40:37Z,258,{"stall_name":"Stall s078"}
+a0784,u124,e025,s076,marker_scanned,2026-07-05T14:51:32Z,0,{"marker_id":"marker_076"}
+a0785,u124,e025,s076,overlay_view,2026-07-05T14:51:37Z,293,{"stall_name":"Stall s076"}
+a0786,u124,e025,s079,marker_scanned,2026-07-05T14:55:32Z,0,{"marker_id":"marker_079"}
+a0787,u124,e025,s079,overlay_view,2026-07-05T14:55:37Z,167,{"stall_name":"Stall s079"}
+a0788,u124,e025,,ar_session_end,2026-07-05T14:59:02Z,1733,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a0789,u149,e016,,event_registered,2026-03-19T22:00:00Z,0,{}
+a0790,u143,e020,,event_registered,2026-05-30T03:00:00Z,0,{}
+a0791,u143,e020,,ar_session_start,2026-05-30T16:45:29Z,0,{}
+a0792,u143,e020,s066,marker_scanned,2026-05-30T16:50:29Z,0,{"marker_id":"marker_066"}
+a0793,u143,e020,s066,overlay_view,2026-05-30T16:50:34Z,173,{"stall_name":"Stall s066"}
+a0794,u143,e020,s065,marker_scanned,2026-05-30T16:58:29Z,0,{"marker_id":"marker_065"}
+a0795,u143,e020,s065,overlay_view,2026-05-30T16:58:34Z,211,{"stall_name":"Stall s065"}
+a0796,u143,e020,s067,marker_scanned,2026-05-30T17:00:29Z,0,{"marker_id":"marker_067"}
+a0797,u143,e020,s067,overlay_view,2026-05-30T17:00:34Z,284,{"stall_name":"Stall s067"}
+a0798,u143,e020,s064,marker_scanned,2026-05-30T17:09:29Z,0,{"marker_id":"marker_064"}
+a0799,u143,e020,s064,overlay_view,2026-05-30T17:09:34Z,222,{"stall_name":"Stall s064"}
+a0800,u143,e020,,ar_session_end,2026-05-30T17:08:59Z,1508,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a0801,u148,e027,,event_registered,2026-07-10T02:00:00Z,0,{}
+a0802,u148,e027,,ar_session_start,2026-07-20T13:10:46Z,0,{}
+a0803,u148,e027,s086,marker_scanned,2026-07-20T13:14:46Z,0,{"marker_id":"marker_086"}
+a0804,u148,e027,s086,overlay_view,2026-07-20T13:14:51Z,50,{"stall_name":"Stall s086"}
+a0805,u148,e027,,ar_session_end,2026-07-20T13:14:46Z,240,"{""markers_scanned"":1,""overlays_viewed"":1}"
+a0806,u021,e018,,event_registered,2026-03-24T03:00:00Z,0,{}
+a0807,u021,e018,,ar_session_start,2026-03-25T14:11:55Z,0,{}
+a0808,u021,e018,s060,marker_scanned,2026-03-25T14:14:55Z,0,{"marker_id":"marker_060"}
+a0809,u021,e018,s060,overlay_view,2026-03-25T14:15:00Z,161,{"stall_name":"Stall s060"}
+a0810,u021,e018,s062,marker_scanned,2026-03-25T14:22:55Z,0,{"marker_id":"marker_062"}
+a0811,u021,e018,s062,overlay_view,2026-03-25T14:23:00Z,268,{"stall_name":"Stall s062"}
+a0812,u021,e018,s061,marker_scanned,2026-03-25T14:30:55Z,0,{"marker_id":"marker_061"}
+a0813,u021,e018,s061,overlay_view,2026-03-25T14:31:00Z,171,{"stall_name":"Stall s061"}
+a0814,u021,e018,,ar_session_end,2026-03-25T14:33:25Z,1426,"{""markers_scanned"":3,""overlays_viewed"":3}"
+a0815,u110,e018,,event_registered,2026-03-18T23:00:00Z,0,{}
+a0816,u110,e018,,ar_session_start,2026-03-25T13:51:59Z,0,{}
+a0817,u110,e018,s062,marker_scanned,2026-03-25T13:54:59Z,0,{"marker_id":"marker_062"}
+a0818,u110,e018,s062,overlay_view,2026-03-25T13:55:04Z,84,{"stall_name":"Stall s062"}
+a0819,u110,e018,,ar_session_end,2026-03-25T13:56:59Z,300,"{""markers_scanned"":1,""overlays_viewed"":1}"
+a0820,u009,e027,,event_viewed,2026-07-06T20:00:00Z,0,{}
+a0821,u085,e018,,event_viewed,2026-03-18T02:00:00Z,0,{}
+a0822,u074,e016,,event_registered,2026-03-24T04:00:00Z,0,{}
+a0823,u074,e016,,ar_session_start,2026-03-28T13:59:51Z,0,{}
+a0824,u074,e016,s052,marker_scanned,2026-03-28T14:02:51Z,0,{"marker_id":"marker_052"}
+a0825,u074,e016,s052,overlay_view,2026-03-28T14:02:56Z,151,{"stall_name":"Stall s052"}
+a0826,u074,e016,s055,marker_scanned,2026-03-28T14:11:51Z,0,{"marker_id":"marker_055"}
+a0827,u074,e016,s055,overlay_view,2026-03-28T14:11:56Z,152,{"stall_name":"Stall s055"}
+a0828,u074,e016,s053,marker_scanned,2026-03-28T14:15:51Z,0,{"marker_id":"marker_053"}
+a0829,u074,e016,s053,overlay_view,2026-03-28T14:15:56Z,145,{"stall_name":"Stall s053"}
+a0830,u074,e016,,ar_session_end,2026-03-28T14:20:21Z,1319,"{""markers_scanned"":3,""overlays_viewed"":3}"
+a0831,u048,e007,,event_registered,2026-08-08T19:00:00Z,0,{}
+a0832,u048,e007,,ar_session_start,2026-08-15T12:41:59Z,0,{}
+a0833,u048,e007,s030,marker_scanned,2026-08-15T12:47:59Z,0,{"marker_id":"marker_030"}
+a0834,u048,e007,s030,overlay_view,2026-08-15T12:48:04Z,158,{"stall_name":"Stall s030"}
+a0835,u048,e007,s028,marker_scanned,2026-08-15T12:51:59Z,0,{"marker_id":"marker_028"}
+a0836,u048,e007,s028,overlay_view,2026-08-15T12:52:04Z,274,{"stall_name":"Stall s028"}
+a0837,u048,e007,s029,marker_scanned,2026-08-15T13:00:59Z,0,{"marker_id":"marker_029"}
+a0838,u048,e007,s029,overlay_view,2026-08-15T13:01:04Z,167,{"stall_name":"Stall s029"}
+a0839,u048,e007,,ar_session_end,2026-08-15T13:01:29Z,1211,"{""markers_scanned"":3,""overlays_viewed"":3}"
+a0840,u198,e017,,ar_session_start,2026-06-10T11:04:24Z,0,{}
+a0841,u198,e017,s056,marker_scanned,2026-06-10T11:06:24Z,0,{"marker_id":"marker_056"}
+a0842,u198,e017,s056,overlay_view,2026-06-10T11:06:29Z,92,{"stall_name":"Stall s056"}
+a0843,u198,e017,s057,marker_scanned,2026-06-10T11:10:24Z,0,{"marker_id":"marker_057"}
+a0844,u198,e017,s057,overlay_view,2026-06-10T11:10:29Z,114,{"stall_name":"Stall s057"}
+a0845,u198,e017,,ar_session_end,2026-06-10T11:11:24Z,420,"{""markers_scanned"":2,""overlays_viewed"":2}"
+a0846,u175,e011,,event_registered,2026-04-14T09:00:00Z,0,{}
+a0847,u175,e011,,ar_session_start,2026-04-22T21:22:28Z,0,{}
+a0848,u175,e011,s042,marker_scanned,2026-04-22T21:28:28Z,0,{"marker_id":"marker_042"}
+a0849,u175,e011,s042,overlay_view,2026-04-22T21:28:33Z,174,{"stall_name":"Stall s042"}
+a0850,u175,e011,s041,marker_scanned,2026-04-22T21:30:28Z,0,{"marker_id":"marker_041"}
+a0851,u175,e011,s041,overlay_view,2026-04-22T21:30:33Z,162,{"stall_name":"Stall s041"}
+a0852,u175,e011,s040,marker_scanned,2026-04-22T21:36:28Z,0,{"marker_id":"marker_040"}
+a0853,u175,e011,s040,overlay_view,2026-04-22T21:36:33Z,150,{"stall_name":"Stall s040"}
+a0854,u175,e011,,ar_session_end,2026-04-22T21:37:58Z,1001,"{""markers_scanned"":3,""overlays_viewed"":3}"
+a0855,u054,e025,,event_viewed,2026-06-07T02:00:00Z,0,{}
+a0856,u120,e018,,event_registered,2026-03-16T21:00:00Z,0,{}
+a0857,u120,e018,,ar_session_start,2026-03-25T13:53:31Z,0,{}
+a0858,u120,e018,s061,marker_scanned,2026-03-25T13:58:31Z,0,{"marker_id":"marker_061"}
+a0859,u120,e018,s061,overlay_view,2026-03-25T13:58:36Z,274,{"stall_name":"Stall s061"}
+a0860,u120,e018,s062,marker_scanned,2026-03-25T14:05:31Z,0,{"marker_id":"marker_062"}
+a0861,u120,e018,s062,overlay_view,2026-03-25T14:05:36Z,149,{"stall_name":"Stall s062"}
+a0862,u120,e018,s063,marker_scanned,2026-03-25T14:12:31Z,0,{"marker_id":"marker_063"}
+a0863,u120,e018,s063,overlay_view,2026-03-25T14:12:36Z,125,{"stall_name":"Stall s063"}
+a0864,u120,e018,,ar_session_end,2026-03-25T14:14:01Z,1366,"{""markers_scanned"":3,""overlays_viewed"":3}"
+a0865,u162,e023,,ar_session_start,2026-04-08T20:59:06Z,0,{}
+a0866,u162,e023,s075,marker_scanned,2026-04-08T21:02:06Z,0,{"marker_id":"marker_075"}
+a0867,u162,e023,s075,overlay_view,2026-04-08T21:02:11Z,56,{"stall_name":"Stall s075"}
+a0868,u162,e023,,ar_session_end,2026-04-08T21:02:06Z,180,"{""markers_scanned"":1,""overlays_viewed"":1}"
+a0869,u176,e017,,event_viewed,2026-05-20T01:00:00Z,0,{}
+a0870,u014,e002,,event_viewed,2026-06-05T09:00:00Z,0,{}
+a0871,u194,e027,,ar_session_start,2026-07-20T10:07:48Z,0,{}
+a0872,u194,e027,s087,marker_scanned,2026-07-20T10:09:48Z,0,{"marker_id":"marker_087"}
+a0873,u194,e027,s087,overlay_view,2026-07-20T10:09:53Z,99,{"stall_name":"Stall s087"}
+a0874,u194,e027,s085,marker_scanned,2026-07-20T10:14:48Z,0,{"marker_id":"marker_085"}
+a0875,u194,e027,s085,overlay_view,2026-07-20T10:14:53Z,82,{"stall_name":"Stall s085"}
+a0876,u194,e027,,ar_session_end,2026-07-20T10:14:48Z,420,"{""markers_scanned"":2,""overlays_viewed"":2}"
+a0877,u096,e002,,event_registered,2026-06-14T05:00:00Z,0,{}
+a0878,u096,e002,,ar_session_start,2026-06-20T15:49:57Z,0,{}
+a0879,u096,e002,s011,marker_scanned,2026-06-20T15:53:57Z,0,{"marker_id":"marker_011"}
+a0880,u096,e002,s011,overlay_view,2026-06-20T15:54:02Z,134,{"stall_name":"Stall s011"}
+a0881,u096,e002,s007,marker_scanned,2026-06-20T16:00:57Z,0,{"marker_id":"marker_007"}
+a0882,u096,e002,s007,overlay_view,2026-06-20T16:01:02Z,145,{"stall_name":"Stall s007"}
+a0883,u096,e002,s008,marker_scanned,2026-06-20T16:07:57Z,0,{"marker_id":"marker_008"}
+a0884,u096,e002,s008,overlay_view,2026-06-20T16:08:02Z,188,{"stall_name":"Stall s008"}
+a0885,u096,e002,,ar_session_end,2026-06-20T16:06:27Z,1060,"{""markers_scanned"":3,""overlays_viewed"":3}"
+a0886,u130,e026,,event_registered,2026-06-23T20:00:00Z,0,{}
+a0887,u130,e026,,ar_session_start,2026-06-28T12:47:57Z,0,{}
+a0888,u130,e026,s083,marker_scanned,2026-06-28T12:51:57Z,0,{"marker_id":"marker_083"}
+a0889,u130,e026,s083,overlay_view,2026-06-28T12:52:02Z,246,{"stall_name":"Stall s083"}
+a0890,u130,e026,s082,marker_scanned,2026-06-28T12:59:57Z,0,{"marker_id":"marker_082"}
+a0891,u130,e026,s082,overlay_view,2026-06-28T13:00:02Z,198,{"stall_name":"Stall s082"}
+a0892,u130,e026,s081,marker_scanned,2026-06-28T13:01:57Z,0,{"marker_id":"marker_081"}
+a0893,u130,e026,s081,overlay_view,2026-06-28T13:02:02Z,129,{"stall_name":"Stall s081"}
+a0894,u130,e026,,ar_session_end,2026-06-28T13:04:27Z,1092,"{""markers_scanned"":3,""overlays_viewed"":3}"
+a0895,u150,e023,,ar_session_start,2026-04-08T22:09:43Z,0,{}
+a0896,u150,e023,s072,marker_scanned,2026-04-08T22:11:43Z,0,{"marker_id":"marker_072"}
+a0897,u150,e023,s072,overlay_view,2026-04-08T22:11:48Z,85,{"stall_name":"Stall s072"}
+a0898,u150,e023,s074,marker_scanned,2026-04-08T22:15:43Z,0,{"marker_id":"marker_074"}
+a0899,u150,e023,s074,overlay_view,2026-04-08T22:15:48Z,96,{"stall_name":"Stall s074"}
+a0900,u150,e023,,ar_session_end,2026-04-08T22:15:43Z,360,"{""markers_scanned"":2,""overlays_viewed"":2}"
+a0901,u085,e005,,ar_session_start,2026-05-12T11:10:27Z,0,{}
+a0902,u085,e005,s026,marker_scanned,2026-05-12T11:13:27Z,0,{"marker_id":"marker_026"}
+a0903,u085,e005,s026,overlay_view,2026-05-12T11:13:32Z,144,{"stall_name":"Stall s026"}
+a0904,u085,e005,s023,marker_scanned,2026-05-12T11:18:27Z,0,{"marker_id":"marker_023"}
+a0905,u085,e005,s023,overlay_view,2026-05-12T11:18:32Z,83,{"stall_name":"Stall s023"}
+a0906,u085,e005,,ar_session_end,2026-05-12T11:20:27Z,600,"{""markers_scanned"":2,""overlays_viewed"":2}"
+a0907,u058,e007,,event_registered,2026-08-12T04:00:00Z,0,{}
+a0908,u058,e007,,ar_session_start,2026-08-15T12:44:17Z,0,{}
+a0909,u058,e007,s029,marker_scanned,2026-08-15T12:49:17Z,0,{"marker_id":"marker_029"}
+a0910,u058,e007,s029,overlay_view,2026-08-15T12:49:22Z,235,{"stall_name":"Stall s029"}
+a0911,u058,e007,s027,marker_scanned,2026-08-15T12:53:17Z,0,{"marker_id":"marker_027"}
+a0912,u058,e007,s027,overlay_view,2026-08-15T12:53:22Z,128,{"stall_name":"Stall s027"}
+a0913,u058,e007,s028,marker_scanned,2026-08-15T12:58:17Z,0,{"marker_id":"marker_028"}
+a0914,u058,e007,s028,overlay_view,2026-08-15T12:58:22Z,281,{"stall_name":"Stall s028"}
+a0915,u058,e007,s030,marker_scanned,2026-08-15T13:04:17Z,0,{"marker_id":"marker_030"}
+a0916,u058,e007,s030,overlay_view,2026-08-15T13:04:22Z,128,{"stall_name":"Stall s030"}
+a0917,u058,e007,,ar_session_end,2026-08-15T13:06:47Z,1439,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a0918,u046,e003,,event_registered,2026-03-02T23:00:00Z,0,{}
+a0919,u046,e003,,ar_session_start,2026-03-10T14:10:50Z,0,{}
+a0920,u046,e003,s015,marker_scanned,2026-03-10T14:13:50Z,0,{"marker_id":"marker_015"}
+a0921,u046,e003,s015,overlay_view,2026-03-10T14:13:55Z,193,{"stall_name":"Stall s015"}
+a0922,u046,e003,s014,marker_scanned,2026-03-10T14:20:50Z,0,{"marker_id":"marker_014"}
+a0923,u046,e003,s014,overlay_view,2026-03-10T14:20:55Z,221,{"stall_name":"Stall s014"}
+a0924,u046,e003,s016,marker_scanned,2026-03-10T14:21:50Z,0,{"marker_id":"marker_016"}
+a0925,u046,e003,s016,overlay_view,2026-03-10T14:21:55Z,263,{"stall_name":"Stall s016"}
+a0926,u046,e003,,ar_session_end,2026-03-10T14:27:20Z,1064,"{""markers_scanned"":3,""overlays_viewed"":3}"
+a0927,u103,e013,,ar_session_start,2026-06-15T12:51:51Z,0,{}
+a0928,u103,e013,s046,marker_scanned,2026-06-15T12:54:51Z,0,{"marker_id":"marker_046"}
+a0929,u103,e013,s046,overlay_view,2026-06-15T12:54:56Z,67,{"stall_name":"Stall s046"}
+a0930,u103,e013,,ar_session_end,2026-06-15T12:55:51Z,240,"{""markers_scanned"":1,""overlays_viewed"":1}"
+a0931,u067,e020,,event_registered,2026-05-25T01:00:00Z,0,{}
+a0932,u067,e020,,ar_session_start,2026-05-30T19:58:50Z,0,{}
+a0933,u067,e020,s065,marker_scanned,2026-05-30T20:02:50Z,0,{"marker_id":"marker_065"}
+a0934,u067,e020,s065,overlay_view,2026-05-30T20:02:55Z,227,{"stall_name":"Stall s065"}
+a0935,u067,e020,s064,marker_scanned,2026-05-30T20:11:50Z,0,{"marker_id":"marker_064"}
+a0936,u067,e020,s064,overlay_view,2026-05-30T20:11:55Z,123,{"stall_name":"Stall s064"}
+a0937,u067,e020,s066,marker_scanned,2026-05-30T20:17:50Z,0,{"marker_id":"marker_066"}
+a0938,u067,e020,s066,overlay_view,2026-05-30T20:17:55Z,229,{"stall_name":"Stall s066"}
+a0939,u067,e020,,ar_session_end,2026-05-30T20:19:20Z,1284,"{""markers_scanned"":3,""overlays_viewed"":3}"
+a0940,u040,e005,,event_viewed,2026-05-09T00:00:00Z,0,{}
+a0941,u121,e023,,event_registered,2026-04-06T09:00:00Z,0,{}
+a0942,u121,e023,,ar_session_start,2026-04-08T21:34:18Z,0,{}
+a0943,u121,e023,s072,marker_scanned,2026-04-08T21:37:18Z,0,{"marker_id":"marker_072"}
+a0944,u121,e023,s072,overlay_view,2026-04-08T21:37:23Z,178,{"stall_name":"Stall s072"}
+a0945,u121,e023,s073,marker_scanned,2026-04-08T21:44:18Z,0,{"marker_id":"marker_073"}
+a0946,u121,e023,s073,overlay_view,2026-04-08T21:44:23Z,164,{"stall_name":"Stall s073"}
+a0947,u121,e023,s074,marker_scanned,2026-04-08T21:49:18Z,0,{"marker_id":"marker_074"}
+a0948,u121,e023,s074,overlay_view,2026-04-08T21:49:23Z,234,{"stall_name":"Stall s074"}
+a0949,u121,e023,s075,marker_scanned,2026-04-08T21:58:18Z,0,{"marker_id":"marker_075"}
+a0950,u121,e023,s075,overlay_view,2026-04-08T21:58:23Z,170,{"stall_name":"Stall s075"}
+a0951,u121,e023,,ar_session_end,2026-04-08T21:59:48Z,1573,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a0952,u026,e003,,event_viewed,2026-02-26T05:00:00Z,0,{}
+a0953,u018,e021,,ar_session_start,2026-06-03T10:00:47Z,0,{}
+a0954,u018,e021,s071,marker_scanned,2026-06-03T10:03:47Z,0,{"marker_id":"marker_071"}
+a0955,u018,e021,s071,overlay_view,2026-06-03T10:03:52Z,79,{"stall_name":"Stall s071"}
+a0956,u018,e021,s069,marker_scanned,2026-06-03T10:07:47Z,0,{"marker_id":"marker_069"}
+a0957,u018,e021,s069,overlay_view,2026-06-03T10:07:52Z,129,{"stall_name":"Stall s069"}
+a0958,u018,e021,,ar_session_end,2026-06-03T10:08:47Z,480,"{""markers_scanned"":2,""overlays_viewed"":2}"
+a0959,u054,e026,,event_registered,2026-06-24T03:00:00Z,0,{}
+a0960,u054,e026,,ar_session_start,2026-06-28T13:13:32Z,0,{}
+a0961,u054,e026,s080,marker_scanned,2026-06-28T13:16:32Z,0,{"marker_id":"marker_080"}
+a0962,u054,e026,s080,overlay_view,2026-06-28T13:16:37Z,68,{"stall_name":"Stall s080"}
+a0963,u054,e026,,ar_session_end,2026-06-28T13:18:32Z,300,"{""markers_scanned"":1,""overlays_viewed"":1}"
+a0964,u139,e023,,event_registered,2026-03-30T13:00:00Z,0,{}
+a0965,u139,e023,,ar_session_start,2026-04-08T20:52:12Z,0,{}
+a0966,u139,e023,s075,marker_scanned,2026-04-08T20:56:12Z,0,{"marker_id":"marker_075"}
+a0967,u139,e023,s075,overlay_view,2026-04-08T20:56:17Z,144,{"stall_name":"Stall s075"}
+a0968,u139,e023,,ar_session_end,2026-04-08T20:54:12Z,120,"{""markers_scanned"":1,""overlays_viewed"":1}"
+a0969,u155,e007,,event_registered,2026-08-13T23:00:00Z,0,{}
+a0970,u155,e007,,ar_session_start,2026-08-15T13:26:03Z,0,{}
+a0971,u155,e007,s031,marker_scanned,2026-08-15T13:30:03Z,0,{"marker_id":"marker_031"}
+a0972,u155,e007,s031,overlay_view,2026-08-15T13:30:08Z,171,{"stall_name":"Stall s031"}
+a0973,u155,e007,s029,marker_scanned,2026-08-15T13:35:03Z,0,{"marker_id":"marker_029"}
+a0974,u155,e007,s029,overlay_view,2026-08-15T13:35:08Z,132,{"stall_name":"Stall s029"}
+a0975,u155,e007,s028,marker_scanned,2026-08-15T13:45:03Z,0,{"marker_id":"marker_028"}
+a0976,u155,e007,s028,overlay_view,2026-08-15T13:45:08Z,251,{"stall_name":"Stall s028"}
+a0977,u155,e007,s030,marker_scanned,2026-08-15T13:46:03Z,0,{"marker_id":"marker_030"}
+a0978,u155,e007,s030,overlay_view,2026-08-15T13:46:08Z,175,{"stall_name":"Stall s030"}
+a0979,u155,e007,,ar_session_end,2026-08-15T13:49:33Z,1460,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a0980,u054,e011,,event_viewed,2026-03-25T11:00:00Z,0,{}
+a0981,u053,e023,,event_registered,2026-04-02T11:00:00Z,0,{}
+a0982,u053,e023,,ar_session_start,2026-04-08T21:53:23Z,0,{}
+a0983,u053,e023,s075,marker_scanned,2026-04-08T21:58:23Z,0,{"marker_id":"marker_075"}
+a0984,u053,e023,s075,overlay_view,2026-04-08T21:58:28Z,174,{"stall_name":"Stall s075"}
+a0985,u053,e023,s073,marker_scanned,2026-04-08T22:05:23Z,0,{"marker_id":"marker_073"}
+a0986,u053,e023,s073,overlay_view,2026-04-08T22:05:28Z,270,{"stall_name":"Stall s073"}
+a0987,u053,e023,s074,marker_scanned,2026-04-08T22:10:23Z,0,{"marker_id":"marker_074"}
+a0988,u053,e023,s074,overlay_view,2026-04-08T22:10:28Z,260,{"stall_name":"Stall s074"}
+a0989,u053,e023,,ar_session_end,2026-04-08T22:11:53Z,1255,"{""markers_scanned"":3,""overlays_viewed"":3}"
+a0990,u093,e007,,event_viewed,2026-07-10T08:00:00Z,0,{}
+a0991,u171,e018,,event_registered,2026-03-24T23:00:00Z,0,{}
+a0992,u171,e018,,ar_session_start,2026-03-25T11:18:52Z,0,{}
+a0993,u171,e018,s060,marker_scanned,2026-03-25T11:21:52Z,0,{"marker_id":"marker_060"}
+a0994,u171,e018,s060,overlay_view,2026-03-25T11:21:57Z,227,{"stall_name":"Stall s060"}
+a0995,u171,e018,s062,marker_scanned,2026-03-25T11:29:52Z,0,{"marker_id":"marker_062"}
+a0996,u171,e018,s062,overlay_view,2026-03-25T11:29:57Z,209,{"stall_name":"Stall s062"}
+a0997,u171,e018,s063,marker_scanned,2026-03-25T11:40:52Z,0,{"marker_id":"marker_063"}
+a0998,u171,e018,s063,overlay_view,2026-03-25T11:40:57Z,281,{"stall_name":"Stall s063"}
+a0999,u171,e018,s061,marker_scanned,2026-03-25T11:45:52Z,0,{"marker_id":"marker_061"}
+a1000,u171,e018,s061,overlay_view,2026-03-25T11:45:57Z,201,{"stall_name":"Stall s061"}
+a1001,u171,e018,,ar_session_end,2026-03-25T11:44:22Z,1629,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a1002,u025,e018,,event_viewed,2026-03-04T04:00:00Z,0,{}
+a1003,u143,e023,,event_registered,2026-04-06T10:00:00Z,0,{}
+a1004,u143,e023,,ar_session_start,2026-04-08T20:06:44Z,0,{}
+a1005,u143,e023,s072,marker_scanned,2026-04-08T20:11:44Z,0,{"marker_id":"marker_072"}
+a1006,u143,e023,s072,overlay_view,2026-04-08T20:11:49Z,133,{"stall_name":"Stall s072"}
+a1007,u143,e023,s073,marker_scanned,2026-04-08T20:15:44Z,0,{"marker_id":"marker_073"}
+a1008,u143,e023,s073,overlay_view,2026-04-08T20:15:49Z,152,{"stall_name":"Stall s073"}
+a1009,u143,e023,s075,marker_scanned,2026-04-08T20:23:44Z,0,{"marker_id":"marker_075"}
+a1010,u143,e023,s075,overlay_view,2026-04-08T20:23:49Z,144,{"stall_name":"Stall s075"}
+a1011,u143,e023,,ar_session_end,2026-04-08T20:26:14Z,1240,"{""markers_scanned"":3,""overlays_viewed"":3}"
+a1012,u081,e013,,event_registered,2026-06-06T23:00:00Z,0,{}
+a1013,u081,e013,,ar_session_start,2026-06-15T10:38:03Z,0,{}
+a1014,u081,e013,s044,marker_scanned,2026-06-15T10:44:03Z,0,{"marker_id":"marker_044"}
+a1015,u081,e013,s044,overlay_view,2026-06-15T10:44:08Z,217,{"stall_name":"Stall s044"}
+a1016,u081,e013,s046,marker_scanned,2026-06-15T10:48:03Z,0,{"marker_id":"marker_046"}
+a1017,u081,e013,s046,overlay_view,2026-06-15T10:48:08Z,291,{"stall_name":"Stall s046"}
+a1018,u081,e013,s045,marker_scanned,2026-06-15T10:55:03Z,0,{"marker_id":"marker_045"}
+a1019,u081,e013,s045,overlay_view,2026-06-15T10:55:08Z,203,{"stall_name":"Stall s045"}
+a1020,u081,e013,s047,marker_scanned,2026-06-15T11:00:03Z,0,{"marker_id":"marker_047"}
+a1021,u081,e013,s047,overlay_view,2026-06-15T11:00:08Z,123,{"stall_name":"Stall s047"}
+a1022,u081,e013,,ar_session_end,2026-06-15T11:02:33Z,1500,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a1023,u047,e025,,event_registered,2026-06-30T05:00:00Z,0,{}
+a1024,u047,e025,,ar_session_start,2026-07-05T13:33:47Z,0,{}
+a1025,u047,e025,s078,marker_scanned,2026-07-05T13:39:47Z,0,{"marker_id":"marker_078"}
+a1026,u047,e025,s078,overlay_view,2026-07-05T13:39:52Z,137,{"stall_name":"Stall s078"}
+a1027,u047,e025,s076,marker_scanned,2026-07-05T13:46:47Z,0,{"marker_id":"marker_076"}
+a1028,u047,e025,s076,overlay_view,2026-07-05T13:46:52Z,169,{"stall_name":"Stall s076"}
+a1029,u047,e025,s079,marker_scanned,2026-07-05T13:51:47Z,0,{"marker_id":"marker_079"}
+a1030,u047,e025,s079,overlay_view,2026-07-05T13:51:52Z,137,{"stall_name":"Stall s079"}
+a1031,u047,e025,,ar_session_end,2026-07-05T13:55:17Z,1401,"{""markers_scanned"":3,""overlays_viewed"":3}"
+a1032,u066,e010,,event_registered,2026-07-24T09:00:00Z,0,{}
+a1033,u066,e010,,ar_session_start,2026-07-25T20:53:13Z,0,{}
+a1034,u066,e010,s039,marker_scanned,2026-07-25T20:57:13Z,0,{"marker_id":"marker_039"}
+a1035,u066,e010,s039,overlay_view,2026-07-25T20:57:18Z,283,{"stall_name":"Stall s039"}
+a1036,u066,e010,s038,marker_scanned,2026-07-25T21:05:13Z,0,{"marker_id":"marker_038"}
+a1037,u066,e010,s038,overlay_view,2026-07-25T21:05:18Z,246,{"stall_name":"Stall s038"}
+a1038,u066,e010,s037,marker_scanned,2026-07-25T21:11:13Z,0,{"marker_id":"marker_037"}
+a1039,u066,e010,s037,overlay_view,2026-07-25T21:11:18Z,265,{"stall_name":"Stall s037"}
+a1040,u066,e010,s036,marker_scanned,2026-07-25T21:19:13Z,0,{"marker_id":"marker_036"}
+a1041,u066,e010,s036,overlay_view,2026-07-25T21:19:18Z,123,{"stall_name":"Stall s036"}
+a1042,u066,e010,,ar_session_end,2026-07-25T21:19:43Z,1667,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a1043,u130,e005,,event_registered,2026-05-02T00:00:00Z,0,{}
+a1044,u130,e005,,ar_session_start,2026-05-12T13:26:50Z,0,{}
+a1045,u130,e005,s024,marker_scanned,2026-05-12T13:29:50Z,0,{"marker_id":"marker_024"}
+a1046,u130,e005,s024,overlay_view,2026-05-12T13:29:55Z,68,{"stall_name":"Stall s024"}
+a1047,u130,e005,s025,marker_scanned,2026-05-12T13:30:50Z,0,{"marker_id":"marker_025"}
+a1048,u130,e005,s025,overlay_view,2026-05-12T13:30:55Z,103,{"stall_name":"Stall s025"}
+a1049,u130,e005,,ar_session_end,2026-05-12T13:32:50Z,360,"{""markers_scanned"":2,""overlays_viewed"":2}"
+a1050,u166,e020,,event_registered,2026-05-29T00:00:00Z,0,{}
+a1051,u166,e020,,ar_session_start,2026-05-30T18:08:31Z,0,{}
+a1052,u166,e020,s066,marker_scanned,2026-05-30T18:11:31Z,0,{"marker_id":"marker_066"}
+a1053,u166,e020,s066,overlay_view,2026-05-30T18:11:36Z,262,{"stall_name":"Stall s066"}
+a1054,u166,e020,s067,marker_scanned,2026-05-30T18:20:31Z,0,{"marker_id":"marker_067"}
+a1055,u166,e020,s067,overlay_view,2026-05-30T18:20:36Z,151,{"stall_name":"Stall s067"}
+a1056,u166,e020,s064,marker_scanned,2026-05-30T18:25:31Z,0,{"marker_id":"marker_064"}
+a1057,u166,e020,s064,overlay_view,2026-05-30T18:25:36Z,224,{"stall_name":"Stall s064"}
+a1058,u166,e020,s065,marker_scanned,2026-05-30T18:31:31Z,0,{"marker_id":"marker_065"}
+a1059,u166,e020,s065,overlay_view,2026-05-30T18:31:36Z,251,{"stall_name":"Stall s065"}
+a1060,u166,e020,,ar_session_end,2026-05-30T18:32:01Z,1446,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a1061,u110,e004,,event_registered,2026-04-01T02:00:00Z,0,{}
+a1062,u110,e004,,ar_session_start,2026-04-05T11:36:55Z,0,{}
+a1063,u110,e004,s018,marker_scanned,2026-04-05T11:41:55Z,0,{"marker_id":"marker_018"}
+a1064,u110,e004,s018,overlay_view,2026-04-05T11:42:00Z,286,{"stall_name":"Stall s018"}
+a1065,u110,e004,s019,marker_scanned,2026-04-05T11:46:55Z,0,{"marker_id":"marker_019"}
+a1066,u110,e004,s019,overlay_view,2026-04-05T11:47:00Z,198,{"stall_name":"Stall s019"}
+a1067,u110,e004,s022,marker_scanned,2026-04-05T11:52:55Z,0,{"marker_id":"marker_022"}
+a1068,u110,e004,s022,overlay_view,2026-04-05T11:53:00Z,296,{"stall_name":"Stall s022"}
+a1069,u110,e004,s017,marker_scanned,2026-04-05T12:01:55Z,0,{"marker_id":"marker_017"}
+a1070,u110,e004,s017,overlay_view,2026-04-05T12:02:00Z,168,{"stall_name":"Stall s017"}
+a1071,u110,e004,,ar_session_end,2026-04-05T12:03:25Z,1637,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a1072,u168,e002,,event_registered,2026-06-15T04:00:00Z,0,{}
+a1073,u168,e002,,ar_session_start,2026-06-20T18:52:12Z,0,{}
+a1074,u168,e002,s009,marker_scanned,2026-06-20T18:56:12Z,0,{"marker_id":"marker_009"}
+a1075,u168,e002,s009,overlay_view,2026-06-20T18:56:17Z,182,{"stall_name":"Stall s009"}
+a1076,u168,e002,s010,marker_scanned,2026-06-20T19:04:12Z,0,{"marker_id":"marker_010"}
+a1077,u168,e002,s010,overlay_view,2026-06-20T19:04:17Z,282,{"stall_name":"Stall s010"}
+a1078,u168,e002,s011,marker_scanned,2026-06-20T19:11:12Z,0,{"marker_id":"marker_011"}
+a1079,u168,e002,s011,overlay_view,2026-06-20T19:11:17Z,286,{"stall_name":"Stall s011"}
+a1080,u168,e002,s008,marker_scanned,2026-06-20T19:15:12Z,0,{"marker_id":"marker_008"}
+a1081,u168,e002,s008,overlay_view,2026-06-20T19:15:17Z,228,{"stall_name":"Stall s008"}
+a1082,u168,e002,,ar_session_end,2026-06-20T19:16:42Z,1518,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a1083,u181,e027,,ar_session_start,2026-07-20T14:27:52Z,0,{}
+a1084,u181,e027,s087,marker_scanned,2026-07-20T14:30:52Z,0,{"marker_id":"marker_087"}
+a1085,u181,e027,s087,overlay_view,2026-07-20T14:30:57Z,83,{"stall_name":"Stall s087"}
+a1086,u181,e027,,ar_session_end,2026-07-20T14:29:52Z,120,"{""markers_scanned"":1,""overlays_viewed"":1}"
+a1087,u032,e025,,event_registered,2026-07-02T20:00:00Z,0,{}
+a1088,u032,e025,,ar_session_start,2026-07-05T12:17:40Z,0,{}
+a1089,u032,e025,s079,marker_scanned,2026-07-05T12:21:40Z,0,{"marker_id":"marker_079"}
+a1090,u032,e025,s079,overlay_view,2026-07-05T12:21:45Z,173,{"stall_name":"Stall s079"}
+a1091,u032,e025,s076,marker_scanned,2026-07-05T12:28:40Z,0,{"marker_id":"marker_076"}
+a1092,u032,e025,s076,overlay_view,2026-07-05T12:28:45Z,213,{"stall_name":"Stall s076"}
+a1093,u032,e025,s078,marker_scanned,2026-07-05T12:35:40Z,0,{"marker_id":"marker_078"}
+a1094,u032,e025,s078,overlay_view,2026-07-05T12:35:45Z,138,{"stall_name":"Stall s078"}
+a1095,u032,e025,,ar_session_end,2026-07-05T12:37:10Z,1271,"{""markers_scanned"":3,""overlays_viewed"":3}"
+a1096,u135,e017,,event_registered,2026-06-02T03:00:00Z,0,{}
+a1097,u135,e017,,ar_session_start,2026-06-10T11:01:57Z,0,{}
+a1098,u135,e017,s058,marker_scanned,2026-06-10T11:05:57Z,0,{"marker_id":"marker_058"}
+a1099,u135,e017,s058,overlay_view,2026-06-10T11:06:02Z,113,{"stall_name":"Stall s058"}
+a1100,u135,e017,s059,marker_scanned,2026-06-10T11:05:57Z,0,{"marker_id":"marker_059"}
+a1101,u135,e017,s059,overlay_view,2026-06-10T11:06:02Z,54,{"stall_name":"Stall s059"}
+a1102,u135,e017,,ar_session_end,2026-06-10T11:05:57Z,240,"{""markers_scanned"":2,""overlays_viewed"":2}"
+a1103,u165,e021,,event_registered,2026-05-27T20:00:00Z,0,{}
+a1104,u141,e002,,event_viewed,2026-06-07T03:00:00Z,0,{}
+a1105,u122,e027,,event_registered,2026-07-04T05:00:00Z,0,{}
+a1106,u044,e027,,event_registered,2026-07-11T20:00:00Z,0,{}
+a1107,u084,e026,,ar_session_start,2026-06-28T12:52:21Z,0,{}
+a1108,u084,e026,s082,marker_scanned,2026-06-28T12:55:21Z,0,{"marker_id":"marker_082"}
+a1109,u084,e026,s082,overlay_view,2026-06-28T12:55:26Z,134,{"stall_name":"Stall s082"}
+a1110,u084,e026,,ar_session_end,2026-06-28T12:55:21Z,180,"{""markers_scanned"":1,""overlays_viewed"":1}"
+a1111,u002,e023,,event_registered,2026-04-06T11:00:00Z,0,{}
+a1112,u002,e023,,ar_session_start,2026-04-08T21:17:33Z,0,{}
+a1113,u002,e023,s073,marker_scanned,2026-04-08T21:21:33Z,0,{"marker_id":"marker_073"}
+a1114,u002,e023,s073,overlay_view,2026-04-08T21:21:38Z,198,{"stall_name":"Stall s073"}
+a1115,u002,e023,s074,marker_scanned,2026-04-08T21:28:33Z,0,{"marker_id":"marker_074"}
+a1116,u002,e023,s074,overlay_view,2026-04-08T21:28:38Z,249,{"stall_name":"Stall s074"}
+a1117,u002,e023,s075,marker_scanned,2026-04-08T21:30:33Z,0,{"marker_id":"marker_075"}
+a1118,u002,e023,s075,overlay_view,2026-04-08T21:30:38Z,125,{"stall_name":"Stall s075"}
+a1119,u002,e023,,ar_session_end,2026-04-08T21:31:03Z,854,"{""markers_scanned"":3,""overlays_viewed"":3}"
+a1120,u111,e005,,event_viewed,2026-04-18T02:00:00Z,0,{}
+a1121,u165,e007,,event_viewed,2026-07-23T05:00:00Z,0,{}
+a1122,u123,e025,,event_registered,2026-06-29T22:00:00Z,0,{}
+a1123,u123,e025,,ar_session_start,2026-07-05T14:04:10Z,0,{}
+a1124,u123,e025,s076,marker_scanned,2026-07-05T14:09:10Z,0,{"marker_id":"marker_076"}
+a1125,u123,e025,s076,overlay_view,2026-07-05T14:09:15Z,186,{"stall_name":"Stall s076"}
+a1126,u123,e025,s079,marker_scanned,2026-07-05T14:16:10Z,0,{"marker_id":"marker_079"}
+a1127,u123,e025,s079,overlay_view,2026-07-05T14:16:15Z,242,{"stall_name":"Stall s079"}
+a1128,u123,e025,s078,marker_scanned,2026-07-05T14:19:10Z,0,{"marker_id":"marker_078"}
+a1129,u123,e025,s078,overlay_view,2026-07-05T14:19:15Z,208,{"stall_name":"Stall s078"}
+a1130,u123,e025,s077,marker_scanned,2026-07-05T14:23:10Z,0,{"marker_id":"marker_077"}
+a1131,u123,e025,s077,overlay_view,2026-07-05T14:23:15Z,185,{"stall_name":"Stall s077"}
+a1132,u123,e025,,ar_session_end,2026-07-05T14:27:40Z,1529,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a1133,u078,e025,,event_registered,2026-07-04T00:00:00Z,0,{}
+a1134,u078,e025,,ar_session_start,2026-07-05T12:53:10Z,0,{}
+a1135,u078,e025,s079,marker_scanned,2026-07-05T12:58:10Z,0,{"marker_id":"marker_079"}
+a1136,u078,e025,s079,overlay_view,2026-07-05T12:58:15Z,274,{"stall_name":"Stall s079"}
+a1137,u078,e025,s077,marker_scanned,2026-07-05T13:02:10Z,0,{"marker_id":"marker_077"}
+a1138,u078,e025,s077,overlay_view,2026-07-05T13:02:15Z,169,{"stall_name":"Stall s077"}
+a1139,u078,e025,s076,marker_scanned,2026-07-05T13:08:10Z,0,{"marker_id":"marker_076"}
+a1140,u078,e025,s076,overlay_view,2026-07-05T13:08:15Z,273,{"stall_name":"Stall s076"}
+a1141,u078,e025,,ar_session_end,2026-07-05T13:09:40Z,1066,"{""markers_scanned"":3,""overlays_viewed"":3}"
+a1142,u185,e015,,event_registered,2026-05-02T01:00:00Z,0,{}
+a1143,u185,e015,,ar_session_start,2026-05-05T10:20:42Z,0,{}
+a1144,u185,e015,s050,marker_scanned,2026-05-05T10:24:42Z,0,{"marker_id":"marker_050"}
+a1145,u185,e015,s050,overlay_view,2026-05-05T10:24:47Z,134,{"stall_name":"Stall s050"}
+a1146,u185,e015,,ar_session_end,2026-05-05T10:22:42Z,120,"{""markers_scanned"":1,""overlays_viewed"":1}"
+a1147,u058,e004,,event_registered,2026-03-28T01:00:00Z,0,{}
+a1148,u058,e004,,ar_session_start,2026-04-05T13:53:54Z,0,{}
+a1149,u058,e004,s018,marker_scanned,2026-04-05T13:56:54Z,0,{"marker_id":"marker_018"}
+a1150,u058,e004,s018,overlay_view,2026-04-05T13:56:59Z,137,{"stall_name":"Stall s018"}
+a1151,u058,e004,s019,marker_scanned,2026-04-05T14:02:54Z,0,{"marker_id":"marker_019"}
+a1152,u058,e004,s019,overlay_view,2026-04-05T14:02:59Z,177,{"stall_name":"Stall s019"}
+a1153,u058,e004,s020,marker_scanned,2026-04-05T14:05:54Z,0,{"marker_id":"marker_020"}
+a1154,u058,e004,s020,overlay_view,2026-04-05T14:05:59Z,157,{"stall_name":"Stall s020"}
+a1155,u058,e004,,ar_session_end,2026-04-05T14:08:24Z,915,"{""markers_scanned"":3,""overlays_viewed"":3}"
+a1156,u053,e015,,event_registered,2026-04-30T22:00:00Z,0,{}
+a1157,u053,e015,,ar_session_start,2026-05-05T13:45:16Z,0,{}
+a1158,u053,e015,s051,marker_scanned,2026-05-05T13:49:16Z,0,{"marker_id":"marker_051"}
+a1159,u053,e015,s051,overlay_view,2026-05-05T13:49:21Z,145,{"stall_name":"Stall s051"}
+a1160,u053,e015,s048,marker_scanned,2026-05-05T13:55:16Z,0,{"marker_id":"marker_048"}
+a1161,u053,e015,s048,overlay_view,2026-05-05T13:55:21Z,197,{"stall_name":"Stall s048"}
+a1162,u053,e015,s050,marker_scanned,2026-05-05T14:01:16Z,0,{"marker_id":"marker_050"}
+a1163,u053,e015,s050,overlay_view,2026-05-05T14:01:21Z,269,{"stall_name":"Stall s050"}
+a1164,u053,e015,s049,marker_scanned,2026-05-05T14:06:16Z,0,{"marker_id":"marker_049"}
+a1165,u053,e015,s049,overlay_view,2026-05-05T14:06:21Z,128,{"stall_name":"Stall s049"}
+a1166,u053,e015,,ar_session_end,2026-05-05T14:10:46Z,1587,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a1167,u074,e015,,event_registered,2026-04-30T00:00:00Z,0,{}
+a1168,u074,e015,,ar_session_start,2026-05-05T12:05:46Z,0,{}
+a1169,u074,e015,s048,marker_scanned,2026-05-05T12:11:46Z,0,{"marker_id":"marker_048"}
+a1170,u074,e015,s048,overlay_view,2026-05-05T12:11:51Z,162,{"stall_name":"Stall s048"}
+a1171,u074,e015,s050,marker_scanned,2026-05-05T12:16:46Z,0,{"marker_id":"marker_050"}
+a1172,u074,e015,s050,overlay_view,2026-05-05T12:16:51Z,180,{"stall_name":"Stall s050"}
+a1173,u074,e015,s051,marker_scanned,2026-05-05T12:24:46Z,0,{"marker_id":"marker_051"}
+a1174,u074,e015,s051,overlay_view,2026-05-05T12:24:51Z,291,{"stall_name":"Stall s051"}
+a1175,u074,e015,,ar_session_end,2026-05-05T12:25:16Z,1217,"{""markers_scanned"":3,""overlays_viewed"":3}"
+a1176,u077,e011,,event_registered,2026-04-16T08:00:00Z,0,{}
+a1177,u077,e011,,ar_session_start,2026-04-22T19:41:57Z,0,{}
+a1178,u077,e011,s042,marker_scanned,2026-04-22T19:46:57Z,0,{"marker_id":"marker_042"}
+a1179,u077,e011,s042,overlay_view,2026-04-22T19:47:02Z,155,{"stall_name":"Stall s042"}
+a1180,u077,e011,s041,marker_scanned,2026-04-22T19:50:57Z,0,{"marker_id":"marker_041"}
+a1181,u077,e011,s041,overlay_view,2026-04-22T19:51:02Z,126,{"stall_name":"Stall s041"}
+a1182,u077,e011,s040,marker_scanned,2026-04-22T19:56:57Z,0,{"marker_id":"marker_040"}
+a1183,u077,e011,s040,overlay_view,2026-04-22T19:57:02Z,291,{"stall_name":"Stall s040"}
+a1184,u077,e011,,ar_session_end,2026-04-22T20:02:27Z,1375,"{""markers_scanned"":3,""overlays_viewed"":3}"
+a1185,u120,e021,,ar_session_start,2026-06-03T11:30:02Z,0,{}
+a1186,u120,e021,s070,marker_scanned,2026-06-03T11:33:02Z,0,{"marker_id":"marker_070"}
+a1187,u120,e021,s070,overlay_view,2026-06-03T11:33:07Z,116,{"stall_name":"Stall s070"}
+a1188,u120,e021,,ar_session_end,2026-06-03T11:32:02Z,120,"{""markers_scanned"":1,""overlays_viewed"":1}"
+a1189,u073,e029,,event_registered,2026-07-04T04:00:00Z,0,{}
+a1190,u073,e029,,ar_session_start,2026-07-12T14:30:08Z,0,{}
+a1191,u073,e029,s088,marker_scanned,2026-07-12T14:32:08Z,0,{"marker_id":"marker_088"}
+a1192,u073,e029,s088,overlay_view,2026-07-12T14:32:13Z,85,{"stall_name":"Stall s088"}
+a1193,u073,e029,s091,marker_scanned,2026-07-12T14:37:08Z,0,{"marker_id":"marker_091"}
+a1194,u073,e029,s091,overlay_view,2026-07-12T14:37:13Z,59,{"stall_name":"Stall s091"}
+a1195,u073,e029,,ar_session_end,2026-07-12T14:37:08Z,420,"{""markers_scanned"":2,""overlays_viewed"":2}"
+a1196,u190,e016,,event_registered,2026-03-22T04:00:00Z,0,{}
+a1197,u190,e016,,ar_session_start,2026-03-28T11:13:02Z,0,{}
+a1198,u190,e016,s054,marker_scanned,2026-03-28T11:17:02Z,0,{"marker_id":"marker_054"}
+a1199,u190,e016,s054,overlay_view,2026-03-28T11:17:07Z,266,{"stall_name":"Stall s054"}
+a1200,u190,e016,s053,marker_scanned,2026-03-28T11:26:02Z,0,{"marker_id":"marker_053"}
+a1201,u190,e016,s053,overlay_view,2026-03-28T11:26:07Z,278,{"stall_name":"Stall s053"}
+a1202,u190,e016,s055,marker_scanned,2026-03-28T11:30:02Z,0,{"marker_id":"marker_055"}
+a1203,u190,e016,s055,overlay_view,2026-03-28T11:30:07Z,226,{"stall_name":"Stall s055"}
+a1204,u190,e016,s052,marker_scanned,2026-03-28T11:35:02Z,0,{"marker_id":"marker_052"}
+a1205,u190,e016,s052,overlay_view,2026-03-28T11:35:07Z,156,{"stall_name":"Stall s052"}
+a1206,u190,e016,,ar_session_end,2026-03-28T11:37:32Z,1556,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a1207,u068,e020,,event_viewed,2026-05-13T01:00:00Z,0,{}
+a1208,u106,e027,,ar_session_start,2026-07-20T11:39:41Z,0,{}
+a1209,u106,e027,s086,marker_scanned,2026-07-20T11:43:41Z,0,{"marker_id":"marker_086"}
+a1210,u106,e027,s086,overlay_view,2026-07-20T11:43:46Z,141,{"stall_name":"Stall s086"}
+a1211,u106,e027,s084,marker_scanned,2026-07-20T11:48:41Z,0,{"marker_id":"marker_084"}
+a1212,u106,e027,s084,overlay_view,2026-07-20T11:48:46Z,136,{"stall_name":"Stall s084"}
+a1213,u106,e027,,ar_session_end,2026-07-20T11:46:41Z,420,"{""markers_scanned"":2,""overlays_viewed"":2}"
+a1214,u007,e016,,event_registered,2026-03-24T23:00:00Z,0,{}
+a1215,u007,e016,,ar_session_start,2026-03-28T11:20:47Z,0,{}
+a1216,u007,e016,s054,marker_scanned,2026-03-28T11:23:47Z,0,{"marker_id":"marker_054"}
+a1217,u007,e016,s054,overlay_view,2026-03-28T11:23:52Z,247,{"stall_name":"Stall s054"}
+a1218,u007,e016,s053,marker_scanned,2026-03-28T11:31:47Z,0,{"marker_id":"marker_053"}
+a1219,u007,e016,s053,overlay_view,2026-03-28T11:31:52Z,196,{"stall_name":"Stall s053"}
+a1220,u007,e016,s055,marker_scanned,2026-03-28T11:34:47Z,0,{"marker_id":"marker_055"}
+a1221,u007,e016,s055,overlay_view,2026-03-28T11:34:52Z,287,{"stall_name":"Stall s055"}
+a1222,u007,e016,s052,marker_scanned,2026-03-28T11:41:47Z,0,{"marker_id":"marker_052"}
+a1223,u007,e016,s052,overlay_view,2026-03-28T11:41:52Z,284,{"stall_name":"Stall s052"}
+a1224,u007,e016,,ar_session_end,2026-03-28T11:45:17Z,1525,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a1225,u061,e021,,event_registered,2026-05-28T04:00:00Z,0,{}
+a1226,u061,e021,,ar_session_start,2026-06-03T14:31:16Z,0,{}
+a1227,u061,e021,s069,marker_scanned,2026-06-03T14:33:16Z,0,{"marker_id":"marker_069"}
+a1228,u061,e021,s069,overlay_view,2026-06-03T14:33:21Z,122,{"stall_name":"Stall s069"}
+a1229,u061,e021,,ar_session_end,2026-06-03T14:35:16Z,240,"{""markers_scanned"":1,""overlays_viewed"":1}"
+a1230,u031,e020,,event_viewed,2026-05-05T07:00:00Z,0,{}
+a1231,u050,e017,,event_registered,2026-05-31T23:00:00Z,0,{}
+a1232,u050,e017,,ar_session_start,2026-06-10T13:59:01Z,0,{}
+a1233,u050,e017,s057,marker_scanned,2026-06-10T14:01:01Z,0,{"marker_id":"marker_057"}
+a1234,u050,e017,s057,overlay_view,2026-06-10T14:01:06Z,53,{"stall_name":"Stall s057"}
+a1235,u050,e017,,ar_session_end,2026-06-10T14:03:01Z,240,"{""markers_scanned"":1,""overlays_viewed"":1}"
+a1236,u124,e018,,event_viewed,2026-02-26T06:00:00Z,0,{}
+a1237,u034,e015,,event_registered,2026-05-02T02:00:00Z,0,{}
+a1238,u034,e015,,ar_session_start,2026-05-05T13:04:31Z,0,{}
+a1239,u034,e015,s049,marker_scanned,2026-05-05T13:08:31Z,0,{"marker_id":"marker_049"}
+a1240,u034,e015,s049,overlay_view,2026-05-05T13:08:36Z,192,{"stall_name":"Stall s049"}
+a1241,u034,e015,s050,marker_scanned,2026-05-05T13:17:31Z,0,{"marker_id":"marker_050"}
+a1242,u034,e015,s050,overlay_view,2026-05-05T13:17:36Z,143,{"stall_name":"Stall s050"}
+a1243,u034,e015,s048,marker_scanned,2026-05-05T13:21:31Z,0,{"marker_id":"marker_048"}
+a1244,u034,e015,s048,overlay_view,2026-05-05T13:21:36Z,186,{"stall_name":"Stall s048"}
+a1245,u034,e015,s051,marker_scanned,2026-05-05T13:30:31Z,0,{"marker_id":"marker_051"}
+a1246,u034,e015,s051,overlay_view,2026-05-05T13:30:36Z,281,{"stall_name":"Stall s051"}
+a1247,u034,e015,,ar_session_end,2026-05-05T13:32:01Z,1732,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a1248,u039,e026,,event_registered,2026-06-28T00:00:00Z,0,{}
+a1249,u039,e026,,ar_session_start,2026-06-28T12:25:01Z,0,{}
+a1250,u039,e026,s083,marker_scanned,2026-06-28T12:30:01Z,0,{"marker_id":"marker_083"}
+a1251,u039,e026,s083,overlay_view,2026-06-28T12:30:06Z,242,{"stall_name":"Stall s083"}
+a1252,u039,e026,s082,marker_scanned,2026-06-28T12:35:01Z,0,{"marker_id":"marker_082"}
+a1253,u039,e026,s082,overlay_view,2026-06-28T12:35:06Z,299,{"stall_name":"Stall s082"}
+a1254,u039,e026,s080,marker_scanned,2026-06-28T12:41:01Z,0,{"marker_id":"marker_080"}
+a1255,u039,e026,s080,overlay_view,2026-06-28T12:41:06Z,291,{"stall_name":"Stall s080"}
+a1256,u039,e026,,ar_session_end,2026-06-28T12:43:31Z,1191,"{""markers_scanned"":3,""overlays_viewed"":3}"
+a1257,u071,e017,,event_registered,2026-06-07T02:00:00Z,0,{}
+a1258,u071,e017,,ar_session_start,2026-06-10T11:51:25Z,0,{}
+a1259,u071,e017,s056,marker_scanned,2026-06-10T11:54:25Z,0,{"marker_id":"marker_056"}
+a1260,u071,e017,s056,overlay_view,2026-06-10T11:54:30Z,157,{"stall_name":"Stall s056"}
+a1261,u071,e017,s059,marker_scanned,2026-06-10T12:02:25Z,0,{"marker_id":"marker_059"}
+a1262,u071,e017,s059,overlay_view,2026-06-10T12:02:30Z,287,{"stall_name":"Stall s059"}
+a1263,u071,e017,s057,marker_scanned,2026-06-10T12:05:25Z,0,{"marker_id":"marker_057"}
+a1264,u071,e017,s057,overlay_view,2026-06-10T12:05:30Z,172,{"stall_name":"Stall s057"}
+a1265,u071,e017,,ar_session_end,2026-06-10T12:07:55Z,1033,"{""markers_scanned"":3,""overlays_viewed"":3}"
+a1266,u149,e021,,event_registered,2026-06-01T19:00:00Z,0,{}
+a1267,u149,e021,,ar_session_start,2026-06-03T10:48:51Z,0,{}
+a1268,u149,e021,s069,marker_scanned,2026-06-03T10:51:51Z,0,{"marker_id":"marker_069"}
+a1269,u149,e021,s069,overlay_view,2026-06-03T10:51:56Z,263,{"stall_name":"Stall s069"}
+a1270,u149,e021,s068,marker_scanned,2026-06-03T10:58:51Z,0,{"marker_id":"marker_068"}
+a1271,u149,e021,s068,overlay_view,2026-06-03T10:58:56Z,270,{"stall_name":"Stall s068"}
+a1272,u149,e021,s070,marker_scanned,2026-06-03T11:06:51Z,0,{"marker_id":"marker_070"}
+a1273,u149,e021,s070,overlay_view,2026-06-03T11:06:56Z,203,{"stall_name":"Stall s070"}
+a1274,u149,e021,s071,marker_scanned,2026-06-03T11:11:51Z,0,{"marker_id":"marker_071"}
+a1275,u149,e021,s071,overlay_view,2026-06-03T11:11:56Z,298,{"stall_name":"Stall s071"}
+a1276,u149,e021,,ar_session_end,2026-06-03T11:13:21Z,1562,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a1277,u156,e018,,ar_session_start,2026-03-25T12:22:20Z,0,{}
+a1278,u156,e018,s061,marker_scanned,2026-03-25T12:25:20Z,0,{"marker_id":"marker_061"}
+a1279,u156,e018,s061,overlay_view,2026-03-25T12:25:25Z,119,{"stall_name":"Stall s061"}
+a1280,u156,e018,,ar_session_end,2026-03-25T12:25:20Z,180,"{""markers_scanned"":1,""overlays_viewed"":1}"
+a1281,u106,e021,,event_viewed,2026-06-02T04:00:00Z,0,{}
+a1282,u127,e013,,event_registered,2026-05-31T01:00:00Z,0,{}
+a1283,u039,e011,,event_viewed,2026-04-10T02:00:00Z,0,{}
+a1284,u041,e007,,event_registered,2026-08-08T04:00:00Z,0,{}
+a1285,u041,e007,,ar_session_start,2026-08-15T13:43:21Z,0,{}
+a1286,u041,e007,s028,marker_scanned,2026-08-15T13:48:21Z,0,{"marker_id":"marker_028"}
+a1287,u041,e007,s028,overlay_view,2026-08-15T13:48:26Z,219,{"stall_name":"Stall s028"}
+a1288,u041,e007,s029,marker_scanned,2026-08-15T13:54:21Z,0,{"marker_id":"marker_029"}
+a1289,u041,e007,s029,overlay_view,2026-08-15T13:54:26Z,129,{"stall_name":"Stall s029"}
+a1290,u041,e007,s027,marker_scanned,2026-08-15T13:59:21Z,0,{"marker_id":"marker_027"}
+a1291,u041,e007,s027,overlay_view,2026-08-15T13:59:26Z,218,{"stall_name":"Stall s027"}
+a1292,u041,e007,,ar_session_end,2026-08-15T14:00:51Z,1110,"{""markers_scanned"":3,""overlays_viewed"":3}"
+a1293,u098,e029,,event_registered,2026-07-04T02:00:00Z,0,{}
+a1294,u098,e029,,ar_session_start,2026-07-12T14:50:23Z,0,{}
+a1295,u098,e029,s088,marker_scanned,2026-07-12T14:56:23Z,0,{"marker_id":"marker_088"}
+a1296,u098,e029,s088,overlay_view,2026-07-12T14:56:28Z,255,{"stall_name":"Stall s088"}
+a1297,u098,e029,s089,marker_scanned,2026-07-12T14:58:23Z,0,{"marker_id":"marker_089"}
+a1298,u098,e029,s089,overlay_view,2026-07-12T14:58:28Z,126,{"stall_name":"Stall s089"}
+a1299,u098,e029,s090,marker_scanned,2026-07-12T15:03:23Z,0,{"marker_id":"marker_090"}
+a1300,u098,e029,s090,overlay_view,2026-07-12T15:03:28Z,197,{"stall_name":"Stall s090"}
+a1301,u098,e029,s091,marker_scanned,2026-07-12T15:06:23Z,0,{"marker_id":"marker_091"}
+a1302,u098,e029,s091,overlay_view,2026-07-12T15:06:28Z,282,{"stall_name":"Stall s091"}
+a1303,u098,e029,,ar_session_end,2026-07-12T15:11:53Z,1410,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a1304,u127,e004,,event_registered,2026-03-22T22:00:00Z,0,{}
+a1305,u164,e003,,event_registered,2026-03-09T21:00:00Z,0,{}
+a1306,u164,e003,,ar_session_start,2026-03-10T12:42:55Z,0,{}
+a1307,u164,e003,s012,marker_scanned,2026-03-10T12:46:55Z,0,{"marker_id":"marker_012"}
+a1308,u164,e003,s012,overlay_view,2026-03-10T12:47:00Z,183,{"stall_name":"Stall s012"}
+a1309,u164,e003,s016,marker_scanned,2026-03-10T12:52:55Z,0,{"marker_id":"marker_016"}
+a1310,u164,e003,s016,overlay_view,2026-03-10T12:53:00Z,162,{"stall_name":"Stall s016"}
+a1311,u164,e003,s013,marker_scanned,2026-03-10T12:58:55Z,0,{"marker_id":"marker_013"}
+a1312,u164,e003,s013,overlay_view,2026-03-10T12:59:00Z,258,{"stall_name":"Stall s013"}
+a1313,u164,e003,s014,marker_scanned,2026-03-10T13:05:55Z,0,{"marker_id":"marker_014"}
+a1314,u164,e003,s014,overlay_view,2026-03-10T13:06:00Z,285,{"stall_name":"Stall s014"}
+a1315,u164,e003,,ar_session_end,2026-03-10T13:10:25Z,1772,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a1316,u090,e015,,event_viewed,2026-04-12T22:00:00Z,0,{}
+a1317,u112,e016,,event_registered,2026-03-22T04:00:00Z,0,{}
+a1318,u112,e016,,ar_session_start,2026-03-28T13:47:04Z,0,{}
+a1319,u112,e016,s052,marker_scanned,2026-03-28T13:51:04Z,0,{"marker_id":"marker_052"}
+a1320,u112,e016,s052,overlay_view,2026-03-28T13:51:09Z,155,{"stall_name":"Stall s052"}
+a1321,u112,e016,s054,marker_scanned,2026-03-28T13:57:04Z,0,{"marker_id":"marker_054"}
+a1322,u112,e016,s054,overlay_view,2026-03-28T13:57:09Z,221,{"stall_name":"Stall s054"}
+a1323,u112,e016,s053,marker_scanned,2026-03-28T14:01:04Z,0,{"marker_id":"marker_053"}
+a1324,u112,e016,s053,overlay_view,2026-03-28T14:01:09Z,138,{"stall_name":"Stall s053"}
+a1325,u112,e016,,ar_session_end,2026-03-28T14:05:34Z,1212,"{""markers_scanned"":3,""overlays_viewed"":3}"
+a1326,u056,e005,,event_viewed,2026-05-02T20:00:00Z,0,{}
+a1327,u181,e015,,event_viewed,2026-05-02T22:00:00Z,0,{}
+a1328,u046,e025,,event_registered,2026-07-01T22:00:00Z,0,{}
+a1329,u046,e025,,ar_session_start,2026-07-05T12:22:48Z,0,{}
+a1330,u046,e025,s079,marker_scanned,2026-07-05T12:24:48Z,0,{"marker_id":"marker_079"}
+a1331,u046,e025,s079,overlay_view,2026-07-05T12:24:53Z,105,{"stall_name":"Stall s079"}
+a1332,u046,e025,s077,marker_scanned,2026-07-05T12:29:48Z,0,{"marker_id":"marker_077"}
+a1333,u046,e025,s077,overlay_view,2026-07-05T12:29:53Z,68,{"stall_name":"Stall s077"}
+a1334,u046,e025,,ar_session_end,2026-07-05T12:28:48Z,360,"{""markers_scanned"":2,""overlays_viewed"":2}"
+a1335,u161,e027,,event_registered,2026-07-14T19:00:00Z,0,{}
+a1336,u161,e027,,ar_session_start,2026-07-20T11:23:19Z,0,{}
+a1337,u161,e027,s085,marker_scanned,2026-07-20T11:26:19Z,0,{"marker_id":"marker_085"}
+a1338,u161,e027,s085,overlay_view,2026-07-20T11:26:24Z,222,{"stall_name":"Stall s085"}
+a1339,u161,e027,s084,marker_scanned,2026-07-20T11:35:19Z,0,{"marker_id":"marker_084"}
+a1340,u161,e027,s084,overlay_view,2026-07-20T11:35:24Z,205,{"stall_name":"Stall s084"}
+a1341,u161,e027,s086,marker_scanned,2026-07-20T11:40:19Z,0,{"marker_id":"marker_086"}
+a1342,u161,e027,s086,overlay_view,2026-07-20T11:40:24Z,145,{"stall_name":"Stall s086"}
+a1343,u161,e027,,ar_session_end,2026-07-20T11:38:49Z,1044,"{""markers_scanned"":3,""overlays_viewed"":3}"
+a1344,u176,e010,,event_viewed,2026-07-05T04:00:00Z,0,{}
+a1345,u071,e005,,event_registered,2026-05-10T20:00:00Z,0,{}
+a1346,u071,e005,,ar_session_start,2026-05-12T13:29:58Z,0,{}
+a1347,u071,e005,s026,marker_scanned,2026-05-12T13:35:58Z,0,{"marker_id":"marker_026"}
+a1348,u071,e005,s026,overlay_view,2026-05-12T13:36:03Z,235,{"stall_name":"Stall s026"}
+a1349,u071,e005,s024,marker_scanned,2026-05-12T13:41:58Z,0,{"marker_id":"marker_024"}
+a1350,u071,e005,s024,overlay_view,2026-05-12T13:42:03Z,191,{"stall_name":"Stall s024"}
+a1351,u071,e005,s023,marker_scanned,2026-05-12T13:43:58Z,0,{"marker_id":"marker_023"}
+a1352,u071,e005,s023,overlay_view,2026-05-12T13:44:03Z,124,{"stall_name":"Stall s023"}
+a1353,u071,e005,,ar_session_end,2026-05-12T13:45:28Z,1079,"{""markers_scanned"":3,""overlays_viewed"":3}"
+a1354,u165,e002,,event_registered,2026-06-10T09:00:00Z,0,{}
+a1355,u038,e023,,event_viewed,2026-03-18T10:00:00Z,0,{}
+a1356,u112,e003,,event_registered,2026-03-07T05:00:00Z,0,{}
+a1357,u112,e003,,ar_session_start,2026-03-10T11:30:17Z,0,{}
+a1358,u112,e003,s015,marker_scanned,2026-03-10T11:35:17Z,0,{"marker_id":"marker_015"}
+a1359,u112,e003,s015,overlay_view,2026-03-10T11:35:22Z,277,{"stall_name":"Stall s015"}
+a1360,u112,e003,s013,marker_scanned,2026-03-10T11:39:17Z,0,{"marker_id":"marker_013"}
+a1361,u112,e003,s013,overlay_view,2026-03-10T11:39:22Z,214,{"stall_name":"Stall s013"}
+a1362,u112,e003,s016,marker_scanned,2026-03-10T11:46:17Z,0,{"marker_id":"marker_016"}
+a1363,u112,e003,s016,overlay_view,2026-03-10T11:46:22Z,158,{"stall_name":"Stall s016"}
+a1364,u112,e003,s014,marker_scanned,2026-03-10T11:50:17Z,0,{"marker_id":"marker_014"}
+a1365,u112,e003,s014,overlay_view,2026-03-10T11:50:22Z,222,{"stall_name":"Stall s014"}
+a1366,u112,e003,,ar_session_end,2026-03-10T11:52:47Z,1432,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a1367,u178,e015,,event_viewed,2026-04-22T04:00:00Z,0,{}
+a1368,u198,e027,,ar_session_start,2026-07-20T10:54:11Z,0,{}
+a1369,u198,e027,s087,marker_scanned,2026-07-20T10:58:11Z,0,{"marker_id":"marker_087"}
+a1370,u198,e027,s087,overlay_view,2026-07-20T10:58:16Z,74,{"stall_name":"Stall s087"}
+a1371,u198,e027,,ar_session_end,2026-07-20T10:56:11Z,120,"{""markers_scanned"":1,""overlays_viewed"":1}"
+a1372,u038,e011,,event_registered,2026-04-16T07:00:00Z,0,{}
+a1373,u038,e011,,ar_session_start,2026-04-22T21:20:08Z,0,{}
+a1374,u038,e011,s040,marker_scanned,2026-04-22T21:25:08Z,0,{"marker_id":"marker_040"}
+a1375,u038,e011,s040,overlay_view,2026-04-22T21:25:13Z,264,{"stall_name":"Stall s040"}
+a1376,u038,e011,s041,marker_scanned,2026-04-22T21:32:08Z,0,{"marker_id":"marker_041"}
+a1377,u038,e011,s041,overlay_view,2026-04-22T21:32:13Z,234,{"stall_name":"Stall s041"}
+a1378,u038,e011,s042,marker_scanned,2026-04-22T21:33:08Z,0,{"marker_id":"marker_042"}
+a1379,u038,e011,s042,overlay_view,2026-04-22T21:33:13Z,139,{"stall_name":"Stall s042"}
+a1380,u038,e011,s043,marker_scanned,2026-04-22T21:38:08Z,0,{"marker_id":"marker_043"}
+a1381,u038,e011,s043,overlay_view,2026-04-22T21:38:13Z,165,{"stall_name":"Stall s043"}
+a1382,u038,e011,,ar_session_end,2026-04-22T21:42:38Z,1385,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a1383,u143,e021,,ar_session_start,2026-06-03T11:50:56Z,0,{}
+a1384,u143,e021,s070,marker_scanned,2026-06-03T11:54:56Z,0,{"marker_id":"marker_070"}
+a1385,u143,e021,s070,overlay_view,2026-06-03T11:55:01Z,53,{"stall_name":"Stall s070"}
+a1386,u143,e021,,ar_session_end,2026-06-03T11:53:56Z,180,"{""markers_scanned"":1,""overlays_viewed"":1}"
+a1387,u157,e016,,event_viewed,2026-03-02T23:00:00Z,0,{}
+a1388,u036,e009,,event_viewed,2026-03-05T22:00:00Z,0,{}
+a1389,u118,e029,,event_registered,2026-07-03T03:00:00Z,0,{}
+a1390,u118,e029,,ar_session_start,2026-07-12T14:52:44Z,0,{}
+a1391,u118,e029,s091,marker_scanned,2026-07-12T14:54:44Z,0,{"marker_id":"marker_091"}
+a1392,u118,e029,s091,overlay_view,2026-07-12T14:54:49Z,128,{"stall_name":"Stall s091"}
+a1393,u118,e029,s090,marker_scanned,2026-07-12T15:00:44Z,0,{"marker_id":"marker_090"}
+a1394,u118,e029,s090,overlay_view,2026-07-12T15:00:49Z,54,{"stall_name":"Stall s090"}
+a1395,u118,e029,,ar_session_end,2026-07-12T15:02:44Z,600,"{""markers_scanned"":2,""overlays_viewed"":2}"
+a1396,u187,e027,,event_registered,2026-07-14T22:00:00Z,0,{}
+a1397,u187,e027,,ar_session_start,2026-07-20T10:06:33Z,0,{}
+a1398,u187,e027,s085,marker_scanned,2026-07-20T10:12:33Z,0,{"marker_id":"marker_085"}
+a1399,u187,e027,s085,overlay_view,2026-07-20T10:12:38Z,246,{"stall_name":"Stall s085"}
+a1400,u187,e027,s084,marker_scanned,2026-07-20T10:17:33Z,0,{"marker_id":"marker_084"}
+a1401,u187,e027,s084,overlay_view,2026-07-20T10:17:38Z,273,{"stall_name":"Stall s084"}
+a1402,u187,e027,s087,marker_scanned,2026-07-20T10:21:33Z,0,{"marker_id":"marker_087"}
+a1403,u187,e027,s087,overlay_view,2026-07-20T10:21:38Z,206,{"stall_name":"Stall s087"}
+a1404,u187,e027,,ar_session_end,2026-07-20T10:20:03Z,874,"{""markers_scanned"":3,""overlays_viewed"":3}"
+a1405,u155,e013,,event_viewed,2026-05-14T00:00:00Z,0,{}
+a1406,u083,e001,,event_viewed,2026-02-01T19:00:00Z,0,{}
+a1407,u129,e021,,event_registered,2026-05-22T20:00:00Z,0,{}
+a1408,u129,e021,,ar_session_start,2026-06-03T14:23:21Z,0,{}
+a1409,u129,e021,s070,marker_scanned,2026-06-03T14:27:21Z,0,{"marker_id":"marker_070"}
+a1410,u129,e021,s070,overlay_view,2026-06-03T14:27:26Z,116,{"stall_name":"Stall s070"}
+a1411,u129,e021,,ar_session_end,2026-06-03T14:27:21Z,240,"{""markers_scanned"":1,""overlays_viewed"":1}"
+a1412,u050,e026,,event_registered,2026-06-23T02:00:00Z,0,{}
+a1413,u050,e026,,ar_session_start,2026-06-28T14:57:48Z,0,{}
+a1414,u050,e026,s082,marker_scanned,2026-06-28T15:01:48Z,0,{"marker_id":"marker_082"}
+a1415,u050,e026,s082,overlay_view,2026-06-28T15:01:53Z,201,{"stall_name":"Stall s082"}
+a1416,u050,e026,s081,marker_scanned,2026-06-28T15:08:48Z,0,{"marker_id":"marker_081"}
+a1417,u050,e026,s081,overlay_view,2026-06-28T15:08:53Z,283,{"stall_name":"Stall s081"}
+a1418,u050,e026,s083,marker_scanned,2026-06-28T15:12:48Z,0,{"marker_id":"marker_083"}
+a1419,u050,e026,s083,overlay_view,2026-06-28T15:12:53Z,120,{"stall_name":"Stall s083"}
+a1420,u050,e026,s080,marker_scanned,2026-06-28T15:18:48Z,0,{"marker_id":"marker_080"}
+a1421,u050,e026,s080,overlay_view,2026-06-28T15:18:53Z,289,{"stall_name":"Stall s080"}
+a1422,u050,e026,,ar_session_end,2026-06-28T15:21:18Z,1506,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a1423,u082,e025,,event_registered,2026-07-02T04:00:00Z,0,{}
+a1424,u082,e025,,ar_session_start,2026-07-05T13:38:45Z,0,{}
+a1425,u082,e025,s077,marker_scanned,2026-07-05T13:44:45Z,0,{"marker_id":"marker_077"}
+a1426,u082,e025,s077,overlay_view,2026-07-05T13:44:50Z,168,{"stall_name":"Stall s077"}
+a1427,u082,e025,s076,marker_scanned,2026-07-05T13:45:45Z,0,{"marker_id":"marker_076"}
+a1428,u082,e025,s076,overlay_view,2026-07-05T13:45:50Z,127,{"stall_name":"Stall s076"}
+a1429,u082,e025,s078,marker_scanned,2026-07-05T13:50:45Z,0,{"marker_id":"marker_078"}
+a1430,u082,e025,s078,overlay_view,2026-07-05T13:50:50Z,181,{"stall_name":"Stall s078"}
+a1431,u082,e025,s079,marker_scanned,2026-07-05T13:56:45Z,0,{"marker_id":"marker_079"}
+a1432,u082,e025,s079,overlay_view,2026-07-05T13:56:50Z,284,{"stall_name":"Stall s079"}
+a1433,u082,e025,,ar_session_end,2026-07-05T14:01:15Z,1496,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a1434,u085,e029,,event_registered,2026-07-08T20:00:00Z,0,{}
+a1435,u085,e029,,ar_session_start,2026-07-12T12:24:57Z,0,{}
+a1436,u085,e029,s090,marker_scanned,2026-07-12T12:27:57Z,0,{"marker_id":"marker_090"}
+a1437,u085,e029,s090,overlay_view,2026-07-12T12:28:02Z,259,{"stall_name":"Stall s090"}
+a1438,u085,e029,s089,marker_scanned,2026-07-12T12:32:57Z,0,{"marker_id":"marker_089"}
+a1439,u085,e029,s089,overlay_view,2026-07-12T12:33:02Z,268,{"stall_name":"Stall s089"}
+a1440,u085,e029,s091,marker_scanned,2026-07-12T12:41:57Z,0,{"marker_id":"marker_091"}
+a1441,u085,e029,s091,overlay_view,2026-07-12T12:42:02Z,236,{"stall_name":"Stall s091"}
+a1442,u085,e029,,ar_session_end,2026-07-12T12:44:27Z,1309,"{""markers_scanned"":3,""overlays_viewed"":3}"
+a1443,u189,e011,,event_registered,2026-04-20T06:00:00Z,0,{}
+a1444,u189,e011,,ar_session_start,2026-04-22T20:07:13Z,0,{}
+a1445,u189,e011,s042,marker_scanned,2026-04-22T20:12:13Z,0,{"marker_id":"marker_042"}
+a1446,u189,e011,s042,overlay_view,2026-04-22T20:12:18Z,182,{"stall_name":"Stall s042"}
+a1447,u189,e011,s040,marker_scanned,2026-04-22T20:17:13Z,0,{"marker_id":"marker_040"}
+a1448,u189,e011,s040,overlay_view,2026-04-22T20:17:18Z,236,{"stall_name":"Stall s040"}
+a1449,u189,e011,s043,marker_scanned,2026-04-22T20:22:13Z,0,{"marker_id":"marker_043"}
+a1450,u189,e011,s043,overlay_view,2026-04-22T20:22:18Z,234,{"stall_name":"Stall s043"}
+a1451,u189,e011,s041,marker_scanned,2026-04-22T20:26:13Z,0,{"marker_id":"marker_041"}
+a1452,u189,e011,s041,overlay_view,2026-04-22T20:26:18Z,130,{"stall_name":"Stall s041"}
+a1453,u189,e011,,ar_session_end,2026-04-22T20:27:43Z,1327,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a1454,u091,e021,,event_viewed,2026-04-27T22:00:00Z,0,{}
+a1455,u178,e004,,event_registered,2026-03-30T02:00:00Z,0,{}
+a1456,u178,e004,,ar_session_start,2026-04-05T12:17:58Z,0,{}
+a1457,u178,e004,s018,marker_scanned,2026-04-05T12:22:58Z,0,{"marker_id":"marker_018"}
+a1458,u178,e004,s018,overlay_view,2026-04-05T12:23:03Z,261,{"stall_name":"Stall s018"}
+a1459,u178,e004,s021,marker_scanned,2026-04-05T12:25:58Z,0,{"marker_id":"marker_021"}
+a1460,u178,e004,s021,overlay_view,2026-04-05T12:26:03Z,182,{"stall_name":"Stall s021"}
+a1461,u178,e004,s022,marker_scanned,2026-04-05T12:31:58Z,0,{"marker_id":"marker_022"}
+a1462,u178,e004,s022,overlay_view,2026-04-05T12:32:03Z,149,{"stall_name":"Stall s022"}
+a1463,u178,e004,s017,marker_scanned,2026-04-05T12:37:58Z,0,{"marker_id":"marker_017"}
+a1464,u178,e004,s017,overlay_view,2026-04-05T12:38:03Z,186,{"stall_name":"Stall s017"}
+a1465,u178,e004,,ar_session_end,2026-04-05T12:42:28Z,1554,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a1466,u029,e017,,event_registered,2026-06-05T23:00:00Z,0,{}
+a1467,u087,e009,,event_registered,2026-03-09T19:00:00Z,0,{}
+a1468,u087,e009,,ar_session_start,2026-03-18T13:44:28Z,0,{}
+a1469,u087,e009,s035,marker_scanned,2026-03-18T13:50:28Z,0,{"marker_id":"marker_035"}
+a1470,u087,e009,s035,overlay_view,2026-03-18T13:50:33Z,121,{"stall_name":"Stall s035"}
+a1471,u087,e009,s033,marker_scanned,2026-03-18T13:55:28Z,0,{"marker_id":"marker_033"}
+a1472,u087,e009,s033,overlay_view,2026-03-18T13:55:33Z,297,{"stall_name":"Stall s033"}
+a1473,u087,e009,s034,marker_scanned,2026-03-18T14:03:28Z,0,{"marker_id":"marker_034"}
+a1474,u087,e009,s034,overlay_view,2026-03-18T14:03:33Z,167,{"stall_name":"Stall s034"}
+a1475,u087,e009,,ar_session_end,2026-03-18T14:04:58Z,1345,"{""markers_scanned"":3,""overlays_viewed"":3}"
+a1476,u177,e003,,ar_session_start,2026-03-10T14:48:58Z,0,{}
+a1477,u177,e003,s014,marker_scanned,2026-03-10T14:52:58Z,0,{"marker_id":"marker_014"}
+a1478,u177,e003,s014,overlay_view,2026-03-10T14:53:03Z,149,{"stall_name":"Stall s014"}
+a1479,u177,e003,s016,marker_scanned,2026-03-10T14:54:58Z,0,{"marker_id":"marker_016"}
+a1480,u177,e003,s016,overlay_view,2026-03-10T14:55:03Z,115,{"stall_name":"Stall s016"}
+a1481,u177,e003,,ar_session_end,2026-03-10T14:52:58Z,240,"{""markers_scanned"":2,""overlays_viewed"":2}"
+a1482,u059,e009,,event_registered,2026-03-05T06:00:00Z,0,{}
+a1483,u134,e023,,event_viewed,2026-03-26T14:00:00Z,0,{}
+a1484,u052,e013,,event_registered,2026-06-04T04:00:00Z,0,{}
+a1485,u052,e013,,ar_session_start,2026-06-15T15:25:11Z,0,{}
+a1486,u052,e013,s047,marker_scanned,2026-06-15T15:28:11Z,0,{"marker_id":"marker_047"}
+a1487,u052,e013,s047,overlay_view,2026-06-15T15:28:16Z,80,{"stall_name":"Stall s047"}
+a1488,u052,e013,,ar_session_end,2026-06-15T15:30:11Z,300,"{""markers_scanned"":1,""overlays_viewed"":1}"
+a1489,u108,e027,,event_registered,2026-07-14T03:00:00Z,0,{}
+a1490,u108,e027,,ar_session_start,2026-07-20T10:29:15Z,0,{}
+a1491,u108,e027,s087,marker_scanned,2026-07-20T10:33:15Z,0,{"marker_id":"marker_087"}
+a1492,u108,e027,s087,overlay_view,2026-07-20T10:33:20Z,268,{"stall_name":"Stall s087"}
+a1493,u108,e027,s084,marker_scanned,2026-07-20T10:38:15Z,0,{"marker_id":"marker_084"}
+a1494,u108,e027,s084,overlay_view,2026-07-20T10:38:20Z,259,{"stall_name":"Stall s084"}
+a1495,u108,e027,s086,marker_scanned,2026-07-20T10:44:15Z,0,{"marker_id":"marker_086"}
+a1496,u108,e027,s086,overlay_view,2026-07-20T10:44:20Z,149,{"stall_name":"Stall s086"}
+a1497,u108,e027,,ar_session_end,2026-07-20T10:48:45Z,1223,"{""markers_scanned"":3,""overlays_viewed"":3}"
+a1498,u075,e010,,event_viewed,2026-06-28T04:00:00Z,0,{}
+a1499,u152,e017,,event_registered,2026-06-08T19:00:00Z,0,{}
+a1500,u152,e017,,ar_session_start,2026-06-10T14:17:57Z,0,{}
+a1501,u152,e017,s057,marker_scanned,2026-06-10T14:23:57Z,0,{"marker_id":"marker_057"}
+a1502,u152,e017,s057,overlay_view,2026-06-10T14:24:02Z,189,{"stall_name":"Stall s057"}
+a1503,u152,e017,s059,marker_scanned,2026-06-10T14:24:57Z,0,{"marker_id":"marker_059"}
+a1504,u152,e017,s059,overlay_view,2026-06-10T14:25:02Z,259,{"stall_name":"Stall s059"}
+a1505,u152,e017,s058,marker_scanned,2026-06-10T14:33:57Z,0,{"marker_id":"marker_058"}
+a1506,u152,e017,s058,overlay_view,2026-06-10T14:34:02Z,235,{"stall_name":"Stall s058"}
+a1507,u152,e017,s056,marker_scanned,2026-06-10T14:38:57Z,0,{"marker_id":"marker_056"}
+a1508,u152,e017,s056,overlay_view,2026-06-10T14:39:02Z,224,{"stall_name":"Stall s056"}
+a1509,u152,e017,,ar_session_end,2026-06-10T14:41:27Z,1534,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a1510,u117,e018,,event_viewed,2026-03-20T23:00:00Z,0,{}
+a1511,u040,e027,,event_registered,2026-07-16T02:00:00Z,0,{}
+a1512,u040,e027,,ar_session_start,2026-07-20T13:19:58Z,0,{}
+a1513,u040,e027,s087,marker_scanned,2026-07-20T13:22:58Z,0,{"marker_id":"marker_087"}
+a1514,u040,e027,s087,overlay_view,2026-07-20T13:23:03Z,100,{"stall_name":"Stall s087"}
+a1515,u040,e027,s085,marker_scanned,2026-07-20T13:26:58Z,0,{"marker_id":"marker_085"}
+a1516,u040,e027,s085,overlay_view,2026-07-20T13:27:03Z,80,{"stall_name":"Stall s085"}
+a1517,u040,e027,,ar_session_end,2026-07-20T13:28:58Z,540,"{""markers_scanned"":2,""overlays_viewed"":2}"
+a1518,u107,e001,,event_viewed,2026-02-12T04:00:00Z,0,{}
+a1519,u020,e029,,event_registered,2026-07-06T23:00:00Z,0,{}
+a1520,u020,e029,,ar_session_start,2026-07-12T13:13:49Z,0,{}
+a1521,u020,e029,s089,marker_scanned,2026-07-12T13:18:49Z,0,{"marker_id":"marker_089"}
+a1522,u020,e029,s089,overlay_view,2026-07-12T13:18:54Z,225,{"stall_name":"Stall s089"}
+a1523,u020,e029,s088,marker_scanned,2026-07-12T13:24:49Z,0,{"marker_id":"marker_088"}
+a1524,u020,e029,s088,overlay_view,2026-07-12T13:24:54Z,165,{"stall_name":"Stall s088"}
+a1525,u020,e029,s090,marker_scanned,2026-07-12T13:29:49Z,0,{"marker_id":"marker_090"}
+a1526,u020,e029,s090,overlay_view,2026-07-12T13:29:54Z,228,{"stall_name":"Stall s090"}
+a1527,u020,e029,,ar_session_end,2026-07-12T13:29:19Z,1045,"{""markers_scanned"":3,""overlays_viewed"":3}"
+a1528,u064,e011,,event_viewed,2026-04-19T12:00:00Z,0,{}
+a1529,u099,e027,,event_viewed,2026-06-10T00:00:00Z,0,{}
+a1530,u045,e027,,event_registered,2026-07-16T20:00:00Z,0,{}
+a1531,u045,e027,,ar_session_start,2026-07-20T11:31:50Z,0,{}
+a1532,u045,e027,s085,marker_scanned,2026-07-20T11:35:50Z,0,{"marker_id":"marker_085"}
+a1533,u045,e027,s085,overlay_view,2026-07-20T11:35:55Z,233,{"stall_name":"Stall s085"}
+a1534,u045,e027,s084,marker_scanned,2026-07-20T11:45:50Z,0,{"marker_id":"marker_084"}
+a1535,u045,e027,s084,overlay_view,2026-07-20T11:45:55Z,133,{"stall_name":"Stall s084"}
+a1536,u045,e027,s086,marker_scanned,2026-07-20T11:51:50Z,0,{"marker_id":"marker_086"}
+a1537,u045,e027,s086,overlay_view,2026-07-20T11:51:55Z,291,{"stall_name":"Stall s086"}
+a1538,u045,e027,,ar_session_end,2026-07-20T11:53:20Z,1371,"{""markers_scanned"":3,""overlays_viewed"":3}"
+a1539,u018,e016,,event_viewed,2026-03-05T05:00:00Z,0,{}
+a1540,u002,e010,,event_registered,2026-07-24T07:00:00Z,0,{}
+a1541,u002,e010,,ar_session_start,2026-07-25T19:14:33Z,0,{}
+a1542,u002,e010,s038,marker_scanned,2026-07-25T19:17:33Z,0,{"marker_id":"marker_038"}
+a1543,u002,e010,s038,overlay_view,2026-07-25T19:17:38Z,134,{"stall_name":"Stall s038"}
+a1544,u002,e010,,ar_session_end,2026-07-25T19:17:33Z,180,"{""markers_scanned"":1,""overlays_viewed"":1}"
+a1545,u193,e018,,event_registered,2026-03-16T22:00:00Z,0,{}
+a1546,u193,e018,,ar_session_start,2026-03-25T12:34:38Z,0,{}
+a1547,u193,e018,s063,marker_scanned,2026-03-25T12:38:38Z,0,{"marker_id":"marker_063"}
+a1548,u193,e018,s063,overlay_view,2026-03-25T12:38:43Z,56,{"stall_name":"Stall s063"}
+a1549,u193,e018,,ar_session_end,2026-03-25T12:38:38Z,240,"{""markers_scanned"":1,""overlays_viewed"":1}"
+a1550,u001,e018,,event_registered,2026-03-15T01:00:00Z,0,{}
+a1551,u001,e018,,ar_session_start,2026-03-25T11:21:58Z,0,{}
+a1552,u001,e018,s063,marker_scanned,2026-03-25T11:23:58Z,0,{"marker_id":"marker_063"}
+a1553,u001,e018,s063,overlay_view,2026-03-25T11:24:03Z,128,{"stall_name":"Stall s063"}
+a1554,u001,e018,,ar_session_end,2026-03-25T11:24:58Z,180,"{""markers_scanned"":1,""overlays_viewed"":1}"
+a1555,u013,e026,,event_viewed,2026-06-08T00:00:00Z,0,{}
+a1556,u108,e018,,event_registered,2026-03-22T21:00:00Z,0,{}
+a1557,u108,e018,,ar_session_start,2026-03-25T12:10:50Z,0,{}
+a1558,u108,e018,s063,marker_scanned,2026-03-25T12:14:50Z,0,{"marker_id":"marker_063"}
+a1559,u108,e018,s063,overlay_view,2026-03-25T12:14:55Z,273,{"stall_name":"Stall s063"}
+a1560,u108,e018,s062,marker_scanned,2026-03-25T12:21:50Z,0,{"marker_id":"marker_062"}
+a1561,u108,e018,s062,overlay_view,2026-03-25T12:21:55Z,241,{"stall_name":"Stall s062"}
+a1562,u108,e018,s060,marker_scanned,2026-03-25T12:30:50Z,0,{"marker_id":"marker_060"}
+a1563,u108,e018,s060,overlay_view,2026-03-25T12:30:55Z,195,{"stall_name":"Stall s060"}
+a1564,u108,e018,,ar_session_end,2026-03-25T12:33:20Z,1404,"{""markers_scanned"":3,""overlays_viewed"":3}"
+a1565,u062,e013,,event_registered,2026-06-13T21:00:00Z,0,{}
+a1566,u062,e013,,ar_session_start,2026-06-15T13:06:00Z,0,{}
+a1567,u062,e013,s045,marker_scanned,2026-06-15T13:12:00Z,0,{"marker_id":"marker_045"}
+a1568,u062,e013,s045,overlay_view,2026-06-15T13:12:05Z,296,{"stall_name":"Stall s045"}
+a1569,u062,e013,s044,marker_scanned,2026-06-15T13:13:00Z,0,{"marker_id":"marker_044"}
+a1570,u062,e013,s044,overlay_view,2026-06-15T13:13:05Z,267,{"stall_name":"Stall s044"}
+a1571,u062,e013,s046,marker_scanned,2026-06-15T13:20:00Z,0,{"marker_id":"marker_046"}
+a1572,u062,e013,s046,overlay_view,2026-06-15T13:20:05Z,169,{"stall_name":"Stall s046"}
+a1573,u062,e013,s047,marker_scanned,2026-06-15T13:30:00Z,0,{"marker_id":"marker_047"}
+a1574,u062,e013,s047,overlay_view,2026-06-15T13:30:05Z,149,{"stall_name":"Stall s047"}
+a1575,u062,e013,,ar_session_end,2026-06-15T13:30:30Z,1548,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a1576,u193,e015,,event_registered,2026-04-20T04:00:00Z,0,{}
+a1577,u190,e021,,event_registered,2026-05-26T22:00:00Z,0,{}
+a1578,u190,e021,,ar_session_start,2026-06-03T09:59:15Z,0,{}
+a1579,u190,e021,s070,marker_scanned,2026-06-03T10:04:15Z,0,{"marker_id":"marker_070"}
+a1580,u190,e021,s070,overlay_view,2026-06-03T10:04:20Z,189,{"stall_name":"Stall s070"}
+a1581,u190,e021,s071,marker_scanned,2026-06-03T10:10:15Z,0,{"marker_id":"marker_071"}
+a1582,u190,e021,s071,overlay_view,2026-06-03T10:10:20Z,186,{"stall_name":"Stall s071"}
+a1583,u190,e021,s069,marker_scanned,2026-06-03T10:17:15Z,0,{"marker_id":"marker_069"}
+a1584,u190,e021,s069,overlay_view,2026-06-03T10:17:20Z,163,{"stall_name":"Stall s069"}
+a1585,u190,e021,s068,marker_scanned,2026-06-03T10:19:15Z,0,{"marker_id":"marker_068"}
+a1586,u190,e021,s068,overlay_view,2026-06-03T10:19:20Z,242,{"stall_name":"Stall s068"}
+a1587,u190,e021,,ar_session_end,2026-06-03T10:20:45Z,1410,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a1588,u196,e029,,event_registered,2026-07-06T21:00:00Z,0,{}
+a1589,u196,e029,,ar_session_start,2026-07-12T10:58:55Z,0,{}
+a1590,u196,e029,s090,marker_scanned,2026-07-12T11:03:55Z,0,{"marker_id":"marker_090"}
+a1591,u196,e029,s090,overlay_view,2026-07-12T11:04:00Z,202,{"stall_name":"Stall s090"}
+a1592,u196,e029,s088,marker_scanned,2026-07-12T11:07:55Z,0,{"marker_id":"marker_088"}
+a1593,u196,e029,s088,overlay_view,2026-07-12T11:08:00Z,198,{"stall_name":"Stall s088"}
+a1594,u196,e029,s089,marker_scanned,2026-07-12T11:13:55Z,0,{"marker_id":"marker_089"}
+a1595,u196,e029,s089,overlay_view,2026-07-12T11:14:00Z,226,{"stall_name":"Stall s089"}
+a1596,u196,e029,s091,marker_scanned,2026-07-12T11:23:55Z,0,{"marker_id":"marker_091"}
+a1597,u196,e029,s091,overlay_view,2026-07-12T11:24:00Z,235,{"stall_name":"Stall s091"}
+a1598,u196,e029,,ar_session_end,2026-07-12T11:23:25Z,1558,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a1599,u051,e003,,event_registered,2026-03-07T02:00:00Z,0,{}
+a1600,u051,e003,,ar_session_start,2026-03-10T13:09:38Z,0,{}
+a1601,u051,e003,s013,marker_scanned,2026-03-10T13:13:38Z,0,{"marker_id":"marker_013"}
+a1602,u051,e003,s013,overlay_view,2026-03-10T13:13:43Z,141,{"stall_name":"Stall s013"}
+a1603,u051,e003,s014,marker_scanned,2026-03-10T13:19:38Z,0,{"marker_id":"marker_014"}
+a1604,u051,e003,s014,overlay_view,2026-03-10T13:19:43Z,143,{"stall_name":"Stall s014"}
+a1605,u051,e003,s012,marker_scanned,2026-03-10T13:27:38Z,0,{"marker_id":"marker_012"}
+a1606,u051,e003,s012,overlay_view,2026-03-10T13:27:43Z,124,{"stall_name":"Stall s012"}
+a1607,u051,e003,,ar_session_end,2026-03-10T13:28:08Z,1156,"{""markers_scanned"":3,""overlays_viewed"":3}"
+a1608,u142,e025,,event_registered,2026-06-26T06:00:00Z,0,{}
+a1609,u142,e025,,ar_session_start,2026-07-05T15:36:42Z,0,{}
+a1610,u142,e025,s078,marker_scanned,2026-07-05T15:38:42Z,0,{"marker_id":"marker_078"}
+a1611,u142,e025,s078,overlay_view,2026-07-05T15:38:47Z,118,{"stall_name":"Stall s078"}
+a1612,u142,e025,,ar_session_end,2026-07-05T15:38:42Z,120,"{""markers_scanned"":1,""overlays_viewed"":1}"
+a1613,u149,e020,,event_registered,2026-05-25T03:00:00Z,0,{}
+a1614,u149,e020,,ar_session_start,2026-05-30T19:07:55Z,0,{}
+a1615,u149,e020,s064,marker_scanned,2026-05-30T19:10:55Z,0,{"marker_id":"marker_064"}
+a1616,u149,e020,s064,overlay_view,2026-05-30T19:11:00Z,153,{"stall_name":"Stall s064"}
+a1617,u149,e020,s067,marker_scanned,2026-05-30T19:15:55Z,0,{"marker_id":"marker_067"}
+a1618,u149,e020,s067,overlay_view,2026-05-30T19:16:00Z,182,{"stall_name":"Stall s067"}
+a1619,u149,e020,s066,marker_scanned,2026-05-30T19:25:55Z,0,{"marker_id":"marker_066"}
+a1620,u149,e020,s066,overlay_view,2026-05-30T19:26:00Z,261,{"stall_name":"Stall s066"}
+a1621,u149,e020,s065,marker_scanned,2026-05-30T19:30:55Z,0,{"marker_id":"marker_065"}
+a1622,u149,e020,s065,overlay_view,2026-05-30T19:31:00Z,189,{"stall_name":"Stall s065"}
+a1623,u149,e020,,ar_session_end,2026-05-30T19:31:25Z,1554,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a1624,u116,e021,,event_registered,2026-05-31T19:00:00Z,0,{}
+a1625,u116,e021,,ar_session_start,2026-06-03T10:50:52Z,0,{}
+a1626,u116,e021,s068,marker_scanned,2026-06-03T10:54:52Z,0,{"marker_id":"marker_068"}
+a1627,u116,e021,s068,overlay_view,2026-06-03T10:54:57Z,208,{"stall_name":"Stall s068"}
+a1628,u116,e021,s070,marker_scanned,2026-06-03T11:02:52Z,0,{"marker_id":"marker_070"}
+a1629,u116,e021,s070,overlay_view,2026-06-03T11:02:57Z,144,{"stall_name":"Stall s070"}
+a1630,u116,e021,s071,marker_scanned,2026-06-03T11:06:52Z,0,{"marker_id":"marker_071"}
+a1631,u116,e021,s071,overlay_view,2026-06-03T11:06:57Z,182,{"stall_name":"Stall s071"}
+a1632,u116,e021,,ar_session_end,2026-06-03T11:12:22Z,1371,"{""markers_scanned"":3,""overlays_viewed"":3}"
+a1633,u091,e027,,event_viewed,2026-07-02T23:00:00Z,0,{}
+a1634,u038,e009,,ar_session_start,2026-03-18T11:56:46Z,0,{}
+a1635,u038,e009,s034,marker_scanned,2026-03-18T11:58:46Z,0,{"marker_id":"marker_034"}
+a1636,u038,e009,s034,overlay_view,2026-03-18T11:58:51Z,131,{"stall_name":"Stall s034"}
+a1637,u038,e009,,ar_session_end,2026-03-18T12:00:46Z,240,"{""markers_scanned"":1,""overlays_viewed"":1}"
+a1638,u149,e009,,event_registered,2026-03-05T21:00:00Z,0,{}
+a1639,u149,e009,,ar_session_start,2026-03-18T12:17:12Z,0,{}
+a1640,u149,e009,s034,marker_scanned,2026-03-18T12:20:12Z,0,{"marker_id":"marker_034"}
+a1641,u149,e009,s034,overlay_view,2026-03-18T12:20:17Z,76,{"stall_name":"Stall s034"}
+a1642,u149,e009,,ar_session_end,2026-03-18T12:21:12Z,240,"{""markers_scanned"":1,""overlays_viewed"":1}"
+a1643,u101,e017,,event_viewed,2026-05-08T08:00:00Z,0,{}
+a1644,u148,e025,,event_viewed,2026-06-13T04:00:00Z,0,{}
+a1645,u134,e005,,event_registered,2026-05-02T03:00:00Z,0,{}
+a1646,u147,e007,,event_registered,2026-08-14T21:00:00Z,0,{}
+a1647,u147,e007,,ar_session_start,2026-08-15T12:56:32Z,0,{}
+a1648,u147,e007,s028,marker_scanned,2026-08-15T13:00:32Z,0,{"marker_id":"marker_028"}
+a1649,u147,e007,s028,overlay_view,2026-08-15T13:00:37Z,146,{"stall_name":"Stall s028"}
+a1650,u147,e007,s030,marker_scanned,2026-08-15T13:04:32Z,0,{"marker_id":"marker_030"}
+a1651,u147,e007,s030,overlay_view,2026-08-15T13:04:37Z,235,{"stall_name":"Stall s030"}
+a1652,u147,e007,s029,marker_scanned,2026-08-15T13:10:32Z,0,{"marker_id":"marker_029"}
+a1653,u147,e007,s029,overlay_view,2026-08-15T13:10:37Z,162,{"stall_name":"Stall s029"}
+a1654,u147,e007,s031,marker_scanned,2026-08-15T13:15:32Z,0,{"marker_id":"marker_031"}
+a1655,u147,e007,s031,overlay_view,2026-08-15T13:15:37Z,239,{"stall_name":"Stall s031"}
+a1656,u147,e007,,ar_session_end,2026-08-15T13:21:02Z,1508,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a1657,u066,e001,,event_registered,2026-02-12T19:00:00Z,0,{}
+a1658,u066,e001,,ar_session_start,2026-02-15T12:32:43Z,0,{}
+a1659,u066,e001,s002,marker_scanned,2026-02-15T12:38:43Z,0,{"marker_id":"marker_002"}
+a1660,u066,e001,s002,overlay_view,2026-02-15T12:38:48Z,205,{"stall_name":"Stall s002"}
+a1661,u066,e001,s003,marker_scanned,2026-02-15T12:44:43Z,0,{"marker_id":"marker_003"}
+a1662,u066,e001,s003,overlay_view,2026-02-15T12:44:48Z,266,{"stall_name":"Stall s003"}
+a1663,u066,e001,s001,marker_scanned,2026-02-15T12:46:43Z,0,{"marker_id":"marker_001"}
+a1664,u066,e001,s001,overlay_view,2026-02-15T12:46:48Z,267,{"stall_name":"Stall s001"}
+a1665,u066,e001,,ar_session_end,2026-02-15T12:48:13Z,976,"{""markers_scanned"":3,""overlays_viewed"":3}"
+a1666,u036,e002,,event_registered,2026-06-17T01:00:00Z,0,{}
+a1667,u036,e002,,ar_session_start,2026-06-20T16:18:56Z,0,{}
+a1668,u036,e002,s007,marker_scanned,2026-06-20T16:22:56Z,0,{"marker_id":"marker_007"}
+a1669,u036,e002,s007,overlay_view,2026-06-20T16:23:01Z,159,{"stall_name":"Stall s007"}
+a1670,u036,e002,s010,marker_scanned,2026-06-20T16:28:56Z,0,{"marker_id":"marker_010"}
+a1671,u036,e002,s010,overlay_view,2026-06-20T16:29:01Z,126,{"stall_name":"Stall s010"}
+a1672,u036,e002,s009,marker_scanned,2026-06-20T16:35:56Z,0,{"marker_id":"marker_009"}
+a1673,u036,e002,s009,overlay_view,2026-06-20T16:36:01Z,233,{"stall_name":"Stall s009"}
+a1674,u036,e002,,ar_session_end,2026-06-20T16:36:26Z,1180,"{""markers_scanned"":3,""overlays_viewed"":3}"
+a1675,u147,e001,,ar_session_start,2026-02-15T11:38:02Z,0,{}
+a1676,u147,e001,s003,marker_scanned,2026-02-15T11:40:02Z,0,{"marker_id":"marker_003"}
+a1677,u147,e001,s003,overlay_view,2026-02-15T11:40:07Z,71,{"stall_name":"Stall s003"}
+a1678,u147,e001,,ar_session_end,2026-02-15T11:40:02Z,120,"{""markers_scanned"":1,""overlays_viewed"":1}"
+a1679,u115,e017,,event_registered,2026-06-08T01:00:00Z,0,{}
+a1680,u115,e017,,ar_session_start,2026-06-10T11:26:55Z,0,{}
+a1681,u115,e017,s059,marker_scanned,2026-06-10T11:31:55Z,0,{"marker_id":"marker_059"}
+a1682,u115,e017,s059,overlay_view,2026-06-10T11:32:00Z,188,{"stall_name":"Stall s059"}
+a1683,u115,e017,s058,marker_scanned,2026-06-10T11:40:55Z,0,{"marker_id":"marker_058"}
+a1684,u115,e017,s058,overlay_view,2026-06-10T11:41:00Z,162,{"stall_name":"Stall s058"}
+a1685,u115,e017,s056,marker_scanned,2026-06-10T11:45:55Z,0,{"marker_id":"marker_056"}
+a1686,u115,e017,s056,overlay_view,2026-06-10T11:46:00Z,272,{"stall_name":"Stall s056"}
+a1687,u115,e017,s057,marker_scanned,2026-06-10T11:50:55Z,0,{"marker_id":"marker_057"}
+a1688,u115,e017,s057,overlay_view,2026-06-10T11:51:00Z,215,{"stall_name":"Stall s057"}
+a1689,u115,e017,,ar_session_end,2026-06-10T11:53:25Z,1684,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a1690,u149,e025,,event_registered,2026-06-24T23:00:00Z,0,{}
+a1691,u149,e025,,ar_session_start,2026-07-05T16:13:50Z,0,{}
+a1692,u149,e025,s077,marker_scanned,2026-07-05T16:17:50Z,0,{"marker_id":"marker_077"}
+a1693,u149,e025,s077,overlay_view,2026-07-05T16:17:55Z,84,{"stall_name":"Stall s077"}
+a1694,u149,e025,,ar_session_end,2026-07-05T16:18:50Z,300,"{""markers_scanned"":1,""overlays_viewed"":1}"
+a1695,u166,e005,,event_registered,2026-05-07T03:00:00Z,0,{}
+a1696,u166,e005,,ar_session_start,2026-05-12T14:00:36Z,0,{}
+a1697,u166,e005,s023,marker_scanned,2026-05-12T14:03:36Z,0,{"marker_id":"marker_023"}
+a1698,u166,e005,s023,overlay_view,2026-05-12T14:03:41Z,120,{"stall_name":"Stall s023"}
+a1699,u166,e005,s026,marker_scanned,2026-05-12T14:12:36Z,0,{"marker_id":"marker_026"}
+a1700,u166,e005,s026,overlay_view,2026-05-12T14:12:41Z,267,{"stall_name":"Stall s026"}
+a1701,u166,e005,s025,marker_scanned,2026-05-12T14:17:36Z,0,{"marker_id":"marker_025"}
+a1702,u166,e005,s025,overlay_view,2026-05-12T14:17:41Z,225,{"stall_name":"Stall s025"}
+a1703,u166,e005,s024,marker_scanned,2026-05-12T14:24:36Z,0,{"marker_id":"marker_024"}
+a1704,u166,e005,s024,overlay_view,2026-05-12T14:24:41Z,268,{"stall_name":"Stall s024"}
+a1705,u166,e005,,ar_session_end,2026-05-12T14:25:06Z,1516,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a1706,u007,e013,,event_registered,2026-06-10T01:00:00Z,0,{}
+a1707,u007,e013,,ar_session_start,2026-06-15T10:44:05Z,0,{}
+a1708,u007,e013,s045,marker_scanned,2026-06-15T10:48:05Z,0,{"marker_id":"marker_045"}
+a1709,u007,e013,s045,overlay_view,2026-06-15T10:48:10Z,295,{"stall_name":"Stall s045"}
+a1710,u007,e013,s047,marker_scanned,2026-06-15T10:55:05Z,0,{"marker_id":"marker_047"}
+a1711,u007,e013,s047,overlay_view,2026-06-15T10:55:10Z,270,{"stall_name":"Stall s047"}
+a1712,u007,e013,s044,marker_scanned,2026-06-15T11:01:05Z,0,{"marker_id":"marker_044"}
+a1713,u007,e013,s044,overlay_view,2026-06-15T11:01:10Z,196,{"stall_name":"Stall s044"}
+a1714,u007,e013,s046,marker_scanned,2026-06-15T11:05:05Z,0,{"marker_id":"marker_046"}
+a1715,u007,e013,s046,overlay_view,2026-06-15T11:05:10Z,280,{"stall_name":"Stall s046"}
+a1716,u007,e013,,ar_session_end,2026-06-15T11:07:35Z,1440,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a1717,u126,e017,,event_registered,2026-06-01T20:00:00Z,0,{}
+a1718,u126,e017,,ar_session_start,2026-06-10T14:09:02Z,0,{}
+a1719,u126,e017,s057,marker_scanned,2026-06-10T14:13:02Z,0,{"marker_id":"marker_057"}
+a1720,u126,e017,s057,overlay_view,2026-06-10T14:13:07Z,124,{"stall_name":"Stall s057"}
+a1721,u126,e017,s056,marker_scanned,2026-06-10T14:22:02Z,0,{"marker_id":"marker_056"}
+a1722,u126,e017,s056,overlay_view,2026-06-10T14:22:07Z,244,{"stall_name":"Stall s056"}
+a1723,u126,e017,s058,marker_scanned,2026-06-10T14:25:02Z,0,{"marker_id":"marker_058"}
+a1724,u126,e017,s058,overlay_view,2026-06-10T14:25:07Z,281,{"stall_name":"Stall s058"}
+a1725,u126,e017,s059,marker_scanned,2026-06-10T14:32:02Z,0,{"marker_id":"marker_059"}
+a1726,u126,e017,s059,overlay_view,2026-06-10T14:32:07Z,122,{"stall_name":"Stall s059"}
+a1727,u126,e017,,ar_session_end,2026-06-10T14:34:32Z,1670,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a1728,u113,e017,,event_viewed,2026-05-20T00:00:00Z,0,{}
+a1729,u120,e015,,event_registered,2026-05-04T01:00:00Z,0,{}
+a1730,u120,e015,,ar_session_start,2026-05-05T14:05:30Z,0,{}
+a1731,u120,e015,s048,marker_scanned,2026-05-05T14:07:30Z,0,{"marker_id":"marker_048"}
+a1732,u120,e015,s048,overlay_view,2026-05-05T14:07:35Z,133,{"stall_name":"Stall s048"}
+a1733,u120,e015,s050,marker_scanned,2026-05-05T14:12:30Z,0,{"marker_id":"marker_050"}
+a1734,u120,e015,s050,overlay_view,2026-05-05T14:12:35Z,103,{"stall_name":"Stall s050"}
+a1735,u120,e015,,ar_session_end,2026-05-05T14:14:30Z,540,"{""markers_scanned"":2,""overlays_viewed"":2}"
+a1736,u171,e007,,event_registered,2026-08-10T04:00:00Z,0,{}
+a1737,u104,e018,,event_registered,2026-03-17T01:00:00Z,0,{}
+a1738,u104,e018,,ar_session_start,2026-03-25T13:08:18Z,0,{}
+a1739,u104,e018,s062,marker_scanned,2026-03-25T13:11:18Z,0,{"marker_id":"marker_062"}
+a1740,u104,e018,s062,overlay_view,2026-03-25T13:11:23Z,261,{"stall_name":"Stall s062"}
+a1741,u104,e018,s060,marker_scanned,2026-03-25T13:20:18Z,0,{"marker_id":"marker_060"}
+a1742,u104,e018,s060,overlay_view,2026-03-25T13:20:23Z,123,{"stall_name":"Stall s060"}
+a1743,u104,e018,s063,marker_scanned,2026-03-25T13:28:18Z,0,{"marker_id":"marker_063"}
+a1744,u104,e018,s063,overlay_view,2026-03-25T13:28:23Z,229,{"stall_name":"Stall s063"}
+a1745,u104,e018,s061,marker_scanned,2026-03-25T13:35:18Z,0,{"marker_id":"marker_061"}
+a1746,u104,e018,s061,overlay_view,2026-03-25T13:35:23Z,154,{"stall_name":"Stall s061"}
+a1747,u104,e018,,ar_session_end,2026-03-25T13:35:48Z,1685,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a1748,u046,e020,,event_viewed,2026-05-09T09:00:00Z,0,{}
+a1749,u174,e027,,event_viewed,2026-06-10T00:00:00Z,0,{}
+a1750,u008,e013,,event_registered,2026-06-11T00:00:00Z,0,{}
+a1751,u008,e013,,ar_session_start,2026-06-15T14:44:40Z,0,{}
+a1752,u008,e013,s045,marker_scanned,2026-06-15T14:47:40Z,0,{"marker_id":"marker_045"}
+a1753,u008,e013,s045,overlay_view,2026-06-15T14:47:45Z,219,{"stall_name":"Stall s045"}
+a1754,u008,e013,s044,marker_scanned,2026-06-15T14:55:40Z,0,{"marker_id":"marker_044"}
+a1755,u008,e013,s044,overlay_view,2026-06-15T14:55:45Z,284,{"stall_name":"Stall s044"}
+a1756,u008,e013,s047,marker_scanned,2026-06-15T14:59:40Z,0,{"marker_id":"marker_047"}
+a1757,u008,e013,s047,overlay_view,2026-06-15T14:59:45Z,121,{"stall_name":"Stall s047"}
+a1758,u008,e013,s046,marker_scanned,2026-06-15T15:03:40Z,0,{"marker_id":"marker_046"}
+a1759,u008,e013,s046,overlay_view,2026-06-15T15:03:45Z,230,{"stall_name":"Stall s046"}
+a1760,u008,e013,,ar_session_end,2026-06-15T15:07:10Z,1482,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a1761,u055,e023,,event_registered,2026-04-01T04:00:00Z,0,{}
+a1762,u055,e023,,ar_session_start,2026-04-08T20:09:07Z,0,{}
+a1763,u055,e023,s072,marker_scanned,2026-04-08T20:15:07Z,0,{"marker_id":"marker_072"}
+a1764,u055,e023,s072,overlay_view,2026-04-08T20:15:12Z,153,{"stall_name":"Stall s072"}
+a1765,u055,e023,s073,marker_scanned,2026-04-08T20:18:07Z,0,{"marker_id":"marker_073"}
+a1766,u055,e023,s073,overlay_view,2026-04-08T20:18:12Z,192,{"stall_name":"Stall s073"}
+a1767,u055,e023,s075,marker_scanned,2026-04-08T20:29:07Z,0,{"marker_id":"marker_075"}
+a1768,u055,e023,s075,overlay_view,2026-04-08T20:29:12Z,142,{"stall_name":"Stall s075"}
+a1769,u055,e023,,ar_session_end,2026-04-08T20:30:37Z,1346,"{""markers_scanned"":3,""overlays_viewed"":3}"
+a1770,u189,e020,,event_viewed,2026-05-04T11:00:00Z,0,{}
+a1771,u196,e009,,event_registered,2026-03-06T03:00:00Z,0,{}
+a1772,u054,e020,,event_registered,2026-05-20T07:00:00Z,0,{}
+a1773,u054,e020,,ar_session_start,2026-05-30T20:03:44Z,0,{}
+a1774,u054,e020,s066,marker_scanned,2026-05-30T20:06:44Z,0,{"marker_id":"marker_066"}
+a1775,u054,e020,s066,overlay_view,2026-05-30T20:06:49Z,76,{"stall_name":"Stall s066"}
+a1776,u054,e020,,ar_session_end,2026-05-30T20:06:44Z,180,"{""markers_scanned"":1,""overlays_viewed"":1}"
+a1777,u130,e011,,event_registered,2026-04-07T06:00:00Z,0,{}
+a1778,u116,e017,,ar_session_start,2026-06-10T13:41:25Z,0,{}
+a1779,u116,e017,s059,marker_scanned,2026-06-10T13:43:25Z,0,{"marker_id":"marker_059"}
+a1780,u116,e017,s059,overlay_view,2026-06-10T13:43:30Z,102,{"stall_name":"Stall s059"}
+a1781,u116,e017,,ar_session_end,2026-06-10T13:43:25Z,120,"{""markers_scanned"":1,""overlays_viewed"":1}"
+a1782,u065,e003,,event_registered,2026-03-06T00:00:00Z,0,{}
+a1783,u065,e003,,ar_session_start,2026-03-10T14:46:06Z,0,{}
+a1784,u065,e003,s012,marker_scanned,2026-03-10T14:51:06Z,0,{"marker_id":"marker_012"}
+a1785,u065,e003,s012,overlay_view,2026-03-10T14:51:11Z,166,{"stall_name":"Stall s012"}
+a1786,u065,e003,s015,marker_scanned,2026-03-10T14:57:06Z,0,{"marker_id":"marker_015"}
+a1787,u065,e003,s015,overlay_view,2026-03-10T14:57:11Z,194,{"stall_name":"Stall s015"}
+a1788,u065,e003,s013,marker_scanned,2026-03-10T14:59:06Z,0,{"marker_id":"marker_013"}
+a1789,u065,e003,s013,overlay_view,2026-03-10T14:59:11Z,256,{"stall_name":"Stall s013"}
+a1790,u065,e003,s014,marker_scanned,2026-03-10T15:04:06Z,0,{"marker_id":"marker_014"}
+a1791,u065,e003,s014,overlay_view,2026-03-10T15:04:11Z,278,{"stall_name":"Stall s014"}
+a1792,u065,e003,,ar_session_end,2026-03-10T15:07:36Z,1332,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a1793,u014,e023,,event_registered,2026-04-07T04:00:00Z,0,{}
+a1794,u014,e023,,ar_session_start,2026-04-08T20:58:15Z,0,{}
+a1795,u014,e023,s074,marker_scanned,2026-04-08T21:01:15Z,0,{"marker_id":"marker_074"}
+a1796,u014,e023,s074,overlay_view,2026-04-08T21:01:20Z,231,{"stall_name":"Stall s074"}
+a1797,u014,e023,s072,marker_scanned,2026-04-08T21:05:15Z,0,{"marker_id":"marker_072"}
+a1798,u014,e023,s072,overlay_view,2026-04-08T21:05:20Z,189,{"stall_name":"Stall s072"}
+a1799,u014,e023,s075,marker_scanned,2026-04-08T21:13:15Z,0,{"marker_id":"marker_075"}
+a1800,u014,e023,s075,overlay_view,2026-04-08T21:13:20Z,186,{"stall_name":"Stall s075"}
+a1801,u014,e023,,ar_session_end,2026-04-08T21:18:45Z,1359,"{""markers_scanned"":3,""overlays_viewed"":3}"
+a1802,u120,e002,,event_registered,2026-06-15T02:00:00Z,0,{}
+a1803,u120,e002,,ar_session_start,2026-06-20T14:32:08Z,0,{}
+a1804,u120,e002,s010,marker_scanned,2026-06-20T14:38:08Z,0,{"marker_id":"marker_010"}
+a1805,u120,e002,s010,overlay_view,2026-06-20T14:38:13Z,160,{"stall_name":"Stall s010"}
+a1806,u120,e002,s008,marker_scanned,2026-06-20T14:44:08Z,0,{"marker_id":"marker_008"}
+a1807,u120,e002,s008,overlay_view,2026-06-20T14:44:13Z,217,{"stall_name":"Stall s008"}
+a1808,u120,e002,s009,marker_scanned,2026-06-20T14:50:08Z,0,{"marker_id":"marker_009"}
+a1809,u120,e002,s009,overlay_view,2026-06-20T14:50:13Z,135,{"stall_name":"Stall s009"}
+a1810,u120,e002,,ar_session_end,2026-06-20T14:49:38Z,1185,"{""markers_scanned"":3,""overlays_viewed"":3}"
+a1811,u056,e009,,event_registered,2026-03-17T22:00:00Z,0,{}
+a1812,u056,e009,,ar_session_start,2026-03-18T10:23:31Z,0,{}
+a1813,u056,e009,s034,marker_scanned,2026-03-18T10:26:31Z,0,{"marker_id":"marker_034"}
+a1814,u056,e009,s034,overlay_view,2026-03-18T10:26:36Z,211,{"stall_name":"Stall s034"}
+a1815,u056,e009,s033,marker_scanned,2026-03-18T10:35:31Z,0,{"marker_id":"marker_033"}
+a1816,u056,e009,s033,overlay_view,2026-03-18T10:35:36Z,233,{"stall_name":"Stall s033"}
+a1817,u056,e009,s035,marker_scanned,2026-03-18T10:41:31Z,0,{"marker_id":"marker_035"}
+a1818,u056,e009,s035,overlay_view,2026-03-18T10:41:36Z,202,{"stall_name":"Stall s035"}
+a1819,u056,e009,s032,marker_scanned,2026-03-18T10:47:31Z,0,{"marker_id":"marker_032"}
+a1820,u056,e009,s032,overlay_view,2026-03-18T10:47:36Z,204,{"stall_name":"Stall s032"}
+a1821,u056,e009,,ar_session_end,2026-03-18T10:51:01Z,1789,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a1822,u015,e023,,event_registered,2026-03-29T06:00:00Z,0,{}
+a1823,u119,e004,,event_registered,2026-04-01T00:00:00Z,0,{}
+a1824,u119,e004,,ar_session_start,2026-04-05T13:00:26Z,0,{}
+a1825,u119,e004,s019,marker_scanned,2026-04-05T13:06:26Z,0,{"marker_id":"marker_019"}
+a1826,u119,e004,s019,overlay_view,2026-04-05T13:06:31Z,216,{"stall_name":"Stall s019"}
+a1827,u119,e004,s021,marker_scanned,2026-04-05T13:12:26Z,0,{"marker_id":"marker_021"}
+a1828,u119,e004,s021,overlay_view,2026-04-05T13:12:31Z,200,{"stall_name":"Stall s021"}
+a1829,u119,e004,s022,marker_scanned,2026-04-05T13:16:26Z,0,{"marker_id":"marker_022"}
+a1830,u119,e004,s022,overlay_view,2026-04-05T13:16:31Z,124,{"stall_name":"Stall s022"}
+a1831,u119,e004,,ar_session_end,2026-04-05T13:17:56Z,1129,"{""markers_scanned"":3,""overlays_viewed"":3}"
+a1832,u013,e025,,event_registered,2026-07-05T03:00:00Z,0,{}
+a1833,u013,e025,,ar_session_start,2026-07-05T12:04:35Z,0,{}
+a1834,u013,e025,s079,marker_scanned,2026-07-05T12:10:35Z,0,{"marker_id":"marker_079"}
+a1835,u013,e025,s079,overlay_view,2026-07-05T12:10:40Z,270,{"stall_name":"Stall s079"}
+a1836,u013,e025,s076,marker_scanned,2026-07-05T12:14:35Z,0,{"marker_id":"marker_076"}
+a1837,u013,e025,s076,overlay_view,2026-07-05T12:14:40Z,284,{"stall_name":"Stall s076"}
+a1838,u013,e025,s077,marker_scanned,2026-07-05T12:19:35Z,0,{"marker_id":"marker_077"}
+a1839,u013,e025,s077,overlay_view,2026-07-05T12:19:40Z,196,{"stall_name":"Stall s077"}
+a1840,u013,e025,s078,marker_scanned,2026-07-05T12:23:35Z,0,{"marker_id":"marker_078"}
+a1841,u013,e025,s078,overlay_view,2026-07-05T12:23:40Z,258,{"stall_name":"Stall s078"}
+a1842,u013,e025,,ar_session_end,2026-07-05T12:28:05Z,1479,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a1843,u010,e027,,event_registered,2026-07-14T03:00:00Z,0,{}
+a1844,u010,e027,,ar_session_start,2026-07-20T10:43:48Z,0,{}
+a1845,u010,e027,s085,marker_scanned,2026-07-20T10:46:48Z,0,{"marker_id":"marker_085"}
+a1846,u010,e027,s085,overlay_view,2026-07-20T10:46:53Z,109,{"stall_name":"Stall s085"}
+a1847,u010,e027,s086,marker_scanned,2026-07-20T10:47:48Z,0,{"marker_id":"marker_086"}
+a1848,u010,e027,s086,overlay_view,2026-07-20T10:47:53Z,48,{"stall_name":"Stall s086"}
+a1849,u010,e027,,ar_session_end,2026-07-20T10:49:48Z,360,"{""markers_scanned"":2,""overlays_viewed"":2}"
+a1850,u078,e007,,event_registered,2026-08-12T20:00:00Z,0,{}
+a1851,u078,e007,,ar_session_start,2026-08-15T12:08:24Z,0,{}
+a1852,u078,e007,s031,marker_scanned,2026-08-15T12:11:24Z,0,{"marker_id":"marker_031"}
+a1853,u078,e007,s031,overlay_view,2026-08-15T12:11:29Z,138,{"stall_name":"Stall s031"}
+a1854,u078,e007,s028,marker_scanned,2026-08-15T12:19:24Z,0,{"marker_id":"marker_028"}
+a1855,u078,e007,s028,overlay_view,2026-08-15T12:19:29Z,204,{"stall_name":"Stall s028"}
+a1856,u078,e007,s027,marker_scanned,2026-08-15T12:27:24Z,0,{"marker_id":"marker_027"}
+a1857,u078,e007,s027,overlay_view,2026-08-15T12:27:29Z,147,{"stall_name":"Stall s027"}
+a1858,u078,e007,s029,marker_scanned,2026-08-15T12:32:24Z,0,{"marker_id":"marker_029"}
+a1859,u078,e007,s029,overlay_view,2026-08-15T12:32:29Z,265,{"stall_name":"Stall s029"}
+a1860,u078,e007,,ar_session_end,2026-08-15T12:35:54Z,1761,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a1861,u033,e003,,event_viewed,2026-03-04T02:00:00Z,0,{}
+a1862,u088,e005,,event_registered,2026-05-06T22:00:00Z,0,{}
+a1863,u088,e005,,ar_session_start,2026-05-12T11:52:12Z,0,{}
+a1864,u088,e005,s025,marker_scanned,2026-05-12T11:55:12Z,0,{"marker_id":"marker_025"}
+a1865,u088,e005,s025,overlay_view,2026-05-12T11:55:17Z,175,{"stall_name":"Stall s025"}
+a1866,u088,e005,s024,marker_scanned,2026-05-12T12:05:12Z,0,{"marker_id":"marker_024"}
+a1867,u088,e005,s024,overlay_view,2026-05-12T12:05:17Z,251,{"stall_name":"Stall s024"}
+a1868,u088,e005,s023,marker_scanned,2026-05-12T12:10:12Z,0,{"marker_id":"marker_023"}
+a1869,u088,e005,s023,overlay_view,2026-05-12T12:10:17Z,148,{"stall_name":"Stall s023"}
+a1870,u088,e005,,ar_session_end,2026-05-12T12:11:42Z,1311,"{""markers_scanned"":3,""overlays_viewed"":3}"
+a1871,u143,e013,,event_viewed,2026-06-01T07:00:00Z,0,{}
+a1872,u030,e001,,event_registered,2026-01-31T21:00:00Z,0,{}
+a1873,u039,e010,,ar_session_start,2026-07-25T20:00:03Z,0,{}
+a1874,u039,e010,s037,marker_scanned,2026-07-25T20:04:03Z,0,{"marker_id":"marker_037"}
+a1875,u039,e010,s037,overlay_view,2026-07-25T20:04:08Z,55,{"stall_name":"Stall s037"}
+a1876,u039,e010,s039,marker_scanned,2026-07-25T20:07:03Z,0,{"marker_id":"marker_039"}
+a1877,u039,e010,s039,overlay_view,2026-07-25T20:07:08Z,76,{"stall_name":"Stall s039"}
+a1878,u039,e010,,ar_session_end,2026-07-25T20:07:03Z,420,"{""markers_scanned"":2,""overlays_viewed"":2}"
+a1879,u110,e001,,event_registered,2026-02-07T20:00:00Z,0,{}
+a1880,u110,e001,,ar_session_start,2026-02-15T12:52:44Z,0,{}
+a1881,u110,e001,s005,marker_scanned,2026-02-15T12:58:44Z,0,{"marker_id":"marker_005"}
+a1882,u110,e001,s005,overlay_view,2026-02-15T12:58:49Z,125,{"stall_name":"Stall s005"}
+a1883,u110,e001,s001,marker_scanned,2026-02-15T13:05:44Z,0,{"marker_id":"marker_001"}
+a1884,u110,e001,s001,overlay_view,2026-02-15T13:05:49Z,136,{"stall_name":"Stall s001"}
+a1885,u110,e001,s003,marker_scanned,2026-02-15T13:14:44Z,0,{"marker_id":"marker_003"}
+a1886,u110,e001,s003,overlay_view,2026-02-15T13:14:49Z,206,{"stall_name":"Stall s003"}
+a1887,u110,e001,,ar_session_end,2026-02-15T13:16:14Z,1454,"{""markers_scanned"":3,""overlays_viewed"":3}"
+a1888,u083,e015,,event_registered,2026-04-24T04:00:00Z,0,{}
+a1889,u083,e015,,ar_session_start,2026-05-05T14:54:51Z,0,{}
+a1890,u083,e015,s048,marker_scanned,2026-05-05T14:57:51Z,0,{"marker_id":"marker_048"}
+a1891,u083,e015,s048,overlay_view,2026-05-05T14:57:56Z,101,{"stall_name":"Stall s048"}
+a1892,u083,e015,s049,marker_scanned,2026-05-05T15:00:51Z,0,{"marker_id":"marker_049"}
+a1893,u083,e015,s049,overlay_view,2026-05-05T15:00:56Z,69,{"stall_name":"Stall s049"}
+a1894,u083,e015,,ar_session_end,2026-05-05T15:01:51Z,420,"{""markers_scanned"":2,""overlays_viewed"":2}"
+a1895,u176,e021,,event_viewed,2026-05-16T02:00:00Z,0,{}
+a1896,u025,e017,,event_viewed,2026-05-29T19:00:00Z,0,{}
+a1897,u091,e002,,event_registered,2026-06-19T01:00:00Z,0,{}
+a1898,u091,e002,,ar_session_start,2026-06-20T17:37:22Z,0,{}
+a1899,u091,e002,s011,marker_scanned,2026-06-20T17:40:22Z,0,{"marker_id":"marker_011"}
+a1900,u091,e002,s011,overlay_view,2026-06-20T17:40:27Z,268,{"stall_name":"Stall s011"}
+a1901,u091,e002,s008,marker_scanned,2026-06-20T17:50:22Z,0,{"marker_id":"marker_008"}
+a1902,u091,e002,s008,overlay_view,2026-06-20T17:50:27Z,202,{"stall_name":"Stall s008"}
+a1903,u091,e002,s010,marker_scanned,2026-06-20T17:58:22Z,0,{"marker_id":"marker_010"}
+a1904,u091,e002,s010,overlay_view,2026-06-20T17:58:27Z,138,{"stall_name":"Stall s010"}
+a1905,u091,e002,s007,marker_scanned,2026-06-20T18:05:22Z,0,{"marker_id":"marker_007"}
+a1906,u091,e002,s007,overlay_view,2026-06-20T18:05:27Z,261,{"stall_name":"Stall s007"}
+a1907,u091,e002,,ar_session_end,2026-06-20T18:09:52Z,1995,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a1908,u081,e004,,event_viewed,2026-03-18T07:00:00Z,0,{}
+a1909,u101,e005,,event_registered,2026-05-11T21:00:00Z,0,{}
+a1910,u101,e005,,ar_session_start,2026-05-12T11:11:37Z,0,{}
+a1911,u101,e005,s023,marker_scanned,2026-05-12T11:17:37Z,0,{"marker_id":"marker_023"}
+a1912,u101,e005,s023,overlay_view,2026-05-12T11:17:42Z,249,{"stall_name":"Stall s023"}
+a1913,u101,e005,s024,marker_scanned,2026-05-12T11:20:37Z,0,{"marker_id":"marker_024"}
+a1914,u101,e005,s024,overlay_view,2026-05-12T11:20:42Z,157,{"stall_name":"Stall s024"}
+a1915,u101,e005,s026,marker_scanned,2026-05-12T11:31:37Z,0,{"marker_id":"marker_026"}
+a1916,u101,e005,s026,overlay_view,2026-05-12T11:31:42Z,160,{"stall_name":"Stall s026"}
+a1917,u101,e005,s025,marker_scanned,2026-05-12T11:36:37Z,0,{"marker_id":"marker_025"}
+a1918,u101,e005,s025,overlay_view,2026-05-12T11:36:42Z,280,{"stall_name":"Stall s025"}
+a1919,u101,e005,,ar_session_end,2026-05-12T11:36:07Z,1602,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a1920,u162,e011,,event_registered,2026-04-16T10:00:00Z,0,{}
+a1921,u162,e011,,ar_session_start,2026-04-22T19:27:58Z,0,{}
+a1922,u162,e011,s040,marker_scanned,2026-04-22T19:32:58Z,0,{"marker_id":"marker_040"}
+a1923,u162,e011,s040,overlay_view,2026-04-22T19:33:03Z,261,{"stall_name":"Stall s040"}
+a1924,u162,e011,s043,marker_scanned,2026-04-22T19:40:58Z,0,{"marker_id":"marker_043"}
+a1925,u162,e011,s043,overlay_view,2026-04-22T19:41:03Z,162,{"stall_name":"Stall s043"}
+a1926,u162,e011,s041,marker_scanned,2026-04-22T19:45:58Z,0,{"marker_id":"marker_041"}
+a1927,u162,e011,s041,overlay_view,2026-04-22T19:46:03Z,154,{"stall_name":"Stall s041"}
+a1928,u162,e011,,ar_session_end,2026-04-22T19:49:28Z,1425,"{""markers_scanned"":3,""overlays_viewed"":3}"
+a1929,u143,e026,,event_viewed,2026-05-16T19:00:00Z,0,{}
+a1930,u021,e016,,event_viewed,2026-03-13T02:00:00Z,0,{}
+a1931,u173,e009,,event_registered,2026-03-15T00:00:00Z,0,{}
+a1932,u173,e009,,ar_session_start,2026-03-18T10:47:55Z,0,{}
+a1933,u173,e009,s033,marker_scanned,2026-03-18T10:50:55Z,0,{"marker_id":"marker_033"}
+a1934,u173,e009,s033,overlay_view,2026-03-18T10:51:00Z,144,{"stall_name":"Stall s033"}
+a1935,u173,e009,s034,marker_scanned,2026-03-18T10:51:55Z,0,{"marker_id":"marker_034"}
+a1936,u173,e009,s034,overlay_view,2026-03-18T10:52:00Z,108,{"stall_name":"Stall s034"}
+a1937,u173,e009,,ar_session_end,2026-03-18T10:52:55Z,300,"{""markers_scanned"":2,""overlays_viewed"":2}"
+a1938,u074,e002,,ar_session_start,2026-06-20T18:52:09Z,0,{}
+a1939,u074,e002,s008,marker_scanned,2026-06-20T18:55:09Z,0,{"marker_id":"marker_008"}
+a1940,u074,e002,s008,overlay_view,2026-06-20T18:55:14Z,141,{"stall_name":"Stall s008"}
+a1941,u074,e002,,ar_session_end,2026-06-20T18:55:09Z,180,"{""markers_scanned"":1,""overlays_viewed"":1}"
+a1942,u135,e011,,event_viewed,2026-03-12T11:00:00Z,0,{}
+a1943,u097,e007,,event_registered,2026-08-12T03:00:00Z,0,{}
+a1944,u097,e007,,ar_session_start,2026-08-15T13:37:23Z,0,{}
+a1945,u097,e007,s028,marker_scanned,2026-08-15T13:40:23Z,0,{"marker_id":"marker_028"}
+a1946,u097,e007,s028,overlay_view,2026-08-15T13:40:28Z,60,{"stall_name":"Stall s028"}
+a1947,u097,e007,s030,marker_scanned,2026-08-15T13:46:23Z,0,{"marker_id":"marker_030"}
+a1948,u097,e007,s030,overlay_view,2026-08-15T13:46:28Z,106,{"stall_name":"Stall s030"}
+a1949,u097,e007,,ar_session_end,2026-08-15T13:46:23Z,540,"{""markers_scanned"":2,""overlays_viewed"":2}"
+a1950,u174,e025,,event_registered,2026-06-24T02:00:00Z,0,{}
+a1951,u174,e025,,ar_session_start,2026-07-05T15:59:40Z,0,{}
+a1952,u174,e025,s079,marker_scanned,2026-07-05T16:01:40Z,0,{"marker_id":"marker_079"}
+a1953,u174,e025,s079,overlay_view,2026-07-05T16:01:45Z,70,{"stall_name":"Stall s079"}
+a1954,u174,e025,,ar_session_end,2026-07-05T16:01:40Z,120,"{""markers_scanned"":1,""overlays_viewed"":1}"
+a1955,u154,e027,,event_registered,2026-07-12T18:00:00Z,0,{}
+a1956,u154,e027,,ar_session_start,2026-07-20T10:04:38Z,0,{}
+a1957,u154,e027,s086,marker_scanned,2026-07-20T10:10:38Z,0,{"marker_id":"marker_086"}
+a1958,u154,e027,s086,overlay_view,2026-07-20T10:10:43Z,136,{"stall_name":"Stall s086"}
+a1959,u154,e027,s084,marker_scanned,2026-07-20T10:15:38Z,0,{"marker_id":"marker_084"}
+a1960,u154,e027,s084,overlay_view,2026-07-20T10:15:43Z,292,{"stall_name":"Stall s084"}
+a1961,u154,e027,s085,marker_scanned,2026-07-20T10:22:38Z,0,{"marker_id":"marker_085"}
+a1962,u154,e027,s085,overlay_view,2026-07-20T10:22:43Z,189,{"stall_name":"Stall s085"}
+a1963,u154,e027,s087,marker_scanned,2026-07-20T10:29:38Z,0,{"marker_id":"marker_087"}
+a1964,u154,e027,s087,overlay_view,2026-07-20T10:29:43Z,271,{"stall_name":"Stall s087"}
+a1965,u154,e027,,ar_session_end,2026-07-20T10:31:08Z,1730,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a1966,u149,e018,,event_registered,2026-03-21T23:00:00Z,0,{}
+a1967,u149,e018,,ar_session_start,2026-03-25T12:10:03Z,0,{}
+a1968,u149,e018,s061,marker_scanned,2026-03-25T12:14:03Z,0,{"marker_id":"marker_061"}
+a1969,u149,e018,s061,overlay_view,2026-03-25T12:14:08Z,170,{"stall_name":"Stall s061"}
+a1970,u149,e018,s060,marker_scanned,2026-03-25T12:18:03Z,0,{"marker_id":"marker_060"}
+a1971,u149,e018,s060,overlay_view,2026-03-25T12:18:08Z,126,{"stall_name":"Stall s060"}
+a1972,u149,e018,s063,marker_scanned,2026-03-25T12:28:03Z,0,{"marker_id":"marker_063"}
+a1973,u149,e018,s063,overlay_view,2026-03-25T12:28:08Z,225,{"stall_name":"Stall s063"}
+a1974,u149,e018,s062,marker_scanned,2026-03-25T12:32:03Z,0,{"marker_id":"marker_062"}
+a1975,u149,e018,s062,overlay_view,2026-03-25T12:32:08Z,205,{"stall_name":"Stall s062"}
+a1976,u149,e018,,ar_session_end,2026-03-25T12:34:33Z,1592,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a1977,u036,e027,,event_registered,2026-07-15T01:00:00Z,0,{}
+a1978,u036,e027,,ar_session_start,2026-07-20T11:51:40Z,0,{}
+a1979,u036,e027,s084,marker_scanned,2026-07-20T11:57:40Z,0,{"marker_id":"marker_084"}
+a1980,u036,e027,s084,overlay_view,2026-07-20T11:57:45Z,267,{"stall_name":"Stall s084"}
+a1981,u036,e027,s085,marker_scanned,2026-07-20T11:59:40Z,0,{"marker_id":"marker_085"}
+a1982,u036,e027,s085,overlay_view,2026-07-20T11:59:45Z,146,{"stall_name":"Stall s085"}
+a1983,u036,e027,s086,marker_scanned,2026-07-20T12:08:40Z,0,{"marker_id":"marker_086"}
+a1984,u036,e027,s086,overlay_view,2026-07-20T12:08:45Z,218,{"stall_name":"Stall s086"}
+a1985,u036,e027,s087,marker_scanned,2026-07-20T12:13:40Z,0,{"marker_id":"marker_087"}
+a1986,u036,e027,s087,overlay_view,2026-07-20T12:13:45Z,143,{"stall_name":"Stall s087"}
+a1987,u036,e027,,ar_session_end,2026-07-20T12:16:10Z,1548,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a1988,u187,e007,,event_registered,2026-08-06T20:00:00Z,0,{}
+a1989,u187,e007,,ar_session_start,2026-08-15T12:46:17Z,0,{}
+a1990,u187,e007,s028,marker_scanned,2026-08-15T12:49:17Z,0,{"marker_id":"marker_028"}
+a1991,u187,e007,s028,overlay_view,2026-08-15T12:49:22Z,98,{"stall_name":"Stall s028"}
+a1992,u187,e007,s029,marker_scanned,2026-08-15T12:53:17Z,0,{"marker_id":"marker_029"}
+a1993,u187,e007,s029,overlay_view,2026-08-15T12:53:22Z,103,{"stall_name":"Stall s029"}
+a1994,u187,e007,,ar_session_end,2026-08-15T12:55:17Z,540,"{""markers_scanned"":2,""overlays_viewed"":2}"
+a1995,u187,e009,,event_registered,2026-03-14T01:00:00Z,0,{}
+a1996,u187,e009,,ar_session_start,2026-03-18T13:19:52Z,0,{}
+a1997,u187,e009,s035,marker_scanned,2026-03-18T13:24:52Z,0,{"marker_id":"marker_035"}
+a1998,u187,e009,s035,overlay_view,2026-03-18T13:24:57Z,286,{"stall_name":"Stall s035"}
+a1999,u187,e009,s032,marker_scanned,2026-03-18T13:28:52Z,0,{"marker_id":"marker_032"}
+a2000,u187,e009,s032,overlay_view,2026-03-18T13:28:57Z,287,{"stall_name":"Stall s032"}
+a2001,u187,e009,s033,marker_scanned,2026-03-18T13:36:52Z,0,{"marker_id":"marker_033"}
+a2002,u187,e009,s033,overlay_view,2026-03-18T13:36:57Z,298,{"stall_name":"Stall s033"}
+a2003,u187,e009,,ar_session_end,2026-03-18T13:41:22Z,1417,"{""markers_scanned"":3,""overlays_viewed"":3}"
+a2004,u139,e011,,ar_session_start,2026-04-22T18:06:43Z,0,{}
+a2005,u139,e011,s042,marker_scanned,2026-04-22T18:10:43Z,0,{"marker_id":"marker_042"}
+a2006,u139,e011,s042,overlay_view,2026-04-22T18:10:48Z,70,{"stall_name":"Stall s042"}
+a2007,u139,e011,s041,marker_scanned,2026-04-22T18:12:43Z,0,{"marker_id":"marker_041"}
+a2008,u139,e011,s041,overlay_view,2026-04-22T18:12:48Z,53,{"stall_name":"Stall s041"}
+a2009,u139,e011,,ar_session_end,2026-04-22T18:12:43Z,360,"{""markers_scanned"":2,""overlays_viewed"":2}"
+a2010,u020,e011,,ar_session_start,2026-04-22T22:23:41Z,0,{}
+a2011,u020,e011,s040,marker_scanned,2026-04-22T22:25:41Z,0,{"marker_id":"marker_040"}
+a2012,u020,e011,s040,overlay_view,2026-04-22T22:25:46Z,76,{"stall_name":"Stall s040"}
+a2013,u020,e011,s043,marker_scanned,2026-04-22T22:29:41Z,0,{"marker_id":"marker_043"}
+a2014,u020,e011,s043,overlay_view,2026-04-22T22:29:46Z,131,{"stall_name":"Stall s043"}
+a2015,u020,e011,,ar_session_end,2026-04-22T22:29:41Z,360,"{""markers_scanned"":2,""overlays_viewed"":2}"
+a2016,u153,e029,,event_registered,2026-07-04T04:00:00Z,0,{}
+a2017,u153,e029,,ar_session_start,2026-07-12T13:39:37Z,0,{}
+a2018,u153,e029,s090,marker_scanned,2026-07-12T13:45:37Z,0,{"marker_id":"marker_090"}
+a2019,u153,e029,s090,overlay_view,2026-07-12T13:45:42Z,252,{"stall_name":"Stall s090"}
+a2020,u153,e029,s088,marker_scanned,2026-07-12T13:52:37Z,0,{"marker_id":"marker_088"}
+a2021,u153,e029,s088,overlay_view,2026-07-12T13:52:42Z,298,{"stall_name":"Stall s088"}
+a2022,u153,e029,s091,marker_scanned,2026-07-12T13:56:37Z,0,{"marker_id":"marker_091"}
+a2023,u153,e029,s091,overlay_view,2026-07-12T13:56:42Z,298,{"stall_name":"Stall s091"}
+a2024,u153,e029,s089,marker_scanned,2026-07-12T13:58:37Z,0,{"marker_id":"marker_089"}
+a2025,u153,e029,s089,overlay_view,2026-07-12T13:58:42Z,146,{"stall_name":"Stall s089"}
+a2026,u153,e029,,ar_session_end,2026-07-12T14:04:07Z,1518,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a2027,u149,e026,,ar_session_start,2026-06-28T14:57:37Z,0,{}
+a2028,u149,e026,s082,marker_scanned,2026-06-28T14:59:37Z,0,{"marker_id":"marker_082"}
+a2029,u149,e026,s082,overlay_view,2026-06-28T14:59:42Z,124,{"stall_name":"Stall s082"}
+a2030,u149,e026,s083,marker_scanned,2026-06-28T15:03:37Z,0,{"marker_id":"marker_083"}
+a2031,u149,e026,s083,overlay_view,2026-06-28T15:03:42Z,88,{"stall_name":"Stall s083"}
+a2032,u149,e026,,ar_session_end,2026-06-28T15:03:37Z,360,"{""markers_scanned"":2,""overlays_viewed"":2}"
+a2033,u049,e023,,event_registered,2026-04-04T09:00:00Z,0,{}
+a2034,u049,e023,,ar_session_start,2026-04-08T21:59:17Z,0,{}
+a2035,u049,e023,s074,marker_scanned,2026-04-08T22:03:17Z,0,{"marker_id":"marker_074"}
+a2036,u049,e023,s074,overlay_view,2026-04-08T22:03:22Z,258,{"stall_name":"Stall s074"}
+a2037,u049,e023,s072,marker_scanned,2026-04-08T22:12:17Z,0,{"marker_id":"marker_072"}
+a2038,u049,e023,s072,overlay_view,2026-04-08T22:12:22Z,176,{"stall_name":"Stall s072"}
+a2039,u049,e023,s075,marker_scanned,2026-04-08T22:17:17Z,0,{"marker_id":"marker_075"}
+a2040,u049,e023,s075,overlay_view,2026-04-08T22:17:22Z,195,{"stall_name":"Stall s075"}
+a2041,u049,e023,s073,marker_scanned,2026-04-08T22:22:17Z,0,{"marker_id":"marker_073"}
+a2042,u049,e023,s073,overlay_view,2026-04-08T22:22:22Z,238,{"stall_name":"Stall s073"}
+a2043,u049,e023,,ar_session_end,2026-04-08T22:23:47Z,1532,"{""markers_scanned"":4,""overlays_viewed"":4}"
+a2044,u186,e018,,event_registered,2026-03-19T02:00:00Z,0,{}
+a2045,u186,e018,,ar_session_start,2026-03-25T15:56:29Z,0,{}
+a2046,u186,e018,s063,marker_scanned,2026-03-25T15:58:29Z,0,{"marker_id":"marker_063"}
+a2047,u186,e018,s063,overlay_view,2026-03-25T15:58:34Z,123,{"stall_name":"Stall s063"}
+a2048,u186,e018,s061,marker_scanned,2026-03-25T16:02:29Z,0,{"marker_id":"marker_061"}
+a2049,u186,e018,s061,overlay_view,2026-03-25T16:02:34Z,64,{"stall_name":"Stall s061"}
+a2050,u186,e018,,ar_session_end,2026-03-25T16:05:29Z,540,"{""markers_scanned"":2,""overlays_viewed"":2}"
+a2051,u135,e013,,event_viewed,2026-05-05T03:00:00Z,0,{}
+a2052,u166,e007,,event_registered,2026-08-04T20:00:00Z,0,{}
+a2053,u166,e007,,ar_session_start,2026-08-15T13:39:40Z,0,{}
+a2054,u166,e007,s029,marker_scanned,2026-08-15T13:41:40Z,0,{"marker_id":"marker_029"}
+a2055,u166,e007,s029,overlay_view,2026-08-15T13:41:45Z,74,{"stall_name":"Stall s029"}
+a2056,u166,e007,s027,marker_scanned,2026-08-15T13:48:40Z,0,{"marker_id":"marker_027"}
+a2057,u166,e007,s027,overlay_view,2026-08-15T13:48:45Z,136,{"stall_name":"Stall s027"}
+a2058,u166,e007,,ar_session_end,2026-08-15T13:48:40Z,540,"{""markers_scanned"":2,""overlays_viewed"":2}"
+a2059,u012,e010,,ar_session_start,2026-07-25T20:44:45Z,0,{}
+a2060,u012,e010,s039,marker_scanned,2026-07-25T20:46:45Z,0,{"marker_id":"marker_039"}
+a2061,u012,e010,s039,overlay_view,2026-07-25T20:46:50Z,144,{"stall_name":"Stall s039"}
+a2062,u012,e010,,ar_session_end,2026-07-25T20:48:45Z,240,"{""markers_scanned"":1,""overlays_viewed"":1}"
+a2063,u123,e020,,event_registered,2026-05-25T07:00:00Z,0,{}
+a2064,u123,e020,,ar_session_start,2026-05-30T17:58:40Z,0,{}
+a2065,u123,e020,s064,marker_scanned,2026-05-30T18:04:40Z,0,{"marker_id":"marker_064"}
+a2066,u123,e020,s064,overlay_view,2026-05-30T18:04:45Z,136,{"stall_name":"Stall s064"}
+a2067,u123,e020,s065,marker_scanned,2026-05-30T18:07:40Z,0,{"marker_id":"marker_065"}
+a2068,u123,e020,s065,overlay_view,2026-05-30T18:07:45Z,186,{"stall_name":"Stall s065"}
+a2069,u123,e020,s067,marker_scanned,2026-05-30T18:16:40Z,0,{"marker_id":"marker_067"}
+a2070,u123,e020,s067,overlay_view,2026-05-30T18:16:45Z,290,{"stall_name":"Stall s067"}
+a2071,u123,e020,,ar_session_end,2026-05-30T18:18:10Z,1208,"{""markers_scanned"":3,""overlays_viewed"":3}"
+a2072,u197,e020,,event_registered,2026-05-28T01:00:00Z,0,{}
+a2073,u197,e020,,ar_session_start,2026-05-30T16:23:28Z,0,{}
+a2074,u197,e020,s065,marker_scanned,2026-05-30T16:27:28Z,0,{"marker_id":"marker_065"}
+a2075,u197,e020,s065,overlay_view,2026-05-30T16:27:33Z,83,{"stall_name":"Stall s065"}
+a2076,u197,e020,,ar_session_end,2026-05-30T16:28:28Z,300,"{""markers_scanned"":1,""overlays_viewed"":1}"

@@ -1,0 +1,9 @@
+event_id,name,description,category,location,start_date,end_date,organizer,capacity,registered_count,ar_enabled
+e001,Tech Innovation Summit 2026,Annual technology conference showcasing latest innovations,Conference,Convention Center Hall A,2026-02-15T09:00:00Z,2026-02-15T18:00:00Z,Tech Corp,500,342,true
+e002,Summer Music Festival,Three-day outdoor music festival with 20+ artists,Concert,City Park Amphitheater,2026-06-20T14:00:00Z,2026-06-22T23:00:00Z,Music Events Inc,5000,2847,true
+e003,Local Food Fair,Celebration of local cuisine and culinary arts,Food & Drink,Downtown Market Square,2026-03-10T11:00:00Z,2026-03-10T20:00:00Z,City Tourism Board,1000,678,true
+e004,University Career Expo,Connect students with top employers,Career Fair,University Sports Complex,2026-04-05T10:00:00Z,2026-04-05T17:00:00Z,University Career Services,2000,1234,true
+e005,Art & Design Showcase,Contemporary art exhibition and design workshops,Arts & Culture,Modern Art Gallery,2026-05-12T10:00:00Z,2026-05-14T19:00:00Z,Arts Council,800,456,true
+e006,Marathon Charity Run,Annual 5K/10K charity marathon for children's hospital,Sports,City Center Route,2026-07-08T07:00:00Z,2026-07-08T12:00:00Z,Community Sports Club,3000,1876,false
+e007,Gaming Convention 2026,Esports tournaments and game developer showcases,Gaming,Convention Center Hall B,2026-08-15T10:00:00Z,2026-08-17T21:00:00Z,Gamers United,1500,987,true
+e008,Business Networking Night,Monthly professional networking event,Business,Skyline Hotel Ballroom,2026-02-20T18:00:00Z,2026-02-20T22:00:00Z,Chamber of Commerce,300,178,false

@@ -1,0 +1,31 @@
+event_id,name,description,category,location,start_date,end_date,organizer,capacity,registered_count,ar_enabled
+e001,Tech Innovation Summit 2026,Annual technology conference showcasing latest AI and cloud innovations,Conference,Convention Center Hall A,2026-02-15T09:00:00Z,2026-02-15T18:00:00Z,Tech Corp,500,387,true
+e002,Summer Music Festival 2026,Three-day outdoor music festival featuring 20+ top artists,Concert,City Park Amphitheater,2026-06-20T14:00:00Z,2026-06-22T23:00:00Z,Music Events Inc,5000,3842,true
+e003,Local Food Fair Spring Edition,Celebration of local cuisine featuring regional chefs and artisans,Food & Drink,Downtown Market Square,2026-03-10T11:00:00Z,2026-03-10T20:00:00Z,City Tourism Board,1000,756,true
+e004,University Career Expo 2026,Connect students with Fortune 500 recruiters and startups,Career Fair,University Sports Complex,2026-04-05T10:00:00Z,2026-04-05T17:00:00Z,University Career Services,2000,1543,true
+e005,Art & Design Showcase,Contemporary art exhibition featuring emerging artists and designers,Arts & Culture,Modern Art Gallery,2026-05-12T10:00:00Z,2026-05-14T19:00:00Z,Arts Council,800,524,true
+e006,Marathon Charity Run 2026,Annual 5K/10K charity marathon supporting children's hospital,Sports,City Center Route,2026-07-08T07:00:00Z,2026-07-08T12:00:00Z,Community Sports Club,3000,2134,false
+e007,Gaming Convention 2026,Esports tournaments featuring League of Legends and Valorant,Gaming,Convention Center Hall B,2026-08-15T10:00:00Z,2026-08-17T21:00:00Z,Gamers United,1500,1087,true
+e008,Business Networking Night,Monthly professional networking event for entrepreneurs,Business,Skyline Hotel Ballroom,2026-02-20T18:00:00Z,2026-02-20T22:00:00Z,Chamber of Commerce,300,198,false
+e009,Green Energy Summit 2026,Sustainable energy solutions and renewable technology innovations,Conference,Tech Campus Auditorium,2026-03-18T09:00:00Z,2026-03-18T17:00:00Z,Green Energy Foundation,600,432,true
+e010,Jazz & Blues Festival,Three-day classic jazz and blues performances from legends,Concert,Waterfront Plaza,2026-07-25T16:00:00Z,2026-07-27T23:00:00Z,Cultural Events Org,2000,1567,true
+e011,Wine Tasting Event,Premium wine selection from 15 local vineyards and wineries,Food & Drink,Exhibition Grounds,2026-04-22T17:00:00Z,2026-04-22T22:00:00Z,City Tourism Board,400,312,true
+e012,Startup Pitch Competition,Emerging startups compete for $250K in funding,Business,Tech Campus Auditorium,2026-05-28T13:00:00Z,2026-05-28T19:00:00Z,Business Leaders Network,500,389,false
+e013,Photography Exhibition 2026,International photography showcase featuring award-winning artists,Arts & Culture,Modern Art Gallery,2026-06-15T10:00:00Z,2026-06-17T19:00:00Z,Arts Council,700,478,true
+e014,Yoga & Wellness Retreat,Weekend mind and body wellness activities and meditation workshops,Sports,Community Center,2026-04-18T08:00:00Z,2026-04-20T17:00:00Z,Community Sports Club,200,156,false
+e015,Blockchain Conference 2026,Cryptocurrency and blockchain technology innovations and trends,Conference,Convention Center Hall A,2026-05-05T09:00:00Z,2026-05-06T18:00:00Z,Tech Corp,800,623,true
+e016,Spring Flower Show,Annual spring flower exhibition with gardening workshops,Arts & Culture,City Park Amphitheater,2026-03-28T10:00:00Z,2026-03-29T18:00:00Z,City Tourism Board,1200,891,true
+e017,Indie Game Developers Showcase,Independent game developer presentations and playable demos,Gaming,Convention Center Hall B,2026-06-10T10:00:00Z,2026-06-11T19:00:00Z,Gamers United,800,587,true
+e018,Regional Job Fair,Major employers recruiting for engineering and business roles,Career Fair,Exhibition Grounds,2026-03-25T10:00:00Z,2026-03-25T17:00:00Z,Chamber of Commerce,1500,1134,true
+e019,Classical Music Concert,Orchestra performance featuring works by Mozart and Beethoven,Concert,Skyline Hotel Ballroom,2026-04-12T19:00:00Z,2026-04-12T22:00:00Z,Cultural Events Org,600,445,false
+e020,Craft Beer Festival,25+ local breweries showcasing craft beers and IPAs,Food & Drink,Waterfront Plaza,2026-05-30T15:00:00Z,2026-05-30T22:00:00Z,City Tourism Board,2000,1678,true
+e021,AI & Machine Learning Workshop,Hands-on workshops covering neural networks and deep learning,Conference,Tech Campus Auditorium,2026-06-03T09:00:00Z,2026-06-04T17:00:00Z,Tech Corp,400,312,true
+e022,Summer Sports Festival,"Multi-sport event featuring basketball, volleyball, and soccer",Sports,University Sports Complex,2026-07-15T09:00:00Z,2026-07-17T18:00:00Z,Community Sports Club,2500,1876,false
+e023,Fashion Design Week,Local fashion designers showcasing spring/summer collections,Arts & Culture,Modern Art Gallery,2026-04-08T18:00:00Z,2026-04-11T22:00:00Z,Arts Council,1000,734,true
+e024,Entrepreneurs Meet & Greet,Networking event connecting investors with startup founders,Business,Skyline Hotel Ballroom,2026-05-15T18:00:00Z,2026-05-15T21:00:00Z,Business Leaders Network,250,187,false
+e025,VR Gaming Experience,Virtual reality gaming demos and VR esports tournaments,Gaming,Convention Center Hall B,2026-07-05T11:00:00Z,2026-07-06T20:00:00Z,Gamers United,600,445,true
+e026,International Food Festival,Cuisine from 30+ countries with cooking demonstrations,Food & Drink,Exhibition Grounds,2026-06-28T11:00:00Z,2026-06-29T21:00:00Z,City Tourism Board,3000,2345,true
+e027,Cybersecurity Conference 2026,Latest trends in cybersecurity and threat prevention strategies,Conference,Convention Center Hall A,2026-07-20T09:00:00Z,2026-07-21T17:00:00Z,Tech Corp,700,534,true
+e028,Marathon Training Camp,Intensive training for marathon runners with professional coaches,Sports,City Center Route,2026-05-20T07:00:00Z,2026-05-22T17:00:00Z,Community Sports Club,500,378,false
+e029,Digital Art Exhibition,Contemporary digital art featuring NFTs and interactive installations,Arts & Culture,Modern Art Gallery,2026-07-12T10:00:00Z,2026-07-14T19:00:00Z,Arts Council,900,623,true
+e030,Women in Business Summit,Empowering women entrepreneurs with leadership workshops,Business,Skyline Hotel Ballroom,2026-06-25T09:00:00Z,2026-06-25T17:00:00Z,Business Leaders Network,400,298,false

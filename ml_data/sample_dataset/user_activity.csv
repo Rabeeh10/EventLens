@@ -1,0 +1,77 @@
+activity_id,user_id,event_id,stall_id,activity_type,timestamp,duration_seconds,metadata
+a001,u001,e001,,ar_session_start,2026-02-15T09:15:00Z,0,{}
+a002,u001,e001,s001,marker_scanned,2026-02-15T09:18:30Z,0,"{""marker_id"":""marker_001""}"
+a003,u001,e001,s001,overlay_view,2026-02-15T09:18:35Z,45,"{""stall_name"":""Microsoft Booth""}"
+a004,u001,e001,s002,marker_scanned,2026-02-15T09:25:00Z,0,"{""marker_id"":""marker_002""}"
+a005,u001,e001,s002,overlay_view,2026-02-15T09:25:05Z,120,"{""stall_name"":""Google Developer Zone""}"
+a006,u001,e001,,ar_session_end,2026-02-15T09:40:00Z,1500,"{""markers_scanned"":2,""overlays_viewed"":2}"
+a007,u001,e001,,event_registered,2026-02-15T08:30:00Z,0,{}
+a008,u002,e001,,ar_session_start,2026-02-15T10:00:00Z,0,{}
+a009,u002,e001,s003,marker_scanned,2026-02-15T10:05:00Z,0,"{""marker_id"":""marker_003""}"
+a010,u002,e001,s003,overlay_view,2026-02-15T10:05:05Z,90,"{""stall_name"":""Startup Alley""}"
+a011,u002,e001,,ar_session_end,2026-02-15T10:15:00Z,900,"{""markers_scanned"":1,""overlays_viewed"":1}"
+a012,u002,e001,,event_registered,2026-02-14T14:30:00Z,0,{}
+a013,u003,e001,,ar_session_start,2026-02-15T11:30:00Z,0,{}
+a014,u003,e001,s001,marker_scanned,2026-02-15T11:32:00Z,0,"{""marker_id"":""marker_001""}"
+a015,u003,e001,s001,overlay_view,2026-02-15T11:32:05Z,60,"{""stall_name"":""Microsoft Booth""}"
+a016,u003,e001,s002,marker_scanned,2026-02-15T11:38:00Z,0,"{""marker_id"":""marker_002""}"
+a017,u003,e001,s002,overlay_view,2026-02-15T11:38:05Z,180,"{""stall_name"":""Google Developer Zone""}"
+a018,u003,e001,s004,marker_scanned,2026-02-15T11:45:00Z,0,"{""marker_id"":""marker_004""}"
+a019,u003,e001,s004,overlay_view,2026-02-15T11:45:05Z,30,"{""stall_name"":""Coffee Corner""}"
+a020,u003,e001,,ar_session_end,2026-02-15T12:00:00Z,1800,"{""markers_scanned"":3,""overlays_viewed"":3}"
+a021,u003,e001,,event_registered,2026-02-10T09:00:00Z,0,{}
+a022,u004,e002,,event_viewed,2026-02-18T15:00:00Z,0,{}
+a023,u004,e003,,event_viewed,2026-02-18T15:05:00Z,0,{}
+a024,u005,e001,,ar_session_start,2026-02-15T13:00:00Z,0,{}
+a025,u005,e001,s005,marker_scanned,2026-02-15T13:10:00Z,0,"{""marker_id"":""marker_005""}"
+a026,u005,e001,s005,overlay_view,2026-02-15T13:10:05Z,75,"{""stall_name"":""Event Merchandise""}"
+a027,u005,e001,,ar_session_end,2026-02-15T13:25:00Z,1500,"{""markers_scanned"":1,""overlays_viewed"":1}"
+a028,u005,e001,,event_registered,2026-02-12T10:30:00Z,0,{}
+a029,u006,e003,,ar_session_start,2026-03-10T12:00:00Z,0,{}
+a030,u006,e003,s009,marker_scanned,2026-03-10T12:05:00Z,0,"{""marker_id"":""marker_009""}"
+a031,u006,e003,s009,overlay_view,2026-03-10T12:05:05Z,50,"{""stall_name"":""Artisan Bakery""}"
+a032,u006,e003,s010,marker_scanned,2026-03-10T12:12:00Z,0,"{""marker_id"":""marker_010""}"
+a033,u006,e003,s010,overlay_view,2026-03-10T12:12:05Z,40,"{""stall_name"":""Local Cheese Stand""}"
+a034,u006,e003,,ar_session_end,2026-03-10T12:20:00Z,1200,"{""markers_scanned"":2,""overlays_viewed"":2}"
+a035,u006,e003,,event_registered,2026-03-08T16:20:00Z,0,{}
+a036,u007,e001,,ar_session_start,2026-02-15T14:00:00Z,0,{}
+a037,u007,e001,s001,marker_scanned,2026-02-15T14:03:00Z,0,"{""marker_id"":""marker_001""}"
+a038,u007,e001,s001,overlay_view,2026-02-15T14:03:05Z,95,"{""stall_name"":""Microsoft Booth""}"
+a039,u007,e001,,ar_session_end,2026-02-15T14:18:00Z,1080,"{""markers_scanned"":1,""overlays_viewed"":1}"
+a040,u007,e004,,event_viewed,2026-03-01T10:00:00Z,0,{}
+a041,u008,e001,,ar_session_start,2026-02-15T15:30:00Z,0,{}
+a042,u008,e001,s002,marker_scanned,2026-02-15T15:35:00Z,0,"{""marker_id"":""marker_002""}"
+a043,u008,e001,s002,overlay_view,2026-02-15T15:35:05Z,150,"{""stall_name"":""Google Developer Zone""}"
+a044,u008,e001,s003,marker_scanned,2026-02-15T15:45:00Z,0,"{""marker_id"":""marker_003""}"
+a045,u008,e001,s003,overlay_view,2026-02-15T15:45:05Z,110,"{""stall_name"":""Startup Alley""}"
+a046,u008,e001,,ar_session_end,2026-02-15T16:00:00Z,1800,"{""markers_scanned"":2,""overlays_viewed"":2}"
+a047,u008,e001,,event_registered,2026-02-13T11:00:00Z,0,{}
+a048,u009,e004,,ar_session_start,2026-04-05T11:00:00Z,0,{}
+a049,u009,e004,s012,marker_scanned,2026-04-05T11:05:00Z,0,"{""marker_id"":""marker_012""}"
+a050,u009,e004,s012,overlay_view,2026-04-05T11:05:05Z,200,"{""stall_name"":""Amazon Recruiting""}"
+a051,u009,e004,s013,marker_scanned,2026-04-05T11:20:00Z,0,"{""marker_id"":""marker_013""}"
+a052,u009,e004,s013,overlay_view,2026-04-05T11:20:05Z,180,"{""stall_name"":""Goldman Sachs""}"
+a053,u009,e004,,ar_session_end,2026-04-05T11:45:00Z,2700,"{""markers_scanned"":2,""overlays_viewed"":2}"
+a054,u009,e004,,event_registered,2026-04-01T09:00:00Z,0,{}
+a055,u010,e001,,event_viewed,2026-02-10T12:00:00Z,0,{}
+a056,u010,e005,,ar_session_start,2026-05-12T13:00:00Z,0,{}
+a057,u010,e005,s015,marker_scanned,2026-05-12T13:10:00Z,0,"{""marker_id"":""marker_015""}"
+a058,u010,e005,s015,overlay_view,2026-05-12T13:10:05Z,240,"{""stall_name"":""Modern Art Exhibit""}"
+a059,u010,e005,,ar_session_end,2026-05-12T13:30:00Z,1800,"{""markers_scanned"":1,""overlays_viewed"":1}"
+a060,u010,e005,,event_registered,2026-05-08T14:45:00Z,0,{}
+a061,u011,e002,,event_viewed,2026-06-10T16:00:00Z,0,{}
+a062,u011,e003,,event_viewed,2026-06-10T16:10:00Z,0,{}
+a063,u012,e001,,ar_session_start,2026-02-15T16:30:00Z,0,{}
+a064,u012,e001,s004,marker_scanned,2026-02-15T16:35:00Z,0,"{""marker_id"":""marker_004""}"
+a065,u012,e001,s004,overlay_view,2026-02-15T16:35:05Z,35,"{""stall_name"":""Coffee Corner""}"
+a066,u012,e001,s005,marker_scanned,2026-02-15T16:42:00Z,0,"{""marker_id"":""marker_005""}"
+a067,u012,e001,s005,overlay_view,2026-02-15T16:42:05Z,80,"{""stall_name"":""Event Merchandise""}"
+a068,u012,e001,,ar_session_end,2026-02-15T17:00:00Z,1800,"{""markers_scanned"":2,""overlays_viewed"":2}"
+a069,u012,e001,,event_registered,2026-02-14T11:20:00Z,0,{}
+a070,u001,e004,,event_viewed,2026-03-20T09:00:00Z,0,{}
+a071,u002,e005,,event_viewed,2026-04-25T13:30:00Z,0,{}
+a072,u003,e002,,ar_session_start,2026-06-20T15:00:00Z,0,{}
+a073,u003,e002,s006,marker_scanned,2026-06-20T15:10:00Z,0,"{""marker_id"":""marker_006""}"
+a074,u003,e002,s006,overlay_view,2026-06-20T15:10:05Z,300,"{""stall_name"":""Main Stage""}"
+a075,u003,e002,,ar_session_end,2026-06-20T15:30:00Z,1800,"{""markers_scanned"":1,""overlays_viewed"":1}"
+a076,u003,e002,,event_registered,2026-06-15T10:00:00Z,0,{}
