@@ -1,0 +1,92 @@
+﻿#include "pch-c.h"
+#ifndef _MSC_VER
+# include <alloca.h>
+#else
+# include <malloc.h>
+#endif
+
+
+#include "codegen/il2cpp-codegen-metadata.h"
+
+
+
+
+
+extern void ARManager_Start_m076359B9D8D438AB7042625E623EBE616B7FB6E3 (void);
+extern void ARManager_PlaceStall_m1D761F5B02905B037F13DEBFF5C2CABDA3EB8807 (void);
+extern void ARManager_CreateMarker_m86291E2D608C4309D2517D26DBA7E706D5FDA894 (void);
+extern void ARManager_ClearAnchors_m5B2F2D5CF058C73CDA553DD75066C2CB2A6E6307 (void);
+extern void ARManager_GetJsonValue_m87AC8BF2DF0A9CE259F0FF95E94CBBE30D6567DB (void);
+extern void ARManager__ctor_m53D041B8379A885E4596A2980F29676BC9BC5931 (void);
+extern void PlaneVisualizer_Awake_mFB9E1FDE98E224F63EFA1B26F70B1BFFA90F90CE (void);
+extern void PlaneVisualizer_Update_m3151B6C7CFE7A42EE2F117A34718AAE28EC7A8B3 (void);
+extern void PlaneVisualizer__ctor_mAAE299F29C04162C9EDC16BAB5D1EC4DC63E38EA (void);
+extern void StallMarker_Start_m15EF22E07087CD7898B4FEC6CBBFD11F5E02DA52 (void);
+extern void StallMarker_SetStallData_m5A4914453982AFCEDA792295F0E24A83F96D2972 (void);
+extern void StallMarker_Update_m02C9AE1638099545F502AA228166E1A25135416B (void);
+extern void StallMarker__ctor_m6915635387CA45E386214B1066C0F5B33CD7F9A3 (void);
+extern void Readme__ctor_m69C325C4C171DCB0312B646A9034AA91EA8C39C6 (void);
+extern void Section__ctor_m5F732533E4DFC0167D965E5F5DB332E46055399B (void);
+extern void UnitySourceGeneratedAssemblyMonoScriptTypes_v1_Get_mBEB95BEB954BB63E9710BBC7AD5E78C4CB0A0033 (void);
+extern void UnitySourceGeneratedAssemblyMonoScriptTypes_v1__ctor_mE70FB23ACC1EA12ABC948AA22C2E78B2D0AA39B1 (void);
+static Il2CppMethodPointer s_methodPointers[17] = 
+{
+	ARManager_Start_m076359B9D8D438AB7042625E623EBE616B7FB6E3,
+	ARManager_PlaceStall_m1D761F5B02905B037F13DEBFF5C2CABDA3EB8807,
+	ARManager_CreateMarker_m86291E2D608C4309D2517D26DBA7E706D5FDA894,
+	ARManager_ClearAnchors_m5B2F2D5CF058C73CDA553DD75066C2CB2A6E6307,
+	ARManager_GetJsonValue_m87AC8BF2DF0A9CE259F0FF95E94CBBE30D6567DB,
+	ARManager__ctor_m53D041B8379A885E4596A2980F29676BC9BC5931,
+	PlaneVisualizer_Awake_mFB9E1FDE98E224F63EFA1B26F70B1BFFA90F90CE,
+	PlaneVisualizer_Update_m3151B6C7CFE7A42EE2F117A34718AAE28EC7A8B3,
+	PlaneVisualizer__ctor_mAAE299F29C04162C9EDC16BAB5D1EC4DC63E38EA,
+	StallMarker_Start_m15EF22E07087CD7898B4FEC6CBBFD11F5E02DA52,
+	StallMarker_SetStallData_m5A4914453982AFCEDA792295F0E24A83F96D2972,
+	StallMarker_Update_m02C9AE1638099545F502AA228166E1A25135416B,
+	StallMarker__ctor_m6915635387CA45E386214B1066C0F5B33CD7F9A3,
+	Readme__ctor_m69C325C4C171DCB0312B646A9034AA91EA8C39C6,
+	Section__ctor_m5F732533E4DFC0167D965E5F5DB332E46055399B,
+	UnitySourceGeneratedAssemblyMonoScriptTypes_v1_Get_mBEB95BEB954BB63E9710BBC7AD5E78C4CB0A0033,
+	UnitySourceGeneratedAssemblyMonoScriptTypes_v1__ctor_mE70FB23ACC1EA12ABC948AA22C2E78B2D0AA39B1,
+};
+static const int32_t s_InvokerIndices[17] = 
+{
+	9473,
+	7446,
+	666,
+	9473,
+	3043,
+	9473,
+	9473,
+	9473,
+	9473,
+	9473,
+	1928,
+	9473,
+	9473,
+	9473,
+	9473,
+	16375,
+	9473,
+};
+IL2CPP_EXTERN_C const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule;
+const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule = 
+{
+	"Assembly-CSharp.dll",
+	17,
+	s_methodPointers,
+	0,
+	NULL,
+	s_InvokerIndices,
+	0,
+	NULL,
+	0,
+	NULL,
+	0,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+};
